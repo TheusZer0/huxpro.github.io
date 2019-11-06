@@ -13,8 +13,6 @@ future: true
 
 # SNS settings
 RSS: false
-weibo_username:     TheusZero
-zhihu_username:     TheusZero
 github_username:    TheusZer0
 twitter_username:   TheusZero
 #facebook_username:  huxpro
