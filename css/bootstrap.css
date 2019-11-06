@@ -257,11 +257,11 @@ th {
   }
   .table td,
   .table th {
-    background-color: red !important;
+    background-color: #fff !important;
   }
   .table-bordered th,
   .table-bordered td {
-    border: 1px solid red !important;
+    border: 1px solid #ddd !important;
   }
 }
 @font-face {
@@ -1078,7 +1078,7 @@ body {
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
-  background-color: #fff;
+  background-color: red;
 }
 input,
 button,
