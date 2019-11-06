@@ -12,6 +12,7 @@ html {
 }
 body {
   margin: 0;
+  background: black;
 }
 article,
 aside,
@@ -1471,7 +1472,7 @@ blockquote .small {
   display: block;
   font-size: 80%;
   line-height: 1.42857143;
-  color: red;
+  color: #777;
 }
 blockquote footer:before,
 blockquote small:before,
