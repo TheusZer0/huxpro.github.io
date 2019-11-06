@@ -1078,7 +1078,7 @@ body {
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
-  background-color: red;
+  background-color: #fff;
 }
 input,
 button,
@@ -1297,7 +1297,7 @@ small,
 mark,
 .mark {
   padding: .2em;
-  background-color: #fcf8e3;
+  background-color: red;
 }
 .text-left {
   text-align: left;
