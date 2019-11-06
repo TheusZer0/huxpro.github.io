@@ -215,7 +215,7 @@ th {
   }
   pre,
   blockquote {
-    border: 1px solid #999;
+    border: 1px solid red;
 
     page-break-inside: avoid;
   }
