@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Haystack"
-subtitle: 'HackTheBox - Machine'
+subtitle: 'HackTheBox - Easy Machine - Linux'
+date: 2019-11-08 12:00:00
 author: "TheusZero"
-header-style: text
 header-img: "images/haystack.png"
 tags:
   - Linux
@@ -52,9 +52,9 @@ Nmap done: 1 IP address (1 host up) scanned in 66.39 seconds
 Podemos ver que todo esta "Normal" exceptuando ese puerto 9200 al que llegaremos mas tarde...
 
 Al revisar el puerto 80 http, podemos encontrar lo siguiente:
-<html>
-<img class="shadow" src="/images/post/needle.jpg" width="200">
-</html>
+
+
+![](/images/post/needle.jpg)
 
 
 
