@@ -56,6 +56,34 @@ Al revisar el puerto 80 http, podemos encontrar lo siguiente:
 
 ![](/TheusZero/images/needle.jpg)
 
+¿Raro o no?, si le hacemos un strings a la imagen podemos encontrar:
+
+>>needle.jpg
+
+en el strings obtenemos un base64 que podemos decodificar:
+
+```vim
+TheusZero@parrot:~/Desktop# strings -10 needle.jpg 
+paint.net 4.1.1
+%&'()*456789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz
+&'()*56789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz
+>S)T;M7\{Y
+WEL/;wg-J3
+T.-UWuvFG,
+Euw!i$goRk
+5)5=FI$b[=+
+*Oo!;.o|?>
+bGEgYWd1amEgZW4gZWwgcGFqYXIgZXMgImNsYXZlIg==
+```
+
+El decode nos mostrará algo MUY IMPORTANTE para despues...
+```vim
+root@X-Billy:~/Desktop# echo bGEgYWd1amEgZW4gZWwgcGFqYXIgZXMgImNsYXZlIg== |base64 --decode
+la aguja en el pajar es "clave"
+```
+Tal cual. En español para l@s cabr@s.
+
+### Puerto 9200 - El amigo de cURL
 
 
 
