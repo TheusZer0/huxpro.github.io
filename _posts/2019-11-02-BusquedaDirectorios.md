@@ -31,7 +31,7 @@ wappalyzer
 ```vim
 Dirbuster tiene interfaz grafica pero basta con seleccionar la ip de busqueda y el directorio del diccionario a ocupar
 
-gobuster dir -u "https://www.ip.com/" -w (wordlists)python3 -c "import pty;pty.spawn('/bin/bash')"
+gobuster dir -u "https://www.ip.com/" -w (wordlists)
 
 wfuzz --hh=24 -c  -w /usr/share/dirb/wordlists/DEFECTO http://ip/.php?FUZZ=test
 ```
