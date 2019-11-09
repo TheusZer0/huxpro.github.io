@@ -54,7 +54,7 @@ Podemos ver que todo esta "Normal" exceptuando ese puerto 9200 al que llegaremos
 Al revisar el puerto 80 http, podemos encontrar lo siguiente:
 
 
-![](/TheusZero/images/282387.jpg)
+![](/TheusZero/images/needle.jpg)
 
 
 
