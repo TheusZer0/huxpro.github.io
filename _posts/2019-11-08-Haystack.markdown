@@ -76,12 +76,65 @@ bGEgYWd1amEgZW4gZWwgcGFqYXIgZXMgImNsYXZlIg==
 
 El decode nos mostrará algo MUY IMPORTANTE para despues...
 ```vim
-root@X-Billy:~/Desktop# echo bGEgYWd1amEgZW4gZWwgcGFqYXIgZXMgImNsYXZlIg== |base64 --decode
+TheusZero@parrot:~/Desktop# echo bGEgYWd1amEgZW4gZWwgcGFqYXIgZXMgImNsYXZlIg== |base64 --decode
 la aguja en el pajar es "clave"
 ```
 Tal cual. En español para l@s cabr@s.
 
 ### Puerto 9200 - El amigo de cURL
+
+Nos toca el puerto 9200 ahora, al verlo me recordó otra maquina de HackTheBox llamada "Luke" con la que jugabas con el puerto 3000,
+tenemos que jugar con "cURL" una herramienta muy muy buena para hacer POST request y GET por lo que mandaremos un cURL basico y simple para ver que pasa.
+
+```vim
+TheusZero@parrot:~/Desktop# curl http://10.10.10.115:9200
+{
+  "name" : "iQEYHgS",
+  "cluster_name" : "elasticsearch",
+  "cluster_uuid" : "pjrX7V_gSFmJY-DxP4tCQg",
+  "version" : {
+    "number" : "6.4.2",
+    "build_flavor" : "default",
+    "build_type" : "rpm",
+    "build_hash" : "04711c2",
+    "build_date" : "2018-09-26T13:34:09.098244Z",
+    "build_snapshot" : false,
+    "lucene_version" : "7.4.0",
+    "minimum_wire_compatibility_version" : "5.6.0",
+    "minimum_index_compatibility_version" : "5.0.0"
+  },
+  "tagline" : "You Know, for Search"
+}
+```
+Bueno, con esto ya sabemos donde buscar.
+
+Necesitamos encontrar algun directorio, recordemos que aun estamos en la Enumeracion.
+Debemos encontrar directorios, por lo cual le mandaremos un Dirb, Go, WFUZZ (Visitar el blog sobre Directorios)
+
+```vim
+TheusZero@parrot:~/Desktop# wfuzz -c -z file,/usr/share/wfuzz/wordlist/general/common.txt --hc 404 http://10.10.10.115:9200/FUZZ
+
+********************************************************
+* Wfuzz 2.4 - The Web Fuzzer                           *
+********************************************************
+
+Target: http://10.10.10.115:9200/FUZZ
+Total requests: 949
+
+===================================================================
+ID           Response   Lines    Word     Chars       Payload                             
+===================================================================
+
+000000036:   400        0 L      17 W     321 Ch      "_admin"                            
+000000042:   200        0 L      1 W      245 Ch      "administrator"                     
+000000094:   200        0 L      1 W      1010 Ch     "bank"                              
+000000589:   400        0 L      17 W     321 Ch      "_pages"                            
+
+Total time: 20.91859
+Processed Requests: 949
+Filtered Requests: 945
+Requests/sec.: 45.36634
+```
 
 
 
