@@ -33,4 +33,5 @@ Dirbuster tiene interfaz grafica pero basta con seleccionar la ip de busqueda y 
 
 gobuster dir -u "https://www.ip.com/" -w (wordlists)python3 -c "import pty;pty.spawn('/bin/bash')"
 
-wfuzz --hh=24 -c  -w /usr/share/dirb/wordlists/DEFECTO http://ip/.php?FUZZ=test```
+wfuzz --hh=24 -c  -w /usr/share/dirb/wordlists/DEFECTO http://ip/.php?FUZZ=test
+```
