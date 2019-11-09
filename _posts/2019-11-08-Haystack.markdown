@@ -4,7 +4,7 @@ title: "Haystack"
 subtitle: 'HackTheBox - Easy Machine - Linux'
 date: 2019-11-08 12:00:00
 author: "TheusZero"
-header-img: "images/haystack.png"
+header-img: "images/post/haystack.png"
 tags:
   - Linux
   - Machine
