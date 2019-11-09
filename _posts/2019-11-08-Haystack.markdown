@@ -106,6 +106,9 @@ TheusZero@parrot:~/Desktop# curl http://10.10.10.115:9200
   "tagline" : "You Know, for Search"
 }
 ```
+
+>>  "tagline" : "You Know, for Search"
+
 Bueno, con esto ya sabemos donde buscar.
 
 Necesitamos encontrar algun directorio, recordemos que aun estamos en la Enumeracion.
