@@ -53,14 +53,12 @@ Podemos ver que todo esta "Normal" exceptuando ese puerto 9200 al que llegaremos
 
 Al revisar el puerto 80 http, podemos encontrar lo siguiente:
 
-
+>>needle.jpg
 ![](/TheusZero/images/needle.jpg)
 
-¿Raro o no?, si le hacemos un strings a la imagen podemos encontrar:
+¿Raro o no?, si le hacemos un strings a la imagen podemos encontrar: 
 
->>needle.jpg
-
-en el strings obtenemos un base64 que podemos decodificar:
+En el strings obtenemos un base64 que podemos decodificar:
 
 ```vim
 TheusZero@parrot:~/Desktop# strings -10 needle.jpg 
