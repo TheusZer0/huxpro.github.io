@@ -1090,12 +1090,12 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #337ab7;
+  color: red;
   text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: #23527c;
+  color: red;
   text-decoration: underline;
 }
 a:focus {
@@ -1127,8 +1127,8 @@ img {
   height: auto;
   padding: 4px;
   line-height: 1.42857143;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: red;
+  border: 1px solid red;
   border-radius: 4px;
   -webkit-transition: all .2s ease-in-out;
        -o-transition: all .2s ease-in-out;
@@ -1141,7 +1141,7 @@ hr {
   margin-top: 20px;
   margin-bottom: 20px;
   border: 0;
-  border-top: 1px solid #eee;
+  border-top: 1px solid red;
 }
 .sr-only {
   position: absolute;
@@ -1177,7 +1177,7 @@ h6,
   font-family: inherit;
   font-weight: 500;
   line-height: 1.1;
-  color: inherit;
+  color: red;
 }
 h1 small,
 h2 small,
@@ -1205,7 +1205,7 @@ h6 .small,
 .h6 .small {
   font-weight: normal;
   line-height: 1;
-  color: #777;
+  color: red;
 }
 h1,
 .h1,
@@ -1298,7 +1298,7 @@ small,
 mark,
 .mark {
   padding: .2em;
-  background-color: #fcf8e3;
+  background-color: red;
 }
 .text-left {
   text-align: left;
