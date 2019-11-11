@@ -1013,7 +1013,7 @@ samp {
 }
 .intro-header {
   background: no-repeat center center;
-  background-color: #cccccc;
+  background-color: red;
   background-attachment: scroll;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -1057,7 +1057,7 @@ samp {
 .intro-header .post-heading,
 .intro-header .page-heading {
   padding: 85px 0 55px;
-  color: white;
+  color: red;
 }
 @media only screen and (min-width: 768px) {
   .intro-header .site-heading,
