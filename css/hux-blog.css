@@ -260,10 +260,10 @@ button.paper-button {
   background-color: red;
 }
 .paper-button input[type="submit"] {
-  outline-color: #cccccc;
+  outline-color: red;
 }
 .paper-button.colored.raised-button input[type="submit"] {
-  color: #ffffff;
+  color: red;
 }
 /** Shadows **/
 .paper-shadow-animated.paper-shadow {
@@ -292,7 +292,7 @@ button.paper-button {
 }
 /** Card **/
 .card {
-  background: white;
+  background: red;
   width: 300px;
   height: 300px;
   position: relative;
@@ -301,22 +301,22 @@ button.paper-button {
 }
 .highlight,
 pre.highlight {
-  background: #282c34;
-  color: #abb2bf;
+  background: red;
+  color: red;
 }
 .highlight pre {
-  background: #282c34;
+  background: red;
 }
 .highlight .hll {
-  background: #282c34;
+  background: red;
 }
 .highlight .c {
-  color: #5c6370;
+  color: red;
   font-style: italic;
 }
 .highlight .err {
-  color: #960050;
-  background-color: #1e0010;
+  color: red;
+  background-color: red;
 }
 .language-coq .highlight .err {
   background-color: transparent;
@@ -326,31 +326,31 @@ pre.highlight {
   color: red;
 }
 .highlight .l {
-  color: #98c379;
+  color: red;
 }
 .highlight .n {
-  color: #abb2bf;
+  color: red;
 }
 .highlight .o {
-  color: #abb2bf;
+  color: red;
 }
 .highlight .p {
-  color: #abb2bf;
+  color: red;
 }
 .highlight .cm {
-  color: #5c6370;
+  color: red;
   font-style: italic;
 }
 .highlight .cp {
-  color: #5c6370;
+  color: red;
   font-style: italic;
 }
 .highlight .c1 {
-  color: #5c6370;
+  color: red;
   font-style: italic;
 }
 .highlight .cs {
-  color: #5c6370;
+  color: red;
   font-style: italic;
 }
 .highlight .ge {
@@ -360,25 +360,25 @@ pre.highlight {
   font-weight: 700;
 }
 .highlight .kc {
-  color: #c678dd;
+  color: red;
 }
 .highlight .kd {
-  color: #c678dd;
+  color: red;
 }
 .highlight .kn {
-  color: #c678dd;
+  color: red;
 }
 .highlight .kp {
-  color: #c678dd;
+  color: red;
 }
 .highlight .kr {
-  color: #c678dd;
+  color: red;
 }
 .highlight .kt {
-  color: #c678dd;
+  color: red;
 }
 .highlight .ld {
-  color: #98c379;
+  color: red;
 }
 .highlight .m {
   color: #d19a66;
