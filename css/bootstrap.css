@@ -1325,47 +1325,47 @@ mark,
   text-transform: capitalize;
 }
 .text-muted {
-  color: #777;
+  color: red;
 }
 .text-primary {
-  color: #337ab7;
+  color: red;
 }
 a.text-primary:hover {
-  color: #286090;
+  color: red;
 }
 .text-success {
-  color: #3c763d;
+  color: red;
 }
 a.text-success:hover {
-  color: #2b542c;
+  color: red;
 }
 .text-info {
-  color: #31708f;
+  color: red;
 }
 a.text-info:hover {
-  color: #245269;
+  color: red;
 }
 .text-warning {
-  color: #8a6d3b;
+  color: red;
 }
 a.text-warning:hover {
-  color: #66512c;
+  color: red;
 }
 .text-danger {
-  color: #a94442;
+  color: red;
 }
 a.text-danger:hover {
-  color: #843534;
+  color: red;
 }
 .bg-primary {
-  color: #fff;
-  background-color: #337ab7;
+  color: red;
+  background-color: red;
 }
 a.bg-primary:hover {
-  background-color: #286090;
+  background-color: red;
 }
 .bg-success {
-  background-color: #dff0d8;
+  background-color: red;
 }
 a.bg-success:hover {
   background-color: #c1e2b3;
