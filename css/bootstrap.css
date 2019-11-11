@@ -9,7 +9,6 @@ html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
-  background: black;
 }
 body {
   margin: 0;
@@ -67,8 +66,8 @@ h1 {
   font-size: 2em;
 }
 mark {
-  color: #000;
-  background: #ff0;
+  color: red;
+  background: red;
 }
 small {
   font-size: 80%;
@@ -170,7 +169,7 @@ input[type="search"]::-webkit-search-decoration {
 fieldset {
   padding: .35em .625em .75em;
   margin: 0 2px;
-  border: 1px solid #c0c0c0;
+  border: 1px solid red;
 }
 legend {
   padding: 0;
@@ -195,7 +194,7 @@ th {
   *,
   *:before,
   *:after {
-    color: #000 !important;
+    color: red !important;
     text-shadow: none !important;
     background: transparent !important;
     -webkit-box-shadow: none !important;
@@ -242,7 +241,7 @@ th {
     page-break-after: avoid;
   }
   select {
-    background: #fff !important;
+    background: red !important;
   }
   .navbar {
     display: none;
@@ -259,11 +258,11 @@ th {
   }
   .table td,
   .table th {
-    background-color: #fff !important;
+    background-color: red !important;
   }
   .table-bordered th,
   .table-bordered td {
-    border: 1px solid #ddd !important;
+    border: 1px solid red !important;
   }
 }
 @font-face {
@@ -1079,7 +1078,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
-  color: #333;
+  color: red;
   background-color: #fff;
 }
 input,
