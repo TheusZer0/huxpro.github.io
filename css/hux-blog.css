@@ -247,17 +247,17 @@
   cursor: auto;
 }
 .paper-button:hover {
-  background-color: #EAEAEA;
+  background-color: red;
 }
 .paper-button.raised-button.colored:hover {
-  background-color: #3367d6;
+  background-color: red;
 }
 button.paper-button {
   border: 0;
   /*font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;*/
   font-size: 1em;
   line-height: 25px;
-  background-color: #ffffff;
+  background-color: red;
 }
 .paper-button input[type="submit"] {
   outline-color: #cccccc;
@@ -323,7 +323,7 @@ pre.highlight {
 }
 .highlight .k,
 .language-coq .highlight .err {
-  color: #c678dd;
+  color: red;
 }
 .highlight .l {
   color: #98c379;
@@ -569,7 +569,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
   line-height: 1.7;
   font-size: 16px;
-  color: #404040;
+  color: red;
   overflow-x: hidden;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
@@ -616,7 +616,7 @@ article {
   overflow: hidden;
 }
 blockquote {
-  color: gray;
+  color: red;
   font-style: italic;
   font-size: 0.95em;
   margin: 20px 0 20px;
