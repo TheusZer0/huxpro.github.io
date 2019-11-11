@@ -638,10 +638,10 @@ img.shadow {
 select {
   -webkit-appearance: none;
   margin-top: 15px;
-  color: #337ab7;
-  border-color: #337ab7;
+  color: red;
+  border-color: red;
   padding: 0em 0.4em;
-  background: white;
+  background: red;
 }
 select.sel-lang {
   min-height: 28px;
@@ -665,7 +665,7 @@ hr.small {
   max-width: 100px;
   margin: 15px auto;
   border-width: 4px;
-  border-color: white;
+  border-color: red;
 }
 pre,
 .table-responsive {
@@ -687,11 +687,11 @@ samp {
   margin-bottom: 15px;
 }
 .post-container a {
-  color: #337ab7;
+  color: red;
 }
 .post-container a:hover,
 .post-container a:focus {
-  color: #0085a1;
+  color: red;
 }
 .post-container h1,
 .post-container h2,
@@ -713,14 +713,14 @@ samp {
 .post-container h2::before {
   content: " ";
   display: block;
-  border-bottom: 1px solid #ececec;
+  border-bottom: 1px solid red;
   margin-top: 44px;
   margin-bottom: 30px;
 }
 .post-container h4 {
   font-size: 22px;
   font-weight: 600;
-  color: gray;
+  color: red;
 }
 .post-container h4 + p {
   margin-top: 10px;
@@ -729,7 +729,7 @@ samp {
 .post-container h6 {
   font-size: 20px;
   font-weight: 600;
-  color: gray;
+  color: red;
 }
 .post-container h5 + p,
 .post-container h6 + p {
@@ -801,7 +801,7 @@ samp {
   width: 100%;
 }
 .post-container .pager li > a > span {
-  color: #cccccc;
+  color: red;
   font-weight: normal;
   letter-spacing: 0.5px;
 }
@@ -819,7 +819,7 @@ samp {
     position: absolute;
     right: 0;
     border: none;
-    background: white;
+    background: red;
     box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2);
     box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.239216) 0px 1px 4px;
     border-radius: 2px;
