@@ -898,12 +898,12 @@ samp {
 }
 .navbar-custom .navbar-brand {
   font-weight: 800;
-  color: white;
+  color: red;
   height: 56px;
   line-height: 25px;
 }
 .navbar-custom .navbar-brand:hover {
-  color: rgba(255, 255, 255, 0.8);
+  color: red;
 }
 .navbar-custom .nav li a {
   text-transform: uppercase;
