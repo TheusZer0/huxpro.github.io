@@ -934,14 +934,14 @@ samp {
  }
  .navbar-custom.is-fixed .navbar-brand:hover,
  .navbar-custom.is-fixed .navbar-brand:focus {
-  color:red
+  color:red;
  }
  .navbar-custom.is-fixed .nav li a {
   color:#404040
  }
  .navbar-custom.is-fixed .nav li a:hover,
  .navbar-custom.is-fixed .nav li a:focus {
-  color:#0085a1
+  color:red;
  }
  .navbar-custom.is-visible {
   -webkit-transform:translate3d(0,100%,0);
