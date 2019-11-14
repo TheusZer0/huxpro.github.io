@@ -564,7 +564,7 @@ h4 {
  font-size:21px
 }
 a {
- color:#404040
+ color:red;
 }
 a:hover,
 a:focus {
@@ -1406,7 +1406,7 @@ img::-moz-selection {
 #tag_cloud a.tag-button--all,
 #tag_cloud .tag.tag-button--all {
  font-weight:700;
- color:#0085a1!important
+ color:red!important
 }
 #tag_cloud a.tag-button--all:hover,
 #tag_cloud .tag.tag-button--all:hover,
@@ -1414,7 +1414,7 @@ img::-moz-selection {
 #tag_cloud .tag.tag-button--all:active,
 #tag_cloud a.tag-button--all.focus,
 #tag_cloud .tag.tag-button--all.focus {
- background-color:#e4e4e4!important
+ background-color:black!important
 }
 @media only screen and (min-width:768px) {
  #tag_cloud {
