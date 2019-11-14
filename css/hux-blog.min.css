@@ -1389,7 +1389,7 @@ img::-moz-selection {
  line-height:28px;
  margin:0 2px;
  margin-bottom:8px;
- background:#f3f5f5
+ background:black
 }
 #tag_cloud a:hover,
 #tag_cloud .tag:hover,
