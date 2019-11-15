@@ -173,7 +173,7 @@ Requests/sec.: 40.31644
 Encontramos un parametro llamado "search", por lo que lo usaremos como tal para buscar dentro del 9200
 
 ```vim
-root@X-Billy:~/Desktop# curl -X GET "http://10.10.10.115:9200/_search?q=clave"
+TheusZero@parrot:~/Desktop# curl -X GET "http://10.10.10.115:9200/_search?q=clave"
 {"took":5,"timed_out":false,"_shards":{"total":16,"successful":16,"skipped":0,"failed":0},"hits":{"total":2,"max_score":5.9335938,"hits":[{"_index":"quotes","_type":"quote","_id":"45","_score":5.9335938,"_source":{"quote":"Tengo que guardar la clave para la maquina: dXNlcjogc2VjdXJpdHkg "}},{"_index":"quotes","_type":"quote","_id":"111","_score":5.3459888,"_source":{"quote":"Esta clave no se puede perder, la guardo aca: cGFzczogc3BhbmlzaC5pcy5rZXk="}}]}}
 ```
 
