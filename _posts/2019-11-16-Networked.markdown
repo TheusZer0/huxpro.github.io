@@ -77,7 +77,7 @@ Files found with a 200 responce:
 /backup/backup.tar
 --------------------------------
 ```
-raro, creo que hay algunos amigos que dejaron una reverse shell hecha, aunque no se si pescarla, creo que no lo hare uwu.
+raro, sera que se guarda asi?, nu se. (aunque despues me dicuenta mas adelante que asi se gaurdaba)
 
 ### Busqueda en los directorios.
 creo que tengo algunos directorios importantes
