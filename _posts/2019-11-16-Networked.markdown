@@ -15,9 +15,9 @@ tags:
   - User
 ---
 
-###Networked - una maquina linux que viene de la mano con php
+### Networked - una maquina linux que viene de la mano con php
 
-###Nmap results:
+### Nmap results:
 ```vim
 root@BrI3fIng:~# nmap -sC -sV 10.10.10.146 
 Starting Nmap 7.80 ( https://nmap.org ) at 2019-11-16 18:20 -03
@@ -39,12 +39,12 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 38.61 seconds
 ```
 
-###Puerto 80:
+### Puerto 80:
 >> Hello mate, we're building the new FaceMash!
   Help by funding us and be the new Tyler&Cameron!
   Join us at the pool party this Sat to get a glimpse
 
-###Dirbuster
+### Dirbuster
 ```vim
 DirBuster 1.0-RC1 - Report
 http://www.owasp.org/index.php/Category:OWASP_DirBuster_Project
@@ -79,7 +79,7 @@ Files found with a 200 responce:
 ```
 raro, creo que hay algunos amigos que dejaron una reverse shell hecha, aunque no se si pescarla, creo que no lo hare uwu.
 
-##Busqueda en los directorios.
+### Busqueda en los directorios.
 creo que tengo algunos directorios importantes
 
 >/upload.php
@@ -88,7 +88,7 @@ creo que tengo algunos directorios importantes
 >
 >/backup/
 
-##Backup
+### Backup
 viendo el directorio backup puedo encontrar algo interesante, hay un archivo.tar que puedo descargar asi que vamos a la obra.
 
 ```vim
@@ -110,7 +110,7 @@ drwxr-xr-x 3 root root  4096 nov 16 19:03 ..
 Revisando lib.php y upload.php y photos.php encontre y de manera resumida, que los archivos que el sistema acepta son jpg y gif
 por lo que intente subir un gif liviano y el sistema lo acepto, ahora que se que el sistema me acepto la imagen comienza la parte de buscar la reverse shell.
 
-###Reverse Shell - Image GIF.
+### Reverse Shell - Image GIF.
 cargue un archivo bastante chistoso, un gif de my little pony. para cargarle la reverse shell ocupe vim y le inserte una reverse shell en php alfinal del archivo, pero antes de el ";" para que asi se procese con todo el contenido.
 
 de por si no me funciono, ya que no leia el php. buscando por internet encontre que debia llevar si o si el .php, por lo que le coloqueÑ
@@ -121,7 +121,7 @@ funciono.
 
 subio la reverse shell y ahora tocaba a usar netcat para esperar y conectarme, a ver si funcionaba.
 
-###User Apache
+### User Apache
 
 Logre entrar como user "Apache"
 
