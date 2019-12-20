@@ -191,7 +191,19 @@ Last login: Wed Feb  6 20:53:59 2019 from 192.168.2.154
 [security@haystack ~]$
 ```
 
-Me quede pegado en esta parte por muxo tiempo, una vez entramos con las creds ya convertidas a base64, somos el usuario security, 
+Me quede pegado en esta parte por muxo tiempo, una vez entramos con las creds ya convertidas a base64, somos el usuario security.
+Basta con tirar un LinEnum y ver que se esta ejecutando el proceso de Kibana en el host principal, en el puerto 5601, por lo que tendremos que llegar a el de alguna forma.
 
+### SHELL
 
+sabemos que se encuentra un usuario intermedio, por lo que escalaremos privilegios hasta llegar a el, Kibana nos puede ayudar para eso (o al menos eso pensé uwu) por lo que usaremos una tecnica llamada:
+
+>> "Port Forwarding"
+
+con esto lograremos abrir puertos en nuestra maquina y ejecutar el proceso Kibana.
+
+```vim
+ssh -L 5602:127.0.0.1:5601
+```
+explicandolo de manera simple (ya que pienso hacer un post sobre esta tecnica mas tarde uwu), ssh -L 
 
