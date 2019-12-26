@@ -1397,7 +1397,7 @@ img::-moz-selection {
 #tag_cloud .tag:active,
 #tag_cloud a.focus,
 #tag_cloud .tag.focus {
- background-color:#0085a1!important
+ background-color:red!important
 }
 #tag_cloud a.focus,
 #tag_cloud .tag.focus {
