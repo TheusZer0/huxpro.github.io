@@ -6,7 +6,6 @@ date: 2019-12-26 12:00:00
 author: "TheusZero"
 header-img: "images/post/python.png"
 tags:
-  - Shell
   - Programacion
   - Python
   - USM
