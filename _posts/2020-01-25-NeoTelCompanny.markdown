@@ -47,7 +47,7 @@ El comportamiento del sistema es amigable para el consumidor, es decir, el softw
 
 >RF2	El usuario al elegir una opción, se volverá a imprimir por pantalla los requerimientos, empezando por la primera fila de la matriz o de la ecuación lineal. Si, por ejemplo, el usuario ingresa la Opción 2 (Matriz de 3x3) entonces el programa le pedirá por pantalla el número que acompaña a la incógnita X que correspondería a un número a, luego el número que acompaña a la incógnita Y que correspondería a un número b, luego el número que acompaña a la incógnita Z que correspondería a un número c y por último el valor de esa ecuación lineal completo que corresponde a un valor R (en la imagen corresponde al valor j de la ecuación), quedando en un ejemplo grafico de la siguiente manera. 
 
-![](/TheusZero/images/NeoTelCompanny-1.png)
+![](/TheusZero/images/post/NeoTelCompanny-1.png)
 
 >RF3	 Para introducir números basta con usar cualquier tipo de entero y para agregar un numero negativo seria de la forma –A donde A es el número y el signo (-) se antepone al número egresado. Si el programa detecta que fue introducido un entero no valido (ya sea una letra o algún tipo de carácter no valido) se terminará la opción elegida, pero no el programa y se mostrará un mensaje por pantalla indicando que la operación no fue valida.
 
@@ -71,7 +71,7 @@ Opción 3	Desarrollo  matriz 4x4	Entero = 3	X,Y,Z,W,R Resultado Final
 
 ### Diagrama de Flujos
 
-![](/TheusZero/images/NeoTelCompanny-2.png)
+![](/TheusZero/images/post/NeoTelCompanny-2.png)
 
 ## Planificación del Proyecto
 
@@ -89,7 +89,7 @@ El proyecto debe ser capaz de solucionar e imprimir el resultado de las ecuacion
 
 ### Carta Gantt
 
-![](/TheusZero/images/NeoTelCompanny-3.png)
+![](/TheusZero/images/post/NeoTelCompanny-3.png)
 
 ## Desarrollo del Proyecto
 
@@ -123,9 +123,9 @@ La segunda función “DesarrolloDos” realiza los desarrollos matemáticos cor
 
 Por último, la segunda función “DesarrolloDos” divide cada uno de los Determinantes X e Y del Determinante del Sistema para finalizar imprimiendo por pantalla el resultado de cada una de las incógnitas del sistema, de la forma (x, y), siendo “x” el valor de la incógnita X e “y” el valor de la incógnita Y respectivamente.
 
-![](/TheusZero/images/NeoTelCompanny-4.png)
+![](/TheusZero/images/post/NeoTelCompanny-4.png)
 
-![](/TheusZero/images/NeoTelCompanny-5.png)
+![](/TheusZero/images/post/NeoTelCompanny-5.png)
 
 ### Matriz de 3X3
 
@@ -151,7 +151,7 @@ Por lo tanto, la función “DesarrolloTres” trabaja con los datos almacenados
 
 Por último, se realiza la conversión de esos determinantes encontrados en los valores de cada una de las incógnitas y se imprimen por pantalla de la forma (x, y, z) donde “x” corresponde al valor de la incógnita X, “y” corresponde al valor de la incógnita Y, “z” corresponde al valor de incógnita Z.
 
-![](/TheusZero/images/NeoTelCompanny-6.png)
+![](/TheusZero/images/post/NeoTelCompanny-6.png)
 
 ### Matriz de 4x4
 
