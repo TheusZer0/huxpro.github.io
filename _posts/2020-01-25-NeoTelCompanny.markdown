@@ -12,9 +12,9 @@ tags:
   - Proyectos
 ---
 
-# NeoTel-Companny - "Ley de Cramer" - Seminario de Programacion
+** NeoTel-Companny - "Ley de Cramer" - Seminario de Programacion **
 
-## Introduccion
+## Introduccion 
 
 El álgebra lineal es un sistema de ecuaciones lineales que se basan en la utilización de las operaciones aritméticas a través de signos, letras y números para resolver y generalizar un sinfín de problemas orientados a la vida cotidiana y más aún al desarrollo de tecnologías y avances para el área empresarial.
 
