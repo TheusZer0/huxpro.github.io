@@ -5,6 +5,7 @@ subtitle: 'Proyecto de Seminario de Programacion - Ley de Cramer'
 date: 2020-01-25 12:00:00
 author: "TheusZero"
 header-img: "images/post/NeoTelCompanny.png"
+catalog: true
 tags:
   - Programacion
   - USM
@@ -12,7 +13,7 @@ tags:
   - Proyectos
 ---
 
-** NeoTel-Companny - "Ley de Cramer" - Seminario de Programacion **
+# NeoTel-Companny - "Ley de Cramer" - Seminario de Programacion
 
 ## Introduccion 
 
