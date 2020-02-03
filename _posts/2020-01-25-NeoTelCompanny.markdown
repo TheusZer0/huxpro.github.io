@@ -19,17 +19,17 @@ tags:
 
 El álgebra lineal es un sistema de ecuaciones lineales que se basan en la utilización de las operaciones aritméticas a través de signos, letras y números para resolver y generalizar un sinfín de problemas orientados a la vida cotidiana y más aún al desarrollo de tecnologías y avances para el área empresarial.
 
-### Proposito
+#### Proposito
 
 La compañía NeoTel Companny busca simplificar y racionalizar aquellos ejercicios matemáticos que involucren matrices, vectores, y ecuaciones de tipo lineal con el fin de desarrollar e implementar de manera rápida y eficaz una solución a estos problemas, utilizando una tecnología basada en lenguaje de programación C++ que logra incorporar un algoritmo fundamentado en la renombrada “Ley de Cramer”.
 
-### Contexto
+#### Contexto
 
 NeoTel Companny fue fundada durante el 2019, tiene como principal propósito crear y dar forma a tecnologías capaces de agilizar y sintetizar procesos matemáticos de larga duración o desarrollo, a base de software y programas computacionales orientado para empresas y para la vida diaria. 
 En este caso NeoTel Companny luego de desarrollar proyectos en lenguajes de programación tales como Python y C++ trae un algoritmo basado en la “Ley de Cramer” que sustenta una forma específica de desarrollar un sistema de matrices o ecuaciones lineales siguiendo una fórmula matemática de características especiales. 
 NeoTel Companny utilizando el lenguaje de C++ logra desarrollar un software capaz de resolver matrices y ecuaciones de tipo lineal utilizando un algoritmo basado en la “Ley de Cramer”, también utiliza la plataforma de GitHub para realizar un respaldo y control de versión sobre el programa creado.
 
-### Referencias
+#### Referencias
 
 En este apartado se nombra la documentación y bibliografía que fue usada para la realización del proyecto, dentro de la bibliografía utilizada se encuentra: 
 •	Algebra lineal y sus aplicaciones, tercera edición (David C. Lay, pag 201 , 2007) 
@@ -40,7 +40,7 @@ En este apartado se nombra la documentación y bibliografía que fue usada para 
 
 El software creado por NeoTel Companny, está programado en C++ y recibe el nombre de “C-Cramer” y establece una serie de algoritmos matemáticos basados en la proposición del matemático Gabriel Cramer (1704-1752). Originalmente la llamada “Ley de Cramer” se emplea para matrices y ecuaciones lineales de una dimensión 2x2 y 3x3, sin embargo, el software creado fue personalizado y actualizado para lograr ser funcional en un sistema lineal de matrices de dimensiones de 2x2, 3x3 y 4x4.
 
-### Requisitos Funcionales
+#### Requisitos Funcionales
 
 El comportamiento del sistema es amigable para el consumidor, es decir, el software es fácil de usar y emplea métodos sistemáticos basados en opciones que reciba del usuario, ya sea para introducir una variable, como para también terminar y finalizar el sistema.
 
@@ -54,7 +54,7 @@ El comportamiento del sistema es amigable para el consumidor, es decir, el softw
 
 >RF4	Por último, el programa realizará los cálculos y mostrará por pantalla los resultados. Siendo estos resultados los valores de cada una de las incógnitas de las matrices o de las ecuaciones lineales.
 
-### Requisitos de Interfaces
+#### Requisitos de Interfaces
 
 El sistema o software “C-Cramer” entregará como resultados los valores de las incógnitas de cada una de las matrices, en el orden X, Y, Z, W. Los parámetros que el programa recibe son los valores que acompañan a estas incógnitas, siendo estos los valores para las matrices que se resolverán en el programa utilizando la “Ley de Cramer”.
 Existe también un parámetro R, cuya funcionalidad seria la del valor de la ecuación lineal. Es decir, el termino al cual se igualan las incógnitas. El software como tal realiza una serie de algoritmos que resuelven matrices aumentadas de tipo “Consistentes” es decir, que si tienen resolución. Sin embargo, el software imprimirá por pantalla un mensaje de “Valor invalido” si logra detectar que la ecuación es “Inconsistente”.
@@ -70,17 +70,17 @@ Opción 2	Desarrollo  matriz 3x3	Entero = 2	X,Y,Z,R	Resultado Final
 Opción 3	Desarrollo  matriz 4x4	Entero = 3	X,Y,Z,W,R Resultado Final
 ```
 
-### Diagrama de Flujos
+#### Diagrama de Flujos
 
 ![](/TheusZero/images/post/NeoTelCompanny-2.png)
 
 ## Planificación del Proyecto
 
-### Objetivo General (Goal)
+#### Objetivo General (Goal)
 
 El proyecto debe ser capaz de solucionar e imprimir el resultado de las ecuaciones lineales o matrices de tipo aumentadas que ingrese el usuario, de dimensiones 2x2, 3x3 y 4x4 mediante la “Ley de Cramer”, con su respectivo desarrollo mediante algoritmos que impone esta ley. Debe ser capaz de identificar si el usuario ingreso algún carácter invalido e imprimir por pantalla un mensaje de error sin que el programa termine. De esta manera, sintetizaremos procesos matemáticos de larga duración o desarrollo entregando un software basado en el lenguaje de programación C++.
 
-### Objetivos Especificos
+#### Objetivos Especificos
 
 >O1. Resolver un sistema de ecuaciones lineales (matrices) de dimensión 2x2 por el método de “Ley de Cramer”
 
@@ -88,17 +88,17 @@ El proyecto debe ser capaz de solucionar e imprimir el resultado de las ecuacion
 
 >O3.	Resolver un sistema de ecuaciones lineales (matrices) de dimensión 4x4 por el método de “Ley de Cramer”
 
-### Carta Gantt
+#### Carta Gantt
 
 ![](/TheusZero/images/post/NeoTelCompanny-3.png)
 
 ## Desarrollo del Proyecto
 
-### Inicio del Proyecto
+#### Inicio del Proyecto
 
 Como empresa, comenzamos a investigar en métodos para resolver sistema de ecuaciones lineales que tuvieran que ver con matrices. Una vez encontrado este método denominado como “Ley de Cramer” desarrollamos como primer borrador un programa capaz de resolver una matriz de 2x2, una vez ya aprendido y puesto en un software básico de C++, comenzamos con el desarrollo de la matriz 3x3 y por último la de 4x4, todas funcionando mediante “La ley de Cramer”.
 
-### Matriz de 2X2
+#### Matriz de 2X2
 
 Decidimos trabajar con estructuras y punteros para desarrollar una metodología ordenada y funcional dentro el programa.
 
@@ -128,7 +128,7 @@ Por último, la segunda función “DesarrolloDos” divide cada uno de los Dete
 
 ![](/TheusZero/images/post/NeoTelCompanny-5.png)
 
-### Matriz de 3X3
+#### Matriz de 3X3
 
 Como empresa, planteamos esta matriz basada en la anterior, ya que aquí solo se le agrega una variable Z a cada una de las ecuaciones de tipo lineal o matrices que calculara el sistema.
 
@@ -154,7 +154,7 @@ Por último, se realiza la conversión de esos determinantes encontrados en los 
 
 ![](/TheusZero/images/post/NeoTelCompanny-6.png)
 
-### Matriz de 4x4
+#### Matriz de 4x4
 
 La matriz de 4x4 probamos plantear esta misma como una matriz de 3x3, pero aumentada, debido a esto surgieron un montón de problemas, por lo que decidimos como empresa hacerla desde 0 pero tomando una base parecida a las demás matrices ya hechas.
 
@@ -179,7 +179,7 @@ Luego, dentro de las 7 funciones tenemos 5 que corresponden cada una de ellas a 
 
 Por último, se encuentra la función imprimir, que imprime los resultados que fueron almacenados de las funciones anteriores, de la forma (X, Y, Z, W). 
 
-### Termino del Proyecto
+#### Termino del Proyecto
 
 Una vez terminado el proyecto, decidimos actualizar la función “int main()” creando bibliotecas de datos con las funciones que fueron creadas, para así poder darle un mejor orden y uso a la información del proyecto. Realizando así el último cambio a la versión 1.0 del proyecto. 
 
@@ -191,9 +191,9 @@ En esta versión 1.0 se logró crear la base del software siendo así un pie par
 
 Esta versión 1.0 fue implementada en el lenguaje C++ para el ramo de Seminario de programación de la carrera de Ingeniería civil en Telemática de la Universidad Técnica Federico Santa María.
 
+#### Codigo
 
-
-# Main.cpp
+###### Main.cpp
 
 ```vim
 #include <iostream>
@@ -253,7 +253,7 @@ int main() {
 }
 ```
 
-# Kramer.h
+###### Kramer.h
 
 ```vim
 #include <iostream>
@@ -296,7 +296,7 @@ void DesarrolloCuatroW(C* Ejercicio);
 void Imprimir(C* Ejercicio);
 ```
 
-# Kramer.cpp
+###### Kramer.cpp
 
 ```vim
 //
