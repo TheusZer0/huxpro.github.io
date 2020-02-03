@@ -191,9 +191,9 @@ En esta versión 1.0 se logró crear la base del software siendo así un pie par
 
 Esta versión 1.0 fue implementada en el lenguaje C++ para el ramo de Seminario de programación de la carrera de Ingeniería civil en Telemática de la Universidad Técnica Federico Santa María.
 
-#### Codigo
+## Codigo
 
-###### Main.cpp
+#### Main.cpp
 
 ```vim
 #include <iostream>
@@ -253,7 +253,7 @@ int main() {
 }
 ```
 
-###### Kramer.h
+#### Kramer.h
 
 ```vim
 #include <iostream>
@@ -296,7 +296,7 @@ void DesarrolloCuatroW(C* Ejercicio);
 void Imprimir(C* Ejercicio);
 ```
 
-###### Kramer.cpp
+#### Kramer.cpp
 
 ```vim
 //
