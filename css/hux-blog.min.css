@@ -763,9 +763,9 @@ samp {
  width:100%
 }
 .post-container .pager li>a>span {
- color:#ccc;
- font-weight:400;
- letter-spacing:.5px
+ color:black;
+ font-weight:0;
+ letter-spacing:.1px
 }
 .post-container .anchorjs-link {
  position:absolute;
@@ -1296,7 +1296,7 @@ form .row:first-child .floating-label-form-group {
 }
 .pager li>a:hover>span,
 .pager li>a:focus>span {
- color:#fff
+ color:darkred;
 }
 .pager .disabled>a,
 .pager .disabled>a:hover,
