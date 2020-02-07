@@ -6,6 +6,7 @@ date: 2020-01-25 12:00:00
 author: "TheusZero"
 header-img: "images/post/NeoTelCompanny.png"
 catalog: true
+comments: true
 tags:
   - Programacion
   - USM
