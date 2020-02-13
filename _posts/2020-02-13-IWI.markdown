@@ -1,0 +1,92 @@
+---
+layout: post
+title: "Ejercicios SMOJ"
+subtitle: 'Programacion - Laboratorio 1 - Semestre 2,2019'
+date: 2020-01-25 12:00:00
+author: "TheusZero"
+header-img: "images/post/python.png"
+catalog: true
+tags:
+  - Programacion
+  - Python
+  - USM
+---
+
+# Programacion - Laboratorios - Semestre 2,2019
+
+## Contexto
+
+Holiwis, aqui traigo un poco de los ejercicios de smoj para iwi-101 orientado a python, estan hechos como el pico (me demore una hora) pero funcionan y compilan.
+Pueden usarlos quienes quieran, aunque van dedicado a una persona muy tierna uwu
+
+## Laboratorio 1 - Semestre 2,2019
+
+#### NumeroAmigo
+
+```vim
+def NumeroAmigo(a,b):
+    try:
+        a = int(a)
+        b = int(b)
+        ListaA = list()
+        ListaB = list()
+        ContadorA = 0
+        ContadorB = 0
+        for x in range(1,a+1):
+            if (a%x) == 0 and (a!=x):
+                ListaA.append(x)
+        for x in range(1,a+1):
+            if (b%x) == 0 and (b!=x):
+                ListaB.append(x)
+        for x in range(len(ListaA)):
+            ContadorA += ListaA[x]
+        for x in range(len(ListaB)):
+            ContadorB += ListaB[x]
+        if (ContadorA==b) and (ContadorB==a):
+            print("AMIGOS")
+        else:
+            print("NO")
+    except:
+        print("Ingreso un numero invalido")
+#NumeroAmigo(2620,2924)
+```
+#### Numero Oblongo
+
+```vim
+def NumeroOblongo(a):
+    Numero = 0
+    Lista = list()
+    try:
+        if a == 0:
+            print(a,a)
+            print("Si se considera como Oblongo")
+        for x in range(1,a+1):
+            Lista.append(x)
+        for x in range(len(Lista)):
+            if ((Lista[x] * Lista[x-1]) == a) and (Lista[x-1] != a):
+                print(Lista[x-1],Lista[x])
+    except:
+        print("Numero Invalido")
+#NumeroOblongo(12)
+```
+#### Numero Narcisista
+
+```vim
+def NumeroNarcisista(a):
+    try:
+        Exponente= 0
+        Resultado = 0
+        NumeroString = str(a)
+        Lista = list()
+        for x in NumeroString:
+            Exponente += 1
+        for x in NumeroString:
+            Lista.append(int(x))
+        for x in range(len(Lista)):
+            Resultado += (Lista[x]**Exponente)
+        if Resultado == a:
+            print("NARCISISTA")
+    except:
+        print("el numero ingresado no es valido")
+#NumeroNarcisista(153)
+```
