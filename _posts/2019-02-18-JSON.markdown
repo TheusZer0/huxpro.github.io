@@ -515,3 +515,209 @@ else:
 #for i in usuarios_ordenados_rango_etario[0]:
 #    print(i)
 ```
+
+```
+#
+import operator
+def estadisticasPersonas(GeneroPersona,GeneroPelicula):
+    #OpenFile
+    Notas = open('notas.csv','r')
+    Peliculas = open('peliculas.csv','r')
+    Usuarios = open('usuarios.csv','r')
+
+    #ReadFile
+    Lineas = Peliculas.readlines()
+    Read_Usuarios = Usuarios.readlines()
+
+    #Variables
+    Id_GeneroPelicula = list()
+    Id_Usuarios = list()
+    Rango_Etario = list()
+    Id_Final = list()
+    lista_Final = []
+    Final = list()
+    Contador =0
+
+    #OtherVariables
+
+    Menor_diesiocho = 0
+    Diesiocho = 0
+    Veinticinco = 0
+    TreintaCinco = 0
+    CuarentaCinco = 0
+    Cincuenta = 0
+    Mayor = 0
+
+    #Code
+    for x in Lineas: #Aqui obtengo todos los ID del genero de la pelicula
+        ListaPeliculas = x.strip().split(',')
+        if GeneroPelicula in ListaPeliculas[2]:
+            Id_GeneroPelicula.append(ListaPeliculas[0])
+    for i in Read_Usuarios:
+        ListaUsuarios = i.strip().split(',')
+        if GeneroPersona == ListaUsuarios[1]:
+            Id_Usuarios.append(ListaUsuarios[0])  # Aqui obtengo el ID del genero del usuario
+    for z in Notas:
+        notas = z.strip().split(',')
+        if notas[1] in Id_GeneroPelicula and notas[0] in Id_Usuarios:
+            Id_Final.append(notas[0])
+    for i in Id_Final:
+        if i not in lista_Final:
+            lista_Final.append(i)
+    for z in range(len(lista_Final)):
+        Contador += 1
+    for i in Read_Usuarios:
+        ListaUsuarios = i.strip().split(",")
+        for x in range(Contador):
+            if lista_Final[x] == ListaUsuarios[0]:
+                Rango_Etario.append(ListaUsuarios[2])
+    for x in range(len(Rango_Etario)):
+        if Rango_Etario[x] == '1':
+            Menor_diesiocho += 1
+        if Rango_Etario[x] == '18':
+            Diesiocho += 1
+        if Rango_Etario[x] == '25':
+            Veinticinco += 1
+        if Rango_Etario[x] ==  '35':
+            TreintaCinco += 1
+        if Rango_Etario[x] == '45':
+            CuarentaCinco += 1
+        if Rango_Etario[x] == '50':
+            Cincuenta += 1
+        if Rango_Etario[x] == '56':
+            Mayor += 1
+
+    #FinalCode
+    Final.append(Menor_diesiocho)
+    Final.append(Diesiocho)
+    Final.append(Veinticinco)
+    Final.append(TreintaCinco)
+    Final.append(CuarentaCinco)
+    Final.append(Cincuenta)
+    Final.append(Mayor)
+    return Final
+def recomendadorEdadGenero(Edad,Genero):
+    #OpenFile
+    Notas = open('notas.csv','r')
+    Peliculas = open('peliculas.csv','r')
+    Usuarios = open('usuarios.csv','r')
+    #ReadFile
+    Notas_Read = Notas.readlines()
+    Pelicula_Read = Peliculas.readlines()
+    Usuarios_Read = Usuarios.readlines()
+    #ListaDeArchivos
+    Lista_Notas = list()
+    Lista_Peliculas = list()
+    Lista_Usuarios = list()
+
+    #Variables
+    ID_Peliculas = list()
+    ID_Usuarios = list()
+
+    for x in Notas_Read:
+        Lista_Notas.append(x.strip().split(","))
+    for y in Pelicula_Read:
+        Lista_Peliculas.append(y.strip().split(","))
+        ID_Peliculas.append((y.strip().split(","))[0])
+    for r in Usuarios_Read:
+        Lista_Usuarios.append(r.strip().split(","))
+    #Transformacion-RangoEtario
+    if Edad < 18:
+        Edad = 1
+    if Edad>=18 and Edad<=24:
+        Edad = 18
+    if Edad>=25 and Edad<=34:
+        Edad = 25
+    if Edad>=35 and Edad<=44:
+        Edad = 35
+    if Edad>=45 and Edad<=49:
+        Edad = 45
+    if Edad>=50 and Edad<=55:
+        Edad = 50
+    if Edad > 55:
+        Edad = 56
+    #Podria primero sacar la Nota de las peliculas dependiendo del rango etario solamente
+    print(ID_Peliculas)
+
+def ranking(Genero):
+    #Read
+    File_Peliculas = open('peliculas.csv')
+    ReadLines_Pelicula = File_Peliculas.readlines()
+    Pelicula_Lista = list()
+    File_Notas = open('notas.csv')
+    ReadLines_Notas = File_Notas.readlines()
+    Notas_Lista = list()
+    #Variables
+    Peliculas_Mismo_Genero = []
+    IdPeliculas = list()
+    ListaFinal = list()
+    Lista_Notas_Pelicula = list()
+    #Code
+    for x in ReadLines_Pelicula:
+        Pelicula_Lista.append(x.strip().split(','))
+    for z in range(0,len(Pelicula_Lista)):
+        if Genero in Pelicula_Lista[z][2]:
+            IdPeliculas.append(Pelicula_Lista[z][0]) #Aqui saco todos los ID de las peliculas Del Genero
+            Peliculas_Mismo_Genero.append(Pelicula_Lista[z])
+            Peliculas_Mismo_Genero[-1].append([0,0,0]) #SumaNota #Cantidad de Notas #NotaFinal
+    for r in ReadLines_Notas:
+        Notas_Lista.append(r.strip().split(","))
+    for y in range(len(Notas_Lista)):
+        if (Notas_Lista[y][1]) in IdPeliculas:
+            Peliculas_Mismo_Genero[IdPeliculas.index((Notas_Lista[y][1]))][-1][0]+=int((Notas_Lista[y][2])) #SumaNotas
+            Peliculas_Mismo_Genero[IdPeliculas.index((Notas_Lista[y][1]))][-1][1]+=1
+    for x in range(len(Peliculas_Mismo_Genero)):
+        if int(Peliculas_Mismo_Genero[x][3][1])>=5:
+            NotaFinal = int(Peliculas_Mismo_Genero[x][3][0])/(int(Peliculas_Mismo_Genero[x][3][1]))
+            Peliculas_Mismo_Genero[x][3][2] += NotaFinal
+            ListaFinal.append(Peliculas_Mismo_Genero[x])
+    for x in range(len(ListaFinal)):
+        Lista_Notas_Pelicula.append(ListaFinal[x][3][2])
+        Lista_Notas_Pelicula.append(ListaFinal[x][1])
+    lst = Lista_Notas_Pelicula
+    op = {lst[i]: lst[i + 1] for i in range(0, len(lst), 2)}
+    Resultado = sorted(op.items(), key=operator.itemgetter(0), reverse=True)
+    Lista_Peliculas = list()
+    Contador = 1
+    for x in Resultado:
+        Lista_Peliculas.append([Contador,x[1],round(x[0],2)])
+        Contador+=1
+        if Contador == 11:
+            return Lista_Peliculas
+while True:
+    try:
+        Opcion = int(input("Ingrese una opcion: "))
+        if Opcion == 1:
+            GeneroP = input("Ingrese genero persona: ")
+            GeneroPelicula = input("Ingrese genero pelicula: ")
+            Estadistica_de_Personas = estadisticasPersonas(GeneroP,GeneroPelicula)
+            print("Rango menor 18: ", Estadistica_de_Personas[0])
+            print("Rango 18-24: ", Estadistica_de_Personas[1])
+            print("Rango 25-34: ", Estadistica_de_Personas[2])
+            print("Rango 35-44: ", Estadistica_de_Personas[3])
+            print("Rango 45-49: ", Estadistica_de_Personas[4])
+            print("Rango 50-55: ", Estadistica_de_Personas[5])
+            print("Rango mayor 56: ", Estadistica_de_Personas[6])
+            print(" ")
+
+        if Opcion == 2:
+           recomendadorEdadGenero(int(input("Ingrese su edad: ")),input("ingrese su genero: "))
+
+        if Opcion ==3:
+            Genero = input("Ingrese un genero: ")
+            Lista = ranking(Genero)
+            file = open('Top'+Genero+'.txt', 'w')
+            for x in range(len(Lista)):
+                Lugar = str(Lista[x][0])+","
+                Pelicula = str(Lista[x][1])+","
+                Nota = str(Lista[x][2])
+                file.write(Lugar)
+                file.write(Pelicula)
+                file.write(Nota)
+                file.write('\n')
+            file.close()
+        if Opcion ==4:
+            break
+    except:
+        None
+```
