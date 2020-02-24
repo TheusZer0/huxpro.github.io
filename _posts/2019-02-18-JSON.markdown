@@ -130,8 +130,7 @@ Es un base 64 que nos da lo siguiente:
 
 ```vim
 #
-import random
-
+import operator
 def estadisticasPersonas(GeneroPersona,GeneroPelicula):
     #OpenFile
     Notas = open('notas.csv','r')
@@ -259,6 +258,7 @@ def ranking(Genero):
     Peliculas_Mismo_Genero = []
     IdPeliculas = list()
     ListaFinal = list()
+    Lista_Notas_Pelicula = list()
 
     #Code
     for x in ReadLines_Pelicula:
@@ -279,8 +279,19 @@ def ranking(Genero):
             NotaFinal = int(Peliculas_Mismo_Genero[x][3][0])/(int(Peliculas_Mismo_Genero[x][3][1]))
             Peliculas_Mismo_Genero[x][3][2] += NotaFinal
             ListaFinal.append(Peliculas_Mismo_Genero[x])
-    for z in Peliculas_Mismo_Genero:
-
+    for x in range(len(ListaFinal)):
+        Lista_Notas_Pelicula.append(ListaFinal[x][3][2])
+        Lista_Notas_Pelicula.append(ListaFinal[x][1])
+    lst = Lista_Notas_Pelicula
+    op = {lst[i]: lst[i + 1] for i in range(0, len(lst), 2)}
+    Resultado = sorted(op.items(), key=operator.itemgetter(0), reverse=True)
+    Lista_Peliculas = list()
+    Contador = 1
+    for x in Resultado:
+        Lista_Peliculas.append([Contador,x[1],round(x[0],2)])
+        Contador+=1
+        if Contador == 11:
+            return Lista_Peliculas
 while True:
     try:
         Opcion = int(input("Ingrese una opcion: "))
@@ -299,7 +310,18 @@ while True:
         if Opcion == 2:
            recomendadorEdadGenero(int(input("Ingrese su edad: ")),input("ingrese su genero: "))
         if Opcion ==3:
-            ranking(input("Ingrese un genero: "))
+            Genero = input("Ingrese un genero: ")
+            Lista = ranking(Genero)
+            file = open('Top'+Genero+'.txt', 'w')
+            for x in range(len(Lista)):
+                Lugar = str(Lista[x][0])+","
+                Pelicula = str(Lista[x][1])+","
+                Nota = str(Lista[x][2])
+                file.write(Lugar)
+                file.write(Pelicula)
+                file.write(Nota)
+                file.write('\n')
+            file.close()
         if Opcion ==4:
             break
     except:
