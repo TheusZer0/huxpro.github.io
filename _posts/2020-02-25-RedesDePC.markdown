@@ -248,7 +248,7 @@ public class RSA {
 }
 ```
 
-#### Codigo RSA - encriptar y desencriptar archivos - ARREGLAR
+#### Codigo RSA - encriptar y desencriptar archivos - arreglado :D
 
 ```vim
 package com.mkyong.asymmetric;
