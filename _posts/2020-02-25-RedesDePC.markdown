@@ -18,6 +18,8 @@ tags:
 
 ## Links ricolinos
 Codigo-Java-AES(https://fluidattacks.com/web/defends/java/cifrar-simetricamente/)
+https://www.devglan.com/java8/rsa-encryption-decryption-java
+https://mkyong.com/java/java-asymmetric-cryptography-example/
 
 ## Tarea 3:
 
