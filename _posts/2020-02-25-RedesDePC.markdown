@@ -23,6 +23,8 @@ Codigo-Java-AES(https://fluidattacks.com/web/defends/java/cifrar-simetricamente/
 
 #### Codigo Socket para servidor
 
+Este codigo te abre un puerto a la escucha de manera infinita, es decir, si manda la respuesta el servidor seguira a la escucha a menos que este mismo programa sea cortado.
+
 ```vim
 import java.io.*; 
 import java.net.*; 
