@@ -133,6 +133,67 @@ public class AES_Encryption {
         }*/
 }
 ```
+#### Codigo AES - retorna un archivo solo con la llave simetrica - (Este usare creo)
+```vim
+package com.javapapers.java.security;
+import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class AES_Encryption {
+
+        private static Cipher cipher = null;
+
+        public static void main(String[] args) throws Exception,IOException {
+
+            FileWriter llave_AES = new FileWriter("TareaRedes.txt");
+
+            // uncomment the following line to add the Provider of choice
+            //Security.addProvider(new com.sun.crypto.provider.SunJCE());
+
+            KeyGenerator keyGenerator = KeyGenerator.getInstance("DESede");
+            // keysize must be equal to 112 or 168 for this provider
+            keyGenerator.init(168);
+
+            SecretKey secretKey = keyGenerator.generateKey();
+            cipher = Cipher.getInstance("DESede");
+
+            String plainText = "Java Cryptography Extension";
+            System.out.println("Plain Text Before Encryption: " + plainText);
+
+            byte[] plainTextByte = plainText.getBytes("UTF8");
+            byte[] encryptedBytes = encrypt(plainTextByte, secretKey);
+
+            String encryptedText = new String(encryptedBytes, "UTF8");
+            System.out.println("Encrypted Text After Encryption: " + encryptedText);
+            llave_AES.write(encryptedText);
+            llave_AES.close();
+
+            /* AQUI COMIENZA A DESENCRYPTAR
+            byte[] decryptedBytes = decrypt(encryptedBytes, secretKey);
+            String decryptedText = new String(decryptedBytes, "UTF8");
+            System.out.println("Decrypted Text After Decryption: " + decryptedText);
+            */
+        }
+        //ENCRIPTACION
+        static byte[] encrypt(byte[] plainTextByte, SecretKey secretKey)
+                throws Exception {
+            cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+            byte[] encryptedBytes = cipher.doFinal(plainTextByte);
+            return encryptedBytes;
+        }
+        /*DESENCRIPTACION
+        static byte[] decrypt(byte[] encryptedBytes, SecretKey secretKey)
+                throws Exception {
+            cipher.init(Cipher.DECRYPT_MODE, secretKey);
+            byte[] decryptedBytes = cipher.doFinal(encryptedBytes);
+            return decryptedBytes;
+        }*/
+}
+```
+
 #### Codigo RSA - Generar Llaves Privadas y Publicas
 
 Este codigo sirve para crear un PATH=RSA/ que guarda los archivos de las llaves privadas y publicas
@@ -202,7 +263,9 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import java.io.*;
 import java.nio.file.Files;
-
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 
@@ -271,13 +334,25 @@ public class AsymmetricCryptography {
         fis.close();
         return fbytes;
     }
-
+    public static String muestraContenido(String archivo) throws FileNotFoundException, IOException {
+        String cadena;
+        FileReader f = new FileReader(archivo);
+        BufferedReader b = new BufferedReader(f);
+        while((cadena = b.readLine())!=null) {
+            String file = cadena;
+            return file;
+        }
+        b.close();
+        return cadena;
+    }
     public static void main(String[] args) throws Exception {
         AsymmetricCryptography ac = new AsymmetricCryptography();
         PrivateKey privateKey = ac.getPrivate("RSA/privateKey");
         PublicKey publicKey = ac.getPublic("RSA/publicKey");
 
-        String msg = "Cryptography is fun!"; //aqui debo ingresar el archivo AES
+
+
+        String msg = muestraContenido("tarearedes.txt");; //aqui debo ingresar el archivo AES
         String encrypted_msg = ac.encryptText(msg, privateKey);
         String decrypted_msg = ac.decryptText(encrypted_msg, publicKey);
         System.out.println("Original Message: " + msg +
