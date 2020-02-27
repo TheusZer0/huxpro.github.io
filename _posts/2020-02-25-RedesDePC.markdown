@@ -396,9 +396,6 @@ public class AES_Encryption {
 
         FileWriter llave_AES = new FileWriter("TareaRedes.txt");
 
-        // uncomment the following line to add the Provider of choice
-        //Security.addProvider(new com.sun.crypto.provider.SunJCE());
-
         KeyGenerator keyGenerator = KeyGenerator.getInstance("DESede");
         // keysize must be equal to 112 or 168 for this provider
         keyGenerator.init(168);
