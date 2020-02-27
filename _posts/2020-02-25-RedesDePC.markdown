@@ -430,6 +430,54 @@ public class AES_Encryption {
 }
 ```
 
+#### Generar una llave privada RSA
+
+Esto genera un directorio en la carpeta donde se ejecuta el programa, esta carpeta con el nombre de RSA guarda la llave secreta para el equipo
+
+> RSA
+>
+>> privateKEY 
+
+```vim
+package com.devglan.rsa;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.security.*;
+import java.util.Base64;
+
+public class RSA {
+
+    private PrivateKey privateKey;
+
+    public RSA() throws NoSuchAlgorithmException {
+        KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
+        keyGen.initialize(1024);
+        KeyPair pair = keyGen.generateKeyPair();
+        this.privateKey = pair.getPrivate();
+    }
+
+    public void writeToFile(String path, byte[] key) throws IOException {
+        File f = new File(path);
+        f.getParentFile().mkdirs();
+        FileOutputStream fos = new FileOutputStream(f);
+        fos.write(key);
+        fos.flush();
+        fos.close();
+    }
+
+    public PrivateKey getPrivateKey() {
+        return privateKey;
+    }
+
+
+    public static void main(String[] args) throws NoSuchAlgorithmException, IOException {
+        RSA keyPairGenerator = new RSA();
+        keyPairGenerator.writeToFile("RSA/privateKey", keyPairGenerator.getPrivateKey().getEncoded());
+        System.out.println(Base64.getEncoder().encodeToString(keyPairGenerator.getPrivateKey().getEncoded())); //Solo es un print para ver si esta bien, no te lo pasa a base64
+    }
+}
+```
 #### Encriptar la llave simétrica AES, utilizando la llave pública (disponible en Aula) del AlgoritmoRSA
 
 Este codigo corresponde al ejercicio 2 de la tarea 3, ya que encripta la llave AES con la llave RSA publica y crea un archivo llamado RsaEncyption que corresponde a la llave AES encriptada con la llave publica AES
