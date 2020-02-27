@@ -377,6 +377,9 @@ public class AsymmetricCryptography {
 
 Aqui se genera un archivo "TareaRedes.txt" que corresponde a la encriptacion de un string a AES, como una llave simetrica.
 
+> El archivo lleva de nombre:
+>> TareaRedes.txt
+
 ```vim
 package com.javapapers.java.security;
 import javax.crypto.Cipher;
@@ -425,7 +428,11 @@ public class AES_Encryption {
 ```
 
 #### Encriptar la llave simétrica AES, utilizando la llave pública (disponible en Aula) del AlgoritmoRSA
+
 Este codigo corresponde al ejercicio 2 de la tarea 3, ya que encripta la llave AES con la llave RSA publica y crea un archivo llamado RsaEncyption que corresponde a la llave AES encriptada con la llave publica AES
+
+> El archivo lleva de nombre:
+>> RsaEncyption
 
 ```vim
 package com.mkyong.asymmetric;
