@@ -379,6 +379,8 @@ Aqui se genera un archivo "TareaRedes.txt" que corresponde a la encriptacion de 
 
 > El archivo lleva de nombre:
 >> TareaRedes.txt
+>
+>> Largo_Llave.txt
 
 ```vim
 package com.javapapers.java.security;
@@ -395,12 +397,12 @@ public class AES_Encryption {
     public static void main(String[] args) throws Exception,IOException {
 
         FileWriter llave_AES = new FileWriter("TareaRedes.txt");
-
         KeyGenerator keyGenerator = KeyGenerator.getInstance("DESede");
         // keysize must be equal to 112 or 168 for this provider
         keyGenerator.init(168);
 
         SecretKey secretKey = keyGenerator.generateKey();
+
         cipher = Cipher.getInstance("DESede");
 
         String plainText = "Java Cryptography Extension";
@@ -413,7 +415,11 @@ public class AES_Encryption {
         System.out.println("Encrypted Text After Encryption: " + encryptedText);
         llave_AES.write(encryptedText);
         llave_AES.close();
+        FileWriter largo_Llave = new FileWriter("Largo_LLave.txt");
+        largo_Llave.write(String.valueOf(secretKey));
+        largo_Llave.close();
     }
+
     //ENCRIPTACION
     static byte[] encrypt(byte[] plainTextByte, SecretKey secretKey)
             throws Exception {
