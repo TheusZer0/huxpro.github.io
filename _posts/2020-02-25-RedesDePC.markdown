@@ -26,6 +26,10 @@ tags:
 
 > [Codigo-Rsa](https://mkyong.com/java/java-asymmetric-cryptography-example/)
 
+## Tarea 1:
+
+## Tarea 2:
+
 ## Tarea 3:
 
 #### Codigo Socket para servidor
@@ -371,7 +375,7 @@ public class AsymmetricCryptography {
 }
 ```
 
-## Encriptar Todo
+#### Encriptar Todo
 
 #### Generar una llave simétrica AES
 
@@ -570,7 +574,3 @@ public class AsymmetricCryptography {
     }
 }
 ```
-
-## Toca Desencriptar UwU
-
-#### Desencriptar el mensaje 
