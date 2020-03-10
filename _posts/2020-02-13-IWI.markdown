@@ -10,6 +10,7 @@ tags:
   - Programacion
   - Python
   - USM
+  - Tareas
 ---
 
 # Programacion - Laboratorios - Semestre 2,2019

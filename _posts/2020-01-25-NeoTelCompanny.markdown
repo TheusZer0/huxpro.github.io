@@ -12,6 +12,7 @@ tags:
   - USM
   - C++
   - Proyectos
+  - Tareas
 ---
 
 # NeoTel-Companny - "Ley de Cramer" - Seminario de Programacion

@@ -9,6 +9,7 @@ tags:
   - Programacion
   - Python
   - USM
+  - Tareas
 ---
 
 ### Codigos Python - Tel101 "OpenSource"
