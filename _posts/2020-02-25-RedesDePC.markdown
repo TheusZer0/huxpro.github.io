@@ -113,7 +113,7 @@ es decir, comienzan a capturarse los paquetes, sólo para la interfaz de
 “eth0”. 
 
 En el navegador, accedemos al URL: 
-> http://ramos.elo.utfsm.cl/~elo322/index1.html, 
+> http://ramos.elo.utfsm.cl/~elo322/index1.html 
 
 donde se completan los datos requeridos y luego se recibe la respuesta por parte del servidor. 
 
