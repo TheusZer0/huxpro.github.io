@@ -130,7 +130,7 @@ Al revisar Wireshark, se filtraron los paquetes para revisar la
 respuesta entregada por el servidor. 
 
 Con el filtro 
-> “tcp.srcport==80 || udo.srcport==80” 
+> “tcp.srcport==80 || udp.srcport==80” 
 
 se logra obtener todos los paquetes que utilizaron la conexión de tipo TCP (Transmission Control Protocol) y UDP (User Datagram Protocol) para el puerto 80. 
 
