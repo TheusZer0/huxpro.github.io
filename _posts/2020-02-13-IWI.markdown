@@ -93,6 +93,11 @@ def NumeroNarcisista(a):
 
 ## Proyecto Progra IWI
 
+En IWI les hacen hacer un proyecto, el del 2019-2 fue un poco webeado, sin embargo no fue tan dificil, la primera forma es una especificamente hecha por mi, la segunda corresponde a Wh0amI, por lo cual es su merito.
+
+Yo lo posteo aqui, para que cualquiera tenga acceso al codigo y pueda perfeccionarlo o usarlo a como estime conveniente.
+Muxas gracias. 
+
 #### Primera Forma
 
 ```vim
