@@ -209,7 +209,7 @@ int main() {
 }
 ```
 
-## Controles y Practicos
+## Controles
 
 #### Control 1
 ```vim
@@ -416,4 +416,3 @@ void Envio::CambiaDireccion(std::string nuevaDireccion){
 void Envio::MarcarRecibido(bool Recibido){
 	this->Recibido=Recibido;
 }
-```
