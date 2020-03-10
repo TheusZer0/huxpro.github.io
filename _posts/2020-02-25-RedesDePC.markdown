@@ -19,6 +19,9 @@ tags:
 
 ## Links ricolinos
 
+#### Drive con MUXO material
+> [Drive hecho por mi UwU](https://drive.google.com/drive/u/0/folders/0AP6afRafbeuIUk9PVA)
+
 #### Codigos AES
 > [Codigo-Java-AES](https://fluidattacks.com/web/defends/java/cifrar-simetricamente/)
 
@@ -27,9 +30,230 @@ tags:
 
 > [Codigo-Rsa](https://mkyong.com/java/java-asymmetric-cryptography-example/)
 
+## Consejos
+
+Redes de computadoras es un ramo completamente de materia, conceptual y de estudio.
+Creo que es solo leer y estudiar (como cualquier otro ramo) sin embargo creo que igual depende de quien te toque como profesor, por eso dare los siguientes consejos en base a mi experencia y la obtenida por los cabros de TC:
+
+#### Rudy
+
+Rudy es un profe que te preguntara cosas que te pase en clases (eso es bueno), te preguntara cosas super especificas, como un codigo java o un comando en linux utilizado en clases asi que:
+>> aprenderse los java de memoria
+>
+>> Anotar todos los comandos linux que use y para que sirven
+>
+>> Estudiar de las PPT
+
+#### AGV
+
+Creo que AGV es un profe cabron ya que pregunta cosas que no pasa, sin embargo creo que como dicta el ramo es movido, tiene tareas y proyectos divertidos y no tan complejos, por lo que puedes ganar notas de buena manera.
+
+El problema son sus certamenes, muchas veces webeados y con materia super especifica que no siempre se encuentra en las PPT por eso mis recomendaciones son:
+
+>> Estudiar del libro, no tanto de las PPT
+>
+>> Estudiar de certamenes anteriores, que se encuentran en su pag (Pag hecha a puro html sdkjfghsdjfhskd, pongale css o alguna wea para que se vea linda profe:c)
+>
+>> Revisar Tareas anteriores (casi todas son iguales)   
+
+AGV tiene una pag, donde cambiando el GET de la url puedes acceder al semestre que dicto con sus respectivos certamenes y tareas.
+
+Suerteeee uwu.
+
 ## Tarea 1:
 
+#### Introduccion
+
+El protocolo HTTP es una sigla que significa Hyper Text Transfer 
+Protocol, o Protocolo de Transferencia de Hipertexto, que propone ser 
+un protocolo sencillo entre cliente-servidor que articula cambios de 
+información entre los clientes y los servidores HTTP. 
+El principal objetivo de éste informe será interiorizar a los estudiantes 
+a éste protocolo de manera práctica. 
+Con la aplicación Wireshark y un servidor web se deberán analizar 
+dos URL que son: 
+
+> http://ramos.elo.utfsm.cl/~elo322/index1.html 
+> http://ramos.elo.utfsm.cl/~elo322/index2.html 
+
+El propósito es usar Wireshark como herramienta para lograr 
+identificar los protocolos que se utilizan, la versión de protocolo que 
+se emplea, obtener datos como el IP y los puertos utilizados, lograr 
+deducir cómo funciona el envío de parámetros ingresados en cada una 
+de las paginas que se nos entregan, además de poder encontrar datos 
+como los bytes transferidos, estimar el tiempo que se utilizo en el 
+envío de paquetes y encontrar el número de conexiones utilizadas. 
+
+#### Desarrollo
+
+El siguiente desarrollo se realizará mediante una máquina virtual 
+Linux (Kali-Linux), en este caso Wireshark venía previamente 
+instalado en el dispositivo. Si por algún motivo, este no viniera 
+previamente instalado en Linux-Debian se utiliza el siguiente 
+comando para instalarlo, ya que se usa el administrador de paquetes 
+“APT” que Debian posee: 
+
+> $ sudo apt-get install Wireshark 
+
+Luego se accede al terminal de la máquina, utilizando los comandos 
+“ifconfig” y “netstat -i”, con lo que se puede visualizar la IP de la 
+máquina y las respectivas configuraciones que posee, en donde se 
+determina que el interfaz de red que se usará corresponde a “eth0”.
+
+![](/TheusZero/images/post/Redes/redes1.png)
+
+Una vez conocida la IP de la máquina que se está utilizando, 
+“192.168.236.128”, proseguimos con Wireshark:
+
+![](/TheusZero/images/post/Redes/redes2.png)
+
+Se utilizará la opción “Capture” que se encuentra en la barra de 
+herramientas, donde luego se comienza a escanear el tráfico de red, 
+es decir, comienzan a capturarse los paquetes, sólo para la interfaz de 
+“eth0”. 
+
+En el navegador, accedemos al URL: 
+> http://ramos.elo.utfsm.cl/~elo322/index1.html, 
+
+donde se completan los datos requeridos y luego se recibe la respuesta por parte del servidor. 
+
+![](/TheusZero/images/post/Redes/redes3.png)
+
+![](/TheusZero/images/post/Redes/redes4.png)
+
+Al recibir la respuesta, se puede notar que la respuesta que entrega el 
+servidor envía a una URL distinta a la que se ingresa en primer lugar, 
+lo que identifica que el método empleado para la web es GET (envía 
+los datos usando la URL). 
+
+Al revisar Wireshark, se filtraron los paquetes para revisar la 
+respuesta entregada por el servidor. 
+
+Con el filtro 
+> “tcp.srcport==80 || udo.srcport==80” 
+
+se logra obtener todos los paquetes que utilizaron la conexión de tipo TCP (Transmission Control Protocol) y UDP (User Datagram Protocol) para el puerto 80. 
+
+![](/TheusZero/images/post/Redes/redes5.png)
+
+Con el filtro se logra visualizar que el protocolo que se está utilizando 
+es HTTP, por lo que se procede a filtrar nuevamente los paquetes, 
+pero ahora sólo con el protocolo reconocido, es decir, HTTP. 
+Con el filtro utilizado, los paquetes se reducen a un total de 4, los que 
+serán estudiados bajo el protocolo HTTP y con destino al IP del 
+Servidor. 
+
+![](/TheusZero/images/post/Redes/redes6.png)
+
+Analizando los paquetes con Wireshark, se selecciona el paquete de 
+respuesta que envía el servidor y luego sobre el se emplea la opción 
+“Follow” seguida por la opción “HTTP stream” para poder revisar los 
+detalles de las peticiones enviadas y recibidas por el navegador o 
+browser, con esto se puede visualizar que el protocolo utilizado es 
+HTTP y la versión corresponde a HTTP 1.1 empleada con el método 
+GET (muestran los datos de forma visible). 
+
+![](/TheusZero/images/post/Redes/redes7.png)
+
+Luego para obtener la IP y el puerto que fue utilizado, se procede a expandir la información o detalles del paquete, en donde se obtiene:
+
+![](/TheusZero/images/post/Redes/redes8.png)
+
+Donde se puede concluir que el puerto utilizado por la terminal host fue el 38844 (Src Port) y el puerto de destino fue el 80 (Dst Port), reservado para el protocolo HTTP del servidor.
+
+El IP de nuestra máquina se puede visualizar como 192.168.236.128 (Src) y el de destino como 200.1.17.3 (Dst).
+
+Los parámetros ingresados en la página index1.html, son utilizados bajo el método GET, tal y como lo muestra Wireshark, sin embargo, se confirma lo que se pudo deducir en un inicio sobre la URL que se está analizando.
+
+A continuación, se puede observar en color rojo, la petición enviada al servidor, y en color azul, la respuesta del mismo, en este caso, la petición del GET.
+
+A continuación, se puede visualizar en el apartado del frame, la cantidad de bytes que se transfirieron en el paquete.
+
+![](/TheusZero/images/post/Redes/redes9.png)
+
+![](/TheusZero/images/post/Redes/redes10.png)
+
+Como se muestra en la imagen la cantidad de bytes transferidos corresponde a un total de 582 bytes, que corresponden a 4656 bits.
+
+Para estimar el tiempo que fue utilizado se utiliza el apartado Time en Wireshark, comparando el tiempo del paquete de envío al servidor y el de respuesta de este, ya que podemos encontrar el paquete con el código de respuesta HTTP 200 OK, en donde se demuestra que la solicitud, en este caso que se utiliza el GET, ha sido realizada con éxito.
+
+![](/TheusZero/images/post/Redes/redes11.png)
+
+En la imagen se muestra que el primer paquete de envío es el N° 46 y el de respuesta es el N°48, por lo tanto, calculando la diferencia entre ellos, se estima un tiempo utilizado de 0.03 [s].
+
+Las conexiones que fueron usadas se deducen bajo la cantidad de paquetes enviados, por lo tanto, en este caso se habla de 4 conexiones utilizadas. 
+
+En el navegador, accedemos al URL: 
+> http://ramos.elo.utfsm.cl/~elo322/index2.html 
+
+y se vuelven a completar los datos requeridos:
+
+![](/TheusZero/images/post/Redes/redes12.png)
+
+Volviendo a Wireshark, filtramos los paquetes para el protocolo HTTP, donde obtenemos lo siguiente:
+
+![](/TheusZero/images/post/Redes/redes13.png)
+
+Se puede observar que el protocolo utilizado corresponde a HTTP en su versión 1.1.
+
+Como conocemos el IP de la máquina que se está utilizando, “192.168.236.128”, y el IP del Servidor, “200.1.17.3”, como muestra el apartado de “Source” y “Destination” de Wireshark.
+
+El puerto utilizado por la terminal host fue el 38844 (Src Port) y el puerto de destino fue el 80 (Dst Port), reservado para el protocolo HTTP del servidor.
+
+Se puede observar que el servidor realiza la primera petición GET, seguida de una confirmación y envío de respuesta por parte del servidor.
+
+En este caso el apartado es diferente, debido a que el método empleado será el POST, y para comprobarlo se revisa el código de fuente dónde se encuentran los datos requeridos, donde se observa lo siguiente: 
+
+![](/TheusZero/images/post/Redes/redes14.png)
+
+Sin embargo, también lo corroboraremos con Wireshark, en donde se selecciona el paquete que lleva consigo el método POST, que fue enviado al servidor, obteniendo lo siguiente:
+
+![](/TheusZero/images/post/Redes/redes15.png)
+
+Los parámetros ingresados en la página index2.html, son utilizados bajo el método POST, como se puede apreciar en la antepenúltima línea de la imagen anterior, en donde se visualiza que el método empleado al enviar formulario es POST.
+
+El método POST en webs PHP se caracteriza porque la información no se visualiza como “header” del HTTP request, es decir, no es visible, donde se asume que es “más seguro”, sin embargo, con Wireshark es posible interceptar el paquete para determinar y conocer cuáles fueron los datos entregados.
+
+En el caso de determinar los datos transferidos, en el frame se puede observar lo siguiente:
+
+![](/TheusZero/images/post/Redes/redes15.png)
+
+Entonces, se puede observar que la cantidad de bytes transferidos en el paquete de envío con el método POST corresponden a un total de 649 bytes (5192 bits).
+
+El tiempo estimado que fue utilizado con el paquete con método POST, se hará de forma “distinta” a la que se realizó con el paquete con método GET, en donde tomaremos como referencia la información exacta de la hora que registro Wireshark:
+
+> Paquete de envío con método POST:
+
+![](/TheusZero/images/post/Redes/redes16.png)
+
+> Paquete recibido de parte del servidor (HTTP 200 OK):
+
+![](/TheusZero/images/post/Redes/redes17.png)
+
+Calculando la diferencia entre ambos, es decir, la diferencia de tiempo entre el paquete recibido con el paquete de envío se tiene que el tiempo utilizado estimado es de 0.1 [s] aproximadamente.
+Las conexiones utilizadas.
+
+#### Conclusion
+
+Una vez finalizado el desarrollo del informe, se pueden mostrar variadas diferencias entre ambos URL analizados mediante Wireshark, a pesar de que ambos desarrollos se realizaron de manera similar y en ambos casos se requirieron las mismas respuestas.
+
+Analizando ambos casos, se puede demostrar que ambos protocolos utilizados son HTTP y también se utiliza la misma versión de protocolo, que en este caso es HTTP 1.1.
+
+La primera diferencia entre ambos URL es el método que se emplea en ambos, en Index1 se emplea GET en dónde los datos son inmediatamente visibles, en cambio, en Index2 se emplea el método POST, el cual se caracteriza porque los datos no son visibles, entonces se le atribuye la característica de ser “más seguro”, aún así es posible interceptar el paquete para ver los datos que fueron entregados.
+
+Ya que la principal diferencia entre los URL es el método empleado, se pueden comparar sus ventajas y desventajas, en el caso del método POST, su ventaja es el envío de datos de forma invisible y discreta, en cambio en el método GET si un usuario accede a la URL entregada, tendrá la información del otro usuario, es decir, tendrá acceso a los datos entregados y además cuenta con un límite de 2000 caracteres. Hablando de las ventajas que se obtiene al emplear el método GET, se obtiene que el envío de datos codificados desde un “header” del HTTP request va directamente en la URL del navegador por lo que el usuario puede acceder siempre a ésta URL siempre y cuando la guarde o preestablezca en el navegador, en cambio, en el método POST, la información no se almacena en el browser.
+
+En el caso de la IP y los puertos utilizados, se demuestra en el informe que tanto Index1 como Index2 ocupan el mismo IP tanto para el servidor como el IP de la máquina virtual utilizada, además de ambos usar el puerto 80 como puerto de destino para HTTP y el Terminal Host 38844.
+
+La cantidad de bytes transferidos entre ambos URL Index1 e Index2, varía en una cantidad bastante baja de bytes, los cuales transfirieron una cantidad de 582 y 649 bytes respectivamente.
+
+Una vez estimado el tiempo utilizado en ambos, se puede concluir que el tiempo empleado en Index1 es menor al tiempo empleados en Index2.
+
+Finalizando, podemos concluir que los dos URL utilizados, que utilizan el mismo protocolo (HTTP), la misma versión de protocolo (HTTP 1.1), el mismo IP y puertos, pero están empleados con diferentes métodos (GET y POST), generando una variación (diferencia), tanto en bytes transferidos, como en el tiempo empleado y la cantidad de conexiones utilizadas, además permite dar a conocer las grandes diferencias entre el método GET y POST en el análisis mediante Wireshark de ambos URL.
+
 ## Tarea 2:
+
+
 
 ## Tarea 3:
 
