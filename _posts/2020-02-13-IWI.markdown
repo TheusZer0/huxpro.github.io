@@ -17,8 +17,8 @@ tags:
 
 ## Contexto
 
-Holiwis, aqui traigo un poco de los ejercicios de smoj para iwi-101 orientado a python, estan hechos como el pico (me demore una hora) pero funcionan y compilan.
-Pueden usarlos quienes quieran, aunque van dedicado a una persona muy tierna uwu
+Holiwis, aqui traigo un poco de los ejercicios para iwi-101 orientado a python, esta el trabajo o proyecto y algunos ejercicios varios
+Pueden usarlos quienes quieran.
 
 ## Laboratorio 1 - Semestre 2,2019
 
