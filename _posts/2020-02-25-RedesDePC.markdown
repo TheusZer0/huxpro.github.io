@@ -12,6 +12,7 @@ tags:
   - USM
   - Java
   - Tareas
+  - Redes
 ---
 
 # Redes de Computadoras - 2do Semestre 2019 - Rudy Malonnek
