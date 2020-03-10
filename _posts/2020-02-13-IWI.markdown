@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Ejercicios SMOJ"
-subtitle: 'Programacion - Laboratorio 1 - Semestre 2,2019'
+title: "IWI - Programacion Python"
+subtitle: 'Programacion - Laboratorio - Proyectos - Semestre 2,2019'
 date: 2020-01-25 12:00:00
 author: "TheusZero"
 header-img: "images/post/python.png"
