@@ -91,20 +91,21 @@ def NumeroNarcisista(a):
 #NumeroNarcisista(153)
 ```
 
-```vim
-#
-import random
+## Proyecto Progra IWI
 
+#### Primera Forma
+
+```vim
+#Nombre Apellido, Paralelo N
+import operator
 def estadisticasPersonas(GeneroPersona,GeneroPelicula):
     #OpenFile
     Notas = open('notas.csv','r')
     Peliculas = open('peliculas.csv','r')
     Usuarios = open('usuarios.csv','r')
-
     #ReadFile
     Lineas = Peliculas.readlines()
     Read_Usuarios = Usuarios.readlines()
-
     #Variables
     Id_GeneroPelicula = list()
     Id_Usuarios = list()
@@ -112,10 +113,8 @@ def estadisticasPersonas(GeneroPersona,GeneroPelicula):
     Id_Final = list()
     lista_Final = []
     Final = list()
-    Contador =0
-
+    Contador = 0
     #OtherVariables
-
     Menor_diesiocho = 0
     Diesiocho = 0
     Veinticinco = 0
@@ -123,7 +122,6 @@ def estadisticasPersonas(GeneroPersona,GeneroPelicula):
     CuarentaCinco = 0
     Cincuenta = 0
     Mayor = 0
-
     #Code
     for x in Lineas: #Aqui obtengo todos los ID del genero de la pelicula
         ListaPeliculas = x.strip().split(',')
@@ -162,7 +160,6 @@ def estadisticasPersonas(GeneroPersona,GeneroPelicula):
             Cincuenta += 1
         if Rango_Etario[x] == '56':
             Mayor += 1
-
     #FinalCode
     Final.append(Menor_diesiocho)
     Final.append(Diesiocho)
@@ -177,7 +174,32 @@ def recomendadorEdadGenero(Edad,Genero):
     Notas = open('notas.csv','r')
     Peliculas = open('peliculas.csv','r')
     Usuarios = open('usuarios.csv','r')
-    #Edad
+    #ReadFile
+    Notas_Read = Notas.readlines()
+    Pelicula_Read = Peliculas.readlines()
+    Usuarios_Read = Usuarios.readlines()
+    #ListaDeArchivos
+    Lista_Notas = list()
+    Lista_Peliculas = list()
+    Lista_Usuarios = list()
+    Notas = list()
+    #Variables
+    Solo_Id_Peliculas = list()
+    ID_Peliculas = list()
+    ID_Peliculas_Genero = list()
+    ID_Usuarios_SG_Filtro = list()
+    ListaTemp = list()
+    Limpia_Lista = list()
+    New = list()
+    Pro= list()
+    for x in Notas_Read:
+        Lista_Notas.append(x.strip().split(","))
+    for y in Pelicula_Read:
+        Lista_Peliculas.append(y.strip().split(","))
+        ID_Peliculas.append((y.strip().split(","))[0])
+    for r in Usuarios_Read:
+        Lista_Usuarios.append(r.strip().split(","))
+    #Transformacion-RangoEtario
     if Edad < 18:
         Edad = 1
     if Edad>=18 and Edad<=24:
@@ -192,25 +214,84 @@ def recomendadorEdadGenero(Edad,Genero):
         Edad = 50
     if Edad > 55:
         Edad = 56
+    for x in range(len(Lista_Peliculas)):
+        Solo_Id_Peliculas.append(Lista_Peliculas[x][0])
+        ID_Peliculas_Genero.append(Lista_Peliculas[x][0])
+        ID_Peliculas_Genero.append(Lista_Peliculas[x][2])
+        ListaTemp.append(Lista_Peliculas[x])
+        ListaTemp[-1].append([0,0])
+    for x in range(len(Lista_Usuarios)):
+        if Lista_Usuarios[x][1] == Genero and str(Edad) == Lista_Usuarios[x][2]:
+            ID_Usuarios_SG_Filtro.append(Lista_Usuarios[x][0])
+    for x in range(len(Lista_Notas)):
+        if Lista_Notas[x][0] in ID_Usuarios_SG_Filtro and Lista_Notas[x][1] in Solo_Id_Peliculas:
+            ListaTemp[Solo_Id_Peliculas.index(Lista_Notas[x][1])][-1][0] += int(Lista_Notas[x][2])
+            ListaTemp[Solo_Id_Peliculas.index(Lista_Notas[x][1])][-1][1] += 1
+    for x in range(len(ListaTemp)):
+        if ListaTemp[x][3][1]>= 10:
+            Limpia_Lista.append(ListaTemp[x])
+    for x in range(len(Limpia_Lista)):
+        NotaFinal = (int(Limpia_Lista[x][3][0])/int(Limpia_Lista[x][3][1]))
+        Limpia_Lista[x][3][0] = NotaFinal
+    for x in range(len(Limpia_Lista)):
+        New.append([Limpia_Lista[x][0],Limpia_Lista[x][3][0]])
+    for x in range(len(New)):
+        Pro.append((float(New[x][1])))
+    for x in range(len(Lista_Peliculas)):
+         if (New[Pro.index(max(Pro))][0]) == Lista_Peliculas[x][0]:
+             return(Lista_Peliculas[x][1])
+def ranking(Genero):
+    #Read
+    File_Peliculas = open('peliculas.csv')
+    ReadLines_Pelicula = File_Peliculas.readlines()
+    Pelicula_Lista = list()
+    File_Notas = open('notas.csv')
+    ReadLines_Notas = File_Notas.readlines()
+    Notas_Lista = list()
     #Variables
-    Id_Usuarios = list()
-    Contador = 0
-    ListaNotas = list()
+    Peliculas_Mismo_Genero = []
+    IdPeliculas = list()
+    ListaFinal = list()
+    Lista_Notas_Pelicula = list()
     #Code
-    for i in Usuarios:
-        ListaUsuarios = i.strip().split(',')
-        if Genero == ListaUsuarios[1] and Edad == int(ListaUsuarios[2]):
-            Id_Usuarios.append(ListaUsuarios[0])  # Aqui obtengo el ID del genero del usuario
-    for x in Notas:
-        ListaNotas.append(x.strip().split(","))
-    for z in ListaNotas:
-        Contador += 1
-    for i in range(0,Contador):
-        print(ListaNotas[i][0])
-        if Id_Usuarios[i] in ListaNotas[i][0]:
-            print(ListaNotas[i])
+    for x in ReadLines_Pelicula:
+        Pelicula_Lista.append(x.strip().split(','))
+    for z in range(0,len(Pelicula_Lista)):
+        if Genero in Pelicula_Lista[z][2]:
+            IdPeliculas.append(Pelicula_Lista[z][0]) #Aqui saco todos los ID de las peliculas Del Genero
+            Peliculas_Mismo_Genero.append(Pelicula_Lista[z])
+            Peliculas_Mismo_Genero[-1].append([0,0,0]) #SumaNota #Cantidad de Notas #NotaFinal
+    for r in ReadLines_Notas:
+        Notas_Lista.append(r.strip().split(","))
+    for y in range(len(Notas_Lista)):
+        if (Notas_Lista[y][1]) in IdPeliculas:
+            Peliculas_Mismo_Genero[IdPeliculas.index((Notas_Lista[y][1]))][-1][0]+=int((Notas_Lista[y][2])) #SumaNotas
+            Peliculas_Mismo_Genero[IdPeliculas.index((Notas_Lista[y][1]))][-1][1]+=1
+    for x in range(len(Peliculas_Mismo_Genero)):
+        if int(Peliculas_Mismo_Genero[x][3][1])>=5:
+            NotaFinal = int(Peliculas_Mismo_Genero[x][3][0])/(int(Peliculas_Mismo_Genero[x][3][1]))
+            Peliculas_Mismo_Genero[x][3][2] += NotaFinal
+            ListaFinal.append(Peliculas_Mismo_Genero[x])
+    for x in range(len(ListaFinal)):
+        Lista_Notas_Pelicula.append(ListaFinal[x][3][2])
+        Lista_Notas_Pelicula.append(ListaFinal[x][1])
+    lst = Lista_Notas_Pelicula
+    op = {lst[i]: lst[i + 1] for i in range(0, len(lst), 2)}
+    Resultado = sorted(op.items(), key=operator.itemgetter(0), reverse=True)
+    Lista_Peliculas = list()
+    Contador = 1
+    for x in Resultado:
+        Lista_Peliculas.append([Contador,x[1],round(x[0],2)])
+        Contador+=1
+        if Contador == 11:
+            return Lista_Peliculas
 while True:
     try:
+        print("Menu")
+        print("Opcion 1 = Tarea 1 ")
+        print("Opcion 2 = Tarea 2 ")
+        print("Opcion 3 = Tarea 3 ")
+        print("Opcion 4 = El programa cierra ")
         Opcion = int(input("Ingrese una opcion: "))
         if Opcion == 1:
             GeneroP = input("Ingrese genero persona: ")
@@ -225,10 +306,28 @@ while True:
             print("Rango mayor 56: ", Estadistica_de_Personas[6])
             print(" ")
         if Opcion == 2:
-           recomendadorEdadGenero(int(input("Ingrese su edad: ")),input("ingrese su genero: "))
+            Pelicula = recomendadorEdadGenero(int(input("Ingrese su edad: ")),input("ingrese su genero: "))
+            print(Pelicula)
+        if Opcion ==3:
+            Genero = input("Ingrese un genero: ")
+            Lista = ranking(Genero)
+            file = open('Top'+Genero+'.txt', 'w')
+            for x in range(len(Lista)):
+                Lugar = str(Lista[x][0])+","
+                Pelicula = str(Lista[x][1])+","
+                Nota = str(Lista[x][2])
+                file.write(Lugar)
+                file.write(Pelicula)
+                file.write(Nota)
+                file.write('\n')
+            file.close()
+        if Opcion ==4:
+            break
     except:
         None
 ```
+
+#### Segunda Forma
 
 ```vim
 #Nombre Apellido, Paralelo N
@@ -240,28 +339,34 @@ def leer_archivo_peliculas():
         parse=(line.strip("\n\r").split(",")) #se eliminan caracteres problematicos y se separa en una lista mediante ","
         parse[-1]=parse[-1].split("|") #se coloca el genero en una lista para hacer mas facil el analisis
         movies.append(parse)#se agrega a la linea de retorno
+    data.close()#Cierra el archivo
     return movies#retorna la lista con la informacion preparada para el analisis
 
 #Funcion para leer el archivo "notas"
 def leer_archivo_notas():
-    notes=[]
-    data=open("notas.csv","r")
-    for line in data:
-        parse=(line.strip("\n\r").split(","))
-        notes.append(parse)
-    return notes
+    notes=[] #Lista donde se almacenara la informacion
+    data=open("notas.csv","r")#apertura de archivo a usar
+    for line in data:#se recorre cada linea del archivo
+        parse=(line.strip("\n\r").split(","))#se quitan caracteres que no sirven y se separa por "," en una lista
+        notes.append(parse)#se agregan los datos limpios como listas a otra lista
+    data.close()#se cierra el archivo
+    return notes#se retorna la lista con las notas
 
+#Funcion para leer el archivo "notas"
 def leer_archivo_usuarios():
-    users=[]
-    data=open("usuarios.csv","r")
-    for line in data:
-        parse=(line.strip("\n\r").split(","))
-        users.append(parse)
-    return users
+    users=[] #lista que almacenara las listas de datos
+    data=open("usuarios.csv","r") #apertura del archivo
+    for line in data:#recorrido de linea a linea del archivo
+        parse=(line.strip("\n\r").split(","))#se quitan los caracteres inserbibles y se hace una lista de los datos separados por ","
+        users.append(parse)#se agrega la lista obtenida de una linea a otra lista
+    data.close() #se cierra el archivo
+    return users#se retorna la lista con los usuarios
 
+#Funcion para separar por indice en una lista los rangos etarios
 def ordenar_rango_etario(lista_usuarios):
-    rango_etario=[[],[],[],[],[],[],[]]
-    for usuario in lista_usuarios:
+    rango_etario=[[],[],[],[],[],[],[]]#lista donde iran los usuarios por rango etario de menor a mayor
+    for usuario in lista_usuarios:#se recorre la lista
+    #se ordenan los usuarios segun su rango etario en la lista rango_etario
         if usuario[2]=="1":
             rango_etario[0].append(usuario)
         elif usuario[2]=="18":
@@ -276,23 +381,71 @@ def ordenar_rango_etario(lista_usuarios):
             rango_etario[5].append(usuario)
         elif usuario[2]=="56":
             rango_etario[6].append(usuario)
-    return rango_etario
+    return rango_etario #retorna la lista con los usuarios  y los rangos ordenados
 
+#Funcion para obtener por genero de pelicula y persona la cantidad de personas segun su rango etario
 def estadisticos_de_personas(movies, notes,range_etary,g_person,g_movie):
     id_movies=[]
     id_person=[]
     cant_rango_etario=[0,0,0,0,0,0,0]
+    #se recorren los generos de las peliculas y se agrega su id a la lista id_movies
     for mov in movies:
         if g_movie in mov[2]:
             id_movies.append(mov[0])
+    #se recorren las notas de las personas y se almacena el id de usuario que concuerda con el id de la pelicula del genero
     for note in notes:
         if note[1] in id_movies:
             id_person.append(note[0])
+    #se añade la cantidad de persona a su debido rango etario sumandole +1 al contandor cant_rango_etario
     for i in range(0,7):
         for person in range_etary[i]:
             if (person[0] in id_person) and (person[1]==g_person):
                 cant_rango_etario[i]+=1
-    return cant_rango_etario
+    return cant_rango_etario #retorna la cantidad separada por rango etario
+
+
+def recomendar_por_edad_y_genero(movies, notes,range_etary,g_person,person_year):
+    i=0
+    id_usuarios=[]
+    promediar=[]
+    promediar_limpio=[]
+    if person_year<18:
+        i=0
+    elif person_year>=18 and person_year<=24:
+        i=1
+    elif person_year>=25 and person_year<=34:
+        i=2
+    elif person_year>=35 and person_year<=44:
+        i=3
+    elif person_year>=45 and person_year<=49:
+        i=4
+    elif person_year>=50 and person_year<=55:
+        i=5
+    elif person_year>=56:
+        i=6
+
+    for person in range_etary[i]:
+        if person[1]==g_person:
+            id_usuarios.append(person[0])
+    for data_notes in notes:
+        if data_notes[0] in id_usuarios:
+            if data_notes[1] not in promediar:
+                promediar.append(data_notes[1])
+                promediar.append([0,0])
+            else:
+                x=promediar.index(data_notes[1])
+                promediar[x+1][0]+=int(data_notes[2])
+                promediar[x+1][1]+=1
+    for z in range(1,len(promediar),2):
+        if not int(promediar[z][1])<=10:
+            promediar_limpio.append([promediar[z-1],(promediar[z][0]/promediar[z][1])])
+    promedios_lista=[]
+    for element in promediar_limpio:
+        promedios_lista.append(round(element[1],2))
+    print(promedios_lista)
+    for movie in movies:
+        if promediar_limpio[promedios_lista.index(max(promedios_lista))][0]== movie[0]:
+            return movie[1]
 
 def ranking(movies, notes,range_etary,g_movies):
     peliculas_a_usar=[]
@@ -313,12 +466,26 @@ def ranking(movies, notes,range_etary,g_movies):
             peliculas_a_usar_limpias.append(pel)
     for pel in peliculas_a_usar_limpias:
         pel[-1][0]/=pel[-1][1]
+
+
+
     promedios=[]
     ids=[]
+    ordenados=[]
     for movie in peliculas_a_usar_limpias:
         promedios.append(movie[-1][0])
-    #    ids.append([movie[0])
-    return peliculas_a_usar_limpias
+        ids.append(movie[0])
+    print(promedios)
+    print(ids)
+    for i in range(1,11):
+        ordenados.append([ids[promedios.index(max(promedios))],'',round(max(promedios),2)])
+        promedios.pop(promedios.index(max(promedios)))
+        ids.pop(promedios.index(max(promedios)))
+    for elemento in ordenados:
+        for movie in movies:
+            if elemento[0]==movie[0]:
+                elemento[1]=movie[1]
+    return ordenados
 
 peliculas=leer_archivo_peliculas()
 notas=leer_archivo_notas()
@@ -340,7 +507,11 @@ while (o!="4"):
         print(recomendar_por_edad_y_genero(peliculas,notas,usuarios_ordenados_rango_etario,genero_persona,edad_persona))
     elif o=="3":
         genero_pelicula=str(input("Ingrese genero: "))
-        print(ranking(peliculas,notas,usuarios_ordenados_rango_etario,genero_pelicula))
+        data_ranking=ranking(peliculas,notas,usuarios_ordenados_rango_etario,genero_pelicula)
+        with open("top"+genero_pelicula+".txt","w") as top:
+            for i in range(0,(len(data_ranking))):
+                top.write(str(i+1)+", "+data_ranking[i][1]+", "+str(data_ranking[i][2])+"\n")
+
 else:
     print("Terminando Programa")
 #for i in usuarios_ordenados_rango_etario[0]:
