@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Redes de Computadoras - 2019"
+title: "Redes de Computadoras - 2019-2 "
 subtitle: 'Ramo Redes de Computadoras - 2do Semestre 2019'
 date: 2020-02-25 12:00:00
 author: "TheusZero"
@@ -251,6 +251,8 @@ Una vez estimado el tiempo utilizado en ambos, se puede concluir que el tiempo e
 
 Finalizando, podemos concluir que los dos URL utilizados, que utilizan el mismo protocolo (HTTP), la misma versión de protocolo (HTTP 1.1), el mismo IP y puertos, pero están empleados con diferentes métodos (GET y POST), generando una variación (diferencia), tanto en bytes transferidos, como en el tiempo empleado y la cantidad de conexiones utilizadas, además permite dar a conocer las grandes diferencias entre el método GET y POST en el análisis mediante Wireshark de ambos URL.
 
+> Nota = 80/100
+>
 ## Tarea 2:
 
 
