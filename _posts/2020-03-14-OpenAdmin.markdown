@@ -24,7 +24,7 @@ tags:
 #### NMAP
 
 ```vim
-┌─[zero@parrot]─[~/HTB/Machines/OpenAdmin]
+┌─[zero@parrot]─[~/HTB/Machines/Obscurity]
 └──╼ $nmap -sC -sV 10.10.10.168 -o nmap.txt
 # Nmap 7.80 scan initiated Sat Mar 14 13:13:23 2020 as: nmap -sC -sV -o nmap.txt 10.10.10.168
 Nmap scan report for 10.10.10.168
