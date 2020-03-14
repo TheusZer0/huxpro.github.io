@@ -214,3 +214,17 @@ Session completed
 
 asi que probremos con joanna ahoora que tal nos va
 
+primero entramos por ssh con la id_rsa que tenemos y la clave que sacamos tambie, una vez dentro podemos leer el user.txt
+
+ahora toca una enum.
+Probe un :
+
+> sudo -l
+
+y sip, hay archivos que se pueden ejecutar como admin, esta vez fue nano, asi que abri ese archivo 
+
+> sudo /bin/nano /opt/priv
+ 
+y nano te deja leer archivos, asi que me meti a la carpeta /root/root.txt y era.
+
+suscribanse JHFJASFHASJK
