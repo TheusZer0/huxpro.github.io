@@ -4,7 +4,7 @@ title: "Obscurity"
 subtitle: 'HackTheBox - Easy Machine - Linux'
 date: 2020-03-13 12:00:00
 author: "TheusZero"
-header-img: "images/post/Obscurity/Obscurity.png"
+header-img: "images/post/Obscurity.png"
 catalog: true
 comments: true
 tags:
