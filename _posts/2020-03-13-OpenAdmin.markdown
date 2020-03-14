@@ -19,7 +19,7 @@ tags:
 
 # OpenAdmin
 
-## Reconocimiento
+## Enumeracion
 
 #### NMAP
 
@@ -68,6 +68,8 @@ al entrar a la primera, nos encontramos con uan pag bastante particular y bonita
 
 claramente, hay un exploit para esa version, sin embargo no la saque de esa pag, probe con otra, dejo aqui el exploit
 
+#### www-data
+
 > Name.sh
 
 ```vim
@@ -84,4 +86,47 @@ done
 
 listo, entre con una shell www-data
 
-q
+## Explotacion
+
+lo primero que hice fue upgradear la shell, quedo la caga asi que no funciono.
+con la shell no se podia hacer muxo, asi que luego de rebuscar un buen rato y preguntar a compares en HTB y el foro, logre encontrar un archivo bastante particular, obteniendo lo siguiente:
+
+```vim
+cat /opt/ona/www/local/config/database_settings.inc.php  
+
+<?php
+
+$ona_contexts=array (
+  'DEFAULT' => 
+  array (
+    'databases' => 
+    array (
+      0 => 
+      array (
+        'db_type' => 'mysqli',
+        'db_host' => 'localhost',
+        'db_login' => 'ona_sys',
+        'db_passwd' => 'n1nj4W4rri0R!',
+        'db_database' => 'ona_default',
+        'db_debug' => false,
+      ),
+    ),
+    'description' => 'Default data context',
+    'context_color' => '#D3DBFF',
+  ),
+);
+```
+
+> n1nj4W4rri0R!
+
+se nota altiro que no necesita desifrarce, sin embargo no se donde habia que introducir esa passwoord, asi que enumere los usuarios obteniendo 2 principales:
+
+>joanna
+
+>jimmy
+
+asi que me dispuse a probar con el ssh, para ver si obtenia suerte.
+
+probe primero con joanna, pero nada (creo que no le gustaban los ninjas...)
+pero con jimmy funciono de pana, asi que con el podemos leer el user.txt y proseguir con el escalado de privilegios.
+
