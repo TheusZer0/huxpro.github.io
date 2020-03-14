@@ -2,7 +2,7 @@
 layout: post
 title: "OpenAdmin"
 subtitle: 'HackTheBox - Easy Machine - Linux'
-date: 2019-11-16 12:00:00
+date: 2020-03-13 12:00:00
 author: "TheusZero"
 header-img: "images/post/OpenAdmin/OpenAdmin.png"
 catalog: true
