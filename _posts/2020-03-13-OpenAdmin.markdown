@@ -227,4 +227,4 @@ y sip, hay archivos que se pueden ejecutar como admin, esta vez fue nano, asi qu
  
 y nano te deja leer archivos, asi que me meti a la carpeta /root/root.txt y era.
 
-suscribanse JHFJASFHASJK
+suscribanse JHFJASFHASJKD
