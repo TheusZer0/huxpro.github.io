@@ -14,7 +14,19 @@ comments: true
 
 #### Linux - Easy
 
+> [OpenAdmin](https://theuszer0.github.io/TheusZero/2020/03/13/OpenAdmin/)
+
+> [Haystack](https://theuszer0.github.io/TheusZero/2019/11/08/Haystack/)
+
+> [Haystack](https://theuszer0.github.io/TheusZero/2019/11/08/Haystack/)
+
+> [Networked](https://theuszer0.github.io/TheusZero/2019/11/16/Networked/)
+
+
 #### Linux - Medium
+
+> [Obscurity](https://theuszer0.github.io/TheusZero/2020/03/13/Obscurity/)
+
 
 #### Linux - Hard
 
@@ -27,6 +39,9 @@ comments: true
 ![](/TheusZero/images/utfsm.gif)
 
 #### Programacion
+
+> [Obscurity](https://theuszer0.github.io/TheusZero/2020/03/13/Obscurity/)
+
 
 #### Redes
 
