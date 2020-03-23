@@ -30,7 +30,9 @@ comments: true
 
 #### Windows - Easy
 
-#### Windows -Medium
+#### Windows - Medium
+
+#### Windows - Hard
 
 ## USM
 
