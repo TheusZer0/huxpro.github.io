@@ -10,6 +10,9 @@ comments: true
 
 ## HackTheBox
 
+![](/TheusZero/images/logo600.webp)
+
+
 #### Linux - Easy
 
 #### Linux - Medium
