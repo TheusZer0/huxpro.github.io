@@ -18,8 +18,6 @@ comments: true
 
 > [Haystack](https://theuszer0.github.io/TheusZero/2019/11/08/Haystack/)
 
-> [Haystack](https://theuszer0.github.io/TheusZero/2019/11/08/Haystack/)
-
 > [Networked](https://theuszer0.github.io/TheusZero/2019/11/16/Networked/)
 
 
@@ -40,10 +38,21 @@ comments: true
 
 #### Programacion
 
-> [Obscurity](https://theuszer0.github.io/TheusZero/2020/03/13/Obscurity/)
+> [NeoTel-Companny](https://theuszer0.github.io/TheusZero/2020/01/25/NeoTelCompanny/)
 
+> [IWI-Programacion Python](https://theuszer0.github.io/TheusZero/2020/01/25/IWI/)
+
+> [TEL102-Seminario de Programacion](https://theuszer0.github.io/TheusZero/2019/12/27/SeminarioProgramacion/)
+
+> [Tel101-Codigos Python](https://theuszer0.github.io/TheusZero/2019/12/26/CodigosPython-Tel101/)
+
+> [Simple Web Server with Python](https://theuszer0.github.io/TheusZero/2019/11/19/SimplePythonWebServer/)
+
+> [Upgrade Reverse Shell](https://theuszer0.github.io/TheusZero/2019/11/01/UpgradeShell/)
 
 #### Redes
+
+> [Redes de Computadoras - 2019-2](https://theuszer0.github.io/TheusZero/2020/02/25/RedesDePC/)
 
 ## TryHackMe
 
