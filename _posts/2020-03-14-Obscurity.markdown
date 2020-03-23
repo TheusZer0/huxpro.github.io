@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Obscurity"
-subtitle: 'HackTheBox - Easy Machine - Linux'
+subtitle: 'HackTheBox - Medium Machine - Linux'
 date: 2020-03-13 12:00:00
 author: "TheusZero"
 header-img: "images/post/Obscurity.png"
