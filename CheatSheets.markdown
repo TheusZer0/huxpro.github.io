@@ -10,4 +10,18 @@ comments: true
 
 ## Linux
 
+#### Sudo 
+
+```vim
+sudo -l
+```
+
+```vim
+sudo -u USER /bin/bash
+```
+
+```vim
+sudo -u USER commandLine /dir/file
+```
+
 ## Windows
