@@ -8,6 +8,14 @@ catalog: true
 comments: true
 ---
 
+## Link Interesantes
+
+> [GTFOBins](https://gtfobins.github.io/)
+
+> [ReverseShellsPM](http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet)
+
+>[ExploitDB](https://www.exploit-db.com/)
+
 ## Linux
 
 #### Sudo 
@@ -24,4 +32,9 @@ sudo -u USER /bin/bash
 sudo -u USER commandLine /dir/file
 ```
 
+## Perl
+
+```vim
+sudo perl -e 'exec "/bin/sh";
+```
 ## Windows
