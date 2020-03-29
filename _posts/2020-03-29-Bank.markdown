@@ -4,7 +4,7 @@ title: "Bank"
 subtitle: 'HackTheBox - Easy Machine - Linux'
 date: 2020-03-29 12:00:00
 author: "TheusZero"
-header-img: "images/post/bank/Bank.png"
+header-img: "images/post/bank/9.png"
 catalog: true
 comments: true
 tags:
