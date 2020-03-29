@@ -69,4 +69,87 @@ echo “10.10.10.29 bank.htb ” > /etc/hosts
 
 #### Web
 
-navegamos por *Bank.htb*
+navegamos por *Bank.htb* y le mandamos un lindo GoBuster para ver que podemos encontrar
+
+```vim
+===============================================================
+Gobuster v3.0.1
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
+===============================================================
+[+] Url:            http://bank.htb
+[+] Threads:        10
+[+] Wordlist:       /usr/share/wordlists/dirb/common.txt
+[+] Status codes:   200,204,301,302,307,401,403
+[+] User Agent:     gobuster/3.0.1
+[+] Timeout:        10s
+===============================================================
+2020/01/26 00:04:15 Starting gobuster
+===============================================================
+/.hta (Status: 403)
+/.htaccess (Status: 403)
+/.htpasswd (Status: 403)
+/assets (Status: 301)
+/inc (Status: 301)
+/index.php (Status: 302)
+/server-status (Status: 403)
+/uploads (Status: 301)
+/support.php (Status: 302)
+===============================================================
+2020/01/26 00:06:33 Finished
+===============================================================
+```
+
+investigando un poco, podemos darnos cuenta que al entrar a index.php o support.php nos redirecciona al login, por lo que intentaremos interceptar ese trafico.
+
+#### BurpSuite
+
+![](/TheusZero/images/post/bank/Bank1.png)
+
+mostramos mediante el render, una web.
+
+lo que intentaremos hacer, sera interceptar el trafico de **support.php**:
+
+![](/TheusZero/images/post/bank/Bank2.png)
+
+entonces, lo que haremos sera lo siguiente:
+
+ > cambiar el 302 Found to 200 Ok asi abriendo el Proxy -> Options -> Match and Replace
+
+![](/TheusZero/images/post/bank/Bank3.png)
+
+![](/TheusZero/images/post/bank/Bank4.png)
+
+![](/TheusZero/images/post/bank/Bank5.png)
+
+OwO , con esto logramos cambiar el header del 302 Found e interceptamos la web, obtienendo asi una forma de tener una reverse shell inyectando un codigo **PHP**.
+
+## User
+
+ya dentro de la maquina, luego de enumerar logre obtener lo sgte:
+
+```vim
+$ cat bankreports.txt
++=================+
+| HTB Bank Report |
++=================+
+```
+```vim
+===Users===
+Full Name: Christos Christopoulos
+Email: chris@bank.htb
+Password: !##HTBB4nkP4ssw0rd!##
+CreditCards: 2
+Transactions: 8
+Balance: 1.337$
+===Users===$ pwd
+/var/www/bank
+```
+
+## Privilage Escalation 
+
+Basta con mandar un **LinEnum.sh** y encontraremos un archivo llamado Emergency
+
+![](/TheusZero/images/post/bank/Bank6.png)
+
+Lo ejecutas y listo, eres Root.
+
