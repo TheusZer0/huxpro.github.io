@@ -49,13 +49,16 @@ sudo perl -e 'exec "/bin/sh";
 ```
 #### SSH
 > el punto tambien va del final.
+
 ```vim
 sshpass -p 'passwordOfUser' scp -oStrictHostKeyChecking=no User@IP:File .
 ```
 > Port Forwarding Desde mi maquina
+
 ```vim
 ssh -L port:127.0.0.1:port -N -f -l userSSH IP 
 ```
+
 #### Binaries
 ```vim
 find / perm -u=s -type f 2>/dev/null
