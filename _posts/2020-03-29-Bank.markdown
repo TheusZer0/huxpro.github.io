@@ -149,7 +149,7 @@ Balance: 1.337$
 
 Basta con mandar un **LinEnum.sh** y encontraremos un archivo llamado Emergency
 
-![](/TheusZero/images/post/bank/Bank6.png)
+![](/TheusZero/images/post/bank/bank6.png)
 
 Lo ejecutas y listo, eres Root.
 
