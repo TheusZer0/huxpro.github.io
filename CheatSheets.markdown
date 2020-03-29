@@ -22,7 +22,13 @@ sudo -u USER /bin/bash
 ```vim
 sudo -u USER commandLine /dir/file
 ```
-
+#### Net
+```vim
+sockstat -4 -l 
+```
+```vim
+netstat -anp tcp | grep -i listen
+```
 #### DNS
 
 ```vim
@@ -42,8 +48,13 @@ echo “Reverse shell” > /dir/file
 sudo perl -e 'exec "/bin/sh";
 ```
 #### SSH
+> el punto tambien va del final.
 ```vim
-sshpass -p 'passwordOfUser' scp -oStrictHostKeyChecking=no User@IP:File
+sshpass -p 'passwordOfUser' scp -oStrictHostKeyChecking=no User@IP:File .
+```
+> Port Forwarding Desde mi maquina
+```vim
+ssh -L port:127.0.0.1:port -N -f -l userSSH IP 
 ```
 #### Binaries
 ```vim
