@@ -26,10 +26,10 @@ sudo -u USER commandLine /dir/file
 #### DNS
 
 ```vim
-echo "10.10.10.29 bank.htb" | sudo tee -a /etc/host 
+echo "Mensaje" | sudo tee -a /dir/archivo 
 ```
 ```vim
-echo “10.10.10.29 bank.htb ” > /etc/hosts
+echo “Mensaje” > /dir/archivo
 ```
 
 #### Echo
@@ -56,3 +56,5 @@ sudo perl -e 'exec "/bin/sh";
 > [CTFtime](https://ctftime.org/)
 
 > [Escritura Exploits (Español)](https://fundacion-sadosky.github.io/guia-escritura-exploits/)
+
+> []() 
