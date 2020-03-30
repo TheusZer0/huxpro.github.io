@@ -60,15 +60,12 @@ ssh -L port:127.0.0.1:port -N -f -l userSSH IP
 ```
 #### Python
 **Upgrade Reverse Shell**
-```vim
-python3 -c "import pty;pty.spawn('/bin/bash')"
-```
 ```python
-python2 -c "import pty;pty.spawn('/bin/bash')"
+python3 -c "import pty;pty.spawn('/bin/bash')"
 ```
 **Simple Web Server**
 ```python
-python -m SimpleHTTPServer 4567
+python2 -m SimpleHTTPServer 4567
 ```
 #### Binaries
 ```vim
