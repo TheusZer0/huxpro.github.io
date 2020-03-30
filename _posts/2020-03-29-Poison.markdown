@@ -169,6 +169,6 @@ la clave esta codificada en algun algoritmo que de principio no debemos tocar, a
 
 #### Password VCN
 ```vim
-vncviewer -passwd secret 127.0.0.1:1
+vncviewer -passwd secret localhost:5901
 ```
 listo, entramos como root y podemos leer todo UWU.
