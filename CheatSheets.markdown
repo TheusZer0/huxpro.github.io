@@ -60,11 +60,11 @@ ssh -L port:127.0.0.1:port -N -f -l userSSH IP
 ```
 #### Python
 **Upgrade Reverse Shell**
-```python
+```Python
 python3 -c "import pty;pty.spawn('/bin/bash')"
 ```
 **Simple Web Server**
-```python
+```Python
 python2 -m SimpleHTTPServer 4567
 ```
 #### Binaries
