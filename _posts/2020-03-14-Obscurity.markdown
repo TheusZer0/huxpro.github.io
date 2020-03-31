@@ -308,40 +308,90 @@ ya mandandado el request mediante el burp, obtenemos la reverse shell del user *
 
 ## User - Robert
 
-este paso culiao me costo muxo, tuve que leer el codigo y entender que hacia cada cosa.
+Este paso es quiza el mas complejo de la maquina, ya que ademas de entender un codigo, debes entender como es que funciona cada cosa, ya que a simple vista nos falta un elemento de la ecuacion.
 
-> SuperSecureCrypt.py​ - Este es un acrhivo.py que se usa para encriptar algun archivo o string que le envien
+Con esto me refiero a lo siguiente:
+
+![](/TheusZero/images/post/obscurity/Obscura5.png)
+
+> SuperSecureCrypt.py​ - Este es un programa que se usa para encriptar algun archivo o string que le envien
 >
-> check.txt​ - limpia el texto encryptado de un archivo out.txt que deja el .py anterior
+> check.txt​ - Limpia el texto encryptado de un archivo out.txt que deja el .py anterior
 > 
-> out.txt​ - texto excriptado del clear text "check.txt"
+> out.txt​ - Texto excriptado del clear text "check.txt"
 >
-> passwordreminder.txt​ - password encriptada del usuario robert
+> passwordreminder.txt​ - Password encriptada del usuario robert
 
-Una mega paja wn. el tema es que puedes obtener la clave que usa para encriptar de la sgte manera.
+Luego de investigar, se descubrio que corresponde a un tipo de **Vigenere cipher**, que esta basado de la siguiente forma:
 
-> python3 SuperSecureCrypt.py -d -k "Encrypting this file with your
-  key should result in out.txt, make sure your key is correct!" -i
-  out.txt -o /tmp/passwd.txt
+> plaintext + key = ciphertext 
+
+Si racionamos y logramos comprender cada cosa, llegaremos a la conclusion de que tenemos el **Ciphertext** que corresponde al **out.txt** y tambien tenemos el **plaintext**
+que corresponde al **check.txt**.
+
+> **Ciphertext** = **out.txt**
 >
-> cat /tmp/passwd.txt
->> alexandrovich
->
+> **plaintext** = **check.txt**
+
+Viendo lo que hace la funcion decrypt() podremos ver que opera substrayendo la llave del **Ciphertext** para darsela al **Plaintext**.
+Haciendo la inversa, dando la llave como el plaintext obtenemos lo siguiente
+
+```Python
+python3 SuperSecureCrypt.py -d -k "Encrypting this file with your key should result in out.txt, make sure your key is correct!" -i out.txt -o /tmp/passwd.txt
+```
+
+![](/TheusZero/images/post/obscurity/Obscura6.png)
+
+> **alexandrovich** es la key.
+
 Ahora con esto podemos obtener lo demas:
 
-> python3 SuperSecureCrypt.py -d -k alexandrovich -i
-  passwordreminder.txt -o /tmp/robertpwd.txt
->
->> cat /tmp/robertpwd.txt
->>> SecThruObsFTW
+```Python
+python3 SuperSecureCrypt.py -d -k alexandrovich -i passwordreminder.txt -o /tmp/robertpwd.txt
+```
+![](/TheusZero/images/post/obscurity/Obscura7.png)
 
-El root es simple, le damos a un 
+> **SecThruObsFTW** aqui esta la password
+
+#### SSH
+Probamos el ssh con el user y la password.
+
+> **robert**:**SecThruObsFTW**
+
+![](/TheusZero/images/post/obscurity/Obscura8.png)
+
+ya entramos y podemos leer el user.txt
+
+## Root
+
+Lo primero que hice fue hacer lo siguiente:
 
 > sudo -l
  
-y obtenemos un archivo que podemos usar como root, este archivo busca usuarios ingresados con priviliegos en el sistema.
-y nos pide las credenciales dle mismo, como "robert" es un usuario le di esas credenciales y me dejo usar:
+ ![](/TheusZero/images/post/obscurity/Obscura9.png)
 
-> sudo -u root cat /root/root.txt
+De esta manera, obtenemos un archivo que podemos usar como root. Este archivo busca usuarios ingresados con priviliegos en el sistema.
+y nos pide las credenciales del mismo, como "robert" es un usuario le di esas credenciales y me dejo usar:
 
-listowo :D
+Viendo el script, podemos descubrir que, introduciendo una user y password de manera correcta, podemos autenticarnos con una shell.
+ 
+```Python
+if session['authenticated'] == 1:
+    while True:
+        command = input(session['user'] + "@Obscure$ ")
+        cmd = ['sudo', '-u', session['user']]
+        cmd.extend(command.split(" "))
+        proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        o,e = proc.communicate()
+        print('Output: ' + o.decode('ascii'))
+        print('Error: ' + e.decode('ascii')) if len(e.decode('ascii')) > 0 else
+print('')
+```
+Con esto, podemos diferenciar que **sudo -u** no debemos utilizarlo, tan solo **sudo**.
+Ingrese las credenciales de **robert** que obtuve y logre autenticarme.
+
+De esta manera, leemos el root y listo.
+
+ ![](/TheusZero/images/post/obscurity/Obscura10.png)
+
+
