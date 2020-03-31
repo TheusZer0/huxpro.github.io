@@ -56,7 +56,7 @@ El problema son sus certamenes, muchas veces webeados y con materia super especi
 >
 >> Revisar Tareas anteriores (casi todas son iguales)   
 
-AGV tiene una pag, donde cambiando el GET de la url puedes acceder al semestre que dicto con sus respectivos certamenes y tareas.
+AGV tiene una pag [This!](http://profesores.elo.utfsm.cl/~agv/elo322/1s19/index.html), donde cambiando la url (en la parte de **1s19** por el semestre-año que gustes) puedes acceder al semestre que dicto con sus respectivos certamenes y tareas.
 
 Suerteeee uwu.
 

