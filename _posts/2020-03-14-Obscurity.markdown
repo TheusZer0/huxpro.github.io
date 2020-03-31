@@ -7,6 +7,7 @@ author: "TheusZero"
 header-img: "images/post/Obscurity.png"
 catalog: true
 comments: true
+multilingual: true
 tags:
   - Linux
   - Machine
