@@ -56,7 +56,8 @@ abbr[title] {
 }
 b,
 strong {
- font-weight:700
+ font-weight:700;
+ color: red;
 }
 dfn {
  font-style:italic
