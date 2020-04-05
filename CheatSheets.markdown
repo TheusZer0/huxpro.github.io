@@ -3,7 +3,7 @@ layout: post
 title: "CheatSheets"
 author: "TheusZero"
 subtitle: 'Codigos mas usados'
-header-img: "images/footer-cover6.png"
+header-img: "images/Sekiro.png"
 catalog: true
 comments: true
 ---
@@ -93,7 +93,9 @@ find / perm -u=s -type f 2>/dev/null
 
 > [Windows Privilege Escalation Fundamentals](http://www.fuzzysecurity.com/tutorials/16.html)
 
-> []()
+> [Malla-Interactiva-USM](https://mallas.labcomp.cl/?m=TEL)
+
+> [Lab-Redes](http://www2.elo.utfsm.cl/~tel241/20102s/)
 
 ## Herramientas
 > [PsPy](https://github.com/DominicBreuker/pspy) 
