@@ -97,9 +97,9 @@ find / perm -u=s -type f 2>/dev/null
 
 ## Herramientas
 > [PsPy](https://github.com/DominicBreuker/pspy) 
->
+
 > [LinEnum](https://github.com/rebootuser/LinEnum/)
->
+
 > [PsPy64](https://f4d3.io/assets/downloads/linux/pspy64s) (grax f4d3 :D)
->
+
 > []()
