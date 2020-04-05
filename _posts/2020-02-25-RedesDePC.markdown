@@ -17,10 +17,15 @@ tags:
 
 # Redes de Computadoras - 2do Semestre 2019 - Rudy Malonnek
 
-## Links ricolinos
+## Drive
 
-#### Drive con MUXO material
+Este es un drive con mucho material para que puedan revisar y/o estudiar, pueden agregar cosas ya que mientras mas material, mejor.
+   
 > [Drive hecho por mi UwU](https://drive.google.com/drive/u/0/folders/0AP6afRafbeuIUk9PVA)
+>> Pedira acceso, casi siempre lo acepto el mismo dia. Cualquier consulta pueden hacermelo llegar por interno.
+
+
+## Links ricolinos
 
 #### Codigos AES
 > [Codigo-Java-AES](https://fluidattacks.com/web/defends/java/cifrar-simetricamente/)
@@ -252,8 +257,11 @@ Una vez estimado el tiempo utilizado en ambos, se puede concluir que el tiempo e
 Finalizando, podemos concluir que los dos URL utilizados, que utilizan el mismo protocolo (HTTP), la misma versión de protocolo (HTTP 1.1), el mismo IP y puertos, pero están empleados con diferentes métodos (GET y POST), generando una variación (diferencia), tanto en bytes transferidos, como en el tiempo empleado y la cantidad de conexiones utilizadas, además permite dar a conocer las grandes diferencias entre el método GET y POST en el análisis mediante Wireshark de ambos URL.
 
 > Nota = 80/100
->
+
+
 ## Tarea 2:
+
+
 
 
 
@@ -263,7 +271,7 @@ Finalizando, podemos concluir que los dos URL utilizados, que utilizan el mismo 
 
 Este codigo te abre un puerto a la escucha de manera infinita, es decir, si manda la respuesta el servidor seguira a la escucha a menos que este mismo programa sea cortado.
 
-```vim
+```Python
 import java.io.*; 
 import java.net.*; 
 
@@ -305,7 +313,7 @@ El archivo que crea es el string encriptado, la keysize y la secretkey como tal 
 
 > StringEncripted,KeySize,SecretKey
  
-```vim
+```Python
 package com.javapapers.java.security;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -365,7 +373,7 @@ public class AES_Encryption {
 }
 ```
 #### Codigo AES - retorna un archivo solo con la llave simetrica - (Este usare creo)
-```vim
+```Python
 package com.javapapers.java.security;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -429,7 +437,7 @@ public class AES_Encryption {
 
 Este codigo sirve para crear un PATH=RSA/ que guarda los archivos de las llaves privadas y publicas
 
-```vim
+```Python
 package com.devglan.rsa;
 
 import java.io.File;
@@ -481,7 +489,7 @@ public class RSA {
 
 #### Codigo RSA - encriptar y desencriptar archivos - arreglado :D
 
-```vim
+```Python
 package com.mkyong.asymmetric;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -613,7 +621,7 @@ Aqui se genera un archivo "TareaRedes.txt" que corresponde a la encriptacion de 
 >
 >> Largo_Llave.txt
 
-```vim
+```Python
 package com.javapapers.java.security;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -669,7 +677,7 @@ Esto genera un directorio en la carpeta donde se ejecuta el programa, esta carpe
 >
 >> privateKEY 
 
-```vim
+```Python
 package com.devglan.rsa;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -716,7 +724,7 @@ Este codigo corresponde al ejercicio 2 de la tarea 3, ya que encripta la llave A
 > El archivo lleva de nombre:
 >> RsaEncyption
 
-```vim
+```Python
 package com.mkyong.asymmetric;
 import java.io.File;
 import java.io.FileOutputStream;
