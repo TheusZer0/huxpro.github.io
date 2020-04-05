@@ -3,7 +3,7 @@ layout: post
 title: "CheatSheets"
 author: "TheusZero"
 subtitle: 'Codigos mas usados'
-header-img: "images/Sekiro2.png"
+header-img: "images/Sekiro1.png"
 catalog: true
 comments: true
 ---
