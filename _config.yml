@@ -71,10 +71,16 @@ page-mathjax: false
 # Friends
 friends: [
     {
-    #     title: "Su",
-    #     href: "http://su.gallery/"
-    # },{
         title: "F4d3",
         href: "https://f4d3.io/"
-    }
+    },{
+    title: "dplastico",
+    href: "https://dplastico.me/"
+    },{
+    title: "Binary Chaos",
+    href: "https://hackingprofessional.github.io/Security/"
+    },{
+      title: "sckull",
+      href: "https://sckull.github.io/"
+    },
 ]

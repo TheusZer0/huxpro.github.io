@@ -87,6 +87,14 @@ find / perm -u=s -type f 2>/dev/null
 
 > [Escritura Exploits (Español)](https://fundacion-sadosky.github.io/guia-escritura-exploits/)
 
+> [escapar de shells restringidas](https://www.hackplayers.com/2018/05/tecnicas-para-escapar-de-restricted--shells.html)
+
+> [Basic Linux Privilege Escalation](https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/)
+
+> [Windows Privilege Escalation Fundamentals](http://www.fuzzysecurity.com/tutorials/16.html)
+
+>
+
 ## Herramientas
 > [PsPy](https://github.com/DominicBreuker/pspy) 
 >
