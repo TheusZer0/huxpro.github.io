@@ -1692,5 +1692,14 @@ El campo “Número de Acknowledgement” de la estructura de un segmento TCP se
 >
 >> Falso
 
+**29-**
+
+![](/TheusZero/images/post/Redes/Certamen1/Redes_Certamen2_3.png)
+
+**30-**
+
+![](/TheusZero/images/post/Redes/Certamen1/Redes_Certamen2_4.png)
+
+![](/TheusZero/images/post/Redes/Certamen1/Redes_Certamen2_5.png)
 
 ## Certamen 3
