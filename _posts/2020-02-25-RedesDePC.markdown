@@ -261,7 +261,34 @@ Finalizando, podemos concluir que los dos URL utilizados, que utilizan el mismo 
 
 ## Tarea 2:
 
+#### Introducción: 
+     
+En esta tarea, como equipo de trabajo analizaremos cada uno de los protocolos seleccionados, 
+     con sus respectivos experimentos respaldados en la información que será entregada mediante 
+     el analizador de paquetes y tráfico de red wireshark.  
+     
+Comenzaremos con el protocolo llamado Dynamic Host Configuration Protocol o más 
+     comúnmente DHCP, el cual es una extensión del protocolo Bootstrap (BOOTP) desarrollado 
+     en 1985 para conectar dispositivos como terminales y estaciones de trabajo. Su mayor énfasis 
+     como protocolo en este laboratorio será experimentar con la capacidad de asignar 
+     automáticamente las direcciones de red o IP, realizando configuraciones a los parámetros de 
+     red asignables como lo es el DNS y la Máscara de Subred, mediante comandos introducidos 
+     en la terminal de una maquina con un sistema operativo Linux. 
 
+Siguiendo con el desarrollo, el próximo protocolo que tocará por analizar corresponderá a 
+     ARP o Address Resolution Protocol, este es imprescindible a la hora de convertir las 
+     direcciones de protocolo de alto nivel como las direcciones IP a direcciones de red físicas, 
+     mediante configuraciones a los parámetros de red, revisando su dirección MAC y realizando 
+     un respaldo en el cache del mismo. Este será analizado por wireshark mediante una maquina 
+     Windows, para poder ver como actúa este protocolo. 
+  
+Por último y no menos importante, realizaremos pruebas con comandos Linux y Windows 
+     para el protocolo ICMP, el cual se encarga de controlar especialmente los mensajes de error 
+     y control necesarios para los sistemas de redes de computadoras, enfocado al envió de 
+     paquetes para así, como protocolo, poder analizar si este paquete no puede alcanzar su 
+     destino, si su vida ha expirado, si el encabezado lleva un valor no permitido, si es un paquete 
+     de eco o respuesta, etc. Los comandos que se utilizaran corresponden a PING y a 
+     TRACEROUTE (TRACERT en windows). 
 
 
 
