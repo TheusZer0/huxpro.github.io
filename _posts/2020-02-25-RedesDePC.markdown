@@ -1099,10 +1099,229 @@ Dejare las preguntas de la siguiente forma:
 >
 > d.
 
-La respuesta correcta estara **Indicada Asi** para diferenciarla de las demas.
+La respuesta correcta estara **Indicada Asi** en el **Apartado de Respuestas** para diferenciarla de las demas.
 Cualquier cosa, pueden comentar al final del foro si prefieren que lo cambie, o me lo hacen llegar por interno.
 
-#### Preguntas
+#### Verdadero/Falso
+
+#### Desarrollo
+
+**1-** 
+Considere 5000 byte datagrama, es transformado en datagramas mas pequeños (MTU =1500 bytes). El tamaño del último datagrama enviado es:
+
+> a. 1480
+>
+> b. 940
+>
+> c. 2980
+>
+> d. 560
+
+**2-** 
+Si los parámetros de red de un computador son: IP 10.111.0.254, máscara 255.255.252.0. Total de hosts corresponde a:
+
+> a. 512
+>
+> b. Ninguna de las anteriores.
+>
+> c. 1022
+>
+> d. 2046
+
+**3-** 
+UDP es utilizado en
+
+> I) HTTP
+>
+> II) DNS
+>
+> III) SNMP
+>
+> IV) FTP
+
+Seleccione las que corresponden:
+
+> a. I y II
+>
+> b. I y III
+>
+> c. II y III
+>
+> d. II y IV
+
+**4-** 
+El campo “RcvWindow” de la estructura de un segmento TCT se utiliza en:
+
+> a. Control de Flujo.
+>
+> b. Administración de la Conexión.
+>
+> c. Round Trip Time.
+>
+> d. Transferencia confiable de datos.
+
+**5-** 
+Si los parámetros de red de un computador son: IP 10.111.0.254, máscara 255.255.252.0. La red corresponde a:
+> a. 10.111.1.0/22
+>
+> b. 10.111.0.0/22
+>
+> c. 10.111.0.0/23
+>
+> d. 10.111.1.0/23
+
+**6-** 
+Valor de la máscara de red si se desean una subnet con 14 hosts.
+
+> a. 255.255.255.224
+>
+> b. 255.255.255.240
+>
+> c. 255.255.255.248
+>
+> d. 255.255.255.192
+
+**7-** 
+En un esquema de control de congestión en TCP el transmisor reduce su tasa:
+
+> a. Tres acks duplicados.
+>
+> b. Tres acks duplicados o Timeout.
+>
+> c. Ninguna de las anteriores.
+>
+> d. Timeout.
+
+**8-** 
+Para la administración de la conexión en TCP se utilizan los campos de la estructura de un segmento TCP.
+
+> I. ACK
+>
+> II. SYN
+>
+> III. FIN
+>
+> IV. URG
+
+Seleccione una:
+
+> a. Solo II
+>
+> b. Todos
+>
+> c. I y II
+>
+> d. I, II y III
+
+**9-** 
+El protocolo de ruteo OSFP utiliza:
+
+> a. Algoritmo estado de enlace.
+>
+> b. Algoritmo ruteo jerárquico.
+>
+> c. Ninguno de los anteriores.
+>
+> d. Algoritmo de vector de distancia.
+
+**10-** 
+Considere 7000 byte datagrama, es transformado en datagramas mas pequeños (MTU =1500 bytes). El tamaño del último datagrama enviado es:
+
+> a. 420
+>
+> b. 1480
+>
+> c. 2980
+>
+> d. 1080
+
+**11-** 
+¿Cuál es una de la función claves de la capa de Red?
+
+> a. Ruteo.
+>
+> b. Direccionamiento.
+>
+> c. Transferencia confiable de datos.
+>
+> d. Control de Flujo.
+
+**12-** 
+Un Sockets TCP queda definido por:  
+
+> I) Ip fuente.
+>  
+> II) Puerto fuente
+>  
+> III) Ip destino.
+>  
+> IV) Puerto destino.
+
+Seleccione una:
+
+> a. I, II , III y IV
+>
+> b. I y III
+>
+> c. II y IV
+>
+> d. I y II
+
+**13-** 
+Cuando se hace uso de NAT: Network Address Translation:
+
+> a. Todos los datagramas salientes de la red local tienen distinta dirección IP, pero el mismo número de puerto.
+>
+> b. Todos los datagramas salientes de la red local tienen distinta dirección IP, pero diferentes números de puertos.
+>
+> c. Ninguno de los anteriores.
+>
+> d. Todos los datagramas salientes de la red local tienen la misma dirección IP, pero diferentes números de puertos.
+
+**14-** 
+El Formato del Segmento TCP/UDP entre otros campos incluye:
+
+> I) Ip fuente.
+>  
+> II) Puerto fuente
+>  
+> III) Ip destino.
+>  
+> IV) Puerto destino.
+
+Seleccione una:
+
+> a. I y IV
+>
+> b. I y III
+>
+> c. Todas
+>
+> d. I y II
+
+**15-** 
+¿Cuál es el desempeño del protocolo de transferencia confiable (pipeline con 3 paquetes) si el enlace es de 10Gbps , 15 ms de retardo de extremo a extremo, paquetes de 1KB y RTT = 30ms?
+
+> a. 0,008%
+>
+> b. 0,08%
+>
+> c. 0,0008%
+>
+> d. 0,8%
+
+**16-** 
+El campo “Número de Acknowledgement” de la estructura de un segmento TCP se utiliza en:
+
+> a. Control de Flujo.
+>
+> b. Administración de la Conexión.
+>
+> c. Round Trip Time.
+>
+> d. Transferencia confiable de datos.
+
+#### Respuestas
 
 **1-** 
 Considere 5000 byte datagrama, es transformado en datagramas mas pequeños (MTU =1500 bytes). El tamaño del último datagrama enviado es:
@@ -1222,8 +1441,101 @@ El protocolo de ruteo OSFP utiliza:
 >
 > d. Algoritmo de vector de distancia.
 
-#### Verdadero/Falso
+**10-** 
+Considere 7000 byte datagrama, es transformado en datagramas mas pequeños (MTU =1500 bytes). El tamaño del último datagrama enviado es:
 
-#### Desarrollo
+> a. 420
+>
+> b. 1480
+>
+> c. 2980
+>
+> **d. 1080**
+
+**11-** 
+¿Cuál es una de la función claves de la capa de Red?
+
+> **a. Ruteo.**
+>
+> b. Direccionamiento.
+>
+> c. Transferencia confiable de datos.
+>
+> d. Control de Flujo.
+
+**12-** 
+Un Sockets TCP queda definido por:  
+
+> I) Ip fuente.
+>  
+> II) Puerto fuente
+>  
+> III) Ip destino.
+>  
+> IV) Puerto destino.
+
+Seleccione una:
+
+> **a. I, II , III y IV**
+>
+> b. I y III
+>
+> c. II y IV
+>
+> d. I y II
+
+**13-** 
+Cuando se hace uso de NAT: Network Address Translation:
+
+> a. Todos los datagramas salientes de la red local tienen distinta dirección IP, pero el mismo número de puerto.
+>
+> b. Todos los datagramas salientes de la red local tienen distinta dirección IP, pero diferentes números de puertos.
+>
+> c. Ninguno de los anteriores.
+>
+> **d. Todos los datagramas salientes de la red local tienen la misma dirección IP, pero diferentes números de puertos.**
+
+**14-** 
+El Formato del Segmento TCP/UDP entre otros campos incluye:
+
+> I) Ip fuente.
+>  
+> II) Puerto fuente
+>  
+> III) Ip destino.
+>  
+> IV) Puerto destino.
+
+Seleccione una:
+
+> a. I y IV
+>
+> b. I y III
+>
+> **c. Todas**
+>
+> d. I y II
+
+**15-** 
+¿Cuál es el desempeño del protocolo de transferencia confiable (pipeline con 3 paquetes) si el enlace es de 10Gbps , 15 ms de retardo de extremo a extremo, paquetes de 1KB y RTT = 30ms?
+
+> **a. 0,008%**
+>
+> b. 0,08%
+>
+> c. 0,0008%
+>
+> d. 0,8%
+
+**16-** 
+El campo “Número de Acknowledgement” de la estructura de un segmento TCP se utiliza en:
+
+> a. Control de Flujo.
+>
+> b. Administración de la Conexión.
+>
+> c. Round Trip Time.
+>
+> **d. Transferencia confiable de datos.**
 
 ## Certamen 3
