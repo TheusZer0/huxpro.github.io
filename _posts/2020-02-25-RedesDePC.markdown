@@ -537,7 +537,7 @@ Debias hacer un **encrypt** de un **string** con la llave publica entregada en e
 
 > al momento de tomar el ramo, era mechon y no estaba familiarizado con Java y el tiempo no fue el suficiente.
 
-#### Codigo Socket para servidor
+**Codigo Socket para servidor**
 
 Este codigo te abre un puerto a la escucha de manera infinita, es decir, si manda la respuesta el servidor seguira a la escucha a menos que este mismo programa sea cortado.
 
@@ -576,7 +576,7 @@ class TCPServer {
 } 
 ```
 
-#### Codigo AES para encriptar un string
+**Codigo AES para encriptar un string**
 
 Este codigo genera una keysize de 168 para encriptar un string con el metodo AES y crea un archivo en la carpeta actual donde se encuentra ubicado el archivo.
 El archivo que crea es el string encriptado, la keysize y la secretkey como tal de la siguiente forma
@@ -584,7 +584,6 @@ El archivo que crea es el string encriptado, la keysize y la secretkey como tal 
 > StringEncripted,KeySize,SecretKey
  
 ```Python
-package com.javapapers.java.security;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
@@ -642,9 +641,8 @@ public class AES_Encryption {
         }*/
 }
 ```
-#### Codigo AES - retorna un archivo solo con la llave simetrica - (Este usare creo)
+**Codigo AES - retorna un archivo solo con la llave simetrica - (Este usare creo)**
 ```Python
-package com.javapapers.java.security;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
@@ -703,13 +701,11 @@ public class AES_Encryption {
 }
 ```
 
-#### Codigo RSA - Generar Llaves Privadas y Publicas
+**Codigo RSA - Generar Llaves Privadas y Publicas**
 
 Este codigo sirve para crear un PATH=RSA/ que guarda los archivos de las llaves privadas y publicas
 
 ```Python
-package com.devglan.rsa;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -757,10 +753,9 @@ public class RSA {
 }
 ```
 
-#### Codigo RSA - encriptar y desencriptar archivos - arreglado :D
+**Codigo RSA - encriptar y desencriptar archivos - arreglado :D**
 
 ```Python
-package com.mkyong.asymmetric;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -880,9 +875,9 @@ public class AsymmetricCryptography {
 }
 ```
 
-#### Encriptar Todo
+> **Encriptar Todo**
 
-#### Generar una llave simétrica AES
+**Generar una llave simétrica AES**
 
 Aqui se genera un archivo "TareaRedes.txt" que corresponde a la encriptacion de un string a AES, como una llave simetrica.
 
@@ -892,7 +887,6 @@ Aqui se genera un archivo "TareaRedes.txt" que corresponde a la encriptacion de 
 >> Largo_Llave.txt
 
 ```Python
-package com.javapapers.java.security;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
@@ -939,7 +933,7 @@ public class AES_Encryption {
 }
 ```
 
-#### Generar una llave privada RSA
+**Generar una llave privada RSA**
 
 Esto genera un directorio en la carpeta donde se ejecuta el programa, esta carpeta con el nombre de RSA guarda la llave secreta para el equipo
 
@@ -948,7 +942,6 @@ Esto genera un directorio en la carpeta donde se ejecuta el programa, esta carpe
 >> privateKEY 
 
 ```Python
-package com.devglan.rsa;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -987,15 +980,14 @@ public class RSA {
     }
 }
 ```
-#### Encriptar la llave simétrica AES, utilizando la llave pública (disponible en Aula) del AlgoritmoRSA
-
+**Encriptar la llave simétrica AES, utilizando la llave pública (disponible en Aula) del AlgoritmoRSA**
+ 
 Este codigo corresponde al ejercicio 2 de la tarea 3, ya que encripta la llave AES con la llave RSA publica y crea un archivo llamado RsaEncyption que corresponde a la llave AES encriptada con la llave publica AES
 
 > El archivo lleva de nombre:
 >> RsaEncyption
 
 ```Python
-package com.mkyong.asymmetric;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
