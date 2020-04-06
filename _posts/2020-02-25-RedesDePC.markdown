@@ -292,14 +292,14 @@ Por último y no menos importante, realizaremos pruebas con comandos Linux y Win
 
 #### Desarrollo
 
-###### Items
+### Items
 > [Servicio DHCP](https://theuszer0.github.io/TheusZero/2020/02/25/RedesDePC/#servicio-dhcp)
 
 > []()
 
 > []()
 
-###### Servicio DHCP
+### Servicio DHCP
 
 Primero empezamos con un reconocimiento de la ip de nuestro equipo y de la configuración 
 de red que nuestra maquina posee: 
