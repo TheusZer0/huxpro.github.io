@@ -1147,6 +1147,81 @@ Seleccione las que corresponden:
 >
 > d. II y IV
 
+**4-** 
+El campo “RcvWindow” de la estructura de un segmento TCT se utiliza en:
+
+> **a. Control de Flujo.**
+>
+> b. Administración de la Conexión.
+>
+> c. Round Trip Time.
+>
+> d. Transferencia confiable de datos.
+
+**5-** 
+Si los parámetros de red de un computador son: IP 10.111.0.254, máscara 255.255.252.0. La red corresponde a:
+> a. 10.111.1.0/22
+>
+> **b. 10.111.0.0/22**
+>
+> c. 10.111.0.0/23
+>
+> d. 10.111.1.0/23
+
+**6-** 
+Valor de la máscara de red si se desean una subnet con 14 hosts.
+
+> a. 255.255.255.224
+>
+> **b. 255.255.255.240**
+>
+> c. 255.255.255.248
+>
+> d. 255.255.255.192
+
+**7-** 
+En un esquema de control de congestión en TCP el transmisor reduce su tasa:
+
+> a. Tres acks duplicados.
+>
+> **b. Tres acks duplicados o Timeout.**
+>
+> c. Ninguna de las anteriores.
+>
+> d. Timeout.
+
+**8-** 
+Para la administración de la conexión en TCP se utilizan los campos de la estructura de un segmento TCP.
+
+> I. ACK
+>
+> II. SYN
+>
+> III. FIN
+>
+> IV. URG
+
+Seleccione una:
+
+> a. Solo II
+>
+> b. Todos
+>
+> c. I y II
+>
+> **d. I, II y III**
+
+**9-** 
+El protocolo de ruteo OSFP utiliza:
+
+> **a. Algoritmo estado de enlace.**
+>
+> b. Algoritmo ruteo jerárquico.
+>
+> c. Ninguno de los anteriores.
+>
+> d. Algoritmo de vector de distancia.
+
 #### Verdadero/Falso
 
 #### Desarrollo
