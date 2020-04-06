@@ -1104,9 +1104,13 @@ Cualquier cosa, pueden comentar al final del foro si prefieren que lo cambie, o 
 Considere 5000 byte datagrama, es transformado en datagramas mas pequeños (MTU =1500 bytes). El tamaño del último datagrama enviado es:
 
 > a. 1480
+>
 > b. 940
+>
 > c. 2980
+>
 > **d. 560**
+
 
 #### Verdadero/Falso
 
