@@ -20,7 +20,7 @@ Arreglos: recordar definir que tipo de elemento sera nuestro arreglo, cada uno d
 el tipo entero, sera siempre un entero, por lo que hay que tener cuidado ( No es como en python que podias tener una lista con 3 tipos de elementos diferentes, como strings y enteros en una sola lista ) 
 > recordar colocar el numero de arreglos que tendremos 
 
-```vim
+```Python
 int arreglo [10]; //tendremos este arreglo con un total de 10 enteros
 arreglo [7] = 3 ; // con esto decimos que en el puesto 7+1 este sera de un valor de 3
 ```
@@ -32,7 +32,7 @@ de manera que puedan quedar en la pag y sean faciles de buscar y ver.
 
 #### Main
 
-```vim
+```Python
 //
 // Created by TheusZero on 27-12-2019.
 //
@@ -49,7 +49,7 @@ int main() {
 
 #### Ejercicios - Guia 
 
-```vim
+```Python
 #include <iostream>
 #include <string>
 
@@ -73,7 +73,7 @@ int main ()
 }
 ```
 
-```vim
+```Python
 #include <iostream>
 #include <string>
 
@@ -90,7 +90,7 @@ int main()
 }
 ```
 
-```vim
+```Python
 #include <iostream>
 #include <string>
 #include <stdio.h>
@@ -110,7 +110,7 @@ int main()
 
 #### For - Basicos e Importantes
 
-```vim
+```Python
 //
 // Created by TheusZero on 27-12-2019.
 //
@@ -155,7 +155,7 @@ int main(){
 
 #### Entre Numeros (uso de if)
 
-```vim
+```Python
 //
 // Created by TheusZero on 27-12-2019.
 //
@@ -182,7 +182,7 @@ int main() {
 
 #### Raiz Cuadrada
 
-```vim
+```Python
 //
 // Created by theuszero on 10/6/19.
 //
@@ -212,7 +212,7 @@ int main() {
 ## Controles
 
 #### Control 1
-```vim
+```Python
 /* 
  * DISCLAIMER: El siguiente archivo no contiene tildes a proposito, 
  * para evitar problemas de compatibilidad.
@@ -322,7 +322,7 @@ vector unitaryVector(vector v1){
 
 #### Control 2
 
-```vim
+```Python
 /* 
  * DISCLAIMER: El siguiente archivo no contiene tildes a proposito, 
  * para evitar problemas de compatibilidad.
@@ -416,3 +416,4 @@ void Envio::CambiaDireccion(std::string nuevaDireccion){
 void Envio::MarcarRecibido(bool Recibido){
 	this->Recibido=Recibido;
 }
+```
