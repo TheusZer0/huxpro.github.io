@@ -1102,9 +1102,7 @@ Dejare las preguntas de la siguiente forma:
 La respuesta correcta estara **Indicada Asi** en el **Apartado de Respuestas** para diferenciarla de las demas.
 Cualquier cosa, pueden comentar al final del foro si prefieren que lo cambie, o me lo hacen llegar por interno.
 
-#### Verdadero/Falso
-
-#### Desarrollo
+#### Preguntas
 
 **1-** 
 Considere 5000 byte datagrama, es transformado en datagramas mas pequeños (MTU =1500 bytes). El tamaño del último datagrama enviado es:
@@ -1320,6 +1318,84 @@ El campo “Número de Acknowledgement” de la estructura de un segmento TCP se
 > c. Round Trip Time.
 >
 > d. Transferencia confiable de datos.
+
+#### Verdadero/Falso
+
+**17-**
+> Un Algoritmo de ruteo descentralizado es el algoritmo vector de distancia.
+>> Verdadero
+>
+>> Falso
+
+**18-**
+> La administración de la conexión se realiza en TCP y UDP.
+>> Verdadero
+>
+>> Falso
+
+**19-**
+> La capa de transporte ofrece servicios de garantía de retardo y ancho de banda.
+>> Verdadero
+>
+>> Falso
+
+**20-**
+> No hay establecimiento de conexión entre un servidor y receptor UDP.
+>> Verdadero
+>
+>> Falso
+
+**21-**
+> Una dirección IP clase B es representada por: subnet/24.
+>> Verdadero
+>
+>> Falso
+
+**22-**
+> Las retransmisiones son activadas solo por eventos de timeout.
+>> Verdadero
+>
+>> Falso
+
+**23-**
+> El tamaño de ventana para el protocolo de transferencia confiable de datos selective repeat para que no haya traslape debe ser k >= w/2.
+>> Verdadero
+>
+>> Falso
+
+**24-**
+> Para el protocolo de transferencia confiable de datos selective repeat, el receptor envía acuse de recibo individual de todos los paquetes recibidos.
+>> Verdadero
+>
+>> Falso
+
+**25-**
+> El encabezado de un datagrama IPv6 es de 40 bytes.
+>> Verdadero
+>
+>> Falso
+
+**26-**
+> En partida lenta ( control de congestión en TCP) aumenta la tasa exponencialmente hasta la primera pérdida.
+>> Verdadero
+>
+>> Falso
+
+**27-**
+> El control de congestión en TCP usa control extremo a extremo con asistencia de la red.
+>> Verdadero
+>
+>> Falso
+
+**28-**
+> En control de flujo el transmisor no sobrecargará el buffer del receptor por transmitir demasiado rápido.
+>> Verdadero
+>
+>> Falso
+
+#### Desarrollo
+
+
 
 #### Respuestas
 
@@ -1537,5 +1613,78 @@ El campo “Número de Acknowledgement” de la estructura de un segmento TCP se
 > c. Round Trip Time.
 >
 > **d. Transferencia confiable de datos.**
+
+**17-**
+> Un Algoritmo de ruteo descentralizado es el algoritmo vector de distancia.
+>> **Verdadero**
+>
+>> Falso
+
+**18-**
+> La administración de la conexión se realiza en TCP y UDP.
+>> Verdadero
+>
+>> **Falso**
+
+**19-**
+> La capa de transporte ofrece servicios de garantía de retardo y ancho de banda.
+>> Verdadero
+>
+>> **Falso**
+
+**20-**
+> No hay establecimiento de conexión entre un servidor y receptor UDP.
+>> **Verdadero**
+>
+>> Falso
+
+**21-**
+> Una dirección IP clase B es representada por: subnet/24.
+>> Verdadero
+>
+>> **Falso**
+
+**22-**
+> Las retransmisiones son activadas solo por eventos de timeout.
+>> Verdadero
+>
+>> **Falso**
+
+**23-**
+> El tamaño de ventana para el protocolo de transferencia confiable de datos selective repeat para que no haya traslape debe ser k >= w/2.
+>> Verdadero
+>
+>> **Falso**
+
+**24-**
+> Para el protocolo de transferencia confiable de datos selective repeat, el receptor envía acuse de recibo individual de todos los paquetes recibidos.
+>> **Verdadero**
+>
+>> Falso
+
+**25-**
+> El encabezado de un datagrama IPv6 es de 40 bytes.
+>> **Verdadero**
+>
+>> Falso
+
+**26-**
+> En partida lenta ( control de congestión en TCP) aumenta la tasa exponencialmente hasta la primera pérdida.
+>> **Verdadero**
+>
+>> Falso
+
+**27-**
+> El control de congestión en TCP usa control extremo a extremo con asistencia de la red.
+>> Verdadero
+>
+>> **Falso**
+
+**28-**
+> En control de flujo el transmisor no sobrecargará el buffer del receptor por transmitir demasiado rápido.
+>> **Verdadero**
+>
+>> Falso
+
 
 ## Certamen 3
