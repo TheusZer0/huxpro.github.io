@@ -1071,3 +1071,45 @@ public class AsymmetricCryptography {
     }
 }
 ```
+
+> Nota 40/100 **No se JAVAAA aksjdkasjdkajdka xd**
+
+## Certamen 1
+
+#### Link en PDF
+[]()
+
+#### Preguntas
+
+#### Desarrollo
+
+## Certamen 2
+
+#### Contexto
+
+Como la evaluacion 2 y 3 fueron online, no tengo el respectivo pdf.
+
+Dejare las preguntas de la siguiente forma:
+
+> a.
+> b.
+> c.
+> d.
+
+La respuesta correcta estara **Indicada Asi** para diferenciarla de las demas.
+Cualquier cosa, pueden comentar al final del foro si prefieren que lo cambie, o me lo hacen llegar por interno.
+
+#### Preguntas
+
+Considere 5000 byte datagrama, es transformado en datagramas mas pequeños (MTU =1500 bytes). El tamaño del último datagrama enviado es:
+
+> a. 1480
+  b. 940
+  c. 2980
+  **d. 560**
+
+#### Verdadero/Falso
+
+#### Desarrollo
+
+## Certamen 3
