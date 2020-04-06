@@ -1395,7 +1395,13 @@ El campo “Número de Acknowledgement” de la estructura de un segmento TCP se
 
 #### Desarrollo
 
+**29-**
 
+![](/TheusZero/images/post/Redes/Certamen1/Redes_Certamen2.png)
+
+**30-**
+
+![](/TheusZero/images/post/Redes/Certamen1/Redes_Certamen2_2.png)
 
 #### Respuestas
 
