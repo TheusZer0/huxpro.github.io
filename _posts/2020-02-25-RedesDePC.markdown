@@ -98,7 +98,7 @@ previamente instalado en Linux-Debian se utiliza el siguiente
 comando para instalarlo, ya que se usa el administrador de paquetes 
 “APT” que Debian posee: 
 
-> $ sudo apt-get install Wireshark 
+> sudo apt-get install Wireshark 
 
 Luego se accede al terminal de la máquina, utilizando los comandos 
 “ifconfig” y “netstat -i”, con lo que se puede visualizar la IP de la 
@@ -290,16 +290,7 @@ Por último y no menos importante, realizaremos pruebas con comandos Linux y Win
      de eco o respuesta, etc. Los comandos que se utilizaran corresponden a PING y a 
      TRACEROUTE (TRACERT en windows). 
 
-#### Desarrollo
-
-### Items
-> [Servicio DHCP](https://theuszer0.github.io/TheusZero/2020/02/25/RedesDePC/#servicio-dhcp)
-
-> []()
-
-> []()
-
-### Servicio DHCP
+#### Servicio DHCP
 
 Primero empezamos con un reconocimiento de la ip de nuestro equipo y de la configuración 
 de red que nuestra maquina posee: 
@@ -319,6 +310,84 @@ dinámica de ip.
 En la terminal se usarán los siguientes comandos:
 
 ![](/TheusZero/images/post/Redes/Tarea2/tarea2_3.png)
+
+El comando **dhclient** obtiene una lista de todas las interfaces de red que están configuradas 
+en la maquina actual. Para cada interfaz, intenta configurar esta misma utilizando el protocolo 
+DHCP para así liberar la IP actual y obtener una nueva desde el servidor DHCP de nuestro 
+sistema. 
+
+Primero usaremos el comando **dhclient –r** para borrar cualquier viejo proceso y podemos 
+complementarlo con **dhclient –r –v** que agrega un **vervose** para poder imprimir por 
+pantalla cada uno de los procesos que ejecuta este comando.
+
+![](/TheusZero/images/post/Redes/Tarea2/tarea2_4.png)
+
+El comando “dhclient -v” genera el servidor para poder obtener la nueva dirección ip, 
+haciéndole esta configuración a todas las interfaces activas. En nuestro caso, la interfaz activa 
+de nuestra maquina corresponde a “eth0” por lo cual le damos este parámetro a “dhclient” 
+para que se ejecute solo en esta interfaz.
+
+![](/TheusZero/images/post/Redes/Tarea2/tarea2_5.png)
+
+Ahora, ya explicado los comandos, comenzamos primero utilizando el comando: 
+
+> dhclient –r 
+
+Ya liberado cualquier tipo de servidor dhclient comenzamos el escaneo con wireshark. 
+Cuando wireshark ya este escaneando y no estemos con ningún servidor dhcp activo, 
+colocaremos en la terminal el comando: 
+
+> dhclient –v eth0 
+
+De esta forma, le asignaremos una ip a nuestra máquina. 
+
+Abriremos otra terminal para verificar el cambio de ip, en nuestro caso, como utilizamos 
+anteriormente el comando para liberar la dirección ip “dhclient –r” deberíamos tener una 
+dirección nueva ahora. 
+
+Ya listo y dado el mensaje por pantalla y verificado el cambio de ip, cerraremos o liberaremos 
+la ip mediante otro: 
+
+> dhclient –r 
+
+![](/TheusZero/images/post/Redes/Tarea2/tarea2_6.png)
+
+Ahora revisando wireshark y filtrando los paquetes mediante la opción: 
+
+> **bootp** o **udp.port** **==** **67** && **udp.port==68**
+ 
+Como en el comando “dhclient” no especifique un Puerto en específico con el parámetro 
+**-p (puerto)**, el comando asume el puerto por default, que corresponde al 68, por lo que 
+serviría la segunda opción. En caso de que sea en un puerto especifico, se debe usar el filtro 
+**bootp**
+
+![](/TheusZero/images/post/Redes/Tarea2/tarea2_7.png)
+
+Tenemos un total de 5 paquetes DHCP utilizados, correspondientes a: 
+
+> DHCP ACK
+> 
+> DHCP Discover
+> 
+> DHCP Offer
+> 
+> DHCP Release
+> 
+> DHCP Request 
+
+Para cada uno de estos paquetes se utiliza **UDP**, ya que mirando 
+wireshark en el apartado de “Internet Protocol” podemos encontrar lo siguiente:
+
+![](/TheusZero/images/post/Redes/Tarea2/tarea2_8.png)
+
+La dirección ip que fue asignada para nuestra maquina corresponde a la: 
+
+> **192.168.236.132**
+ 
+Como lo muestra wireshark:
+
+![](/TheusZero/images/post/Redes/Tarea2/tarea2_9.png)
+
 
 
 ## Tarea 3:
