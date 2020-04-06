@@ -413,7 +413,7 @@ logramos ver cuál es la ip de nuestra máquina y sus respectivas configuracione
 
 Para poder realizar un ping en Linux, mediante la terminal ocupamos el comando:
 
-> **ping (options) <destination>**
+> **ping (options) destination**
 
 Donde “options” serían los parámetros u opciones para realizar el 
 ping y “destination” el nombre del DNS o la IP del equipo. 
