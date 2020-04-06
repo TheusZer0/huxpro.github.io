@@ -293,7 +293,7 @@ Por último y no menos importante, realizaremos pruebas con comandos Linux y Win
 #### Desarrollo
 
 ##### Items
-> [Servicio DHCP]()
+> [Servicio DHCP](https://theuszer0.github.io/TheusZero/2020/02/25/RedesDePC/#servicio-dhcp)
 
 > []()
 
@@ -328,7 +328,7 @@ con **RSA**, pero no fue asi, ya que el lenguaje pedido fue con **Java** y el re
 
 Debias hacer un **encrypt** de un **string** con la llave publica entregada en el aula, crear un socket en el servidor de aragon y mandar el string a este mismo, que el servidor lo lea y le haga el **decrypt** correspondiente y lo mande de vuelta al equipo. 
 
-> al momento de tomar el ramo, era mechon y no estaba familiarizado con Java.
+> al momento de tomar el ramo, era mechon y no estaba familiarizado con Java y el tiempo no fue el suficiente.
 
 #### Codigo Socket para servidor
 
