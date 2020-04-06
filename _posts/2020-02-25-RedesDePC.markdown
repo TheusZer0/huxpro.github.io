@@ -1104,7 +1104,8 @@ Cualquier cosa, pueden comentar al final del foro si prefieren que lo cambie, o 
 
 #### Preguntas
 
-**1-** Considere 5000 byte datagrama, es transformado en datagramas mas pequeños (MTU =1500 bytes). El tamaño del último datagrama enviado es:
+**1-** 
+Considere 5000 byte datagrama, es transformado en datagramas mas pequeños (MTU =1500 bytes). El tamaño del último datagrama enviado es:
 
 > a. 1480
 >
@@ -1114,6 +1115,35 @@ Cualquier cosa, pueden comentar al final del foro si prefieren que lo cambie, o 
 >
 > **d. 560**
 
+**2-** 
+Si los parámetros de red de un computador son: IP 10.111.0.254, máscara 255.255.252.0. Total de hosts corresponde a:
+
+> a. 512
+>
+> b. Ninguna de las anteriores.
+>
+> **c. 1022**
+>
+> d. 2046
+
+**3-** 
+UDP es utilizado en:
+
+I) HTTP
+
+II) DNS
+
+III) SNMP
+
+IV) FTP
+
+> a. I y II
+>
+> b. I y III
+>
+> **c. II y III**
+>
+> d. II y IV
 
 #### Verdadero/Falso
 
