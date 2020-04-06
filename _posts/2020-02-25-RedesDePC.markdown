@@ -261,7 +261,7 @@ Finalizando, podemos concluir que los dos URL utilizados, que utilizan el mismo 
 
 ## Tarea 2:
 
-#### Introducción: 
+#### Introducción
      
 En esta tarea, como equipo de trabajo analizaremos cada uno de los protocolos seleccionados, 
      con sus respectivos experimentos respaldados en la información que será entregada mediante 
@@ -290,9 +290,45 @@ Por último y no menos importante, realizaremos pruebas con comandos Linux y Win
      de eco o respuesta, etc. Los comandos que se utilizaran corresponden a PING y a 
      TRACEROUTE (TRACERT en windows). 
 
+#### Desarrollo
+
+##### Items
+> [Servicio DHCP]()
+
+> []()
+
+> []()
+
+##### Servicio DHCP
+
+Primero empezamos con un reconocimiento de la ip de nuestro equipo y de la configuración 
+de red que nuestra maquina posee: 
+
+![](/TheusZero/images/post/Redes/Tarea2/tarea2_1.png)
+
+Ya conocida nuestra IP que corresponde a “192.168.236.128” y que usamos la configuración 
+de “eth0” nos disponemos a abrir Wireshark para comenzar a escanear el tráfico de red.
+
+![](/TheusZero/images/post/Redes/Tarea2/tarea2_2.png)
+
+Hacemos la configuración para escanear solamente el tráfico de red 
+en “eth0” y abrimos la terminal de nuestro equipo, ya que así lograremos mediante una serie 
+de comandos filtrar en wireshark los paquetes hacia y desde nuestra maquina en una solicitud 
+dinámica de ip. 
+
+En la terminal se usarán los siguientes comandos:
+
+![](/TheusZero/images/post/Redes/Tarea2/tarea2_3.png)
 
 
 ## Tarea 3:
+
+En esta tarea nos cagaron rico. Creo que igual fue mi culpa por flojo, deje los ultimos 3 dias para hacer la tarea ya que al leerla de manera rapida pense que seria un simple **encrypt/decrypt**
+con **RSA**, pero no fue asi, ya que el lenguaje pedido fue con **Java** y el requerimiento especial estaba demasiado cabron. 
+
+Debias hacer un **encrypt** de un **string** con la llave publica entregada en el aula, crear un socket en el servidor de aragon y mandar el string a este mismo, que el servidor lo lea y le haga el **decrypt** correspondiente y lo mande de vuelta al equipo. 
+
+> al momento de tomar el ramo, era mechon y no estaba familiarizado con Java.
 
 #### Codigo Socket para servidor
 
