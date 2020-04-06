@@ -261,6 +261,8 @@ Finalizando, podemos concluir que los dos URL utilizados, que utilizan el mismo 
 
 ## Tarea 2:
 
+Esta tarea creo que fue lamas chacota, la hice el mismo dia de la entrega **se me olvido que habia tarea**, por ende, la informacion puede estar un poco desordenada.
+
 #### Introducción
      
 En esta tarea, como equipo de trabajo analizaremos cada uno de los protocolos seleccionados, 
@@ -388,7 +390,143 @@ Como lo muestra wireshark:
 
 ![](/TheusZero/images/post/Redes/Tarea2/tarea2_9.png)
 
+#### Protocolo ARP
 
+Primero en la línea de comandos usamos **arp -a** para poder ver cualquier tipo de 
+**ARP entry** existente, obteniendo lo siguiente: 
+
+![](/TheusZero/images/post/Redes/Tarea2/tarea2_10.png)
+
+Luego, limpiamos el cache de nuestro navegador, colocamos 
+a wireshark a capturar tráfico de red y nos disponemos a buscar páginas web. 
+Visitamos diferentes webs, entre ellas se obtuvo lo siguiente en wireshark: 
+
+![](/TheusZero/images/post/Redes/Tarea2/tarea2_11.png)
+
+#### Protocolo ICMP (PING y TRACEROUTE)  
+
+Para analizar el protocolo ICMP se nos pidió que usáramos “Ping” y “Traceroute” para 
+analizarlos en wireshark, por lo tanto, comenzamos con un simple ifconfig en la terminal, así 
+logramos ver cuál es la ip de nuestra máquina y sus respectivas configuraciones de red.
+
+![](/TheusZero/images/post/Redes/Tarea2/tarea2_12.png)
+
+Para poder realizar un ping en Linux, mediante la terminal ocupamos el comando:
+
+> **ping (options) <destination>**
+
+Donde “options” serían los parámetros u opciones para realizar el 
+ping y “destination” el nombre del DNS o la IP del equipo. 
+
+Para poder realizar un Traceroute en Linux, mediante la terminal ocupamos el comando: 
+
+> **traceroute (options)**
+
+Tambien usamos el comando “nslookup” ya que este realiza una búsqueda DNS inversa (es 
+decir, encontrar el nombre de dominio de una determinada dirección IP): 
+
+> **nslookup (dominio)**
+
+Ocuparemos el dominio de **ramos.elo.utfsm.cl** para hacer cada una de las pruebas así que 
+por ende usaremos nslookup para conocer la ip del mismo servidor (*aunque wireshark 
+también muestra la ip del servidor si se le envía algún paquete a este mismo*).
+
+![](/TheusZero/images/post/Redes/Tarea2/tarea2_13.png)
+
+Ahora, ya especificado el uso de los comandos, toca configurar wireshark de manera básica 
+y comenzar a capturar el tráfico.
+
+Primero realizamos el uso del ping. Mandamos un ping al dns 
+**ramos.elo.utfsm.cl** y luego directamente a la dirección ip del webserver obteniendo lo 
+siguiente:
+
+![](/TheusZero/images/post/Redes/Tarea2/tarea2_14.png)
+
+Obteniendo de wireshark lo siguiente: 
+
+![](/TheusZero/images/post/Redes/Tarea2/tarea2_15.png)
+
+Analizando el paquete “request” que se envió al servidor:
+
+![](/TheusZero/images/post/Redes/Tarea2/tarea2_16.png)
+
+Del paquete request podemos obtener lo siguiente: 
+
+> El paquete tenía un peso de 98 bytes (784 bits) 
+
+> Protocolo ICMP 
+
+> Destino: 200.1.17.3 (IP del servidor) 
+
+> Type: 8 (Echo (ping) Request) 
+
+> Checksum: correcto 
+
+> Tiempo de vida = 64 
+
+> Data enviada: 
+
+![](/TheusZero/images/post/Redes/Tarea2/tarea2_17.png)
+
+Analizaremos el paquete “reply” que se envió como respuesta:
+
+![](/TheusZero/images/post/Redes/Tarea2/tarea2_17.png)
+
+Del paquete request podemos obtener lo siguiente: 
+
+> El paquete tenía un peso de 98 bytes (784 bits) 
+
+> Protocolo ICMP 
+
+> Destino: 192.168.236.128 (IP de nuestra maquina) 
+
+> Type: 0 (Echo (ping) Reply) 
+
+> Checksum: correcto 
+
+> Tiempo de respuesta = 26,5 [ms] 
+
+> Tiempo de vida = 128 
+
+> Data enviada: 
+
+![](/TheusZero/images/post/Redes/Tarea2/tarea2_18.png)
+
+Ahora comenzaremos con “Traceroute”, primero cambiaremos de 
+sistema a Windows y usaremos el comando mediante la terminal CMD:
+
+> **C:\Windows\system32> tracert www.solotodo.com**
+
+Obtenemos lo siguiente:
+
+![](/TheusZero/images/post/Redes/Tarea2/tarea2_19.png)
+
+Wireshark: 
+
+![](/TheusZero/images/post/Redes/Tarea2/tarea2_20.png)
+
+> Tipo de mensaje ICMP = Echo (ping) request 
+
+> Tipo de mensaje ICMP = Echo (ping) reply 
+
+#### Conclusión
+
+Durante la ardua investigación, se cumplió el objetivo de identificar y experimentar en un 
+laboratorio seguro con los protocolos DHCP, ARP e ICMP. Esta investigación se logró 
+gracias a la aplicación Wireshark y mediante comandos en la terminal, usando sistemas 
+operativos Linux y Windows, destacando así la importancia de cada uno de los protocolos 
+para la administración de las redes de computadoras. 
+
+Como equipo queremos resaltar el uso de los comandos por terminal, ya que en Linux se usó 
+mucho la terminal, ingresando cada uno de los comandos requeridos para poder analizar el 
+comportamiento de los protocolos o el mismo inicio de cada uno de estos. 
+
+Cabe destacar que algunas pruebas fueron hechas bajo entornos Windows, por algunos 
+problemas con las máquinas virtuales Linux, ya que muchas de estas tenían una 
+configuración de red de tipo NAT, por lo cual, wireshark registraba el tráfico que realizaba 
+la aplicación para las maquinas virtuales.
+
+> Nota = 90/100
 
 ## Tarea 3:
 
