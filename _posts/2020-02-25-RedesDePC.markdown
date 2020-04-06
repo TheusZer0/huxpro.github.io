@@ -1077,7 +1077,7 @@ public class AsymmetricCryptography {
 ## Certamen 1
 
 #### Link en PDF
-[PDF de la Prueba](https://github.com/TheusZer0/TheusZero/blob/gh-pages/images/post/Redes/Certamen/Certamen%20_1%20_ELO322_2019_Pauta.pdf)
+[PDF de la Prueba](https://theuszer0.github.io/TheusZero/images/post/Redes/Certamen/Certamen_1_ELO322_2019_Pauta.pdf)
 
 #### Preguntas
 
