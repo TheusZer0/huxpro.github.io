@@ -1127,15 +1127,17 @@ Si los parámetros de red de un computador son: IP 10.111.0.254, máscara 255.25
 > d. 2046
 
 **3-** 
-UDP es utilizado en:
+UDP es utilizado en
 
-I) HTTP
+> I) HTTP
+>
+> II) DNS
+>
+> III) SNMP
+>
+> IV) FTP
 
-II) DNS
-
-III) SNMP
-
-IV) FTP
+Seleccione las que corresponden:
 
 > a. I y II
 >
