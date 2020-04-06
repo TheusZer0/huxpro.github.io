@@ -1092,8 +1092,11 @@ Como la evaluacion 2 y 3 fueron online, no tengo el respectivo pdf.
 Dejare las preguntas de la siguiente forma:
 
 > a.
+>
 > b.
+>
 > c.
+>
 > d.
 
 La respuesta correcta estara **Indicada Asi** para diferenciarla de las demas.
