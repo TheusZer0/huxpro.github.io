@@ -97,26 +97,26 @@ Linux (Kali-Linux), en este caso Wireshark venía previamente
 instalado en el dispositivo. Si por algún motivo, este no viniera 
 previamente instalado en Linux-Debian se utiliza el siguiente 
 comando para instalarlo, ya que se usa el administrador de paquetes 
-“APT” que Debian posee: 
+**APT** que Debian posee: 
 
 > sudo apt-get install Wireshark 
 
 Luego se accede al terminal de la máquina, utilizando los comandos 
-“ifconfig” y “netstat -i”, con lo que se puede visualizar la IP de la 
+**ifconfig** y **netstat -i**, con lo que se puede visualizar la IP de la 
 máquina y las respectivas configuraciones que posee, en donde se 
-determina que el interfaz de red que se usará corresponde a “eth0”.
+determina que el interfaz de red que se usará corresponde a **eth0**.
 
 ![](/TheusZero/images/post/Redes/redes1.png)
 
 Una vez conocida la IP de la máquina que se está utilizando, 
-“192.168.236.128”, proseguimos con Wireshark:
+**192.168.236.128**, proseguimos con Wireshark:
 
 ![](/TheusZero/images/post/Redes/redes2.png)
 
 Se utilizará la opción “Capture” que se encuentra en la barra de 
 herramientas, donde luego se comienza a escanear el tráfico de red, 
 es decir, comienzan a capturarse los paquetes, sólo para la interfaz de 
-“eth0”. 
+**eth0**. 
 
 En el navegador, accedemos al URL: 
 > http://ramos.elo.utfsm.cl/~elo322/index1.html 
@@ -129,16 +129,16 @@ donde se completan los datos requeridos y luego se recibe la respuesta por parte
 
 Al recibir la respuesta, se puede notar que la respuesta que entrega el 
 servidor envía a una URL distinta a la que se ingresa en primer lugar, 
-lo que identifica que el método empleado para la web es GET (envía 
+lo que identifica que el método empleado para la web es **GET** (envía 
 los datos usando la URL). 
 
 Al revisar Wireshark, se filtraron los paquetes para revisar la 
 respuesta entregada por el servidor. 
 
 Con el filtro 
-> “tcp.srcport==80 || udp.srcport==80” 
+> **tcp.srcport==80** || **udp.srcport==80**
 
-se logra obtener todos los paquetes que utilizaron la conexión de tipo TCP (Transmission Control Protocol) y UDP (User Datagram Protocol) para el puerto 80. 
+se logra obtener todos los paquetes que utilizaron la conexión de tipo **TCP (Transmission Control Protocol)** y **UDP (User Datagram Protocol)** para el puerto 80. 
 
 ![](/TheusZero/images/post/Redes/redes5.png)
 
@@ -153,11 +153,11 @@ Servidor.
 
 Analizando los paquetes con Wireshark, se selecciona el paquete de 
 respuesta que envía el servidor y luego sobre el se emplea la opción 
-“Follow” seguida por la opción “HTTP stream” para poder revisar los 
+**Follow** seguida por la opción **HTTP stream** para poder revisar los 
 detalles de las peticiones enviadas y recibidas por el navegador o 
 browser, con esto se puede visualizar que el protocolo utilizado es 
-HTTP y la versión corresponde a HTTP 1.1 empleada con el método 
-GET (muestran los datos de forma visible). 
+**HTTP** y la versión corresponde a **HTTP 1.1** empleada con el método 
+**GET** (muestran los datos de forma visible). 
 
 ![](/TheusZero/images/post/Redes/redes7.png)
 
@@ -165,13 +165,13 @@ Luego para obtener la IP y el puerto que fue utilizado, se procede a expandir la
 
 ![](/TheusZero/images/post/Redes/redes8.png)
 
-Donde se puede concluir que el puerto utilizado por la terminal host fue el 38844 (Src Port) y el puerto de destino fue el 80 (Dst Port), reservado para el protocolo HTTP del servidor.
+Donde se puede concluir que el puerto utilizado por la terminal host fue el **38844 (Src Port)** y el puerto de destino fue el **80 (Dst Port)**, reservado para el protocolo HTTP del servidor.
 
-El IP de nuestra máquina se puede visualizar como 192.168.236.128 (Src) y el de destino como 200.1.17.3 (Dst).
+El IP de nuestra máquina se puede visualizar como **192.168.236.128 (Src)** y el de destino como **200.1.17.3 (Dst).**
 
-Los parámetros ingresados en la página index1.html, son utilizados bajo el método GET, tal y como lo muestra Wireshark, sin embargo, se confirma lo que se pudo deducir en un inicio sobre la URL que se está analizando.
+Los parámetros ingresados en la página index1.html, son utilizados bajo el método **GET**, tal y como lo muestra **Wireshark**, sin embargo, se confirma lo que se pudo deducir en un inicio sobre la **URL** que se está analizando.
 
-A continuación, se puede observar en color rojo, la petición enviada al servidor, y en color azul, la respuesta del mismo, en este caso, la petición del GET.
+A continuación, se puede observar en color rojo, la petición enviada al servidor, y en color azul, la respuesta del mismo, en este caso, la petición del **GET**.
 
 A continuación, se puede visualizar en el apartado del frame, la cantidad de bytes que se transfirieron en el paquete.
 
@@ -179,13 +179,13 @@ A continuación, se puede visualizar en el apartado del frame, la cantidad de by
 
 ![](/TheusZero/images/post/Redes/redes10.png)
 
-Como se muestra en la imagen la cantidad de bytes transferidos corresponde a un total de 582 bytes, que corresponden a 4656 bits.
+Como se muestra en la imagen la cantidad de bytes transferidos corresponde a un total de **582 bytes**, que corresponden a **4656 bits.**
 
-Para estimar el tiempo que fue utilizado se utiliza el apartado Time en Wireshark, comparando el tiempo del paquete de envío al servidor y el de respuesta de este, ya que podemos encontrar el paquete con el código de respuesta HTTP 200 OK, en donde se demuestra que la solicitud, en este caso que se utiliza el GET, ha sido realizada con éxito.
+Para estimar el tiempo que fue utilizado se utiliza el apartado Time en Wireshark, comparando el tiempo del paquete de envío al servidor y el de respuesta de este, ya que podemos encontrar el paquete con el código de respuesta **HTTP 200 OK**, en donde se demuestra que la solicitud, en este caso que se utiliza el **GET**, ha sido realizada con éxito.
 
 ![](/TheusZero/images/post/Redes/redes11.png)
 
-En la imagen se muestra que el primer paquete de envío es el N° 46 y el de respuesta es el N°48, por lo tanto, calculando la diferencia entre ellos, se estima un tiempo utilizado de 0.03 [s].
+En la imagen se muestra que el primer paquete de envío es el **N°46** y el de respuesta es el **N°48**, por lo tanto, calculando la diferencia entre ellos, se estima un tiempo utilizado de 0.03[s].
 
 Las conexiones que fueron usadas se deducen bajo la cantidad de paquetes enviados, por lo tanto, en este caso se habla de 4 conexiones utilizadas. 
 
@@ -202,9 +202,9 @@ Volviendo a Wireshark, filtramos los paquetes para el protocolo HTTP, donde obte
 
 Se puede observar que el protocolo utilizado corresponde a HTTP en su versión 1.1.
 
-Como conocemos el IP de la máquina que se está utilizando, “192.168.236.128”, y el IP del Servidor, “200.1.17.3”, como muestra el apartado de “Source” y “Destination” de Wireshark.
+Como conocemos el IP de la máquina que se está utilizando, **192.168.236.128**, y el IP del Servidor, **200.1.17.3**, como muestra el apartado de **Source** y **Destination** de Wireshark.
 
-El puerto utilizado por la terminal host fue el 38844 (Src Port) y el puerto de destino fue el 80 (Dst Port), reservado para el protocolo HTTP del servidor.
+El puerto utilizado por la terminal host fue el **38844 (Src Port)** y el puerto de destino fue el **80 (Dst Port)**, reservado para el protocolo HTTP del servidor.
 
 Se puede observar que el servidor realiza la primera petición GET, seguida de una confirmación y envío de respuesta por parte del servidor.
 
