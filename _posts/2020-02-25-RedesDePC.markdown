@@ -1076,12 +1076,185 @@ public class AsymmetricCryptography {
 
 ## Certamen 1
 
-#### Link en PDF
-[PDF de la Prueba](https://theuszer0.github.io/TheusZero/images/post/Redes/Certamen/certamen.pdf)
+El **link del pdf** esta en la categoria del final, pueden abrirlo para ver las respuestas, sin embargo, la idea es **practicar** con el contendio, por ende colocare las preguntas y podran ver las respuestas en el pdf.
 
 #### Preguntas
+**I**
+
+**1)** ¿Qué se entiende por protocolos de red?
+
+**2)** Indique ejemplos de cuando es recomendable el uso del protocolo de trasporte TCP o UDP.
+
+**3)** ¿Qué es socket? ¿En el protocolo de trasporte UDP se hace uso de socket?
+
+**4)** ¿Qué es  RTT (round trip time)?
+
+**5)** ¿Por qué si se visualiza el código fuente de un correo electrónico que hace uso del protocoloSMTP, en el cuerpo se observan solo caracteres ASCII?
+
+**6)** ¿Porqué puede suceder que en un computador conectado a un red se realiza un ping a www.elo.utfsm.cl (Número IP asignado a www.elo.utfsm.cl  es 200.1.17.10) sin obtener respuesta, pero si se realiza el ping a la IP 200.1.17.10 si se obtiene respuesta? Justifique su respuesta.
+
+**7)** ¿Porqué el servicio DNS (Domain Name System) se implementa como una base de datosdistribuida?
+
+**8)** ¿Cuál es la diferencia entre un Router y un Switch, siendo estos equipos que se encuentranen una red de Computadores?
+
+**9)** ¿Cuál es el uso del servicio DHCP (Dynamic Host Configuration Protocol) ? Si no está disponibleeste servicio en la red local cuál sería la alternativa?
+
+**10)** ¿Qué muestra  el comando “netstat -na” en Windows/Linux?
 
 #### Desarrollo
+
+**II** Se transmitirá un archivo de 320.000 bits por una red conmutada por circuitos usando TDM(División en tiempo)   entre un dos host. Todos los enlaces son de 1,024 Mbps, tiempo requeridopara   establecer   el   circuito   extremo   a   extremo   500   [ms]   .   El   retardo   de   propagación   extremo   aextremo es de 200 [ms]. Obtener la cantidad de ranuras (debe ser potencia de 2) para el que tiempototal de transferencia  sea menor que  10 [s].
+
+**III** Desde la sala B351 se accede al  servidor Web del Departamento de Electrónica, se descarga elindex.html (1KB), cinco imágenes (8KB cada uno) y dos archivos de estilos (2KB cada uno). Entreel computador y el servidor existe un switch. La tasa de transmisión entre el computador y el switch es de 100Mbps con una distancia de 25m. La tasa de transmisión entre el switch y el servidor es de 1Gbps con una distancia de 5m.No  considere  tiempos   de encolamiento  y  procesamiento.   Velocidad  de  propagación   2x108  m/sec.
+
+> a)Diagrama temporal considerando HTTP 1.0 y HTTP 1.1.
+>
+> b)Tiempos de transmisión para HTTP 1.0 y 1.1.
+
+**IV** Se entrega el siguiente código  en Java.
+
+```Python
+public static void main(String argv[]) throws Exception
+ { 
+     String sentence; 
+     String modifiedSentence; 
+     BufferedReader in1 =  new BufferedReader(new InputStreamReader(System.in)); 
+     
+     Socket socket = new Socket("localhost", 1410); 
+     
+     DataOutputStream out = new DataOutputStream(socket.getOutputStream()); 
+     
+     BufferedReader in2 = new BufferedReader(new InputStreamReader(socket.getInputStream())); 
+     sentence = in1.readLine(); out.writeBytes(sentence + '\n'); 
+     modifiedSentence = in2.readLine(); 
+     System.out.println(modifiedSentence); 
+     socket.close(); 
+ } 
+```
+
+> **a)** ¿Qué protocolo de transporte se utiliza TCP o UDP ? Justifique
+
+> **b)** ¿Corresponde al código de un servidor o cliente ? Justifique.
+
+> **c)** De acuerdo si el código es de Cliente o Servidor, escriba el respectivo código en lenguajeJava para solo la apertura de la conexión entre ambos.
+
+#### Respuestas
+
+**I**
+
+**1)** ¿Qué se entiende por protocolos de red?
+> Los protocolos definen un formato, orden de mensajes enviados y recibidos entre  entidades de la red, y las acciones tomadas al transmitir o recibir mensajes
+
+**2)** Indique ejemplos de cuando es recomendable el uso del protocolo de trasporte TCP o UDP.
+> TCP: email, web, ftp.
+>
+> UDP: video streaming, telefonía IP, cluster servidor aplicación.
+
+**3)** ¿Qué es socket? ¿En el protocolo de trasporte UDP se hace uso de socket?
+> Socket es análogo a una puerta, se compone de número ip y número de puerto.
+
+**4)** ¿Qué es  RTT (round trip time)?
+> Tiempo ocupado en enviar un paquete pequeño desde el cliente al servidor y su regreso.
+
+**5)** ¿Por qué si se visualiza el código fuente de un correo electrónico que hace uso del protocoloSMTP, en el cuerpo se observan solo caracteres ASCII?
+> Datos binarios codificados en Base64  usa solo los caracteres ASCII:  A-Z, a-z, 0-9 y +/=
+
+**6)** ¿Porqué puede suceder que en un computador conectado a un red se realiza un ping a www.elo.utfsm.cl (Número IP asignado a www.elo.utfsm.cl  es 200.1.17.10) sin obtener respuesta, pero si se realiza el ping a la IP 200.1.17.10 si se obtiene respuesta? Justifique su respuesta.
+> Sí no responde al nombre, pero si al ip, es probable que no tenga configurado el servidor DNS o bien este no esté disponible
+
+**7)** ¿Porqué el servicio DNS (Domain Name System) se implementa como una base de datosdistribuida?
+> Para evitar:
+>
+> Único punto de falla
+>
+> Volumen de tráfico, muchos necesitan el DNS
+>
+> Sería una base de datos centralizada distante con grandes retardos de acceso.
+>
+> Mantención, es mejor que cada dominio gestione sus nombres
+
+**8)** ¿Cuál es la diferencia entre un Router y un Switch, siendo estos equipos que se encuentranen una red de Computadores?
+> Router → Utilizado para la comunicación entre redes
+>
+> Swtich → Utilizado para la comunicación entre hosts red local
+
+**9)** ¿Cuál es el uso del servicio DHCP (Dynamic Host Configuration Protocol) ? Si no está disponibleeste servicio en la red local cuál sería la alternativa?
+> Asigna en forma dinámica los parámetros de la red IP, Máscara Gateway y DNS.Configuración Manual de la interfaz de red, consultando al administrador de red losparámetros de esta.
+
+**10)** ¿Qué muestra  el comando “netstat -na” en Windows/Linux?
+> Muestra lista de sockets (ip y puerto) con el protocolo utilizado (tcp , udp), socket local, socket remoto y el estado actual de la conexión (ejemplo para TCP: LISTEN,   ESTABLISHED,  TIME_WAIT, TIME_WAIT1, TIME_WAIT2, CLOSE_WAIT)
+
+**II** Se transmitirá un archivo de 320.000 bits por una red conmutada por circuitos usando TDM(División en tiempo)   entre un dos host. Todos los enlaces son de 1,024 Mbps, tiempo requeridopara   establecer   el   circuito   extremo   a   extremo   500   [ms]   .   El   retardo   de   propagación   extremo   aextremo es de 200 [ms]. Obtener la cantidad de ranuras (debe ser potencia de 2) para el que tiempototal de transferencia  sea menor que  10 [s].
+
+Ttotal = Testablecimiento + Tretardo + Ttransmisión
+
+Ttotal < 10Ttotal =  0,5[s] + 0,2[s]  + 320.000 bitd /(1024 000 bps / r)
+
+Ttotal =  0,7[s] + 320000 * r / 1024000 [s]
+
+r = (Ttotal – 0,7) /0,3125
+
+r = (10 -0,7 ) / 0,3125 = 29,76
+
+Considerando que r debe ser entero y potencia de 2 el más cercado  a 29, 76 es 16
+
+Por lo tanto la cantidad de ranuras debe ser 16.
+
+Para r  =16
+
+Ttotal = 0,7[s] + 320000 * 16 / 1024000 [s] = 5,7 [s]
+
+Para r =32
+
+Ttotal = 0,7[s] + 320000 * 32 / 1024000 [s] = 10,7 [s]
+
+**III** Desde la sala B351 se accede al  servidor Web del Departamento de Electrónica, se descarga elindex.html (1KB), cinco imágenes (8KB cada uno) y dos archivos de estilos (2KB cada uno). Entreel computador y el servidor existe un switch. La tasa de transmisión entre el computador y el switch es de 100Mbps con una distancia de 25m. La tasa de transmisión entre el switch y el servidor es de 1Gbps con una distancia de 5m.No  considere  tiempos   de encolamiento  y  procesamiento.   Velocidad  de  propagación   2x108  m/sec.
+
+> a)Diagrama temporal considerando HTTP 1.0 y HTTP 1.1.
+>
+> b)Tiempos de transmisión para HTTP 1.0 y 1.1.
+
+![](/TheusZero/images/post/Redes/Certamen/Redes_Certamen1_1.png)
+
+**IV** Se entrega el siguiente código  en Java.
+
+```Python
+public static void main(String argv[]) throws Exception
+ { 
+     String sentence; 
+     String modifiedSentence; 
+     BufferedReader in1 =  new BufferedReader(new InputStreamReader(System.in)); 
+     
+     Socket socket = new Socket("localhost", 1410); 
+     
+     DataOutputStream out = new DataOutputStream(socket.getOutputStream()); 
+     
+     BufferedReader in2 = new BufferedReader(new InputStreamReader(socket.getInputStream())); 
+     sentence = in1.readLine(); out.writeBytes(sentence + '\n'); 
+     modifiedSentence = in2.readLine(); 
+     System.out.println(modifiedSentence); 
+     socket.close(); 
+ } 
+```
+
+> **a)** ¿Qué protocolo de transporte se utiliza TCP o UDP ? Justifique
+>> TCP, por la utilización de la clase  Socket socket = new Socket("localhost", 6789);
+
+> **b)** ¿Corresponde al código de un servidor o cliente ? Justifique.
+>> Creación de socket cliente. 
+>
+>> Socket socket = new Socket("localhost", 6789);
+
+> **c)** De acuerdo si el código es de Cliente o Servidor, escriba el respectivo código en lenguajeJava para solo la apertura de la conexión entre ambos.
+>> De acuerdo corresponde a Cliente
+>
+>> ServerSocket welcomeSocket = new ServerSocket(6789);
+>
+>> Socket connectionSocket = welcomeSocket.accept();
+
+#### Link en PDF
+
+[PDF de la Prueba](https://theuszer0.github.io/TheusZero/images/post/Redes/Certamen/certamen.pdf)
 
 ## Certamen 2
 
@@ -1703,3 +1876,4 @@ El campo “Número de Acknowledgement” de la estructura de un segmento TCP se
 ![](/TheusZero/images/post/Redes/Certamen1/Redes_Certamen2_5.png)
 
 ## Certamen 3
+
