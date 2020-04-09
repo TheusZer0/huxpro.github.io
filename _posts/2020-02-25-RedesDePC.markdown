@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Redes de Computadoras - 2019-2 "
+title: "Redes de Computadoras - 2019-2"
 subtitle: 'Ramo Redes de Computadoras - 2do Semestre 2019'
 date: 2020-02-25 12:00:00
 author: "TheusZero"
@@ -165,7 +165,7 @@ Luego para obtener la IP y el puerto que fue utilizado, se procede a expandir la
 
 ![](/TheusZero/images/post/Redes/redes8.png)
 
-Donde se puede concluir que el puerto utilizado por la terminal host fue el **38844 (Src Port)** y el puerto de destino fue el **80 (Dst Port)**, reservado para el protocolo HTTP del servidor.
+Donde se puede concluir que el puerto utilizado por la terminal host fue diferente al puerto utiizado anteriormente, es decir, cambio. Sin embargo, el puerto de destino fue el **80 (Dst Port)**, reservado para el protocolo HTTP del servidor.
 
 El IP de nuestra máquina se puede visualizar como **192.168.236.128 (Src)** y el de destino como **200.1.17.3 (Dst).**
 
@@ -249,7 +249,7 @@ La primera diferencia entre ambos URL es el método que se emplea en ambos, en I
 
 Ya que la principal diferencia entre los URL es el método empleado, se pueden comparar sus ventajas y desventajas, en el caso del método POST, su ventaja es el envío de datos de forma invisible y discreta, en cambio en el método GET si un usuario accede a la URL entregada, tendrá la información del otro usuario, es decir, tendrá acceso a los datos entregados y además cuenta con un límite de 2000 caracteres. Hablando de las ventajas que se obtiene al emplear el método GET, se obtiene que el envío de datos codificados desde un “header” del HTTP request va directamente en la URL del navegador por lo que el usuario puede acceder siempre a ésta URL siempre y cuando la guarde o preestablezca en el navegador, en cambio, en el método POST, la información no se almacena en el browser.
 
-En el caso de la IP y los puertos utilizados, se demuestra en el informe que tanto Index1 como Index2 ocupan el mismo IP tanto para el servidor como el IP de la máquina virtual utilizada, además de ambos usar el puerto 80 como puerto de destino para HTTP y el Terminal Host 38844.
+En el caso de la IP y los puertos utilizados, se demuestra en el informe que tanto Index1 como Index2 ocupan el mismo IP tanto para el servidor como el IP de la máquina virtual utilizada, además de ambos usar el puerto 80 como puerto de destino para HTTP y el puerto a la escucha que abrio el servidor fue difernete para ambos casos.
 
 La cantidad de bytes transferidos entre ambos URL Index1 e Index2, varía en una cantidad bastante baja de bytes, los cuales transfirieron una cantidad de 582 y 649 bytes respectivamente.
 
