@@ -6,7 +6,7 @@ email: quetzal.noc@gmail.com
 description: "Soy estudiante de la Universidad Tecnica Federico Santa Maria, de la carrera Ingenieria Civil en Telematica. Actualmente tengo 19 años y soy de Chile. Me gusta la Ciberseguridad y aprender, hago esta web como una forma de guardar cada comando y write up para asi poder tener un respaldo y leer el desarrollo de retos y maquinas de la plataforma HackTheBox "
 keyword: "HackTheBox, Hacking, Cybersecurity, USM, usm, Chile"
 url: "https://theuszer0.github.io"              # your host, for absolute URL
-baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
+baseurl: "/TheusZero"                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 # Publish posts or collection documents with a future date.
 future: true
