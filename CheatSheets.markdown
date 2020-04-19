@@ -31,14 +31,15 @@ netstat -anp tcp | grep -i listen
 ```
 #### DNS
 
+**add the dns server to your machine**
+
 ```Python
 echo "Mensaje" | sudo tee -a /dir/archivo 
 ```
-```Python
-echo “Mensaje” > /dir/archivo
-```
 
 #### Echo
+
+**escribir sin vim**
 ```Python
 echo “Reverse shell” > /dir/file
 ```
