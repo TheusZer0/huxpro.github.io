@@ -83,8 +83,17 @@ python3 -c "import pty;pty.spawn('/bin/bash')"
 python2 -m SimpleHTTPServer 4567
 ```
 #### Binaries
+
+**Recordar jugar con las SUID para escalar privilegios con ayuda de GTFObins**
+
 ```Python
 find / perm -u=s -type f 2>/dev/null
+```
+```Python
+find / -user root -perm -4000 -print 2>/dev/null
+```
+```Python
+find / -user root -perm -4000 -exec ls -ldb {} \;
 ```
 ## Windows
 
