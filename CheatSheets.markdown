@@ -95,6 +95,21 @@ find / -user root -perm -4000 -print 2>/dev/null
 ```Python
 find / -user root -perm -4000 -exec ls -ldb {} \;
 ```
+#### Others
+**Another way to read a file**
+**read a single file**
+```Python
+echo < archive.txt
+while read line; do echo $line; done < archivo.txt
+```
+```Python
+grep . archivo.txt
+```
+**read all files**
+```Python
+grep -R .
+```
+
 ## Windows
 
 ## Link Interesantes
