@@ -62,6 +62,9 @@ void leerNumeroDel_cien_al_uno(){
 }
 ```
 #### Algoritmo de strings
+
+> lo saque de internet jiji despues ideare una forma de hacerlo sin punteros. **(Recordatorio)**
+
 ```Python
 // C program to print all permutations with duplicates allowed
 #include <stdio.h>
