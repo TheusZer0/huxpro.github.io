@@ -16,6 +16,20 @@ tags:
 
 # Estructura de Datos y Algoritmos con Vourkas
 
+## Main simple
+```Python
+//
+// Created by TheusZero
+//
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+    return 0;
+}
+```
 ## Ejercicios en C (sin punteros ;-))
 
 No los hice todos, solo los que pense que eran importantes.
