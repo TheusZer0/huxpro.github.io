@@ -18,6 +18,7 @@ tags:
 
 ## Apuntes
 
+#### punteros
 > **Funcionamiento basico de punteros**
 
 ```Python
@@ -33,6 +34,9 @@ int main()
     return 0;
 }
 ```
+#### printf
+> printf("%c",var) te imprime el indice
+> printf("%s",var) te imprime desde ese indice en adelante
 
 ## Main simple
 ```Python
