@@ -161,6 +161,42 @@ int encontrarValor_Minimo(){
 
 ## Ejercicios en C (con punteros ;-))
 
-####
+#### contador de vocales y consonantes
+```Python
+//
+// Created by TheusZero on 5/20/2020.
+//
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <string.h>
+
+void getConsonatsVowel(char* x){
+    int recorrido = 0;
+    int vocal = 0;
+    int consonante =0;
+    recorrido = strlen(x); // se calcula automatico el total de caracteres de la frase
+    for (int i = 0; i < recorrido; ++i) { //for para recorrer el puntero
+        if (((x[i]) == 'a') || ((x[i]) == 'e') || ((x[i]) == 'i') || ((x[i]) == 'o') || ((x[i]) == 'u')){//if simple
+            vocal  += 1;
+        } else {
+            consonante += 1;
+        }
+    }
+    printf("Las vocales son %d\n",vocal);
+    printf("Las consonantes son %d\n",consonante);
+}
+
+int main() {
+    char *frase[50];
+    scanf("%s",frase);
+    getConsonatsVowel(frase);
+    return 0;
+}
+```
+
+#### 
+
 ```Python
 ```
