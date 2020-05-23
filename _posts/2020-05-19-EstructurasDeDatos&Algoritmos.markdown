@@ -196,7 +196,35 @@ int main() {
 }
 ```
 
-#### 
+#### leer archivos y triangulos rectangulos
 
 ```Python
+//
+// Created by TheusZero on 5/22/2020.
+//
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+#define MAXCHAR 1000
+int main() {
+    int largo = 0;
+    int base = 0;
+    char Base = ' ';
+    FILE *fp;
+    char str[MAXCHAR];
+    char* filename = "E:\\DiscoHDD_Progra\\EDA\\test.txt";
+
+    fp = fopen(filename, "r");
+    if (fp == NULL){
+        printf("Could not open file %s",filename);
+        return 1;
+    }
+    while (fgets(str, MAXCHAR, fp) != NULL) {//funciona como un for que itera sobre cada una de las lineas del archivo, es un code importante.
+        largo += 1; //se obtiene el largo
+    }
+    base = strlen(str); // aqui obtengo la base
+    fclose(fp);
+    return 0;
+}
 ```
