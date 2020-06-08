@@ -109,7 +109,10 @@ grep . archivo.txt
 ```Python
 grep -R .
 ```
-
+**Read the History Files**
+```Python
+cat ~/.*history | less
+```
 ## Windows
 
 ## Link Interesantes
