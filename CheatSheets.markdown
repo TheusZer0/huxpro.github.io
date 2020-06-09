@@ -95,6 +95,13 @@ find / -user root -perm -4000 -print 2>/dev/null
 ```Python
 find / -user root -perm -4000 -exec ls -ldb {} \;
 ```
+#### Stego
+```
+steghide extract -sf filename.txt
+```
+```Python
+for i in $(ls | \grep jpg); do exiftool $i && echo -e '\n--------------------------------------\n'; done
+```
 #### Others
 **Another way to read a file**
 **read a single file**

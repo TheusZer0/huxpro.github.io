@@ -34,6 +34,15 @@ int main()
     return 0;
 }
 ```
+
+#### Memoria Dinamica
+
+```Python
+typeData* namePuntero = (typeData*) malloc(var * sizeof(typeData))
+
+free (namePuntero)
+```
+
 #### printf
 > printf("%c",var) te imprime el indice
 > printf("%s",var) te imprime desde ese indice en adelante
