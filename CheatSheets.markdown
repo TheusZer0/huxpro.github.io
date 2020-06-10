@@ -96,7 +96,7 @@ find / -user root -perm -4000 -print 2>/dev/null
 find / -user root -perm -4000 -exec ls -ldb {} \;
 ```
 #### Stego
-```
+```Python
 steghide extract -sf filename.txt
 ```
 ```Python
