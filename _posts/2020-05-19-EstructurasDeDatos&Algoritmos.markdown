@@ -291,3 +291,66 @@ int main(){
     createFile_WriteFile();
 }
 ```
+#### Taller
+```Python
+//
+// Created by TheusZero on 5/24/2020.
+//
+
+#include <stdio.h>
+#include <stdlib.h> //para usar memoria dinamica
+#include <math.h>
+#include <string.h>
+
+typedef struct Nodo{
+    char Nombre[30];
+    char Apellido[30];
+    char Rut[30];
+}Alumnos;
+
+Alumnos *not;
+void asignament(int *N);
+void introduceAlumno(int N);
+
+int main(){
+    int N = 0; //numero de alumnos
+    int op = NULL;
+    printf("Opcion 1 = agregar algumnos: \n");
+    printf("Opcion 2 = printar: \n");
+    scanf("%i",&op);
+    if (op ==1){
+        for (int i = 0; i < ; ++i) {
+
+        }
+    }
+    asignament(&N);
+    printf("%s",not[0].Rut);
+    return 0;
+}
+
+void introduceAlumno(int N){
+    char nombre[200];
+    char rut[200];
+    char apellido[200];
+    printf("Ingrese el nombre:\n");
+    scanf("%s",nombre);
+    printf("Ingrese el rut:\n");
+    scanf("%s",rut);
+    printf("Ingrese el apellido\n");
+    scanf("%s",apellido);
+    strcpy(not[N].Nombre,nombre);
+    strcpy(not[N].Rut,rut);
+    strcpy(not[N].Apellido,apellido);
+}
+
+void asignament(int *N) {
+    not = (Alumnos*) malloc((*N+1)*sizeof(Alumnos));
+    if (not == NULL) {
+        printf("No tienes memoria");
+        exit(1);
+    }
+    introduceAlumno(*N);
+    (*N)++;
+}
+
+```
