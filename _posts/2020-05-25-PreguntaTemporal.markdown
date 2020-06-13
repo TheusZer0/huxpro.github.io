@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "pregunta temporal"
-subtitle: 'TryHackMe - Hacktivities - First ReverseEngineering'
+subtitle: 'stackoverflow pregunta'
 date: 2020-05-25 12:00:00
 author: "TheusZero"
 header-img: "images/post/Reverse/portada.png"
