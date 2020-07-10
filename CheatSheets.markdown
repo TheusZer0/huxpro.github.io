@@ -100,6 +100,12 @@ find / -user root -perm -4000 -exec ls -ldb {} \;
 steghide extract -sf filename.txt
 ```
 ```Python
+binwalk --dd '.*' flag.jpeg
+```
+```Python
+hexdump -C flag.jpeg | grep S
+```
+```Python
 for i in $(ls | \grep jpg); do exiftool $i && echo -e '\n--------------------------------------\n'; done
 ```
 #### Others
