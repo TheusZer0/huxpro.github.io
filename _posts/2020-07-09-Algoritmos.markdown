@@ -45,3 +45,10 @@ No esta bien hablar de sencillez (no usar como parametro)
 #### Tipos de complejidad
 
 > **Espacial**: cuanta memoria se necesita (no tiene que ver con la memoria de entrada) -> sino, cuanta memoria ocupan los datos, entonces, espacial es cuanta memoria se necesita || **Temporal**: cuanto tiempo requiere nuestro programa para ejecutarse considerando que el procesador ejecuta una sola instruccion a la vez
+
+#### Complejidad espacial
+
+cantidad de memoria que requiere un algoritmo, no se considera la cantidad necesaria para almacenar la entrada, es la cantidad de memoria para ejecutarse, de esta forma es una funcion del tamaño de entrada T(n)
+
+#### Complejidad temporal
+es la funcion T(n) que describe la cantidad de tiempo requerido para ejecutar un algoritmo, segun su tamaño de entrada, -> cuanto mas grande sea la entrada mas tiempo se va a necesitar +=mayor. -> cuanto mayor sea la entrada mas memoria se va a necesitar 
