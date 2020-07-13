@@ -82,6 +82,15 @@ python3 -c "import pty;pty.spawn('/bin/bash')"
 ```Python
 python2 -m SimpleHTTPServer 4567
 ```
+#### Busqueda de archivos
+```Python
+find / -user UsuarioQueTieneElArchivo -group grupoQuePuedeLeer -size BITSc (recordar el c)
+```
+
+```Python
+find . -type f (para colocar archivos) -readable ! -executable -size BITSc
+```
+
 #### Binaries
 
 **Recordar jugar con las SUID para escalar privilegios con ayuda de GTFObins**
