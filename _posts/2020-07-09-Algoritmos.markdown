@@ -83,7 +83,7 @@ entonces, teniendo ya la complejidad obtenemos al sumar todo que:
 
 **Mejor caso**: para el insert sort el mejor caso es cuando tiene todos los elemntos ordenados (el arreglo completo ordenado) por lo tanto el while no se ejecuta pero si vale 1.
 
-**Peor caso**:  el arreglo esta en elorden inverso:
+**Peor caso**:  el arreglo esta en el orden inverso:
 
 ![](/TheusZero/images/post/Algoritmos/casos.png)
 
