@@ -72,7 +72,7 @@ la complejidad depende del tamano de la entrada (no es lo mismo ordenar 6 elemen
 > *Hipotesis*= "cada una de las lineas del pseudocodigo es una instruccion (un paso en el procesador)".
 
 con esa hiptesis asumimos que cada linea de codigo requiere un tiempo de ejecucion constante y por eso cada linea puede tardar diferente a otra, debido a bucles o distintos otros factores que puedan afectar.
-
+![](/TheusZero/images/post/Algoritmos/consideracionesInsertSort.png)
 ![](/TheusZero/images/post/Algoritmos/ExplicadoComplejidad.png)
 ![](/TheusZero/images/post/Algoritmos/auat1.png)
 
