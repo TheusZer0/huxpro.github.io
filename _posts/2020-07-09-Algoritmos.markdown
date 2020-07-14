@@ -60,9 +60,19 @@ ordenamiento por insercion (**Insertion Sort**): (Utilizar un *swap*)
 
 ![](/TheusZero/images/post/Algoritmos/insertionsort.png)
 
-> input: elementos de entraa de **An**
+> input: elementos de entrada de **An**
 > 
 > ouput: elementos ordenados de mayor a menor o menor a mayor
 
 ![](/TheusZero/images/post/Algoritmos/Analysis+of+Insertion+Sort.png)
+
+#### evaluar complejidad
+la complejidad depende del tamano de la entrada (no es lo mismo ordenar 6 elementos que ordenar una cadena ya ordenada o ordenar una cadena de 1000 elemntos), de esa forma, para el insert sort mientras mayor elementos tengas mayor sera la complejidad
+
+> *Hipotesis*= "cada una de las lineas del pseudocodigo es una instruccion (un paso en el procesador)".
+
+con esa hiptesis asumimos que cada linea de codigo requiere un tiempo de ejecucion constante y por eso cada linea puede tardar diferente a otra, debido a bucles o distintos otros factores que puedan afectar.
+
+![](/TheusZero/images/post/Algoritmos/ExplicadoComplejidad.png)
+
 
