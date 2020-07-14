@@ -51,4 +51,18 @@ No esta bien hablar de sencillez (no usar como parametro)
 cantidad de memoria que requiere un algoritmo, no se considera la cantidad necesaria para almacenar la entrada, es la cantidad de memoria para ejecutarse, de esta forma es una funcion del tamaño de entrada T(n)
 
 #### Complejidad temporal
-es la funcion T(n) que describe la cantidad de tiempo requerido para ejecutar un algoritmo, segun su tamaño de entrada, -> cuanto mas grande sea la entrada mas tiempo se va a necesitar +=mayor. -> cuanto mayor sea la entrada mas memoria se va a necesitar 
+es la funcion T(n) que describe la cantidad de tiempo requerido para ejecutar un algoritmo, segun su tamaño de entrada, -> cuanto mas grande sea la entrada mas tiempo se va a necesitar +=mayor. -> cuanto mayor se ya que este nos da la cota superior, el **mejor caso**  y el **caso promedio** no siempre se usan.
+
+> **Complejidad = Complejidad Temporal**
+
+#### Ordenamiento por incersion
+ordenamiento por insercion (**Insertion Sort**): (Utilizar un *swap*)
+
+![](/TheusZero/images/post/Algoritmos/insertionsort.png)
+
+> input: elementos de entraa de **An**
+> 
+> ouput: elementos ordenados de mayor a menor o menor a mayor
+
+![](/TheusZero/images/post/Algoritmos/Analysis+of+Insertion+Sort.png)
+
