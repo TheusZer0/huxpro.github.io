@@ -74,6 +74,7 @@ la complejidad depende del tamano de la entrada (no es lo mismo ordenar 6 elemen
 con esa hiptesis asumimos que cada linea de codigo requiere un tiempo de ejecucion constante y por eso cada linea puede tardar diferente a otra, debido a bucles o distintos otros factores que puedan afectar.
 
 ![](/TheusZero/images/post/Algoritmos/ExplicadoComplejidad.png)
+![](/TheusZero/images/post/Algoritmos/auat1.png)
 
 entonces, teniendo ya la complejidad obtenemos al sumar todo que:
 
@@ -86,6 +87,10 @@ entonces, teniendo ya la complejidad obtenemos al sumar todo que:
 **Peor caso**:  el arreglo esta en el orden inverso:
 
 ![](/TheusZero/images/post/Algoritmos/casos.png)
+
+## Clase 03/07
+
+
 
 
 
