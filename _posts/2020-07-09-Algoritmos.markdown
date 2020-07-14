@@ -22,7 +22,7 @@ tags:
 
 ## Links ricolinos
 
-## Clase 1 - 01-07
+## Clase 01-07
 
 #### Algoritmos
 tipo de tecnologia, como analizar algoritmos, saber que tan eficiente es un algoritmo, comparar algoritmos con **metricas**
