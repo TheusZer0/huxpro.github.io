@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: "NeoTel-Companny"
 subtitle: 'Proyecto de Seminario de Programacion - Ley de Cramer'
 date: 2020-01-25 12:00:00
