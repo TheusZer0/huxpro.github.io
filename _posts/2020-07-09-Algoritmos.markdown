@@ -75,4 +75,9 @@ con esa hiptesis asumimos que cada linea de codigo requiere un tiempo de ejecuci
 
 ![](/TheusZero/images/post/Algoritmos/ExplicadoComplejidad.png)
 
+entonces, teniendo ya la complejidad obtenemos al sumar todo que:
+
+![](/TheusZero/images/post/Algoritmos/ecuacionFinal.png)
+
+
 
