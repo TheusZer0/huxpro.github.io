@@ -90,6 +90,24 @@ entonces, teniendo ya la complejidad obtenemos al sumar todo que:
 
 ## Clase 03/07
 
+> El O(n) se considera siempre como el peor caso y toma el valor del N de mayor grado o complejidad en la ecuacuion
+>
+> El GodOfWar(n) es el mejor caso
+>
+> El caso promedio es Teta(n)
+
+![](/TheusZero/images/post/Algoritmos/promedio.png)
+
+#### Notacion asintotica 
+
+Si un algoritmo tiene comportamiento lineal, entonces su complejidad puede modelarse por una funcion de tipo *f(n)* **lineal en n**. Si la funcion es **cuadratica** entonces g(n*n).
+
+De esa forma:
+
+![](/TheusZero/images/post/Algoritmos/notacionasintotica.png)
+
+
+
 
 
 
