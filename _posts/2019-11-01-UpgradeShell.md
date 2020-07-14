@@ -1,9 +1,10 @@
 ---
-layout: post
+layout: secret_post
 title: "Upgrade Reverse Shell"
 subtitle: 'Para root-users con python'
 author: "TheusZero"
 header-style: text
+key:"Hola"
 tags:
   - Root
   - User

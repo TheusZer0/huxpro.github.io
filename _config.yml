@@ -27,6 +27,8 @@ anchorjs: true                          # if you want to customize anchor. check
 plugins:
   - jekyll-paginate
   - jekyll_encrypt
+  - encrypt
+  - bcrypt
 
 # Markdown settings
 # replace redcarpet to kramdown,
