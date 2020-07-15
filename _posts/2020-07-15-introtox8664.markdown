@@ -60,11 +60,30 @@ pdf @main
 >
 >> la ultima columna tiene instrucciones legibles por el usuario (human readable instructions)
 
->> El núcleo del lenguaje ensamblador implica el uso de registros para hacer lo siguiente: 
+>> El **núcleo** del lenguaje **ensamblador** implica el uso de registros para hacer lo siguiente: 
 >
 >>> Transferir datos entre la memoria y el registro, y viceversa.
 >
 >>> Realizar operaciones aritméticas en registros y datos.
 >
 >>> Transferir el control a otras partes del programa.
->
+
+> Since the architecture is x86-64, the registers are 64 bit and Intel has a list of 16 registers:
+![](/TheusZero/images/post/x86-64/6432.png)
+
+debido a que los registros son de 64 bits, significa que pueden almacenar hasta 64 bits de datos, también se puede hacer referencia a otras partes de los registros.
+En este caso, los registros también pueden referenciarse como valores de 32 bits como se muestra.
+Lo que no se muestra es que los registros pueden ser referenciados como 16 bits y 8 bits (4 bits más altos y 4 bits más bajos).
+
+Los primeros 6 registros se conocen como registros de propósito general.
+> El **%rsp** es el puntero del stack y apunta a la parte superior del stack que contiene la dirección de memoria más reciente.
+> El stack es una estructura de datos que administra la memoria para los programas.
+
+> El **%rbp** es un puntero de frame y apunta al frame de la función que se está ejecutando actualmente;
+> cada función se ejecuta en un cuadro nuevo. 
+> Para mover datos utilizando registros, se utilizan las siguientes instrucciones:
+```Python
+movq source, destination
+```
+
+> 
