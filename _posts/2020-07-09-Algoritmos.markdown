@@ -22,6 +22,8 @@ tags:
 
 ## Links ricolinos
 
+> [Example Algorithms](https://slideplayer.com/slide/12384811/) te muestra un resumen y pseudocodigo de los distintos algoritmos del ramo (en ingles)
+
 ## Clase 01-07
 
 #### Algoritmos
@@ -125,10 +127,11 @@ el ejemplo que veremos es el algoritmo de **merge sort** (ordenamiento combinado
 
 >> **divide** los **n** elementos de la secuencia en dos susecuencias de n/2 elemento cada una
 >
->> **conquista**ordena ambas subsecuencias, de manera recursiva, usando el mismo algoritmo de **merge sort**
+>> **conquista**: ordena ambas subsecuencias, de manera recursiva, usando el mismo algoritmo de **merge sort**
 >
 >> **combina** las dos subsecuencias ordenadas para producir la respuesta buscada, este paso es **crucial**en el algoritmo
 
+#### algoritmo de merge
 
 
 
