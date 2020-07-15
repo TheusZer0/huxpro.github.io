@@ -17,6 +17,11 @@ tags:
   - Reversing
 ---
 
+## Links Ricolinos
+
+[radare2 cheatsheet](https://gist.github.com/williballenthin/6857590dab3e2a6559d7)
+[radare2 manual](https://github.com/radareorg/radare2/blob/master/doc/intro.md)
+
 ## Descripcion
 
 Esta sala analiza las tareas primitivas básicas del lenguaje ensamblador x86-64 de Intel, y utilizará estas primitivas tareas para comprender la construcción de programas básicos utilizando bucles, funciones y procedimientos.
