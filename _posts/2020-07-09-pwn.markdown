@@ -4,7 +4,7 @@ title: "pwn"
 subtitle: 'Resumen de conceptos de pwn y cosas que voy aprendiendo'
 date: 2020-07-09 12:00:00
 author: "TheusZero"
-header-img: "images/post/pwnFondo.png"
+header-img: "images/post/pwn/pwnFondo.png"
 catalog: true
 comments: true
 tags:
