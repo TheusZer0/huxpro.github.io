@@ -129,12 +129,13 @@ el ejemplo que veremos es el algoritmo de **merge sort** (ordenamiento combinado
 >
 >> **conquista**: ordena ambas subsecuencias, de manera recursiva, usando el mismo algoritmo de **merge sort**
 >
->> **combina** las dos subsecuencias ordenadas para producir la respuesta buscada, este paso es **crucial**en el algoritmo
+>> **combina** las dos subsecuencias ordenadas para producir la respuesta buscada, este paso es **crucial** en el algoritmo
 
 #### algoritmo de merge
 
+trabajando de la forma **divide y conquistaras** lo aplicaremos al algoritmo de merge
+
 ![](/TheusZero/images/post/Algoritmos/merge.png)
-![](/TheusZero/images/post/Algoritmos/mergeAuat.png)
 ![](/TheusZero/images/post/Algoritmos/mergeCompleto.png)
 
 
