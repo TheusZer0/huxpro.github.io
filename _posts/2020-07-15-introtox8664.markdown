@@ -26,14 +26,32 @@ Esta sala analiza las tareas primitivas básicas del lenguaje ensamblador x86-64
 Las computadoras ejecutan código de máquina, que está codificado como bytes, para llevar a cabo tareas en una computadora. Dado que diferentes computadoras tienen diferentes procesadores, el código de máquina ejecutado en estas computadoras es específico del procesador. En este caso, analizaremos la arquitectura del conjunto de instrucciones Intel x86-64 que se encuentra más comúnmente en la actualidad. El código de máquina generalmente está representado por una forma más legible del código llamado código de **ensamblaje**. Este código de máquina generalmente es producido por un compilador, que toma el código fuente de un archivo y, después de pasar por algunas etapas intermedias, produce código de máquina que puede ser ejecutado por una computadora. Sin entrar en demasiados detalles, Intel comenzó creando un conjunto de instrucciones de 16 bits, seguido de 32 bits, después de lo cual finalmente crearon 64 bits. Todos estos conjuntos de instrucciones se han creado para la compatibilidad con versiones anteriores, por lo que el código compilado para la arquitectura de 32 bits se ejecutará en máquinas de 64 bits. Como se mencionó anteriormente, antes de que se produzca un archivo ejecutable, el código fuente se compila primero en ensamblado (archivos .s), después de lo cual el ensamblador lo convierte en un programa objeto (archivos .o), y las operaciones con un enlazador finalmente lo convierten en un ejecutable (**binario**).
 
 > esto es para iniciar el programa r2 y darle por parametro la opcion de debuggear el binario
->
 ```Python
 r2 -d intro
 ```
 
 > ya en r2 usamos **aa** para usar un analisis comun al binario, este analisa todos los simbolos y puntos de entrada del ejecutable, de esta misma forma podemos indicar a r2 que use una "disassembly syntax"  para AT&T
->
 ```Python
 aa
 e asm.syntax=att
 ```
+
+> para el help podemos usar:
+```Python
+? //help normal
+a? //help avanzado
+```
+
+> cuando el analisis este completo podemos hacer un listado de las funciones con
+```Python
+afl
+```
+![](/TheusZero/images/post/x86-64/afl.png)
+
+> teniendo ya el main en la lista de funciones podemos visualisarlo con lo siguiente:
+```Python
+pdf @main
+```
+> donde **pdf** significa imprimir en codigo disassembl de la funcion
+![](/TheusZero/images/post/x86-64/pdf.png)
+>
