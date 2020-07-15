@@ -106,6 +106,14 @@ De esa forma:
 
 ![](/TheusZero/images/post/Algoritmos/notacionasintotica.png)
 
+#### divide y conquistaras
+
+la estrategia de minimizacion de complejidad computacional llamada *algoritmo divide y consquistaras* aprovecha la *recursividad* y sus ventajas.
+>> divide el problema
+>
+>>a
+>
+>>a
 
 
 
