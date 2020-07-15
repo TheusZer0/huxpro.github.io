@@ -53,5 +53,5 @@ afl
 pdf @main
 ```
 > donde **pdf** significa imprimir en codigo disassembl de la funcion
+
 ![](/TheusZero/images/post/x86-64/pdf.png)
->
