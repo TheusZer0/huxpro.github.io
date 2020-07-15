@@ -108,12 +108,26 @@ De esa forma:
 
 #### divide y conquistaras
 
-la estrategia de minimizacion de complejidad computacional llamada *algoritmo divide y consquistaras* aprovecha la *recursividad* y sus ventajas.
->> divide el problema
+la estrategia de minimizacion de complejidad computacional llamada **algoritmo divide y consquistaras** aprovecha la **recursividad** y sus ventajas.
+
+>> **divide** el problema en sub-problemas menores de la misma naturaleza, estos se resuelven implicando un menor costo computacional
 >
->>a
+>> **conquista/conquer**resuelve los sub-problemas de manera **recursiva**, el problema puede quedar aveces tan reducido que se resuelve de manera directa
 >
->>a
+>> **combina/merge** las soluciones a los diferentes subproblemas para obtener la solucion general de nuestro problema
+
+el ejemplo que veremos es el algoritmo de **merge sort** (ordenamiento combinado)
+
+> busqueda y combinacion, donde vamos fragmentando nuestros datos de entrada y trabajamos de manera fractal, es decir, en fragmentos (trabajo dividido)
+> divide a lo brusco el input de numeros (o el arreglo)(en potencias de dos), de tal forma que tenemos un menor costo.
+> necesitamos mayor numero de memoria para procesar todo pero nos importa el tiempo de ejecucion en realidad, por lo que este divide en 2 el tiempo. (pero hay que tenerlo)
+> los sub-problemas son indepenedientes uno de otros
+
+>> **divide** los **n** elementos de la secuencia en dos susecuencias de n/2 elemento cada una
+>
+>> **conquista**ordena ambas subsecuencias, de manera recursiva, usando el mismo algoritmo de **merge sort**
+>
+>> **combina** las dos subsecuencias ordenadas para producir la respuesta buscada, este paso es **crucial**en el algoritmo
 
 
 
