@@ -29,3 +29,6 @@ Aqui guardare las cosas que voy aprendiendo sobre pwn y escritura de exploits.
 el buffer es un espacio de memoria que se reserva en el sistema para hacer una tarea en especifica y ese buffer tiene un tamano, el *BufferOverflow* ocurre cuando nosotros le pasamos mas memoria de la que este buffer puede almacenar, de manera que esta se desborda y no tiene control de esta misma.
 
 ![](/TheusZero/images/post/pwn/bufferCodeExample.png)
+
+> Compilation Commands
+>> ```Python echo 0 > /proc/sys/kernel/randomize_va_space```
