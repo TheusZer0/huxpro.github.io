@@ -60,3 +60,11 @@ pdf @main
 >
 >> la ultima columna tiene instrucciones legibles por el usuario (human readable instructions)
 
+>> El núcleo del lenguaje ensamblador implica el uso de registros para hacer lo siguiente: 
+>
+>>> Transferir datos entre la memoria y el registro, y viceversa.
+>
+>>> Realizar operaciones aritméticas en registros y datos.
+>
+>>> Transferir el control a otras partes del programa.
+>
