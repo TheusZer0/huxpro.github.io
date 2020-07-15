@@ -53,5 +53,10 @@ afl
 pdf @main
 ```
 > donde **pdf** significa imprimir en codigo disassembl de la funcion
-
 ![](/TheusZero/images/post/x86-64/pdf.png)
+>> la columna de la izquierda tiene los valores de la direccion de memoria de las instrucciones
+>
+>> la columna del medio tiene los valores de la izquierda pero encodeados a bytes (que esto es machine code)
+>
+>> la ultima columna tiene instrucciones legibles por el usuario (human readable instructions)
+
