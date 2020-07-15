@@ -31,4 +31,4 @@ el buffer es un espacio de memoria que se reserva en el sistema para hacer una t
 ![](/TheusZero/images/post/pwn/bufferCodeExample.png)
 
 > Compilation Commands
->> ```Python echo 0 > /proc/sys/kernel/randomize_va_space```
+>> ```echo 0 > /proc/sys/kernel/randomize_va_space```
