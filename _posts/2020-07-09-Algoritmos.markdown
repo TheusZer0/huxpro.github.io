@@ -133,6 +133,10 @@ el ejemplo que veremos es el algoritmo de **merge sort** (ordenamiento combinado
 
 #### algoritmo de merge
 
+![](/TheusZero/images/post/Algoritmos/merge.png)
+![](/TheusZero/images/post/Algoritmos/mergeAuat.png)
+![](/TheusZero/images/post/Algoritmos/mergeCompleto.png)
+
 
 
 
