@@ -22,7 +22,7 @@ tags:
 
 ## Links ricolinos
 
-> [Example Algorithms](https://slideplayer.com/slide/12384811/) te muestra un resumen y pseudocodigo de los distintos algoritmos del ramo (en ingles)
+> [Example Algorithms](https://slideplayer.com/slide/12384811/) resumen y pseudocodigo de los distintos algoritmos del ramo (en ingles)
 
 ## Clase 01-07
 
@@ -114,7 +114,7 @@ la estrategia de minimizacion de complejidad computacional llamada **algoritmo d
 
 >> **divide** el problema en sub-problemas menores de la misma naturaleza, estos se resuelven implicando un menor costo computacional
 >
->> **conquista/conquer**resuelve los sub-problemas de manera **recursiva**, el problema puede quedar aveces tan reducido que se resuelve de manera directa
+>> **conquista/conquer** resuelve los sub-problemas de manera **recursiva**, el problema puede quedar aveces tan reducido que se resuelve de manera directa
 >
 >> **combina/merge** las soluciones a los diferentes subproblemas para obtener la solucion general de nuestro problema
 
@@ -139,7 +139,7 @@ trabajando de la forma **divide y conquistaras** lo aplicaremos al algoritmo de 
 ![](/TheusZero/images/post/Algoritmos/mergeCompleto.png)
 ![](/TheusZero/images/post/Algoritmos/mergeExplicado1.png)
 
-
+> ahora para dividir y conquistar es diferente
 
 
 
