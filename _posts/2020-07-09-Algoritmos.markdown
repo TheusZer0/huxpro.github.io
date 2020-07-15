@@ -144,4 +144,8 @@ trabajando de la forma **divide y conquistaras** lo aplicaremos al algoritmo de 
 #### merge sort recursividad
 ![](/TheusZero/images/post/Algoritmos/mergeSortExplicado.png)
 
+#### recurrencia
+
+> cuando un algoritmo contiene llamadas **recursivas** su tiempo de ejecucion se describe con **ecuaciones recurrentes** o de recurrencia
+
 
