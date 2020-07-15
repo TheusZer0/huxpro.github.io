@@ -137,6 +137,7 @@ trabajando de la forma **divide y conquistaras** lo aplicaremos al algoritmo de 
 
 ![](/TheusZero/images/post/Algoritmos/merge.png)
 ![](/TheusZero/images/post/Algoritmos/mergeCompleto.png)
+![](/TheusZero/images/post/Algoritmos/mergeExplicado.png)
 
 
 
