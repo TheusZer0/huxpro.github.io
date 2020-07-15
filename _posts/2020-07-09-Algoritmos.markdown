@@ -141,5 +141,7 @@ trabajando de la forma **divide y conquistaras** lo aplicaremos al algoritmo de 
 
 > ahora para dividir y conquistar es diferente
 
+#### merge sort recursividad
+![](/TheusZero/images/post/Algoritmos/mergeSortExplicado.png)
 
 
