@@ -156,6 +156,16 @@ para el caso del algoritmo de divide y conquistaras,
   Entonces cada subproblema, tardara ahora **T(n/b)**, y el algoritmo entero tardara aT(n/b). 
   Si ademas tardamos O(n)(costo maximo, peor caso) en dividir el problema en subproblemas, y C(n) en combinar todas las soluciones, 
   entonces tenemos la siguiente recurrencia:
-  
+
+> resumen: para el caso de dividir y conquistar tenemos un tiempo de ejucion T(n) el tamano de entrada es n, si este n es tan chico respecto a c (constante dada)entonces el **peor-coso=1** <-> (**O(1)**), esto sucede como ejemplo en el initial sequence del merge-sort, ya que dividimos tanto el problema que el costo computacional para ese elemeto es 1.
+>
+> cuando usamos la estrategia de dividir y conquistar se divide el problema en **a** subproblemas, cada uno de estos tiene un tamano de **1/b** (cuadno trabajamos con el merge-sort directamente se divide en la arreglo en la mitad, **1/2**). 
+> el costo del subproblemava a ser T(n/b) y el algoritmo entero va a ser de aT(n/b)
+>
+> D(n) es el costo en dividir el problema en sub-problemas y C(n) en combinar todas las soluciones, entonces en total todo es:
+
+![](/TheusZero/images/post/Algoritmos/recurrencia.png)
+
+
 ![](/TheusZero/images/post/Algoritmos/recurrencia.png)
 
