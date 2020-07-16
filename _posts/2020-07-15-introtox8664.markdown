@@ -100,3 +100,8 @@ movq source, destination
 
 > Cuando se trata de la manipulación de la memoria utilizando registros, hay otros casos a considerar:
 >> ![](/TheusZero/images/post/x86-64/memoryManipulation.png)
+
+> otras instrucciones importantes
+>> ![](/TheusZero/images/post/x86-64/someInstruccion.png)
+
+####
