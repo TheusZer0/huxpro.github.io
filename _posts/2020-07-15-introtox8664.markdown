@@ -104,4 +104,18 @@ movq source, destination
 > otras instrucciones importantes
 >> ![](/TheusZero/images/post/x86-64/someInstruccion.png)
 
-####
+#### sentencia If 
+en general el if sera presentado de la siguiente manera:
+```Python
+if(condition){
+  do-stuff-here
+}else if(condition) //this is an optional condition {
+  do-stuff-here
+}else {
+  do-stuff-here
+}
+```
+el condicional if ocupa 3 importantes instruccion en assembly:
+> ```cmpq source2, source1``` es como 
+>
+>
