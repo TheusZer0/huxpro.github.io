@@ -166,4 +166,12 @@ para el caso del algoritmo de divide y conquistaras,
 
 ![](/TheusZero/images/post/Algoritmos/recurrencia.png)
 
+#### recurrencia para el algoritmo de merge sort
 
+>> Divide: cuesta Teta(1)
+>
+>> Conquista: dividimos el problema de forma recursiva en tamano n/2 (2 partes) cada una con tiempo 2T(n/2)
+>
+>> Combina: Cuesta Teta(n)
+
+![](/TheusZero/images/post/Algoritmos/recurrenciaMergeSort.png)
