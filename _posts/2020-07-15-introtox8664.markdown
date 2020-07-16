@@ -98,3 +98,5 @@ movq source, destination
 > la ultima letra del comando mov indica la accion que se efectuara:
 >> ![](/TheusZero/images/post/x86-64/movCommand.png)
 
+> Cuando se trata de la manipulación de la memoria utilizando registros, hay otros casos a considerar:
+>> ![](/TheusZero/images/post/x86-64/memoryManipulation.png)
