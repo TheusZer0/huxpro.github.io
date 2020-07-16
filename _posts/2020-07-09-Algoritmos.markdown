@@ -185,5 +185,11 @@ para el caso del algoritmo de divide y conquistaras,
 > sin perdida de generalidad, supongamos que **n**es **potencia de dos**
 >> se habla de sin perdida de generalidad para determinar que el arbol que se construya sea balanceado y completo y su ultima hoja tendra valor de solo **c**
 ![](/TheusZero/images/post/Algoritmos/mergeCN.png)
+> como trabajamos con arboles binarios podemos decir que hacia abajo, cada una de las lineas seria (log n+1) niveles (recordar que el log es de **base 2** en el ramo)
+>> de esa misma forma, el costo computacional final va a ser igual a **cn(log n+1)**
+>> **comportamiento asintotico** <=> **T(n) = Teta(n log(n))**
 
-
+> Costo computacional de algoritmos visto hasta ahora:
+>> insert sort = **Teta(n^2)**
+>
+>> merge sort = **Teta(n log(n))** (recordar base 2)
