@@ -180,3 +180,4 @@ para el caso del algoritmo de divide y conquistaras,
 
 > **Metodo: Arboles Recursivos**
 >> permite resolver problemas de costo computacional de algoritmos que usan llamadas recursivas (recurrencias)
+![](/TheusZero/images/post/Algoritmos/metodoArbolesRecursivos.png)
