@@ -148,4 +148,14 @@ trabajando de la forma **divide y conquistaras** lo aplicaremos al algoritmo de 
 
 > cuando un algoritmo contiene llamadas **recursivas** su tiempo de ejecucion se describe con **ecuaciones recurrentes** o de recurrencia
 
+para el caso del algoritmo de divide y conquistaras,
+ sea T(n) el tiempo de ejecucion para un problema (por ejemplo el **merge-sort**) de
+  tamano **n** de entrada. Si **n** es suficientemente chico, supongamos que n<<c 
+  (con **c** constante), entonces el costo promedio(1) y permanece fijo. Pero la estrategia 
+  divide y conquistaras, divide el problema en **a** subproblemas, cada uno de tamano 1/b (para el caso de merge-sort, es simplemente 1/2). 
+  Entonces cada subproblema, tardara ahora **T(n/b)**, y el algoritmo entero tardara aT(n/b). 
+  Si ademas tardamos O(n)(costo maximo, peor caso) en dividir el problema en subproblemas, y C(n) en combinar todas las soluciones, 
+  entonces tenemos la siguiente recurrencia:
+  
+![](/TheusZero/images/post/Algoritmos/recurrencia.png)
 
