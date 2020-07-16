@@ -91,6 +91,10 @@ Los primeros 6 registros se conocen como registros de propósito general.
 movq source, destination
 ```
 > Esto involucra:
->> Transferring constants(which are prefixed using the $ operator) e.g. movq $3 rax would move the constant 3 to the register
->> Transferring values from a register e.g. movq %rax %rbx which involves moving value from rax to rbx
->> Transferring values from memory which is shown by putting registers inside brackets e.g. movq %rax (%rbx) which means move value stored in %rax to memory location represented by %rbx. 
+>> Transferencia de constantes (que tienen el prefijo usando el operador) e.j. ```movq $3 rax``` movería la constante 3 al registro
+>> Transferencia de valores desde un registro, e.j. ```movq %rax %rbx``` que implica mover el valor de rax a rbx
+>> Transferencia de valores desde la memoria que se muestra al colocar registros entre paréntesis, ejemplo: ```movq %rax (%rbx)``` que significa **mover el valor almacenado** en **%rax** a la ubicación de memoria representada por **%rbx**.
+
+> la ultima letra del comando mov indica la accion que se efectuara:
+>> ![](/TheusZero/images/post/x86-64/movCommand.png)
+
