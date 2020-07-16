@@ -90,5 +90,7 @@ Los primeros 6 registros se conocen como registros de propósito general.
 ```Python
 movq source, destination
 ```
-
-> 
+> Esto involucra:
+>> Transferring constants(which are prefixed using the $ operator) e.g. movq $3 rax would move the constant 3 to the register
+>> Transferring values from a register e.g. movq %rax %rbx which involves moving value from rax to rbx
+>> Transferring values from memory which is shown by putting registers inside brackets e.g. movq %rax (%rbx) which means move value stored in %rax to memory location represented by %rbx. 
