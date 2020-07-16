@@ -175,3 +175,8 @@ para el caso del algoritmo de divide y conquistaras,
 >> Combina: Cuesta Teta(n)
 
 ![](/TheusZero/images/post/Algoritmos/recurrenciaMergeSort.png)
+
+#### resolver ecuacion de recurrencia - Arboles recursivos
+
+> **Metodo: Arboles Recursivos**
+>> permite resolver problemas de costo computacional de algoritmos que usan llamadas recursivas (recurrencias)
