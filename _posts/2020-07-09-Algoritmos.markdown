@@ -184,5 +184,6 @@ para el caso del algoritmo de divide y conquistaras,
 
 > sin perdida de generalidad, supongamos que **n**es **potencia de dos**
 >> se habla de sin perdida de generalidad para determinar que el arbol que se construya sea balanceado y completo y su ultima hoja tendra valor de solo **c**
-
 ![](/TheusZero/images/post/Algoritmos/mergeCN.png)
+
+
