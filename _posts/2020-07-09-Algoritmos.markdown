@@ -190,6 +190,6 @@ para el caso del algoritmo de divide y conquistaras,
 >> **comportamiento asintotico** <=> **T(n) = Teta(n log(n))**
 
 > Costo computacional de algoritmos visto hasta ahora:
->> insert sort = **Teta(n^2)**
+>> insert sort = **Teta(n^2)** (Menor memoria)(Mas tiempo de ejecucion)
 >
->> merge sort = **Teta(n log(n))** (recordar base 2)
+>> merge sort = **Teta(n log(n))** (recordar base 2) <=> (Mayor memoria)(Menor tiempo de ejecucion)
