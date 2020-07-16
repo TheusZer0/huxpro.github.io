@@ -189,7 +189,11 @@ para el caso del algoritmo de divide y conquistaras,
 >> de esa misma forma, el costo computacional final va a ser igual a **cn(log n+1)**
 >> **comportamiento asintotico** <=> **T(n) = Teta(n log(n))**
 
+![](/TheusZero/images/post/Algoritmos/arbolbinarioultimo.png)
+
 > Costo computacional de algoritmos visto hasta ahora:
 >> insert sort = **Teta(n^2)** (Menor memoria)(Mas tiempo de ejecucion)
 >
 >> merge sort = **Teta(n log(n))** (recordar base 2) <=> (Mayor memoria)(Menor tiempo de ejecucion)
+
+#### busqueda binaria
