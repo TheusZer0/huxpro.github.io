@@ -206,3 +206,10 @@ para el caso del algoritmo de divide y conquistaras,
 #### ejemplo analisis de complejidad
 
 ![](/TheusZero/images/post/Algoritmos/ejemploComplejidad.png)
+
+## Clase 08/07
+
+#### mas arboles recursivos
+
+![](/TheusZero/images/post/Algoritmos/masEjemplosArbolRecurrente.png)
+
