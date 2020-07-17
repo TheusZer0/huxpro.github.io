@@ -237,7 +237,7 @@ para el caso del algoritmo de divide y conquistaras,
 >>> con el resultado de eso, mayor,menor o igual obtenemos una formula para sacar el O(n) es decir, el calculo de la complejidad.  
 ![](/TheusZero/images/post/Algoritmos/resumenMetodoMaestro.png)
 
-> un caso  en el que no cumple debido a las restrucciones
+> un caso  en el que no cumple debido a las restricciones, ya que el f(n) no es polimonial(polinomio).
 ![](/TheusZero/images/post/Algoritmos/noAplica.png)
 
 #### merge sort revisitado
