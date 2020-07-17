@@ -219,6 +219,6 @@ para el caso del algoritmo de divide y conquistaras,
 > recordar
 >> n= entrada (datos)
 >
->> 2T(n/2) corresponde a dividir y conquistar || Teta(n) corresponde a Combinar
+>> 2T(n/2) corresponde a dividir y conquistar || Θ(n) corresponde a Combinar
 ![](/TheusZero/images/post/Algoritmos/masDivideConquistaras.png)
 
