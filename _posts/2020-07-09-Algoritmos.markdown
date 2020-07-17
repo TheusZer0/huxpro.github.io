@@ -213,4 +213,12 @@ para el caso del algoritmo de divide y conquistaras,
 
 ![](/TheusZero/images/post/Algoritmos/masEjemplosArbolRecurrente.png)
 ![](/TheusZero/images/post/Algoritmos/masArbolesRecursivos.png)
+ 
+#### mas divide y conquistaras
+
+> recordar
+>> n= entrada (datos)
+>
+>> 2T(n/2) corresponde a dividir y conquistar || Teta(n) corresponde a Combinar
+![](/TheusZero/images/post/Algoritmos/masDivideConquistaras.png)
 
