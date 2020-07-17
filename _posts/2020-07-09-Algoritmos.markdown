@@ -212,4 +212,5 @@ para el caso del algoritmo de divide y conquistaras,
 #### mas arboles recursivos
 
 ![](/TheusZero/images/post/Algoritmos/masEjemplosArbolRecurrente.png)
+![](/TheusZero/images/post/Algoritmos/masArbolesRecursivos.png)
 
