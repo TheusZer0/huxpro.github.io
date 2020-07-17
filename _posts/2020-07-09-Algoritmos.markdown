@@ -230,3 +230,12 @@ para el caso del algoritmo de divide y conquistaras,
 >la condicion que **a>=1 ; b>1 ; f(n) una funcion previamente conocida**
 >> recordar que **a** nos habla de la cantidad de subproblemas (grupos) y **1/b** nos dice la cantiodad de datos que tendra esos subproblemas (2 <=> misma cantdidad de datos).
 
+> [Video que lo explica de pana](https://www.youtube.com/watch?v=VplAn4NHYA0)
+
+> como resumen, debemos sacar el valor **a** y el valor **b** y un valor **c**
+>> una vez sacados estos valores, debemos comparar Log(en base **B**) de **A** de un valor **c**
+>>> con el resultado de eso, mayor,menor o igual obtenemos una formula para sacar el O(n) es decir, el calculo de la complejidad.  
+![](/TheusZero/images/post/Algoritmos/resumenMetodoMaestro.png)
+
+> un caso  en el que no cumple debido a las restrucciones
+![](/TheusZero/images/post/Algoritmos/noAplica.png)
