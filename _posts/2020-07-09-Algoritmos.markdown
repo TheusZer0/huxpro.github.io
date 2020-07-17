@@ -222,3 +222,9 @@ para el caso del algoritmo de divide y conquistaras,
 >> 2T(n/2) corresponde a dividir y conquistar || Θ(n) corresponde a Combinar
 ![](/TheusZero/images/post/Algoritmos/masDivideConquistaras.png)
 
+#### metodo maestro
+
+> el metodo maestro provee cotas para recurrencias de la forma ```T(n) = aT(n/b)+ f(n)``` con 
+>la condicion que **a>=1 ; b>1 ; f(n) una funcion previamente conocida**
+>> recordar que **a** nos habla de la cantidad de subproblemas y **1/b** nos dice la cantiodad de datos que tendra esos subproblemas.
+
