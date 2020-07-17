@@ -16,9 +16,11 @@ tags:
 
 # Algoritmos - Resumen 2020 - Clases de Auat y otras cositas 
 
-## Lista de reproduccion
+## Videos y Lista de reproduccion
 
 > [Clases de AUAT](https://www.youtube.com/watch?v=5vagWigOdG4&list=PLgrda20pniFScjC1SgN-JtdmBZjoX7VaZ)
+>
+> [Canal con material en espanol](https://www.youtube.com/channel/UCnmq-CGB2lEiwxhpa_Q63qQ/featured)
 
 ## Links ricolinos
 
@@ -226,5 +228,5 @@ para el caso del algoritmo de divide y conquistaras,
 
 > el metodo maestro provee cotas para recurrencias de la forma ```T(n) = aT(n/b)+ f(n)``` con 
 >la condicion que **a>=1 ; b>1 ; f(n) una funcion previamente conocida**
->> recordar que **a** nos habla de la cantidad de subproblemas y **1/b** nos dice la cantiodad de datos que tendra esos subproblemas.
+>> recordar que **a** nos habla de la cantidad de subproblemas (grupos) y **1/b** nos dice la cantiodad de datos que tendra esos subproblemas (2 <=> misma cantdidad de datos).
 
