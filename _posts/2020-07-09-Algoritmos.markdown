@@ -200,3 +200,8 @@ para el caso del algoritmo de divide y conquistaras,
 
 > se nos da un arreglo y un numero, si ese numero esta en el arreglo tenemos que devolver la posicion en la que se encuentra el arreglo
 >> si vamos buscando elemento por elemento, entonces el costo computacional es de Teta(n) ya que es el peor caso si nos dan el ultimo elementos (**para busqueda lineal**)
+
+![](/TheusZero/images/post/Algoritmos/busquedaBinaria.png)
+
+#### ejemplo analisis de complejidad
+![](/TheusZero/images/post/Algoritmos/ejemploComplejidad.png)
