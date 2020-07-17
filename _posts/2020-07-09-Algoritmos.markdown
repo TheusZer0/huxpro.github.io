@@ -239,3 +239,8 @@ para el caso del algoritmo de divide y conquistaras,
 
 > un caso  en el que no cumple debido a las restrucciones
 ![](/TheusZero/images/post/Algoritmos/noAplica.png)
+
+#### merge sort revisitado
+![](/TheusZero/images/post/Algoritmos/mergeSortRevisitado.png)
+
+
