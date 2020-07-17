@@ -204,4 +204,5 @@ para el caso del algoritmo de divide y conquistaras,
 ![](/TheusZero/images/post/Algoritmos/busquedaBinaria.png)
 
 #### ejemplo analisis de complejidad
+
 ![](/TheusZero/images/post/Algoritmos/ejemploComplejidad.png)
