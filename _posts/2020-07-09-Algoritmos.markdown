@@ -276,4 +276,14 @@ el acceso a estructura indexadas basicas como arrays, a estas operaciones se les
 
 > el heap es una estructura y el heapsort incorpora esta misma para crear un algoritmo de ordenamiento como el merge-sort y el insert-sort, este heapsort mezcla las ventajas del insertion-sort y del merge-sort
 
-**heapsort**  usa una estructura de datos llamados heap, el heap es un tipo de arreglo que puede representarse mediante un arbol binario. cada nodo del arbol corresponde a unelemento del arreglo. si bien pareciera que el arbol puede construir balanceado y completo, usualmente el subarbol derecho puede carecer de hojas en el mismo nivel que el subarbol izquierdo.
+**heapsort**  usa una estructura de datos llamados heap, el heap es un tipo de arreglo que puede representarse mediante un arbol binario. cada nodo del arbol corresponde a un elemento del arreglo. si bien pareciera que el arbol puede construir balanceado y completo, usualmente el subarbol derecho puede carecer de hojas en el mismo nivel que el subarbol izquierdo.
+
+> el primer numero del arreglo, es decir, el numero de la posicion 0 (o 1 en pseudocdigo) sera el nodo raiz del arbol binario para el heapsort
+
+> entonces:
+>
+>> el nodo raiz es el primer elemento del arreglo
+>
+>> cada nodo padre resulta de la operacion de [i/2], es decir, la porte entera de i/2.
+>> siendo el resultado de esta division, el nodo padre del nodo en el que se esta situando:
+> ![](/TheusZero/images/post/Algoritmos/mergeSortRevisitado.png)
