@@ -264,3 +264,7 @@ el acceso a estructura indexadas basicas como arrays, a estas operaciones se les
 >
 >> resumen: el Big O es la cota superior, es decir, el mayor tiempo que puede demorar el algortimo al hablar de **tiempo de ejecucion**, entonces, el big O es igual al peor caso y por ende es la cota superior.
 
+> **cota inferior: notacion omega (godofwar)**
+>
+> una funcion f que crece tan lentamente como f, es decir, que el conjunto de las funciones que tiene el algoritmo aplica para ser la cota inferior es decir, el mejor caso.
+
