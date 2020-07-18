@@ -286,4 +286,4 @@ el acceso a estructura indexadas basicas como arrays, a estas operaciones se les
 >
 >> cada nodo padre resulta de la operacion de [i/2], es decir, la porte entera de i/2.
 >> siendo el resultado de esta division, el nodo padre del nodo en el que se esta situando:
-> ![](/TheusZero/images/post/Algoritmos/mergeSortRevisitado.png)
+> ![](/TheusZero/images/post/Algoritmos/heapTree.png)
