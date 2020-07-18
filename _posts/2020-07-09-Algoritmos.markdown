@@ -243,4 +243,24 @@ para el caso del algoritmo de divide y conquistaras,
 #### merge sort revisitado
 ![](/TheusZero/images/post/Algoritmos/mergeSortRevisitado.png)
 
+#### Operaciones elementales
+
+**el tiempo de ejecucion T(n)**: determina el numero de operaciones realizadas por un procesador 
+
+**Operaciones Elementales**: las (OE), son aquellas acciones/instrucciones que el ordenador ejecuta 
+en un tiempo acotado por una constante, por ejemplo
+
+> operaciones aritmeticas  y logicas basicas; asignaciones a variables de tipo predefinidopor el compilados, 
+>los saltos (llamadas a funciones y/o procedimientos, retornos, etc...)
+>> tambien seconsidera la escritura de memoria y la lectura de memoria <=> 1. 
+
+el acceso a estructura indexadas basicas como arrays, a estas operaciones se les considera un costo unitario de 1.
+ 
+#### cotas de complejidad y medidas asintoticas
+
+> **cota superior: notacion big O (omicron)**
+>
+> dada una funcion f, queremos estudiar aquellas funciones que, a lo sumo, crecen tan rapido como f.al conjunto de estas funciones se les conoce como cota superior de f y lo denominamos como O(f). si f es un algoritmo, entonces el tiempo empleado en ejecutarse nunca sera superior al de su cota
+>
+>> resumen: el Big O es la cota superior, es decir, el mayor tiempo que puede demorar el algortimo al hablar de **tiempo de ejecucion**, entonces, el big O es igual al peor caso y por ende es la cota superior.
 
