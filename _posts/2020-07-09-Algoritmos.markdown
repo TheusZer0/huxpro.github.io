@@ -268,3 +268,12 @@ el acceso a estructura indexadas basicas como arrays, a estas operaciones se les
 >
 > una funcion f que crece tan lentamente como f, es decir, que el conjunto de las funciones que tiene el algoritmo aplica para ser la cota inferior es decir, el mejor caso.
 
+> **orden exacto: notacion Teta <=> Theta**
+>
+> funciones que crecen asintoticamente de la misma forma, caso promedio, esta entre la cota superior e inferior.
+
+## HeapSort
+
+> el heap es una estructura y el heapsort incorpora esta misma para crear un algoritmo de ordenamiento como el merge-sort y el insert-sort, este heapsort mezcla las ventajas del insertion-sort y del merge-sort
+
+**heapsort**  usa una estructura de datos llamados heap, el heap es un tipo de arreglo que puede representarse mediante un arbol binario. cada nodo del arbol corresponde a unelemento del arreglo. si bien pareciera que el arbol puede construir balanceado y completo, usualmente el subarbol derecho puede carecer de hojas en el mismo nivel que el subarbol izquierdo.
