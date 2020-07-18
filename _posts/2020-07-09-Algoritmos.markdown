@@ -295,3 +295,15 @@ el acceso a estructura indexadas basicas como arrays, a estas operaciones se les
 > ![](/TheusZero/images/post/Algoritmos/heepTreeExample.png)
 
 > para el **min-heap** se cumple lo inverso, el valor contenido en el nodo padre, debe ser menor o  igual al valor contenido en el nodo hijo
+
+los **heaps binarios** los usaremos entonces para generar el algoritmo de ordenamiento **heapsort** como tambien para construir **colas de prioridad**.
+
+> **Max-Heapify**: ordenamiento respecto a la topologia max-heap que se adopta, este procedimiento asegura que el arbol cimple con la topologia, su costo es **O(log n)**
+>
+> **Build-Max-Heap:** construye un arbol de tipo **max-heap**  este es ek tipo de estructura que usaremos para **sorting**  a partir de un arreglo no ordenado, su costo es lineal **O(n)** (cuando buscamos su costo exacto) o bien **O(n log n)**, sabiendo que el arbol tiene una profundidad de **log n**
+>
+> **Heapsort**: es el prcedimiento de ordenamiento que estudiaremos y tiene un costo de **O(n log n)**
+>
+> **Max-Heap-Insert, Heap-Extract-Max, Heap-Increase-Key y  Heap-Maximum**, son prcedimientos que usaremos para generar una pila de prioridades. el costo de cada uno es de O(log n).
+> ![](/TheusZero/images/post/Algoritmos/maxHeapify.png)
+> ![](/TheusZero/images/post/Algoritmos/maxHeapifyDemostracion.png)
