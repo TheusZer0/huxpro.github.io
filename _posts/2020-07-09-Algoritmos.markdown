@@ -292,6 +292,6 @@ el acceso a estructura indexadas basicas como arrays, a estas operaciones se les
 
 > para el **max-heap** (imagen anterior), se debe cumplir que para cuaqlueir **nodo i**, se tenga que:
 >> el valor o llave almacenado en el indice del arbol, debe cumplir con la condicion de que este, debe ser mayor o igual en tamano al nodo hjjo que tenga
-> ![](/TheusZero/images/post/Algoritmos/heapTreeExample.png)
+> ![](/TheusZero/images/post/Algoritmos/heepTreeExample.png)
 
 > para el **min-heap** se cumple lo inverso, el valor contenido en el nodo padre, debe ser menor o  igual al valor contenido en el nodo hijo
