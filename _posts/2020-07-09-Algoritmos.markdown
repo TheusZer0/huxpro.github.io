@@ -298,6 +298,8 @@ el acceso a estructura indexadas basicas como arrays, a estas operaciones se les
 
 los **heaps binarios** los usaremos entonces para generar el algoritmo de ordenamiento **heapsort** como tambien para construir **colas de prioridad**.
 
+#### Max-Heapify
+
 > **Max-Heapify**: ordenamiento respecto a la topologia max-heap que se adopta, este procedimiento asegura que el arbol cimple con la topologia, su costo es **O(log n)**
 >
 > **Build-Max-Heap:** construye un arbol de tipo **max-heap**  este es ek tipo de estructura que usaremos para **sorting**  a partir de un arreglo no ordenado, su costo es lineal **O(n)** (cuando buscamos su costo exacto) o bien **O(n log n)**, sabiendo que el arbol tiene una profundidad de **log n**
@@ -307,3 +309,11 @@ los **heaps binarios** los usaremos entonces para generar el algoritmo de ordena
 > **Max-Heap-Insert, Heap-Extract-Max, Heap-Increase-Key y  Heap-Maximum**, son prcedimientos que usaremos para generar una pila de prioridades. el costo de cada uno es de O(log n).
 > ![](/TheusZero/images/post/Algoritmos/maxHeapify.png)
 > ![](/TheusZero/images/post/Algoritmos/maxHeapifyDemostracion.png)
+
+#### Build-Max-Heap
+
+construye el arbol, el unico argumento que recibe es el arreglo
+
+> cambio de variable, y se aplica un for
+>> para i = a la longitud o tamano de a dividido entre 2 y hasta 1, es decir, que va de la mitads del arregloy comienza a bajar hasta la posicion 1
+>>>se trabaja con la mitad ya que ahi estan los nodos mas importantes como  el nodo padre o raiz
