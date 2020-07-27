@@ -3,7 +3,7 @@ layout: post
 title: "Categories"
 author: "TheusZero"
 subtitle: 'Aqui podran encontrar los posts guardados por tipo de categoria, de una forma mas simple y ordenada.'
-header-img: "images/sand_black_beach_130680_3840x2160.png"
+header-img: "images/408a7d24f9d2e3e22990cc4629163cf2.png"
 catalog: true
 comments: true
 ---
