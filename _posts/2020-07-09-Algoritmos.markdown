@@ -328,3 +328,4 @@ finalmente quedaria algo del estilo:
 
 > **[1,2,3,4,7,8,9,10,14,16]**
 
+> HeapSort toma tiempo **O(nlogn)**,ya que el llamado a BUILD-MAX-HEAPtoma tiempo O(n) y cada llamado a MAX-HEAPIFYtomatiempoO(logn).
