@@ -317,3 +317,14 @@ construye el arbol, el unico argumento que recibe es el arreglo
 > cambio de variable, y se aplica un for
 >> para i = a la longitud o tamano de a dividido entre 2 y hasta 1, es decir, que va de la mitads del arregloy comienza a bajar hasta la posicion 1
 >>>se trabaja con la mitad ya que ahi estan los nodos mas importantes como  el nodo padre o raiz
+
+#### heapsort
+
+el heapsort crea un arbol con el maxheap(), una vez ya listo este arbol, el nodo raiz es intercambiado con el ultimo nodo del arbol (el mas chico) y este es **guardado** en otro lugar, es decir, el  largo del nodo se le resta uno, ya que este nodo raiz sale de la strcut como tal y se guarda como primer nodo.
+
+![](/TheusZero/images/post/Algoritmos/heapsortFotosDiapos.png)
+
+finalmente quedaria algo del estilo:
+
+> **[1,2,3,4,7,8,9,10,14,16]**
+
