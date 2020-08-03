@@ -329,3 +329,18 @@ finalmente quedaria algo del estilo:
 > **[1,2,3,4,7,8,9,10,14,16]**
 
 > HeapSort toma tiempo **O(nlogn)**,ya que el llamado a BUILD-MAX-HEAPtoma tiempo O(n) y cada llamado a MAX-HEAPIFYtomatiempoO(logn).
+
+#### colas de prioridad (Priority queues)- **(Usando Heaps)**:
+
+tipo de estructura de datos utilizada para mantener un conjunto de elementos, de una forma de stack **FILO** (first in last out)
+
+> pero, como son colas de prioridad, a cada dato se le agrega una prioridad donde, mientras mayor sea esta prioridad entonces aunque el dato este en el ultimo lugar sera el primero en salir (comparado con uno que tiene una prioridad baja).
+
+```Python
+struct node
+{
+    int priority;
+    int info;
+    struct node *next;
+}
+```
