@@ -168,6 +168,9 @@ para el caso del algoritmo de divide y conquistaras,
 
 ![](/TheusZero/images/post/Algoritmos/recurrencia.png)
 
+![](/TheusZero/images/post/Algoritmos/Screenshot_2020-08-03.png)
+
+
 #### recurrencia para el algoritmo de merge sort
 
 >> Divide: cuesta Teta(1)
@@ -344,3 +347,22 @@ struct node
     struct node *next;
 }
 ```
+**procedimientos a implementar**
+
+> **Insert(S,x)**: inserta un elemento **x** en el conjunto **S** de elementos de la cosa, lo cual equivale a hacer S=S U {X}
+>> el conjunto es el arrego y se inserta un x en el stack
+>
+> Maximum: retorna el elemento de S con la llave de mayor valor
+>> retorna el elemento con mayor prioridad
+>> HEAP-MAXIMUM retorna el valor máximo en **tiempo Θ(1)**.
+>
+> extract-max(s): retorna y remueve el elemento de S que tiene mayor prioridad
+>> HEAP-EXTRACT-MAX remueve y retorna el elemento con el valor máximo (operación similar al de HeapSort que vimos antes) en tiempo **O(logn)**
+>
+> Increase-Key(S,x,k): incrementa la llave (siempre manteniendo la estrcutura heap, es decir, que los  nodos padres son mayores a los hijos), es decir la prioridad de un elemento x al nuevo valor de k, siendo siempre un valor mayor al anterior es decir, nunca decrementar.
+>> HEAP-INCREASE-KEY: primero actualiza el valor de lac lave de A[i] y luego atraviesa un camino entre este nodo hacia el nodo raíz para encontrar un slot apropiado para la clave(prioridad) actualizada y respeta la propiedad base de max-heap. En este proceso, la función compara repetitivamente un elemento con su nodo padre, intercambiando las claves y continuando hasta que se cumpla la propiedad del max-heap. toma tiempo **O(log n)**.
+![](/TheusZero/images/post/Algoritmos/colaDePrioridadesFunciones.png)
+![](/TheusZero/images/post/Algoritmos/heapIncraseKey.png)
+
+**En general, cualquier tipo de operación de cola de prioridades sobre un Heap de n elementos toma tiempo O(log n).**
+
