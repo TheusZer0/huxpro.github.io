@@ -359,10 +359,24 @@ struct node
 > extract-max(s): retorna y remueve el elemento de S que tiene mayor prioridad
 >> HEAP-EXTRACT-MAX remueve y retorna el elemento con el valor máximo (operación similar al de HeapSort que vimos antes) en tiempo **O(logn)**
 >
-> Increase-Key(S,x,k): incrementa la llave (siempre manteniendo la estrcutura heap, es decir, que los  nodos padres son mayores a los hijos), es decir la prioridad de un elemento x al nuevo valor de k, siendo siempre un valor mayor al anterior es decir, nunca decrementar.
+> Increase-Key(S,x,k): incrementa la llave (siempre manteniendo la estructura heap, es decir, que los  nodos padres son mayores a los hijos), es decir la prioridad de un elemento x al nuevo valor de k, siendo siempre un valor mayor al anterior es decir, nunca decrementar.
 >> HEAP-INCREASE-KEY: primero actualiza el valor de lac lave de A[i] y luego atraviesa un camino entre este nodo hacia el nodo raíz para encontrar un slot apropiado para la clave(prioridad) actualizada y respeta la propiedad base de max-heap. En este proceso, la función compara repetitivamente un elemento con su nodo padre, intercambiando las claves y continuando hasta que se cumpla la propiedad del max-heap. toma tiempo **O(log n)**.
 ![](/TheusZero/images/post/Algoritmos/colaDePrioridadesFunciones.png)
 ![](/TheusZero/images/post/Algoritmos/heapIncraseKey.png)
+![](/TheusZero/images/post/Algoritmos/heapIncraseKeyFull.png)
 
 **En general, cualquier tipo de operación de cola de prioridades sobre un Heap de n elementos toma tiempo O(log n).**
 
+#### quicksort
+
+> **peor caso O(n^2)** y **caso promedio Teta( n log n )**, 
+
+> se basa en recursividad y en la estrategia de divide y conquistaras
+
+en la parte de **divide y conquistaras** particiona el arreglo de entrada en 2 partes, es decir, en dos subarreglos.
+
+en la parte de conquistaras se ordena los sub-arreglos antes divididos mediantes llamadas **recursivas** al quicksort
+
+en la parte de **combina**, como los arreglos ya fueron ordenados no hace falta una parte de combinarlos especificamente. 
+
+![](/TheusZero/images/post/Algoritmos/quickSortExpl.png)
