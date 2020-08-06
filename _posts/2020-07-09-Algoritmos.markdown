@@ -390,6 +390,7 @@ en la parte de **combina**, como los arreglos ya fueron ordenados no hace falta 
 > ![](/TheusZero/images/post/Algoritmos/quickSortPeorCaso.png)
 
 > caso promedio:
+> el tiempo de ejecucion esta mucho mas cercano al mejor caso 
 >
 > ![](/TheusZero/images/post/Algoritmos/quickSortCasoPromedio.png)
 >
@@ -399,13 +400,31 @@ en la parte de **combina**, como los arreglos ya fueron ordenados no hace falta 
 
 > **peor caso O(n^2)** y **caso promedio Teta( n log n )** 
 
+**random quicksorting**
+
+> ![](/TheusZero/images/post/Algoritmos/randomQuickSortResumen.png)
+
+**resumen**
+![](/TheusZero/images/post/Algoritmos/resmenQuickSort.png)
+
+
 #### counting sort 
 
 [explicado bacan por Geek For Geeks](https://www.youtube.com/watch?v=7zuGmKfUt7s)
 
+![](/TheusZero/images/post/Algoritmos/codigoCountingSort.png)
+
 ![](/TheusZero/images/post/Algoritmos/countingSortComplejidad.png)
 
 ## Clase 24/07
+
+**el coste de merge sort es Θ(n Log n) en todos los casos**
+
+#### complejidad algoritmica
+
+![](/TheusZero/images/post/Algoritmos/complejidadAlgoritmicaUno.png)
+
+![](/TheusZero/images/post/Algoritmos/complejidadAlgoritmicaDos.png)
 
 #### grafos
 
