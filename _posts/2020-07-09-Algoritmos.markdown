@@ -384,6 +384,8 @@ en la parte de **combina**, como los arreglos ya fueron ordenados no hace falta 
 
 ![](/TheusZero/images/post/Algoritmos/quickSortExpl.png)
 
+![](/TheusZero/images/post/Algoritmos/QuicksortBacan.png)
+
 > caso promedio:
 >
 > ![](/TheusZero/images/post/Algoritmos/quickSortTwo.png)
