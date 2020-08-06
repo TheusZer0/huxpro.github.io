@@ -370,8 +370,6 @@ struct node
 
 #### quicksort
 
-> **peor caso O(n^2)** y **caso promedio Teta( n log n )**, 
-
 > se basa en recursividad y en la estrategia de divide y conquistaras
 
 en la parte de **divide y conquistaras** particiona el arreglo de entrada en 2 partes, es decir, en dos subarreglos.
@@ -386,11 +384,20 @@ en la parte de **combina**, como los arreglos ya fueron ordenados no hace falta 
 
 ![](/TheusZero/images/post/Algoritmos/QuicksortBacan.png)
 
+> **peor caso**: Ocurre cuando PARTITION produce un sub-problema con n-1 elementos y otro con 0 elementos
+>> el tiempo Θ(n^2) ocurre cuando el arreglo de entrada ya se encuentra ordenado completamente
+> esto sucede cuando la separacion no es balanceada ya que en cada llamado recursivo toma Teta(n) tiempo
+> ![](/TheusZero/images/post/Algoritmos/quickSortPeorCaso.png)
+
 > caso promedio:
+>
+> ![](/TheusZero/images/post/Algoritmos/quickSortCasoPromedio.png)
 >
 > ![](/TheusZero/images/post/Algoritmos/quickSortTwo.png)
 >
 > ![](/TheusZero/images/post/Algoritmos/quickSortOne.png)
+
+> **peor caso O(n^2)** y **caso promedio Teta( n log n )** 
 
 #### counting sort 
 
