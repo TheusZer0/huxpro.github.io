@@ -25,6 +25,7 @@ tags:
 ## Links ricolinos
 
 > [Example Algorithms](https://slideplayer.com/slide/12384811/) resumen y pseudocodigo de los distintos algoritmos del ramo (en ingles)
+> [Teoría De La Complejidad Algoritmica](https://es.slideshare.net/rolfpinto/teora-de-la-complejidad-algoritmica)
 
 ## Clase 01-07
 
@@ -379,4 +380,37 @@ en la parte de conquistaras se ordena los sub-arreglos antes divididos mediantes
 
 en la parte de **combina**, como los arreglos ya fueron ordenados no hace falta una parte de combinarlos especificamente. 
 
+> tomamos el pivote como el ultimo numero del arreglo, peor coso cuando el arreglo esta ordenando 
+
 ![](/TheusZero/images/post/Algoritmos/quickSortExpl.png)
+
+> caso promedio:
+>
+> ![](/TheusZero/images/post/Algoritmos/quickSortTwo.png)
+>
+> ![](/TheusZero/images/post/Algoritmos/quickSortOne.png)
+
+#### counting sort 
+
+[explicado bacan por Geek For Geeks](https://www.youtube.com/watch?v=7zuGmKfUt7s)
+
+![](/TheusZero/images/post/Algoritmos/countingSortComplejidad.png)
+
+## Clase 24/07
+
+#### grafos
+
+estructura de datos no lineal, es una coleccion de nodos conectados mediante bordes, los conjuntos son finitos.
+
+> la representacion de grafos es G=(V,E), donde V es por vertices y E por edges
+
+otra forma comun de representar los grafos es por una coleccion de listas enlazadas adyacentes o bien usando matrices. Los grafos pueden ser direccionables o no.
+
+un grafo se dice que es esparcido si el **|E|** (la suma de sus edges = la suma de sus lados) es mucho menor que el **|V^2|**. ahora el grafo es denso su el |E| es proximo o cercano al |V^2|
+
+**grafo denso**:
+![](/TheusZero/images/post/Algoritmos/grafosDensos.png)
+
+#### como sacar los nodos totales de una funcion
+
+![](/TheusZero/images/post/Algoritmos/cantNodosSacar.png)
