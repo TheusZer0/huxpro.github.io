@@ -446,6 +446,11 @@ un grafo se dice que es esparcido si el **|E|** (la suma de sus edges = la suma 
 
 **BFS**
 
+![](/TheusZero/images/post/Algoritmos/bfsImageGris.png)
+
+**Tiempo del algoritmo de BFS**
+
+![](/TheusZero/images/post/Algoritmos/bfsImageGris.png)
 
 
 
