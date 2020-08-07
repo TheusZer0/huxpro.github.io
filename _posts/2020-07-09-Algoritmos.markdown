@@ -410,7 +410,7 @@ en la parte de **combina**, como los arreglos ya fueron ordenados no hace falta 
 
 #### counting sort 
 
-[explicado bacan por Geek For Geeks](https://www.youtube.com/watch?v=7zuGmKfUt7s)
+[explicado bacan](https://www.youtube.com/watch?v=56xR0814To0&list=PLLfC2vEod54KFwQxsBhUvkxICBMCvo7p0&index=3)
 
 ![](/TheusZero/images/post/Algoritmos/codigoCountingSort.png)
 
@@ -428,6 +428,11 @@ en la parte de **combina**, como los arreglos ya fueron ordenados no hace falta 
 
 #### grafos
 
+**matrices de adyacencia**
+
+![](/TheusZero/images/post/Algoritmos/matricesDeAdyacenciaDirigida.png)
+
+
 estructura de datos no lineal, es una coleccion de nodos conectados mediante bordes, los conjuntos son finitos.
 
 > la representacion de grafos es G=(V,E), donde V es por vertices y E por edges
@@ -438,6 +443,11 @@ un grafo se dice que es esparcido si el **|E|** (la suma de sus edges = la suma 
 
 **grafo denso**:
 ![](/TheusZero/images/post/Algoritmos/grafosDensos.png)
+
+**BFS**
+
+
+
 
 #### como sacar los nodos totales de una funcion
 
