@@ -137,6 +137,12 @@ cat ~/.*history | less
 ```
 ## Windows
 
+**smb and rpc vuln scan in nmap**
+```Python
+nmap -v -script smb-vuln* -p 139,445 10.10.10.4
+```
+
+
 ## Link Interesantes
 
 > [GTFOBins](https://gtfobins.github.io/)
