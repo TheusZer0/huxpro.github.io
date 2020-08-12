@@ -167,6 +167,8 @@ nmap -v -script smb-vuln* -p 139,445 10.10.10.4
 
 > [Lab-Redes](http://www2.elo.utfsm.cl/~tel241/20102s/)
 
+> [LinuxCheatSheets](https://gist.github.com/cocolote/e590d8dd828f7f06645b8600535ad53c)
+
 ## Herramientas
 > [PsPy](https://github.com/DominicBreuker/pspy) 
 
