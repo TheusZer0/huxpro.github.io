@@ -2,7 +2,7 @@
 layout: post
 title: "Windows PrivEsc Arena"
 subtitle: 'TryHackMe - Medium Machine - Windows'
-date: 2020-03-29 12:00:00
+date: 2020-08-17 12:00:00
 author: "TheusZero"
 header-img: "images/post/WindowsPEA/1.png"
 catalog: true
