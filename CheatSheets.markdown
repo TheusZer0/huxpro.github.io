@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Linux - CheatSheets"
+title: "CheatSheets"
 author: "TheusZero"
 subtitle: 'Codigos mas usados'
 header-img: "images/Sekiro3.png"
