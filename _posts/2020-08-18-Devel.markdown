@@ -22,7 +22,7 @@ devel corresponde a una maquina windows de nivel facil tanto en el user como en 
 ## Introduccion
 
 Segun la comunidad podemos ver que devel tiene un nivel "facil" y podemos usar un CVE para atacar la maquina.
-![](/TheusZero/images/post/WindowsMachines/Devel/3.PNG)
+![](/TheusZero/images/post/WindowsMachines/Devel/3.png)
 ![](/TheusZero/images/post/WindowsMachines/Devel/2.png)
 
 ## Enumeracion
