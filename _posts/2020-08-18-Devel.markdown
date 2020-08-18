@@ -4,7 +4,7 @@ title: "Devel"
 subtitle: 'HackTheBox - Easy Machine - Windows'
 date: 2020-08-18 12:00:00
 author: "TheusZero"
-header-img: "images/post/WindowsMachines/devel/1.png"
+header-img: "images/post/WindowsMachines/Devel/2.png"
 catalog: true
 comments: true
 tags:
@@ -19,4 +19,4 @@ tags:
 
 # Devel
 
-![](/TheusZero/images/post/WindowsMachines/devel/2.png)
+![](/TheusZero/images/post/WindowsMachines/Devel/2.png)
