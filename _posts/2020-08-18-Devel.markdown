@@ -1,0 +1,22 @@
+---
+layout: post
+title: "Devel"
+subtitle: 'HackTheBox - Easy Machine - Windows'
+date: 2020-08-18 12:00:00
+author: "TheusZero"
+header-img: "images/post/WindowsMachines/devel/1.png"
+catalog: true
+comments: true
+tags:
+  - Windows
+  - Machine
+  - Explotations
+  - Upgrade
+  - Shell
+  - Root
+  - User
+---
+
+# Devel
+
+![](/TheusZero/images/post/WindowsMachines/devel/1.png)
