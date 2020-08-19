@@ -16,6 +16,7 @@ tags:
   - Root
   - User
   - Metasploit
+  - OSCP
 ---
 
 granny corresponde a una maquina windows de nivel facil tanto en el user como en el root.
