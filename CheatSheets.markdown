@@ -145,9 +145,29 @@ nmap -v -script smb-vuln* -p 139,445 10.10.10.4
 
 ## Link Interesantes
 
+#### Linux
+
 > [GTFOBins](https://gtfobins.github.io/)
 
 > [ReverseShellsPM](http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet)
+
+> [escapar de shells restringidas](https://www.hackplayers.com/2018/05/tecnicas-para-escapar-de-restricted--shells.html)
+
+> [Basic Linux Privilege Escalation](https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/)
+
+>> [LinuxCheatSheets](https://gist.github.com/cocolote/e590d8dd828f7f06645b8600535ad53c)
+
+#### Windows
+
+> [Windows Privilege Escalation Fundamentals](http://www.fuzzysecurity.com/tutorials/16.html)
+
+#### USM
+
+> [Malla-Interactiva-USM](https://mallas.labcomp.cl/?m=TEL)
+
+> [Lab-Redes](http://www2.elo.utfsm.cl/~tel241/20102s/)
+
+#### Other
 
 > [ExploitDB](https://www.exploit-db.com/)
 
@@ -156,18 +176,6 @@ nmap -v -script smb-vuln* -p 139,445 10.10.10.4
 > [CTFtime](https://ctftime.org/)
 
 > [Escritura Exploits (Español)](https://fundacion-sadosky.github.io/guia-escritura-exploits/)
-
-> [escapar de shells restringidas](https://www.hackplayers.com/2018/05/tecnicas-para-escapar-de-restricted--shells.html)
-
-> [Basic Linux Privilege Escalation](https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/)
-
-> [Windows Privilege Escalation Fundamentals](http://www.fuzzysecurity.com/tutorials/16.html)
-
-> [Malla-Interactiva-USM](https://mallas.labcomp.cl/?m=TEL)
-
-> [Lab-Redes](http://www2.elo.utfsm.cl/~tel241/20102s/)
-
-> [LinuxCheatSheets](https://gist.github.com/cocolote/e590d8dd828f7f06645b8600535ad53c)
 
 ## Herramientas
 > [PsPy](https://github.com/DominicBreuker/pspy) 
