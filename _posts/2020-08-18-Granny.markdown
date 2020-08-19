@@ -15,6 +15,7 @@ tags:
   - Shell
   - Root
   - User
+  - Metasploit
 ---
 
 granny corresponde a una maquina windows de nivel facil tanto en el user como en el root.
