@@ -4,7 +4,7 @@ title: "Reto USM"
 subtitle: 'Reto Stego de Hacking'
 date: 2020-08-18 12:00:00
 author: "TheusZero"
-header-img: "images/post/USM/header-usm.png"
+header-img: "images/post/USM/ICTel.jpg"
 catalog: true
 comments: true
 tags:
