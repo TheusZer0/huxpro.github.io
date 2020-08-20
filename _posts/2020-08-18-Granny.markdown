@@ -356,7 +356,7 @@ vemos que tenemos un puerto 445 samba abierto localmente por lo que intentaremos
 para ello primero debemos localizar el plink.exe de nuestra maquina.
 
 ```Python
-locate pliink.exe
+locate plink.exe
 ```
 
 lo copiamos en nuestra maquina e intentamos subirlo a la maquina granny que podria ser mediante el samba como lo hicimos antes.
