@@ -16,3 +16,5 @@ Hola Federico!, te he dejado mis posibles contraseñas para que puedas obtener l
 
 Espero seas capaz de encontrar los archivos, mucha suerte!.
 
+[DICCIONARIO DE PASSWORDS](https://raw.githubusercontent.com/TheusZer0/TheusZero/gh-pages/images/post/dic.txt)
+
