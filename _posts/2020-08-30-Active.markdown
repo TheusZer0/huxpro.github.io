@@ -1,0 +1,82 @@
+---
+layout: post
+title: "Active"
+subtitle: 'HackTheBox - Easy Machine - Windows'
+date: 2020-08-30 12:00:00
+author: "TheusZero"
+header-img: "images/post/WindowsMachines/Active/1.png"
+catalog: true
+comments: true
+tags:
+  - Windows
+  - Machine
+  - Explotations
+  - Upgrade
+  - Shell
+  - Root
+  - User
+  - OSCP
+  - smb
+  - xml
+  - nishang
+  - SYSVOL
+  - CrackMapExec
+---
+
+Active es una maquina en la que se usaron muchas cosas de las cuales no tenia idea, por lo que siento que 
+me ayudo y les ayduara a quienes lo necesiten.
+En esta maquina se utiliza muchos recurdos del smb y conocimientos varios de windows.
+
+## Enumeracion
+
+Partiendo por una enumeracion basica, empezxaremos con un Nmap simple para ver si encontramos algo.
+
+#### Nmap
+
+```Python
+nmap -sV -sT 10.10.10.100
+```
+![](/TheusZero/images/post/WindowsMachines/Active/2.png)
+
+podemos ver que tenemos una cantidad gigante de puertos abiertos, entre ellos podemos destacar:
+>> el 53 siendo un domain service
+>
+>> 88 siendo un kerberos
+>
+>> 135 y 445 siendo rpc y samba respectivamente
+
+#### samba
+
+el protocolo samba siempre es un vector de ataque o para obtener informacion de algun archivo.
+por ende me fui directo a investigar alli, encontrandome con lo siguiente.
+
+```Python
+smbmap -H 10.10.10.100
+```
+![](/TheusZero/images/post/WindowsMachines/Active/3.png)
+
+teniendo acceso solo a directorio de Replication
+
+luego de una ardua investigacion encontre un directorio con un archivo que contenia una password.
+> Groups.xml en el directio \active.htb\Policies\{31B2F340-016D-11D2-945F-00C04FB984F9}\MACHINE\Preferences\Groups\
+
+![](/TheusZero/images/post/WindowsMachines/Active/4.png)
+
+no conozco bien que son los xml pero luego de investigar un poco pode entender que los archivos xml son una especie de archivos para guardar tablas e informacion varia, que puede ser de importancia o no.
+
+pensando que la password estaba encriptada llegue a una pag que me indicaba que microsoft habia soltado ya la forma de desencriptar sus encode en xml siendo el gpp (Group Policy Password) de lo que estamos hablando.
+
+[MAS INFORMACION](https://adsecurity.org/?p=2288)
+
+ya de esta forma, hay una herramienta que viene por default llamada gpp para desencriptar estos archivos.
+
+![](/TheusZero/images/post/WindowsMachines/Active/5.png)
+
+> password: **GPPstillStandingStrong2k18**
+
+## User
+
+
+
+
+
