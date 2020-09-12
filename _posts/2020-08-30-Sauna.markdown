@@ -388,7 +388,7 @@ lo trasferimos a la maquina y lo cargamos
 
 aveces falla, debe listar un zip.
 
-lo cargamos en bloodhound usando **cargar la data**. esto te puede mostrar cual es el comando para obtenter o explotar la vuln con **Find principal with DCSync** 
+lo cargamos en bloodhound usando **cargar la data**. esto te puede mostrar cual es el comando para obtenter o explotar la vuln con **Find principal with DCSync** y darle a help
 
 #### secret dump
 
