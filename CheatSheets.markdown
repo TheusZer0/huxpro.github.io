@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Linux CheatSheets"
+title: "Windows"
 author: "TheusZero"
 subtitle: 'Codigos mas usados'
 header-img: "images/408a7d24f9d2e3e22990cc4629163cf2.png"
