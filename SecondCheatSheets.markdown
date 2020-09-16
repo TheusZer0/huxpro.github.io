@@ -142,9 +142,6 @@ cat ~/.*history | less
 nmap -v -script smb-vuln* -p 139,445 10.10.10.4
 ```
 
-
-## Link Interesantes
-
 #### Linux
 
 > [GTFOBins](https://gtfobins.github.io/)
@@ -157,9 +154,14 @@ nmap -v -script smb-vuln* -p 139,445 10.10.10.4
 
 >> [LinuxCheatSheets](https://gist.github.com/cocolote/e590d8dd828f7f06645b8600535ad53c)
 
-#### Windows
+## Herramientas
+> [PsPy](https://github.com/DominicBreuker/pspy) 
 
-> [Windows Privilege Escalation Fundamentals](http://www.fuzzysecurity.com/tutorials/16.html)
+> [LinEnum](https://github.com/rebootuser/LinEnum/)
+
+> [PsPy64](https://f4d3.io/assets/downloads/linux/pspy64s) (grax f4d3 :D)
+
+> []()
 
 #### USM
 
@@ -176,12 +178,3 @@ nmap -v -script smb-vuln* -p 139,445 10.10.10.4
 > [CTFtime](https://ctftime.org/)
 
 > [Escritura Exploits (Español)](https://fundacion-sadosky.github.io/guia-escritura-exploits/)
-
-## Herramientas
-> [PsPy](https://github.com/DominicBreuker/pspy) 
-
-> [LinEnum](https://github.com/rebootuser/LinEnum/)
-
-> [PsPy64](https://f4d3.io/assets/downloads/linux/pspy64s) (grax f4d3 :D)
-
-> []()
