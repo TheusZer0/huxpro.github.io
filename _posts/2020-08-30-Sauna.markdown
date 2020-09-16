@@ -522,3 +522,7 @@ Bye!
 ```
 
 el hash NTLM es el que nos dara acceso via evil-winrm al user administrator.
+
+> d9485863c1e9e05851aa40cbb4ab9dff
+
+entramos con evil-winrm y erap.

