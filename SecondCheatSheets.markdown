@@ -7,8 +7,6 @@ header-img: "images/Sekiro3.png"
 catalog: true
 comments: true
 ---
-## Linux
-
 #### Sudo 
 
 ```Python
