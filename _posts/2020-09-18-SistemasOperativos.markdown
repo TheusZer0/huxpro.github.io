@@ -126,6 +126,7 @@ una gran parte del codigo del sistema operativo es dedicado para administrar el 
 
 Un sistema informático tiene como propósito general que la CPU y los múltiples
 controladores de dispositivos que esten conectados a través de un bus común.
+
 >> Cada controlador de dispositivo está a cargo de un tipo específico de dispositivo.
 >
 >> Se encarga de mover los datos entre los dispositivos periféricos que controla y su almacenamiento intermedio local.
@@ -140,7 +141,153 @@ para iniciar una operacion de entrada y salida (I/O), el dispositivo carga aprop
  
 > el controlador comienza a transferir data desde el dispositivo a su buffer local
 >
-> una vez tranferida la data completa, el controlador de dispositivos informa al 
+> una vez tranferida la data completa, el controlador de dispositivos informa al device driver con un **interrupt**
+
+de esta forma el interrupt-driver I/O es bueno para mover pequeñas cantidades de datos pero se 
+
+para resolver este problema, se usa la memoria de acceso directo (DMA).
+
+> el controlador de dispositivos transfiere un bloque entero de data directamente hacia o desde su buffer de almacenamiento para la memoria, sin intervencion de la CPU
+
+> mientras el controlador de dispositivos esta ejecutando estas operaciones, la CPU esta disponible para realizar otro trabajo.
+
+![](/TheusZero/images/post/SistemasOperativos/6.png)
+
+#### Storage Definitions and Notation Review (definicion de almacenamientos y revision de notaciones)
+
+la unidad basica del almacenamiento computacional es el bit. el bit puede contener uno dos valores (0,1). Todos los otros almacenamientos en la computadora estan
+basados en colleciones de bits. es asombroso como algunas cosas el computador puede representar como:
+
+> numbers, letters, images, movies, sounds, documents, and programs, to name
+
+un **byte** es de 8bits, y en la mayoría de las computadoras es el más pequeño y conveniente cantidad de almacenamiento.
+
+![](/TheusZero/images/post/SistemasOperativos/7.png)
+
+#### Computer-System Architecture (arquitectura de los sistemas computacionales)
+
+Single-Processor Systems: una CPU principal capaz de ejecutar un proposito general. (multi-proposito)
+
+Multi-Processor (multi-core) System: muchos sistemas actuales tienen dos o mas procesadores, donde cada uno de estos tiene muchos cores y comparten el clock y la memory.
+
+los sistemas multiprocesadores tienen 3 ventajas principales:
+
+> rendimiento incrementado
+>> mas trabajo hecho en menos tiempo.
+
+> Economy of scale. Multiprocessor systems can cost less than equivalent multiple single-processor systems
+
+> mas confiable:
+>> el fallo de un procesador no detendra el sistema solo lo volvera mas lento.
+
+los sistemas multi-procesador tienen 2 tipos:
+
+> Multiprocesador Asimetrico: cada procesador es asignado a una tarea en especifica
+>> este esquema define una relacion jefe-trabajador. El procesador jefe asigna el trabajo a los procesadores trabajadores
+
+> Multiprocesador simetrico: cada procesador realiza todas las tareas
+>> todos los procesadores son companeros, cada uno de los procesadores tiene su propio set de registros, asi como un cache privado o local. Sin embargo todos los procesadores comparten memoria fisica. 
+>
+>> el beneficio de este modelo es que muchos procesos pueden correr simultaneamente- N procesadores pueden correr si hay N CPUs 
+
+**Symmetric Multiprocessing Architecture**
+![](/TheusZero/images/post/SistemasOperativos/8.png)
+
+#### A Dual-Core Design
+
+> Multi-chip and multicore
+
+> una tendencia reciente en el diseno de la CPU es incluir multiples cores en un solo chip
+
+> estos sistemas multiprocesador son llamados multi-cores. Pueden ser mas eficientes que multiples chips esten en un solo core,
+> debido que la comunicacion dentro de un chip es mas rapida que la comunicacion entre distintos chips. 
+
+ademas un chip con multiples cores usas significativamente menos poder que varios chips con un solo core cada uno.
+
+> en este diseno, cada core tiene propio registro y su propio cache local. Otro diseno pueden usar cache compartido o una combinacion entre cache locales y compartidos.
+
+> These multicore CPUs appear to the operating system as N standard processors
+
+![](/TheusZero/images/post/SistemasOperativos/9.png)
+
+uno de los aspectos mas importante de los sistemas operativos es la habilidad multi-programa
+
+> multiprogramar aumenta la utilizacion de la CPU organizando los trabajos (code and data) ya que la CPU siempre tiene uno que ejecutar
+
+la idea es la siguiente:
+
+> el sistema operativo mantiene varios trabajos simultáneamente en la memoria
+>
+> ya que la memoria principal es muy pequena para atribuirse todos los trabajos, los trabajos se mantienen 
+>inicialmente dentro del disco en el **job pool**
+
+> el **job pool** consiste en que todos los procesos que residen en el disco 
+>estan esperando a ser acomodados en la memoria principal
+
+> el sistema operativo elige y empieza a ejecutar uno de los trabajos en la memoria
+
+> evenutalmente el **job pool** debe esperar alguna tarea, asi como una operacion I/O para completarse. en un sistema multi-programable, el sistema operativo simplemente cambia y ejecuta otro trabajo
+
+**the CPU is never idle**
+
+![](/TheusZero/images/post/SistemasOperativos/10.png)
+
+el **time sharing** o **multitasking** es una esxtension logica del multiprogramming
+
+> La CPU ejecuta varios trabajos cambiando entre ellos, pero Los cambios ocurren con tanta frecuencia que los usuarios pueden interactuar con cada programa mientras se está ejecutando.
+
+> un sistema operativo a tiempo compartido aloja muchos usuarios que comparten el computador simultaneameente
+>> esto provee una pequena porcion de computador de tiempo-compartido a cada usuario **cuentas diferentes**
+
+> un programa carga dentro de la memoria y ejecuta lo que se llama un proceso. cuando el proceso se ejecuta,
+>esto tipicamente ejecuta, generalmente ejecuta esto por un solo corto tiempo antes de que finalice o necesite ejecutar una I/O.
+
+> el tiempo compartido **time sharing** y el multiprograming requieren que se mantengan varios trabajos simultáneamente en la memoria
+
+> si varios trabajos estan listos para ser traidos a la memoria y si no hay suficiente espacio en disco para todos ellos, entonces el sistema debe escoger entre estos. **Esto implica la programación de trabajos, job scheduling**
+
+Tener varios programas en la memoria al mismo tiempo requiere alguna forma
+de la gestión de la memoria
+
+Si varios trabajos están listos para ejecutarse al mismo tiempo, el sistema debe elegir
+qué trabajo se ejecutará primero. Tomar esta decisión es programar la CPU
+
+
+Memoria virtual
+
+> esta es una técnica que permite la ejecución de un proceso que no es completamente en la memoria
+
+> Permite a los usuarios ejecutar programas que son más grandes que la memoria fisica.
+
+> Además, abstrae la memoria principal en una matriz grande y uniforme de almacenamiento
+
+Un sistema de tiempo compartido también debe proporcionar un **sistema de archivos**. El sistema de archivos
+reside en una colección de discos; por lo tanto, la **administración del disco** debe ser
+previsto
+
+Para garantizar una ejecución ordenada, el sistema debe proporcionar mecanismos para
+sincronización y comunicación, tambien puede garantizar que los trabajos no
+queden atrapados en un punto muerto, esperando por siempre el uno al otro.
+
+Como se mencionó anteriormente, los sistemas operativos modernos están controlados por interrupciones
+(tanto de hardware como de software).
+
+> Si no hay procesos para ejecutar, no hay dispositivos de I/O para reparar,
+> y no hay usuarios a quienes responder, un sistema operativo se sentará en silencio, esperando que suceda algo.
+
+Dual-Mode and Multi-mode Operation
+ 
+> Para asegurar la correcta ejecución del sistema operativo,
+> debemos ser capaces de distinguir entre la ejecución de
+> código del sistema operativo y código definido por el usuario
+
+> el soporte de hardware que nos permite diferenciar entre varios modos de ejecución.
+
+Hardware support
+
+Como mínimo, necesitamos dos modos de funcionamiento separados: modo usuario y modo kernel (también llamado modo privilegiado).
+
+un bit, llamado el **modo bit (mode bit)**, se agrega al hardware del computador para indicar el modo actual: kernel(0) y usuario (1)
 
 ## Ejercicios Importantes
 
