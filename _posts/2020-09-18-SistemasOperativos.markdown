@@ -269,6 +269,8 @@ Para garantizar una ejecución ordenada, el sistema debe proporcionar mecanismos
 sincronización y comunicación, tambien puede garantizar que los trabajos no
 queden atrapados en un punto muerto, esperando por siempre el uno al otro.
 
+#### Operating-System Operations
+
 Como se mencionó anteriormente, los sistemas operativos modernos están controlados por interrupciones
 (tanto de hardware como de software).
 
@@ -288,6 +290,35 @@ Hardware support
 Como mínimo, necesitamos dos modos de funcionamiento separados: modo usuario y modo kernel (también llamado modo privilegiado).
 
 un bit, llamado el **modo bit (mode bit)**, se agrega al hardware del computador para indicar el modo actual: kernel(0) y usuario (1)
+
+En el momento del arranque del sistema, el hardware se inicia en modo kernel. La operacion
+A continuación, se carga el sistema e inicia las aplicaciones en modo usuario.
+
+Cuando una aplicación de usuario solicita un servicio del sistema operativo
+(a través de una llamada al sistema), el sistema debe pasar del modo de usuario al modo de kernel
+
+Algunas instrucciones designadas como privilegiadas, solo ejecutables en el modo kernel
+
+**Transition from User to Kernel Mode**
+![](/TheusZero/images/post/SistemasOperativos/11.png)
+
+operaciones de Dual-Mode and Multi-mode
+
+La falta de un modo dual compatible con hardware puede causar graves
+deficiencias en un sistema operativo.
+
+las **system calls** proporcionan los medios para que un programa de usuario pregunte al 
+sistema operativo para realizar tareas reservadas de este, en nombre del programa usuario del programa.
+
+Debemos asegurarnos de que el sistema operativo mantenga el control sobre la CPU
+
+> No podemos permitir que un programa de usuario se atasque en un bucle infinito o que falle en una **system call** y que nunca le devuelva el control al sistema operativo
+
+> Para lograr este objetivo, podemos usar un **timer** (un contador que es decrementado por el reloj físico)
+
+Se puede configurar un **timer** para interrumpir la computadora después de un período específico
+
+> Si el temporizador se interrumpe, el control se transfiere automáticamente al sistema operativo
 
 ## Ejercicios Importantes
 
