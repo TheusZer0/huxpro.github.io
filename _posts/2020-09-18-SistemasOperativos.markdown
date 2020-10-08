@@ -320,6 +320,8 @@ Se puede configurar un **timer** para interrumpir la computadora después de un 
 
 > Si el temporizador se interrumpe, el control se transfiere automáticamente al sistema operativo
 
+
+
 ## Ejercicios Importantes
 
 ## Libro
