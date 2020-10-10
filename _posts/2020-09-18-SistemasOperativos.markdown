@@ -447,9 +447,244 @@ y es un principio importante de los sistemas informáticos
 >
 >> Cuando necesitamos un dato en particular, primero verificamos si está en el caché
 >>> Si es así, usamos la información directamente del caché.
->
+>>
 >>> Si no es así, usamos la información de la fuente, poniendo un copiar en el caché
 
+Las cachés solo de hardware están fuera del control del operador
+sistema.
+
+En una estructura de almacenamiento jerárquica, los mismos datos pueden aparecer 
+en diferentes niveles del sistema de almacenamiento.
+
+> La memoria principal puede verse como una caché rápida para almacenamiento secundario.
+
+![](/TheusZero/images/post/SistemasOperativos/12.png)
+
+#### Migration of data “A” from Disk to Register
+
+El movimiento de información entre niveles de una jerarquía de almacenamiento.
+puede ser **explícito** o **implícito**
+
+> La transferencia de datos de la caché a la CPU y los registros suele ser una
+> función de hardware, sin intervención del sistema operativo.
+
+> La transferencia de datos del disco a la memoria suele estar 
+> controlada por el sistema operativo.
+
+En una estructura de almacenamiento jerárquica, los mismos datos pueden aparecer en
+diferentes niveles del sistema de almacenamiento.
+
+> Por ejemplo, suponga que un entero A que va a ser incrementado en 1, se encuentra en el archivo B en el disco duro
+
+![](/TheusZero/images/post/SistemasOperativos/13.png)
+
+![](/TheusZero/images/post/SistemasOperativos/14.png)
+
+La operación de incremento procede emitiendo primero una operación de I/O
+para copiar el bloque de disco en el que A reside en la memoria principal.
+A esta operación le sigue la copia de A en la caché y finalmente en un
+registro interno
+
+En entornos **multitarea (multitasking)** (la CPU se cambia entre varios
+procesos) se debe tener cuidado para asegurar que cada uno de estos
+los procesos obtendrán el valor más reciente, sin importar dónde se encuentre
+almacenado en la jerarquía de almacenamiento
+
+> Así, la copia de A aparece en varios lugares
+
+![](/TheusZero/images/post/SistemasOperativos/15.png)
+
+En un entorno de multiprocesador, puede existir una copia de A
+simultáneamente en varios cachés
+
+> Debe proporcionar **coherencia de caché (cache coherency)** en el hardware, de modo que toda
+>  la CPU tenga el valor más reciente en su caché
+>  **HARDWARE issue (Problema de HARDWARE)**
+
+#### I/O Subsystem
+
+Uno de los propósitos del sistema operativo es ocultar 
+las peculiaridades de los dispositivos de hardware para el usuario
+
+El subsistema de I/O consta de varios componentes:
+> Gestión de memoria de I/O que incluye:
+>> **buffering** o almacenamiento en búfer (almacenar datos temporalmente mientras se transferido)
+>
+>> almacenamiento en caché (almacenar partes de datos en un almacenamiento más rápido para rendimiento), etc.
+
+Controladores para dispositivos de hardware específicos:
+> Solo el controlador del dispositivo conoce las peculiaridades del dispositivo específico al que está asignado
+
+#### Protection and Security
+
+**Protección**: consiste en cualquier mecanismo para **controlar el acceso de procesos o
+usuarios a los recursos** definidos por el SO
+
+> Por ejemplo, el hardware de direccionamiento de memoria asegura que un proceso se puede ejecutar solo dentro de su propio espacio de direcciones
+>
+> Sin embargo, un sistema puede tener la protección adecuada pero aún ser propenso a falla y permite el acceso inadecuado
+
+Seguridad: defensa del sistema contra ataques internos y externos.
+
+Los sistemas generalmente distinguen primero entre usuarios, para determinar quién puede
+hacer qué
+
+La mayoría de los sistemas operativos mantienen una lista de nombres de usuario y asociados
+identificadores de usuario **(user IDs)**
+
+> Estos ID numéricos son únicos, uno por usuario
+
+ID de usuario luego es asociado con todos los archivos y procesos de ese usuario para
+determinar el control de acceso
+
+El identificador de grupo (ID de grupo) permite definir un conjunto de usuarios
+controles administrados, luego también asociados con cada proceso y archivo
+
+La escalada de privilegios permite al usuario cambiar a una identificación efectiva con más
+derechos
+
+#### Kernel Data Structures
+
+**REVISAR EL POST DE ALGORITMOS DE ESTE MISMO BLOG: [HAS CLICK AQUI!](https://theuszer0.github.io/TheusZero/2020/07/09/Algoritmos/)**
+
+Pasamos a continuación a un tema central para la implementación del sistema operativo: el
+la forma en que se estructuran los datos en el sistema
+
+> Describiremos brevemente varias estructuras de datos fundamentales que se utilizan ampliamente en los sistemas operativos.
+
+**Array**:
+
+> Un array es una estructura de datos en la que se puede acceder a cada elemento directamente. Por ejemplo, la memoria principal se construye como una matriz
+>> ¿Pero qué hay de almacenar un artículo cuyo tamaño puede variar? - En tales situaciones, el array dan paso a otras estructuras de datos
+
+Después de los arrays, las listas son las estructuras de datos más fundamentales en
+Ciencias de la Computación
+
+> se debe acceder a los elementos de una lista en un orden particular
+>
+> Una lista representa una colección de valores de datos como una secuencia
+
+Las listas vinculadas se adaptan a elementos de distintos tamaños y permiten una fácil inserción
+y eliminación de elementos
+
+![](/TheusZero/images/post/SistemasOperativos/16.png)
+
+**Stack (pila)**
+
+>> Una pila es una estructura de datos ordenada secuencialmente que usa el último en, primero
+>>  principio de salida (LIFO), lo que significa que el último elemento colocado en una pila es
+>>  el primer elemento eliminado.
+>
+>> Las operaciones para insertar y quitar elementos de una pila son conocidas como push y pop, respectivamente
+>
+>> Un sistema operativo a menudo usa una pila cuando invoca una función llamadas
+>
+>> ![](/TheusZero/images/post/SistemasOperativos/17.png)
+
+**Queue (cola)**
+
+>> Una cola, es una estructura de datos ordenada secuencialmente que usa el principio de que el primero en entrar,
+>> es el primero en salir (FIFO): los elementos se eliminan de una cola en el orden en
+>> que fueron insertados.
+>
+>> Las colas son bastante comunes en los sistemas operativos
+>
+>> Los trabajos que se envían a una impresora normalmente se imprimen en el orden de cola
+>
+>> Las tareas que esperan ser ejecutadas en una CPU disponible a menudo son organizado en colas
+>
+>> ![](/TheusZero/images/post/SistemasOperativos/18.png)
+
+**Arbol Binario (Binary search tree)**
+
+Un árbol es una estructura de datos que se puede utilizar para representar
+datos jerárquicamente. Los valores de datos en una estructura de árbol son
+vinculados a través de relaciones entre padres e hijos
+
+En un árbol general, un padre puede tener un número ilimitado
+de niños. En un árbol binario, un padre puede tener como máximo
+dos hijos, que llamamos el hijo izquierdo y el derecho
+niño
+
+>> ![](/TheusZero/images/post/SistemasOperativos/19.png)
+
+Un árbol de búsqueda binaria también requiere un orden
+entre los dos hijos
+
+Cuando buscamos un elemento en un árbol de búsqueda binaria, el
+El desempeño en el peor de los casos es O(n) (considere cómo esto puede
+ocurrir).
+
+Sin embargo, un árbol de búsqueda binario equilibrado que contiene n
+elementos, tiene en la mayoría de los niveles de registro, lo que garantiza el peor de los casos
+rendimiento de O (logn).
+
+>> ![](/TheusZero/images/post/SistemasOperativos/20.png)
+
+**Función hash (Hash function)**
+
+Una función Hash toma datos como su entrada, realiza una operación numérica en
+estos datos y devuelve un valor numérico
+
+> Este valor numérico se puede utilizar como índice en un array para recuperar rápidamente los datos.
+>> ![](/TheusZero/images/post/SistemasOperativos/21.png)
+
+Usar una función hash para recuperar datos de la tabla puede ser tan bueno como
+O (1) en el peor de los casos
+
+Sin embargo, muchas entradas pueden dar como resultado el mismo valor de salida, es decir,
+se puede vincular a la misma ubicación de la tabla
+
+Podemos acomodar esta colisión de hash al tener una lista vinculada en esa mesa
+ubicación que contiene todos los elementos con el mismo valor hash
+
+>> ![](/TheusZero/images/post/SistemasOperativos/22.png)
+
+>> ![](/TheusZero/images/post/SistemasOperativos/23.png)
+
+#### Computing Environments - Virtualization
+
+La virtualización es una tecnología que permite que los sistemas operativos se ejecuten como
+aplicaciones dentro de otros sistemas operativos
+
+La virtualización también incluye emulación
+
+> la emulacion se usa cuando la tipo de fuente de la CPU es diferente del CPU elejido
+>> ejemplo:  Allow applications compiled for the IBM CPU to run on the Intel CPU
+
+> Sin embargo, la emulación tiene un alto precio
+>> Cada instrucción a nivel de máquina que se ejecuta de forma nativa en el sistema fuente
+>> debe traducirse a la función equivalente en el sistema de destino,
+>> con frecuencia resulta en varias instrucciones de destino
+>
+>> El código emulado puede ejecutarse mucho más lento que el código nativo.
+>
+> Esto se conoce como interpretación (interpretation)
+
+La interpretación es una forma de emulación en la que el lenguaje de alto nivel
+se traduce a instrucciones de CPU nativas, emulando una teoría
+máquina (virtual) en la que ese lenguaje podría ejecutarse de forma nativa
+
+> Podemos ejecutar programas Java en "máquinas virtuales Java".
+
+Un administrador de máquina virtual VMM permite al usuario instalar múltiples
+sistemas operativos para exploración o para ejecutar aplicaciones escritas para
+sistemas operativos distintos al host nativo
+
+>> ![](/TheusZero/images/post/SistemasOperativos/24.png)
+
+Las computadoras integradas son la forma más común y que mas a prevalecido
+
+Suelen tener tareas muy específicas. Los sistemas operativos proporcionan
+características limitadas -> Ellos tienen poca o ninguna interfaz de usuario
+
+Los sistemas integrados casi siempre ejecutan sistemas operativos en tiempo real
+
+Se utiliza un sistema en tiempo real cuando se han establecido requisitos de tiempo rígidos.
+colocado en el funcionamiento de un procesador o el flujo de datos
+
+Un sistema en tiempo real tiene limitaciones de tiempo fijas y bien definidas. El procesamiento debe realizarse dentro de las restricciones definidas, o el sistema
+fallará
 
 ## Ejercicios Importantes
 
