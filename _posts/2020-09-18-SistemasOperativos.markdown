@@ -15,6 +15,11 @@ tags:
   - Windows
 ---
 
+Cada cosa que se ve en este post fue traducida por mi y por ende, puede tener errores, no todo esta exactamente traducido ya que 
+en parte va desde mi experencia y de lo que yo entiendo para cada caso o concepto. En caso de errores fatales o importantes contactarse directame conmigo a ```robert.parra@sansano.usm.cl```.
+
+Si existe informacion que quieras agregar, hacemela llegar de la misma manera, la leere con gusto y la colocare sin duda alguna. dicho esto, muchas gracias!
+
 ## Links Importantes
 
 ## Clases
@@ -320,6 +325,130 @@ Se puede configurar un **timer** para interrumpir la computadora después de un 
 
 > Si el temporizador se interrumpe, el control se transfiere automáticamente al sistema operativo
 
+**clase 2**
+
+#### Process Management
+
+Un **proceso** es un **programa en ejecución**. Este es una unidad de trabajo dentro del
+sistema. **El programa es una entidad pasiva**, **el proceso es una entidad activa**.
+
+un proceso necesita recursos para realizar su tarea:
+>> CPU, memory, I/O, files
+>
+>> Initialization data
+
+Estos recursos se le entregan proceso cuando se crea o
+se lo asignan a él mientras se está ejecutando.
+> Cuando el proceso termina, el sistema operativo recuperará
+> cualquier recurso reutilizable.
+
+un **Single-threaded process** tiene **un contador de programa (one program counter)** 
+que especifica la ubicación de la siguiente instrucción a ejecutar
+> Esto quiere decir que el proceso ejecuta instrucciones secuencialmente, una a la vez, hasta que terminación
+
+Ahora, a diferencia del anterior el **Multi-threaded process** tiene un contador de programa por cada subproceso
+
+Normalmente, el sistema tiene muchos procesos que se ejecutan simultáneamente en una o más CPU
+> esto es multiplexar el CPU entre los procesos/hilos
+
+El sistema operativo es responsable de las siguientes actividades en la
+conexión con la gestión de procesos (process management):
+
+>> Programar procesos e hilos en las CPU
+>
+>> Crear y eliminar procesos de usuario y del sistema
+>
+>> Suspender y reanudar procesos
+>
+>> Proporcionar mecanismos para la sincronización de procesos.
+>
+>> Proporcionar mecanismos para la comunicación de procesos.
+
+#### Memory Management
+
+La memoria principal es un **gran array de bytes**. **Cada byte tiene su propia dirección**
+
+La memoria principal es generalmente *el **único** dispositivo de almacenamiento grande que el
+La CPU puede direccionar y acceder directamente*
+
+> Por ejemplo, para que la CPU procese datos desde el disco, esos datos deben ser transferidos
+> **primero a la memoria principal mediante llamadas de tipo I/O**.
+
+Para ejecutar un programa, todas (o parte) de las instrucciones deben estar en la memoria.
+
+Todos (o parte) de los datos que son necesarios para el programa deben estar en la memoria.
+
+por eso, la **Memory management (gestión de la memoria)** determina qué hay en la memoria y cuándo esta.
+
+Se utilizan muchos **esquemas (schemes)** de **Memory management (gestión de la memoria)** diferentes.
+
+> Cada algoritmo requiere su propio **hardware support**
+
+El sistema operativo es responsable de las siguientes actividades en
+conexión con la **Memory management (gestión de la memoria)**
+
+> Realizar un seguimiento de las partes de la memoria que se están siendo utilizandas actualmente y por quien la esta usando (que proceso)
+
+> Decidir a qué procesos (o partes de los mismos) y que datos mover dentro y fuera de la memoria
+
+> Asignar y desasignar espacio de memoria según sea necesario
+
+#### Storage Management
+
+Para que el sistema informático sea conveniente para los usuarios,
+Este sistema proporciona una vista lógica y uniforme del almacenamiento de la información.
+
+El sistema operativo se abstrae de las propiedades físicas de sus
+dispositivos de almacenamiento para definir una unidad de almacenamiento lógica, llamada **el archivo**.
+
+> Cada medio de almacenamiento está controlado por el dispositivo de almacenamiento (es decir, el disk drive)
+
+> Cada medio de almacenamiento tiene sus propias características y organizacion física.
+>> varias propiedad fisicas incluyen la velocidad, capacidad, data-transfer rate y el access method.
+
+El concepto de **file (archivo)** es extremadamente general
+> El sistema operativo implementa el concepto abstracto de **file(archivo)** para la
+> gestión de medios de almacenamiento masivo
+
+**File-System management (Gestión del sistema de archivos)**
+
+
+los **file(archivo)** generalmente son organizados en directorios
+
+el **Access control (Control de acceso)** se usa en la mayoría de los sistemas para determinar quién puede acceder sobre algun archivo en especifico.
+
+#### Mass-Storage Management
+
+Como ya hemos visto, el sistema informático debe proporcionar
+almacenamiento secundario para hacer una copia de seguridad de la memoria principal.
+
+Por lo general, los discos se utilizan para almacenar datos que no caben en la memoria principal.
+o datos que deben conservarse durante un período de tiempo "prolongado"
+> La gestión adecuada del almacenamiento masivo es de vital importancia
+
+La mayoría de los programas se almacenan en un disco hasta que se cargan en la memoria.
+> They then use the disk as both the source and destination of their processing
+
+Debido a que el almacenamiento secundario se usa con frecuencia, debe usarse
+eficientemente
+
+Toda la velocidad de funcionamiento de la computadora depende del subsistema de disco
+y sus algoritmos
+
+#### Storage Hierarchy and Caching
+
+Caching (almacenamiento en caché) consiste en almacenar partes de datos en un almacenamiento más rápido para mejorar el rendimiento
+y es un principio importante de los sistemas informáticos
+
+> Así es como funciona:
+>> La información normalmente se guarda en algún sistema de almacenamiento (como memoria principal).
+>
+>> A medida que se usa, se copia en un sistema de almacenamiento más rápido: **el caché** esto es solo una forma temporal.
+>
+>> Cuando necesitamos un dato en particular, primero verificamos si está en el caché
+>>> Si es así, usamos la información directamente del caché.
+>
+>>> Si no es así, usamos la información de la fuente, poniendo un copiar en el caché
 
 
 ## Ejercicios Importantes
