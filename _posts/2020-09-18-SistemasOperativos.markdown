@@ -686,6 +686,58 @@ colocado en el funcionamiento de un procesador o el flujo de datos
 Un sistema en tiempo real tiene limitaciones de tiempo fijas y bien definidas. El procesamiento debe realizarse dentro de las restricciones definidas, o el sistema
 fallará
 
+#### Operating System Services (Servicios del sistema operativo)
+
+> Exploramos los tres aspectos de los sistemas operativos, mostrando los puntos de vista de usuarios, programadores y diseñadores de sistemas operativos.
+
+Los sistemas operativos proporcionan un entorno para la ejecución de programas y
+servicios a programas y usuarios
+
+Un conjunto de servicios del sistema operativo proporciona funciones que son útiles
+al usuario, como por ejemplo:
+
+> User interface (interfaz de usuario) UI
+>> Command-Line (CLI), Graphical User Interface (GUI)
+>
+> Ejecución de un programa: el sistema debe poder cargar un programa en
+> memoria y poder ejecutar este mismo programa, ya sea normalmente o
+> anormalmente (indicando el error de ejecucion)
+>
+> I/O operations: Un programa en ejecución puede requerir una operacion I/O, que puede
+> involucrar un archivo o un dispositivo.
+
+#### Operating System Services (Cont.) - (servicios del sistema operativo (Cont.))
+
+Un conjunto de servicios del sistema operativo proporciona funciones que son útiles para
+el usuario (Cont.):
+
+> File-system manipulation (manipulacion de archivos del sistema): 
+>> Los programas necesitan leer y escribir archivos y directorios, crear y eliminar
+>>   buscarlos, listar información de archivos, gestión de permisos
+
+> Communications (Comunicaciones)
+>> Los procesos pueden intercambiar información, desde un mismo computador o entre computadoras a través de una red
+>
+>> 2 vías de comunicación: mediante memoria compartida o mediante mensaje pasando (a través de un buzón común)
+
+> Error detection (deteccion de errores): El sistema operativo debe estar constantemente al tanto de posibles errores
+>> Pueden ocurrir errores en la CPU y el hardware de la memoria (como un error **en memoria**
+>> o un **corte de energía**), en dispositivos los dispositivos I/O 
+>> (como un error de paridad en el disco, una conexión mal hecha o una
+>> falla en red, etc.), y en el programa de usuario
+>> (desbordamiento en memoria, o un intento de acceder a una ubicación de memoria ilegal...)
+>
+>> Para cada tipo de error, el sistema operativo debe tomar las medidas adecuadas para
+>>  asegurar una computación correcta y consistente
+
+
+
+## Resumen
+
+## Ayudantias
+
+
+
 ## Ejercicios Importantes
 
 ## Libro
