@@ -877,10 +877,159 @@ el otro, un sistema multitarea **(multitasking)**, para aclarar algunos concepto
 #### Other Types of System Calls
 
 File management
- create file, delete file
- open, close file
- read, write, reposition
- get and set file attributes
+> create file, delete file
+>
+> open, close file
+>
+> read, write, reposition
+>
+> get and set file attributes
+
+ Device management
+> request device, release device
+>
+> read, write, reposition
+>
+> get device attributes, set device attributes
+>
+> logically attach or detach devices
+
+#### Other Types of System Calls (Cont.)
+
+Information maintenance
+> return information about the system
+>
+> Info for debugging
+>
+>> get time or date, set time or date
+>
+>> get system data, set system data
+>
+>> get and set process, file, or device attributes
+
+#### Communication
+
+> create, delete communication connection
+>
+> send, receive messages if message passing model to host name or process name
+>
+> Shared-memory model create and gain access to memory regions
+>> Message passing is useful for exchanging smaller amounts of data
+>
+> attach and detach remote devices
+
+![](/TheusZero/images/post/SistemasOperativos/34.png)
+
+**clase 3**
+
+El sistema proporciona un entorno conveniente para el programa
+desarrollo y ejecución. Se pueden dividir en:
+
+> Manipulacion de archivos (File manipulation)
+
+> Estado de la informacion (Status information)
+
+> Soporte de lenguajes de programacion (Programming language support)
+
+> cargar programas y ejecutarlos (Program loading and execution)
+
+> comunicacion (Communications)
+
+> servicios ocultos para el usuario promedio (Background services)
+
+la mayoria de las aplicaciones de los usuarios son definidas por programas del sistema, no por las actuales system calls
+
+#### System Programs
+Algunos de ellos son simplemente interfaces de usuario para llamadas al sistema; otros son
+considerablemente más complejo.
+
+Ellos se pueden dividir en estas categorías.
+
+> File management|Status information|File modification
+
+entre estos tambien encontramos:
+
+> soporte para lenguajes de programacion **(Programming-language support)**:
+>> Compilers, assemblers, debuggers and interpreters sometimes provided
+
+> Carga y ejecución del programa (Program loading and execution)
+
+> comunicacion (Communications)
+>> Mechanism for creating virtual connections among processes, users, and computer systems
+
+> Servicios de fondo (Background Services)
+>> servicios que comienzan desde que se prende el sistema hasta que termina (Launch at boot time)
+
+#### Operating System Structure
+
+Un sistema tan grande y complejo como un sistema operativo moderno debe
+ser diseñado con cuidado para que funcione correctamente y se modifique
+fácilmente
+
+> Simple Structure
+>> MS-DOS es un ejemplo de tal sistema. Fue diseñado originalmente
+>> e implementado para proporcionar la mayor funcionalidad en el menor espacio, por lo que no se dividió cuidadosamente en módulos
+>
+>> En MS-DOS, las interfaces y los niveles de funcionalidad no están bien separadas. los programas de aplicación pueden acceder a las básicas rutinas de los dispositivos I/O para escribir directamente en la pantalla y unidades de disco!
+
+MS-DOS también estaba limitado por
+hardware de su época
+
+El Intel 8088 para el que fue
+escrito no proporciona modo dual, por lo que los diseñadores no tuvieron otra opción
+dejar el hardware
+accesible
+
+Asimismo, en UNIX original el
+kernel proporciona el sistema de archivos,
+Programación de CPU, gestión de memoria
+ y otras funciones del sistema operativo a través de llamadas de sistema, 
+eso es un enorme cantidad de funcionalidad a ser
+combinado en un nivel.
+
+Esta estructura monolítica fue
+difícil de implementar y mantener.
+
+![](/TheusZero/images/post/SistemasOperativos/35.png)
+
+#### Traditional UNIX System Structure
+
+![](/TheusZero/images/post/SistemasOperativos/36.png)
+
+#### Modular Operating Systems
+
+Los implementadores tienen más libertad para cambiar el funcionamiento interno del
+sistema y en la creación de sistemas operativos modulares
+
+El ocultamiento de información también es importante, porque deja a los programadores libres para
+implementar las rutinas de bajo nivel como mejor les parezca, siempre que el
+la interfaz de la rutina permanece sin cambios
+
+Un sistema puede hacerse modular de muchas formas
+> Un método es el enfoque por capas, en el que el sistema operativo es dividido en varias capas (niveles).
+>
+> La capa inferior (capa 0) es el hardware; la más alta (capa N) es la interfaz de usuario.
+
+#### Layered Approach
+
+Una capa M típica consta de datos y
+estructuras con un conjunto de rutinas que pueden
+ser invocadas por capas de nivel superior
+
+La principal ventaja de las capas
+es el enfoque en la simplicidad de construcción
+y depuración
+
+Con modularidad, se seleccionan capas
+tal que cada uno use funciones
+(operaciones) y servicios solo de capas de nivel inferior
+> Por lo tanto, el diseño y la implementación
+  del sistema se simplifican como
+  cada capa esconde la existencia de
+  ciertas estructuras de datos, operaciones,
+  y hardware de nivel superior
+  capas.
+
 
 ## Resumen
 
