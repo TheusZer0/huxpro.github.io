@@ -730,7 +730,157 @@ el usuario (Cont.):
 >> Para cada tipo de error, el sistema operativo debe tomar las medidas adecuadas para
 >>  asegurar una computación correcta y consistente
 
+Existe otro conjunto de funciones del sistema operativo para garantizar el funcionamiento eficiente de
+el propio sistema a través del **resource sharing (intercambio de recursos)**
 
+> Asignación de recursos (Resource allocation): cuando se ejecutan varios usuarios o varios trabajos
+> al mismo tiempo, se deben asignar recursos a cada uno de ellos.
+>> Muchos tipos de recursos: ciclos de CPU, memoria principal, archivos almacenamiento, dispositivos I/O
+> 
+> Contabilidad (Accounting): para realizar un seguimiento de qué usuarios usan cuánto y qué tipos de recursos
+>
+> Protección y seguridad (Protection and security): los dueño de la informacion almacenada en una o en multicuentas como en la red de la computadora pueden poseer el control y hacer uso de esta informacion para administrar el sistema de forma correcta, por lo que los procesos no deberian interferir entre usuarios.
+
+**Una vista de los servicios del sistema operativo (A View of Operating System Services)**
+
+![](/TheusZero/images/post/SistemasOperativos/25.png)
+
+#### User Operating System Interface - CLI (Interfaz del sistema operativo del usuario: CLI)
+
+Hay varias formas para que los usuarios interactúen con el sistema operativo.
+Aquí, discutimos dos enfoques fundamentales
+
+> Uno proporciona una interfaz de línea de comandos (CLI - (Command-LIne)) o Interprete (command interpreter)
+
+> El otro permite a los usuarios interactuar con el sistema operativo a través de una interfaz gráfica del usuario
+
+En sistemas con **varios comandos** para elegir, el
+**intérprete** se conoce **shell** (corresponde a una CLI)
+
+Estos comandos se pueden implementar de dos formas generales
+
+> En un enfoque, el propio intérprete de comandos (shell-CLI) contiene el código para ejecutar el comando.
+
+> Un enfoque alternativo implementa la mayoría de los comandos a través de programas del sistema.
+> En este caso, la shell simplemente usa el comando
+> para identificar un archivo que se cargará en la memoria y se ejecutará. (como el funcionamiento del PATH)
+
+#### User Operating System Interface - GUI
+
+Interfaz de escritorio fácil de usar
+
+Los iconos representan archivos, programas, acciones, etc.
+
+![](/TheusZero/images/post/SistemasOperativos/26.png)
+
+#### System Calls (llamadas al sistema)
+
+Las llamadas al sistema dan una interfaz de programación para los servicios que
+proporciona el sistema operativo
+
+Generalmente disponible como rutinas escritas en C y C ++, aunque
+Es posible que ciertas tareas de bajo nivel deban escribirse utilizando ensamblador
+
+Incluso los programas simples pueden hacer un uso intensivo del
+sistema.
+
+Con frecuencia, los sistemas ejecutan miles de llamadas al sistema por segundo. La mayoría de los programadores nunca ven este nivel de detalle.
+
+**ejemplo, un programa que crea un archivo, lo lee escribe sobre este mismo. **
+![](/TheusZero/images/post/SistemasOperativos/27.png)
+
+Los desarrolladores de aplicaciones diseñan programas de acuerdo con una
+interfaz de programación de aplicaciones (API)
+
+La API especifica un conjunto de funciones que están disponibles para una aplicación.
+
+
+Los tipos de llamadas al sistema se pueden agrupar aproximadamente en seis
+categorías:
+
+> process control (control de procesos)
+
+> file manipulation (manipulación de archivos)
+
+> device manipulation (manipulación de dispositivos)
+
+> information maintenance (mantenimiento de la información)
+
+> communications (comunicaciones)
+
+> protection (protección)
+
+
+Las tres API más comunes son:
+
+> Win32 API for Windows
+>
+> POSIX API for POSIX-based systems (including virtually all
+  versions of UNIX, Linux, and Mac OS X)
+>
+> Java API for the Java virtual machine (JVM)
+
+Un programador accede a una API a través de una biblioteca de código proporcionada por
+el sistema operativo
+
+En el caso de UNIX y Linux los programas son escritos en C y la biblioteca se llama libc
+
+**Example of Standard API**
+
+![](/TheusZero/images/post/SistemasOperativos/28.png)
+
+#### API – System Call – OS Relationship
+
+![](/TheusZero/images/post/SistemasOperativos/29.png)
+
+#### System Call Implementation (implementacion de llamadas al sistema)
+
+Los métodos generales utilizados para pasar parámetros al sistema operativo son:
+> El enfoque más simple es pasar los parámetros en registros. En algunos
+> casos, puede haber más parámetros que registros
+>> Entonces, los parámetros se almacenan en un bloque o tabla en la memoria y la dirección del bloque se pasa como parámetro en un registro
+
+![](/TheusZero/images/post/SistemasOperativos/30.png)
+
+#### Types of System Calls (tipos de llamadas al sistema)
+
+Analizamos brevemente los tipos de llamadas al sistema que puede proporcionar un
+sistema operativo
+
+> Process control **control de procesos**
+>> Un programa en ejecución puede necesitar detenerse en caso x de error, por lo que se ejecuta un **end()** o un **abort()**
+>
+>> Un proceso que ejecuta un programa puede querer cargar con **load()** y ejecutar con **exec()** otro programa.
+>
+>> Determinar y restablecer los atributos de un proceso, incluida la prioridad, su máximo tiempo de ejecución permitido, etc.
+>
+>> Terminar un trabajo o proceso que creamos
+>
+>> Esperar a que los procesos terminen su ejecución, es decir, una cierta cantidad de tiempo o un evento específico que ocurrirá
+>
+>> Permitir que un proceso bloquee los datos compartidos. Entonces, ningún otro proceso puede acceder al datos hasta que se libere el bloqueo. **(acquire_lock(), release_lock())** 
+>
+>> Asignar y liberar memoria
+
+#### Standard C Library Example
+![](/TheusZero/images/post/SistemasOperativos/31.png)
+
+#### Example: MS-DOS
+
+A continuación, usamos dos ejemplos: uno que involucra un sistema de una sola tarea **(single-tasking)** y
+el otro, un sistema multitarea **(multitasking)**, para aclarar algunos conceptos.
+
+![](/TheusZero/images/post/SistemasOperativos/32.png)
+
+![](/TheusZero/images/post/SistemasOperativos/33.png)
+
+#### Other Types of System Calls
+
+File management
+ create file, delete file
+ open, close file
+ read, write, reposition
+ get and set file attributes
 
 ## Resumen
 
