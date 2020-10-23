@@ -1103,14 +1103,182 @@ La ejecucion de un programa por parte del usuario puede ser mediante el GUI
 
 #### Process State
 
-#### Process Control Block (PCB)
+Un proceso puede estar en uno de los siguientes estados:
 
-Información asociada a cada proceso (también llamado bloque de control de tareas **( task control block )**)
+> Nuevo: Se está creando el proceso
+>
+> Corriendo. Se están ejecutando instrucciones
+>
+> Esperando. El proceso está esperando que ocurra algún evento (como una finalización de I/O o recepción de una señal).
+>
+> Listo. El proceso está esperando ser asignado a un procesador.
+>
+> Terminado. El proceso ha finalizado su ejecución
+
+**Diagram of Process State**
+
+![](/TheusZero/images/post/SistemasOperativos/41.png)
+
+
+#### Process Control Block (PCB)
+Cada proceso está representado en el sistema operativo por un proceso
+bloque de control (PCB).
+
+**Threads - Hilos** El modelo de proceso discutido hasta ahora ha implicado que un proceso es un
+programa que realiza un solo hilo de ejecución
+
+La mayoría de los sistemas operativos modernos han ampliado el concepto de proceso a
+Permitir que un proceso tenga múltiples subprocesos de ejecución y, por lo tanto,
+realizar más de una tarea a la vez
+
+> Esta característica es especialmente beneficiosa en sistemas multinúcleo, donde varios subprocesos pueden ejecutarse en paralelo
 
 ![](/TheusZero/images/post/SistemasOperativos/40.png)
 
-#### Operations on Processes
+#### Process Representation in Linux
+Representado por la estructura C task_struct
 
+Dentro del kernel de Linux, todos los procesos activos se representan mediante un doubly linked
+list de las task struct (estructura de tareas)
+
+![](/TheusZero/images/post/SistemasOperativos/42.png)
+
+#### CPU Switch From Process to Process
+
+![](/TheusZero/images/post/SistemasOperativos/43.png)
+
+#### Process Scheduling (Programación de procesos)
+
+El objetivo de la multiprogramación es tener algún proceso en ejecución
+en todo momento, para maximizar la utilización de la CPU
+
+El objetivo del **time sharing** tiempo compartido es cambiar la CPU entre procesos
+con tanta frecuencia que los usuarios pueden interactuar con cada programa mientras se
+corriendo
+
+Para cumplir con estos objetivos, el planificador de procesos **(process scheduler)** selecciona un
+proceso (posiblemente de un conjunto de varios procesos disponibles) en la memoria
+para la ejecución del programa en la CPU
+
+> **Scheduling Queues**
+>> A medida que los procesos ingresan al sistema, se colocan en una cola de trabajos, que consta de todos los procesos del sistema.
+>
+>> Los procesos que residen en la memoria principal y están listos y esperando a ejecutarse se mantienen en una lista llamada **ready queue**
+>
+>> La lista de procesos que esperan un dispositivo I/O en particular se denomina cola de dispositivo. Cada dispositivo tiene su propia **device queue**
+
+Los procesos migran entre las distintas colas
+
+Una representación común de la programación de procesos es un diagrama de cola. **queueing diagram**
+
+![](/TheusZero/images/post/SistemasOperativos/44.png)
+
+#### Ready Queue And Various I/O Device Queues
+
+![](/TheusZero/images/post/SistemasOperativos/45.png)
+
+
+#### Schedulers
+
+El sistema operativo debe seleccionar procesos de estas colas en
+alguna manera. La selección la realiza el planificador correspondiente **(by the appropriate scheduler)**.
+
+**Short-term scheduler** o **CPU scheduler** selecciona cual es el proceso debe ejecutarse a continuación y asigna CPU
+
+**Long-term scheduler** o **(job scheduler)** selecciona cual de
+los procesos deben llevarse del disco a la memoria.
+
+En general, los procesos se pueden describir como:
+
+> I/O-bound process: pasa más tiempo haciendo I/O que haciendo cálculos, muchas ráfagas cortas de CPU
+
+> CPU-bound process: dedica más tiempo a hacer cálculos; few very long CPU bursts
+
+> Es importante que el **Long-term scheduler** seleccione una buena mezcla de procesos
+>> ![](/TheusZero/images/post/SistemasOperativos/46.png)
+
+Algunos sistemas operativos, como los sistemas de tiempo compartido **(time-sharing systems)**, pueden
+introducir un nivel intermedio adicional de programación. **(intermediate level of scheduling)**
+
+La idea clave detrás de un planificador de mediano plazo **(medium-term scheduler)** es que a veces puede
+Ser beneficioso eliminar un proceso de la memoria. Posteriormente, el proceso puede reintroducirse en la memoria y su ejecución
+puede continuar donde lo dejó. Este esquema se llama intercambio **(swapping)**
+
+#### Addition of Medium Term Scheduling
+
+Se puede agregar un **Medium-term scheduler** si el grado de multiprogramación
+necesita disminuir. Elimina el proceso de la memoria, almacenandolo en el disco, vuelve a traerlo del
+disco para continuar la ejecución: swapping
+
+![](/TheusZero/images/post/SistemasOperativos/47.png)
+
+#### Context Switch
+
+Cuando ocurre una interrupción **(interrupt)**, el sistema necesita **guardar el
+contexto del proceso** que se ejecuta en la CPU para que pueda **restaurar ese
+contexto** cuando se realiza su procesamiento.
+
+> The context is represented in the PCB **(Process Control Block)** of the process.
+
+Realizar un guardado de estado del proceso actual y una restauración de estado de un
+proceso diferente, es una tarea conocida como **context switch**.
+
+el Context-switch time es pura sobrecarga. because the system does no useful work (a typical speed is a few milliseconds)
+
+#### Process Creation
+
+Durante el curso de la ejecución, un proceso puede crear varios nuevos
+procesos
+
+El proceso de creación se denomina proceso padre, y el nuevo
+proceso que proviene del proceso padre se denominan hijo
+
+El proceso padre crea procesos hijos que, a su vez, crean
+otros procesos, formando un árbol de procesos
+
+Most operating systems (including UNIX, Linux, and Windows)
+identify processes according to a unique process identifier (or pid),
+which is typically an integer number
+
+Cuando un proceso crea un proceso hijo, ese proceso hijo necesitará
+ciertos recursos (tiempo de CPU, memoria, archivos, dispositivos de I/O)
+
+![](/TheusZero/images/post/SistemasOperativos/48.png)
+
+> **Resource sharing options:**
+>> Parent and children share all resources
+>
+>> Children share subset of parent’ s resources
+>
+>> Parent and child share NO resources
+
+Restringir un proceso secundario a un subconjunto de los recursos de los padres
+evita que cualquier proceso sobrecargue el sistema creando demasiado
+child processes
+
+> Execution options
+>> Parent and children execute concurrently
+>
+>> Parent waits until some or all of its children terminate
+
+> También hay dos posibilidades de espacio de direcciones para el nuevo proceso
+>> Hijo duplicado del padre (tiene el mismo programa y datos que el padre)
+>
+>> El niño tiene un nuevo programa cargado en él
+
+![](/TheusZero/images/post/SistemasOperativos/49.png)
+
+**UNIX EXAMPLE**
+
+![](/TheusZero/images/post/SistemasOperativos/50.png)
+
+
+**clase 4**
+
+Información asociada a cada proceso (también llamado bloque de control de tareas **( task control block )**)
+
+El PCB simplemente sirve como depósito de cualquier información que
+puede variar de un proceso a otro
 
 ## Ayudantias
 
