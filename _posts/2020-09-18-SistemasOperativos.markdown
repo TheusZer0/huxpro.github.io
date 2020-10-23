@@ -1030,14 +1030,94 @@ tal que cada uno use funciones
   y hardware de nivel superior
   capas.
 
+la gran dificultad con las capas es que el
+enfoque involucre apropiadamente
+la definicion de las distintas capas
 
-## Resumen
+el problema final con la implementacion
+ de capas es que tienden a ser
+menos eficiente que otros tipos
+
+> Cuando un programa del usuario ejecuta una operacion I/O:
+>> este ejecuta una llamada al sistema que es atrapada por la capa I/O
+>> que llama ala capa del administrador de memoria, y retorna llamadas que la capa de la cpu
+>> interpeta y luego son pasadas al hardware
+
+Cada capa agrega una sobrecarga a la
+llamada al sistema, es decir, que una llamada al sistema se toma más tiempo.
+
+![](/TheusZero/images/post/SistemasOperativos/37.png)
+
+#### Loadable Kernel Modules
+
+> Quizás la mejor metodología actual para el diseño de sistemas operativos implica
+> usar módulos de kernel cargables
+>> el kernel tiene un conjunto de componentes centrales y enlaces en servicios adicionales a través de módulos
+
+This type of design is common in modern implementations of UNIX, such as
+Solaris, Linux, and Mac OS X, as well as Windows.
+
+La idea del diseño es que el kernel proporcione servicios básicos mientras que otros
+servicios se implementan dinámicamente, ya que el kernel se está ejecutando
+
+![](/TheusZero/images/post/SistemasOperativos/38.png)
+
+#### Procesos(processes)
+
+Los sistemas informáticos contemporáneos permiten que múltiples programas sean
+cargados en la memoria y ejecutados al mismo tiempo
+
+> un sistema consta de una colección de procesos:
+>> el sistema operativo ejecuta el código del sistema (system code).
+>
+>> el usuario procesa y ejecuta el codigo.
+
+#### Process Concept
+
+Un proceso es más que el código del programa, a veces conocido como
+sección de texto ya que, Incluye la actividad actual, representada por el valor del programa como el contador y el contenido de los registros del procesador.
+
+Un proceso generalmente también incluye la pila de procesos, que contiene
+datos temporales (como parámetros de función, direcciones de retorno y
+variables) y una sección de datos, que contiene variables globales.
+
+Un proceso también puede incluir un heap, que es una memoria que es dinámicamente
+asignada durante el tiempo de ejecución del proceso
+
+Un programa se convierte en un proceso cuando se carga en
+memoria
+
+Aunque dos procesos pueden estar asociados con el mismo programa,
+sin embargo, se consideran dos secuencias de ejecución independientes.
+
+El programa es una entidad pasiva almacenada en el disco
+(archivo ejecutable), el proceso es el programa cuando esta activo y cargado en memoria
+
+La ejecucion de un programa por parte del usuario puede ser mediante el GUI
+
+> **Un programa pueden ser varios procesos**
+>> Considere la posibilidad de que varios usuarios ejecuten
+   mismo programa
+
+![](/TheusZero/images/post/SistemasOperativos/39.png)
+
+#### Process State
+
+#### Process Control Block (PCB)
+
+Información asociada a cada proceso (también llamado bloque de control de tareas **( task control block )**)
+
+![](/TheusZero/images/post/SistemasOperativos/40.png)
+
+#### Operations on Processes
+
 
 ## Ayudantias
 
+## Libro
 
+## Resumen
 
 ## Ejercicios Importantes
 
-## Libro
 
