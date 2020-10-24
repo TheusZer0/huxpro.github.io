@@ -1272,13 +1272,65 @@ child processes
 
 ![](/TheusZero/images/post/SistemasOperativos/50.png)
 
-
 **clase 4**
+
+#### Process Control Block (PCB)
 
 Información asociada a cada proceso (también llamado bloque de control de tareas **( task control block )**)
 
 El PCB simplemente sirve como depósito de cualquier información que
 puede variar de un proceso a otro
+
+![](/TheusZero/images/post/SistemasOperativos/51.png)
+
+#### Process Termination
+
+Un proceso acaba cuando termina de ejecutar su declaración final
+y le pide al sistema operativo que lo elimine usando la llamada al sistema **exit()**
+
+el proceso puede devolver un valor de estado (un número entero) a su proceso padre
+
+Un proceso puede provocar la terminación de otro proceso a través de una
+llamada al sistema
+
+Cuando un proceso crea un nuevo proceso, la identidad del nuevo se pasa al padre
+
+El padre puede terminar la ejecución de procesos secundarios utilizando el
+abort() como llamada al sistema
+
+> El proceso hijo ha excedido los recursos asignados
+>
+> La tarea asignada al proceso hijo ya no es necesaria
+>
+> terminar con todos los procesos hijos para que el padre pueda terminar (algunos sistemas operativos tienen esa regla)
+
+Cuando un proceso termina, sus recursos son desasignados por el
+sistema operativo
+
+![](/TheusZero/images/post/SistemasOperativos/52.png)
+
+**Un proceso padre puede esperar la terminación de un proceso hijo
+  usando la llamada al sistema wait()**
+  
+existe un registro que indica todos los procesos que estan acitvos en un momento dado **ps aux**
+
+un proceso hijo que haya terminado y un proceso padre que todavia no haya terminado, se le denomina como un proceso zombie. muere pero no desaparece, es un proceso zombie (el proceso padre todavia existe porque quedo pegado en alguna parte de este estado, hasta que el proceso padre ejecute el wait)
+
+si el padre no llama al wait y termina su ejecucion y sale del sistema, el proceso hijo puede quedarse huerfano.
+
+**ejemplos procesos zombies**
+![](/TheusZero/images/post/SistemasOperativos/53.png)
+
+![](/TheusZero/images/post/SistemasOperativos/54.png)
+
+Toda la memoria y los recursos asignados a un proceso se desasignan cuando
+el proceso termina usando la llamada al sistema exit(). **Pero la entrada del proceso en la tabla de procesos todavía está disponible**
+
+El proceso principal puede leer el estado de salida del proceso zombie
+utilizando la llamada al sistema wait (). Después de eso, el proceso zombie se elimina de
+el sistema
+
+**clase 5**
 
 ## Ayudantias
 
