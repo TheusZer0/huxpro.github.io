@@ -1332,6 +1332,203 @@ el sistema
 
 **clase 5**
 
+#### Process Termination
+
+un proceso zombi o "defunct" (difunto) es un proceso que ha completado su ejecución
+pero aún tiene una entrada en la tabla de procesos, permitiendo al proceso 
+que lo ha creado leer el estado de su salida. 
+Metafóricamente, el proceso hijo ha muerto pero su "alma" aún no ha sido recogida.
+
+Cuando un proceso acaba, toda su memoria y recursos asociados a él se desreferencian,
+para que puedan ser usados por otros procesos.
+De todas formas, la entrada del proceso en la tabla de procesos aún permanece. 
+Al padre se le envía una señal SIGCHLD indicando que el proceso ha muerto; 
+el manejador para esta señal será típicamente ejecutar la llamada al sistema wait, 
+que lee el estado de salida y borra al zombi. 
+El ID del proceso zombi y la entrada en la tabla de procesos pueden volver a usarse.
+
+**Un proceso zombi no es lo mismo que un proceso huérfano.**
+Los procesos huérfanos no se convierten en procesos zombis, sino que son **adoptados** por init (ID del proceso = 1), que espera a su hijo.
+
+El término zombi deriva de la definición común de zombi (una persona muerta).
+
+Los zombis pueden ser identificados en la salida por pantalla del comando de Unix ps por la presencia de una Z en la columna de estado. Los zombis pueden existir por un corto período, que típicamente significa un error en el programa padre (un bug). Igualmente, la presencia de muchos procesos zombi puede indicar problemas en el sistema, y puede acarrear una alta carga del sistema, lentitud y respuestas lentas.
+
+#### Procesos huérfanos:
+
+A diferencia de los zombi, los huérfanos son aquellos que se siguen ejecutando a pesar de que su proceso primario (padre) concluyo su operación. Un proceso huérfano no siempre supone un problema, pues existen circunstancias en que lo necesites y tu mismo tengas que forzar que siga corriendo.
+     
+Un proceso huérfano forzado se ejecuta en segundo plano sin interactuar con el de forma manual. Normalmente los generamos al iniciar un servicio que se ejecutara indefinidamente, o para que termine un trabajo que durara horas.
+
+#### zombies process
+
+Un proceso hijo siempre se convierte primero en un zombi antes de ser eliminado de
+la mesa de proceso.
+
+```
+// A C program to demonstrate Zombie Process.
+// Child becomes Zombie as parent is sleeping when child process exits.
+#include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
+int main()
+{
+    // Fork returns process id in parent process
+    pid_t child_pid = fork();
+
+    // Parent process sleeps for 50 seconds, and doesn’t call wait()
+    if (child_pid > 0)
+    sleep(50);
+
+    // Child process
+    else
+    exit(0);
+    return 0;
+} 
+```
+
+#### Inter-process Communication
+
+los procesos en el sistema pueden ser indepedientes o cooperativos
+
+> los independientes es cuando no comparten data y no depende de data de otros procesos.
+>
+> los dependientes dependen de esta data de procesos externos para funcionar o realizar su trabajo
+
+las razones para tener procesos cooperativos es la siguiente:
+
+> compartir informacion entre procesos
+>
+> aceleracion de procesos con multiples cores
+>
+> dividir procesos con hilos
+>
+> convivencia entre usuarios
+
+hay dos modelos de memoria fundamentales para la inter-comunicacion de procesos. (IPC)
+
+> la memoria compartida
+>> region de memoria que se comparte entre procesos, estos que intercambian informacion pueden leer y escribir en esta region compartida
+
+> intercambio de mensajes
+>> la comunicacion se realiza mediante el intercambio de mensajes
+
+la memoria compartida **puede ser mas rapido que el intercambio de mensajes** el intercambio de mensajes casi siempre se implementa en el sistema usando **system calls** que pasan a travez del kernel
+
+en memoria compartida se crea este espacio de memoria y luego se puede operar con **CRUD** dependiendo de que intencion tiene el proceso.
+sin embargo, esta misma posee errores como la **incoherencia de cache**, datos que migran entre la memoria a la memoria cache.
+
+![](/TheusZero/images/post/SistemasOperativos/55.png)
+
+para la comunicacion entre procesos debemos establecer una region de memoria comun dentro del espacio de direccion
+que el proceso esta generando.
+
+los procesos no deben escribir simultaneamente sobre este espacio en memoria. concepto de productor y consumidor (servidor y cliente)
+
+#### Producer-Consumer Problem
+
+tenemos un proceso que produce informacion y otro proceso consume esta informacion
+
+para ejecutar un productor y consumidor al mismo tiempo debemos ser capaces de crear un **shared buffer**,
+que es aqui donde el productor agrega informacion y el consumidor va vaciando el buffer.
+
+el buffer puede ser ilimitado o limitado, el consumidor puede esperar con una **queue o cola** y se puede generar un arreglo para especificar el tamano del buffer.
+
+> Shared data
+```
+#define BUFFER_SIZE 10
+typedef struct {
+. . .
+} item;
+
+item buffer[BUFFER_SIZE];
+
+int in = 0;
+
+int out = 0;
+```
+
+![](/TheusZero/images/post/SistemasOperativos/56.png)
+
+#### Inter-Process Communication – Shared Memory
+
+la comuniacion esta bajo el control de los procesos del usuario, no el sistema operativo. 
+
+#### Inter-process Communication – Message Passing
+el intercambio de mensajes provee un mecanismo que deja acceder a procesos para la comuniacion y la sincronizacion de acciones sin necesidad de compartir el mismo espacio de direcciones 
+
+los mensajes a enviar pueden ser de un tamano variable o fijo
+
+se debeen proveer almenos dos operaciones:
+
+> send(message)
+>
+> receive(message)
+
+deberia existir un enlace de comunicacion entre el proceso productor y consumidor
+
+este enlace se puede implementar de varias maneras, entre estas se excplora la forma logica, en donde el enlace 
+debe ser capaz de cumplir con las operaciones  send()/receive() de forma:
+> directa o indirecta
+>
+> sincrona o asincronizada (Synchronous or asynchronous)
+
+> Link Implementation issues:
+>> ![](/TheusZero/images/post/SistemasOperativos/57.png)
+
+#### Direct Communication
+
+bajo la comunicacion directa, cada proceso necesita comunicarse debe explicitamente nombrar el proceso con 
+el cual formala el link, es decir, el  send() and receive() .
+
+> send(P, message)—Send a message to process P
+
+> receive(Q, message)—Receive a message from process Q.
+
+un enlace de comunicacion con estas propiedades tiene los siguientes esquemas:
+
+> establece automaticamente entre cada par de procesos con los cuales debe comunicarse y estos procesos necesitan saber
+> el identificador del otro proceso para comunicarse
+>
+> un enlace sera asociado entre todos procesos
+>
+> entre cada dos procesos debe existir al menos un enlace
+
+este esquema excibe un tipo direccion de simetria o sincrona (symmetry)
+
+#### Indirect Communication
+
+en comunicacion indirecta los mensajes se envian y reciben en algo que llamamos **buzones (mailbox o ports)**
+
+cada mailbox o port tiene una unica identificacion
+
+un proceso puede comunicarse con otro proceso via el numero de diferentes buzones (dos procesos pueden tener diferentes buzones a los que pueden acceder) **pero tienen como condicion tener almenos un buzon en comun para asi intercambiar mensajes**
+
+> The send() and receive()
+>> send(A, message)—Send a message to mailbox A
+>
+>> receive(A, message)—Receive a message from mailbox A.
+
+un solo de estos enlaces puede ser unidireccional o bidireccional y un solo enlace puede estar asociado a mas de 2 procesos.
+
+**EXAMPLE**
+>> ![](/TheusZero/images/post/SistemasOperativos/58.png)
+
+la mailbox puede pertenecer a un proceso o al sistema operativo.
+
+un proceso puede tener su propio buzon, si un buzon pertenece al sistema operativo debe proveer mecanismo
+para hacer operaciones CRUD como minimo a este buzon.
+
+#### Synchronization
+
+el intercambio de mensajes puede ser bloqueantes (blocking) o no bloqueantes (non-blocking)
+
+el bloqueantes se considera **synchronous (sincrona)**
+
+> Blocking send - el que envia 
+>
+>
+
 ## Ayudantias
 
 ## Libro
