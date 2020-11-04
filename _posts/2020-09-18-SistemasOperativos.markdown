@@ -1435,17 +1435,18 @@ que es aqui donde el productor agrega informacion y el consumidor va vaciando el
 el buffer puede ser ilimitado o limitado, el consumidor puede esperar con una **queue o cola** y se puede generar un arreglo para especificar el tamano del buffer.
 
 > Shared data
+
 ```
-#define BUFFER_SIZE 10
-typedef struct {
-. . .
-} item;
-
-item buffer[BUFFER_SIZE];
-
-int in = 0;
-
-int out = 0;
+    #define BUFFER_SIZE 10
+    typedef struct {
+    . . .
+    } item;
+    
+    item buffer[BUFFER_SIZE];
+    
+    int in = 0;
+    
+    int out = 0;
 ```
 
 ![](/TheusZero/images/post/SistemasOperativos/56.png)
@@ -1936,8 +1937,58 @@ que seria asociado a algun proceso que indica si es mayor o menor prioridad sobr
 
 Mientras menor sea el numero, mayor sera la prioridad ya que sera mas rapido de ejecutar, si hay 2 que tienen la misma prioridad, los atendemos por orden de llegada.
 
+![](/TheusZero/images/post/SistemasOperativos/88.png)
+
+#### Round Robin (RR)
+
+![](/TheusZero/images/post/SistemasOperativos/89.png)
 
 **clase 10**
+
+#### Multilevel Queue Scheduling
+
+es otra clase de scheduling algorithms que son creados para clasificar de manera facil y rapida
+los diferentes grupos de procesos.
+
+> multilevel queue scheduling : este algoritmo divide la ready queue en varias colas separadas, por ejemplo; una cola para el background y otro para procesos activos.
+>> cada cola tiene su propio scheduling algorithm:
+>>
+>> foreground – RR | background – FCFS
+
+#### Multilevel Queue
+
+asignar un Time slice para asignar un porcentaje para hacer mas justo cual tendra mas prioridad. el foreground o el background
+
+#### Multilevel Feedback Queue Scheduling
+
+Normalmente, cuando se utiliza el algoritmo de multilevel queue,
+los procesos se asignan permanentemente a una cola y no se mueven
+de una cola a otra.
+Esta configuración tiene la ventaja de una baja sobrecarga (overhead) de programación, pero es
+no es flexible.
+
+Ahora en diferencia, si se usa el algoritmo **multilevel feedback queue** este nos dejara
+mover procesos de una cola a otra (a diferencia del anterior), de esta manera, la idea sera separar
+los procesos que usan CPU burst
+
+Si el proceso usa mucho tiempo la CPU sera movido a una cola de prioridad baja, a su vez, si un proceso usa poco CPU sera movido a una cola de prioridad alta. De esta forma se previene la **aging prevents starvation.** 
+
+parametros que se deben seguir para una cumplir con una buena multilevel feedback queue scheduler:
+
+> number of queues
+>
+> scheduling algorithms for each queue
+>
+> method used to determine when to upgrade a process to a higher priority queue
+>
+> method used to determine when to demote a process to a lower priority queue
+>
+> method used to determine which queue a process will enter when that process needs service
+
+![](/TheusZero/images/post/SistemasOperativos/90.png)
+
+#### Real-Time CPU Scheduling
+
 
 
 
