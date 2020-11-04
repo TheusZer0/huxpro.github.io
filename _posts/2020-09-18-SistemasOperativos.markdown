@@ -1525,9 +1525,391 @@ el intercambio de mensajes puede ser bloqueantes (blocking) o no bloqueantes (no
 
 el bloqueantes se considera **synchronous (sincrona)**
 
-> Blocking send - el que envia 
+> Blocking send - el programa que envia el mensaje se queda a la espera (se queda bloqueado) esperando que este mensaje sea recibido
 >
+> blockind receive - el receptor se queda bloqueado esperando que el mensaje este disponible
+
+el **No bloqueante** es considerado **Asynchronous (Asincrona)**
+
+> Non-blocking send - el que envia el mensaje solo enviara el mensaje y no quedara a la espera, este continuara con su code
 >
+> Non-blocking receive - el que receptor recibe
+>> un mensaje valido
+>
+>> un mensaje nulo
+
+si usamos el send() and receive() de modo bloqueante tenemos un rendezvous, ya que tendremos que el envio esperara a que su mensaje sea recibido y el receptor a que este mensaje este disponible (una cita).
+
+#### Buffering
+
+independiente si la comunicacion es directa o indirecta, esto sera pasado por una cola, un buffer.
+
+> Zero capacity - La cola tiene una longitud máxima de cero; por lo tanto, el enlace no puede tener ningún mensaje esperando en él. En esto
+> caso, el remitente debe bloquear hasta que el destinatario reciba el mensaje
+>
+> Bounded capacity - un buffer con un numero N de mensajes (buffer con capacidad limitada)
+>
+> Unbounded capacity - largo infinito, el envio nunca se bloquea o espera
+
+
+#### Inter-Process Communication
+
+**I/O System Call terminology**
+
+> Que es un File Descriptor
+>> el File Descriptor (descriptor de archivos), es un numero entero que identifica unicamente un archivo abierto de un proceso
+>
+>> un **File Descriptor table** es una coleccion de numeros enteros que son indices asignados a elementos o archivos abiertos como punteros. (para asi tener la direccion de memoria de los archivos)
+>
+> three standard POSIX file descriptors 
+>> 0 for standard input: Read from stdin  read from fd_0 : Whenever
+>> we write any character from keyboard, it read from stdin through fd_0
+>
+>> 1 for standard output: Write to stdout  write to fd_1 : Whenever we
+>> see any output to the video screen, it’ i written to through fd_1
+>
+>> 2 for standard error
+
+**Memory-Mapped Files - archivos mapeados en la memoria**: 
+
+estos archivos requieren de llamadas al sistema y acceso al disco, nosotros podemos usar memoria virtual para rutinas de I/O
+
+Este enfoque, conocido como **mapeo de memoria** de un archivo, permite que una parte del
+espacio de direcciones virtuales quede asociada lógicamente con un archivo.
+
+multiples procesos pueden ser alojadas o mapeadas a un solo archivo de forma concurrente, de esta forma pueden alojar su data en este archivo.
+
+cuando este archivo se cierra, todos estos datos mapeados en el archivo se escriben en disco y se remueve la memoria virtual puesta en el proceso.
+
+![](/TheusZero/images/post/SistemasOperativos/59.png)
+
+#### POSIX Shared Memory
+![](/TheusZero/images/post/SistemasOperativos/60.png)
+
+**clase 06**
+
+#### Threads
+
+la mayoria de los programas actuales contienen multiples threads asignados **(multithreaded computer systems)**
+
+el thread es la unidad basica que la CPU utiliza ya que estos tienen ID, se le asigan a programas y se pueden stackear.
+
+**Motivation: ¿Why use Threads?**
+
+![](/TheusZero/images/post/SistemasOperativos/61.png)
+
+**Multithreaded Server Architecture**
+
+![](/TheusZero/images/post/SistemasOperativos/62.png)
+
+**beneficios**
+
+> la capacidad de respuesta de la aplicacion al usar threads, ya que si este es un proceso intensivo, al iniciar la ejecucion de un algoritmo, si esto se ejecuta en un solo threads, esto consumira este thread y podra demorarse demasiado demasiado tiempo en dar una respuesta
+>
+> compartir recursos, los threads se comparten recursos de la ejecucion del programa
+>
+> es economico (mas que administrar un proceso)
+>
+> escalabilidad del sistema, esto es aprovechar los cores del sistema para ejecutar varios task a la vez
+
+#### Multicore Programming
+
+agregar varios nucleo a un solo core, el Multithreaded provee un mecanismo para un uso mas eficiente.
+
+>> el paralelismo (mas de una tarea que se ejecuta de forma paralela)
+>
+>> concurrencia es mas de una tarea logra demorarse mas en el tiempo sin la necesidad de divirse la carga
+> **Concurrency Vs. Parallelism**
+> ![](/TheusZero/images/post/SistemasOperativos/63.png)
+
+>> **Single & Multithreaded Processes**
+> ![](/TheusZero/images/post/SistemasOperativos/64.png)
+
+#### Amdahl’s Law
+
+para la aproximacion o evaluacion de las ganancias de rendimiento agregando o aprovechando cores en una aplicacion.
+
+> ![](/TheusZero/images/post/SistemasOperativos/65.png)
+
+#### Multicore Programming
+
+**Challenges**
+
+> examinar las aplicaciones y encontrar cuales son las areas que se pueden dividir en un task
+>
+> el balance de que los threads que vamos a usar hagan un trabajo balanceado entre si, para que no colapsen
+>
+> lograr la reparticion de la data
+>
+> Testing and debugging, se hace cada vez mas dificil porque existen muchas secuencias de ejecucion que tendremos que revisar, ya que habran varios threads que deberemos revisar
+
+**Types of Parallelism**
+
+>> data parallelism
+>
+>> task parallelism
+
+el **Data parallelism** se centra en distribuir subconjuntos de datos
+a través de múltiples núcleos o cores haciendo que estos realicen la misma operación
+en cada núcleo
+
+el **Task parallelism** cada thread realiza una operacion diferente, pueden usar los mismos datos, pero seran para realizar una operacion especifica, donde cada task sera hecha solo por un thread
+
+#### User Threads and Kernel Threads
+
+El soporte para los threads se puede proporcionar a nivel de usuario, para threads de usuario, o por el núcleo, para los threads del núcleo.
+
+> los threads del usuario se admiten por encima del kernel y se administran sin soporte del kernel
+>
+> Los threads del kernel son compatibles y gestionados directamente por el sistema operativo
+
+#### Multithreading Models
+
+> **Many-to-One**
+> ![](/TheusZero/images/post/SistemasOperativos/66.png)
+>> muchos threads de usuario que se mapean a un solo thread de kernel
+>
+>> el proceso sera completamente bloqueado si es que uno de esos threads hace un llamado de forma bloqueante
+>
+> varios subprocesos no pueden ejecutarse en paralelo en sistemas multinúcleo porque solo uno puede acceder al kernel 
+
+> **One-to-One**
+>> se puede mapear un thread de usuario a un thread de kernel
+>
+>> provee mas concurrencia, permitiendo que puedan hacer llamados bloqueantes y que al hacerlos, no impedir que los demas threads salgan perjudicados.
+>
+> ![](/TheusZero/images/post/SistemasOperativos/67.png)
+
+> **Many-to-Many Model**
+> ![](/TheusZero/images/post/SistemasOperativos/68.png)
+>> es el mas flexible, tenemos varios threads de usuario que se mapean a threads de kernel 
+>
+>> el usuario puede crear cuantos threads necesite y estos correran en paralelo entre si
+>
+>> es igual que el anterior pero 2 threads pueden ejecutarse en un solo thread kernel, etc.
+
+**examples**
+
+![](/TheusZero/images/post/SistemasOperativos/69.png)
+
+#### Implicit Threading
+
+> Thread Pools
+>> realizar o generar threads para atender a un cliente o a una request, toma menos tiempo crear threads para multiprocesos
+>> y tambien hay que ver que los recursos no se agoten (ya que no se pueden crear threads ilimitados), para eso se utiliza el Pool Threads.
+>> Se crean Threads y se dejan en un lugar, cosa que una vez que un requerimiento lo necesite, entonces este se le asigna automaticamente, tambien asi se crear
+>> una cantidad maxima de threads que se pueden asigan a las tareas
+
+> OpenMP
+>> un set de API o directivas para usar soporte en la programacion paralela, nos permite identificar las regiones del programa que a nosotros nos interesa
+> ejecutar de forma paralela
+> ![](/TheusZero/images/post/SistemasOperativos/70.png)
+
+**clase 07**
+
+
+
+
+
+
+
+**clase 08**
+
+#### semaphore
+
+una variable entera que puede cambiar su valor con operaciones atomicas (operaciones que se ejecutan de manera ininterrumpida)
+se usara el **wait() y el signal()**, siendo una la que resta y otra laque suma.
+> ![](/TheusZero/images/post/SistemasOperativos/71.png)
+
+los semaforos pueden ser binarios o pueden ser contadores, son parecidos a los mutelocks
+
+> los semaforos pueden resolver varios problemas de sincronizacion;
+> ![](/TheusZero/images/post/SistemasOperativos/72.png)
+
+los semaforos tambien sufren de busy waiting, existe el problema de que el wait() y el signal() no pueden ejecutarse al mismo tiempo
+por lo que se deben ejecutar soluciones de forma critica (como en la clase anterior), se puede modificar la definicion de las funciones para que un proceso
+que ejecute el wait() se bloquee completamente esperando.
+
+ahora los semaforos podran tener valores negativos.
+
+**Implementation without Busy waiting (Cont.)**
+> ![](/TheusZero/images/post/SistemasOperativos/73.png)
+
+#### Deadlock & Starvation
+
+si tenemos la implementacion de semaforos con una lista de espera, puede ocurrir una situacion en donde uno o mas procesos pueden quedar
+esperando de manera infinita, ya que pueden quedar esperando a uno o mas procesos que estan en la lista de espera, por lo que si estan esperando algo
+que de por si ya estaba esperando otra cosa, entonces ese caso se llama **deadlocked** (interbloqueo - ninguno avanza).
+
+> **Deadlock & Starvation**
+> ![](/TheusZero/images/post/SistemasOperativos/74.png)
+
+> **Priority Inversion, higher priority task (H) ends up waiting for middle priority task (M) when H is sharing critical section with lower priority task (L) and L is already in critical section**
+
+para resolver el problema de la inversion de prioridad se implementa lo que se llama un **priority inheritance protocol**, esto es la llamada
+ **herencia de prioridad**, donde, si un task de prioridad High, necesita de un low, este puede heredar la prioridad del task para asi ser ejecutado por el de prioridad H
+
+#### Classical Problems of Synchronization
+problemas de sincronizacion:
+> Bounded-Buffer Problem
+>
+> Readers and Writers Problem
+>
+> Dining-Philosophers Problem
+
+#### Bounded-Buffer Problem
+
+buffer agotado, se arregla arreglando el tamano del buffer.
+
+>> We assume n buffers, each can hold one item
+>Semaphore mutex initialized to the value 1
+>
+>Semaphore full initialized to the value 0
+>
+>Semaphore empty initialized to the value n
+
+```
+The structure of the producer process
+do {
+    ...
+    /* produce an item in next_produced */
+    ...
+    wait(empty);
+    wait(mutex);
+    ...
+    /* add next produced to the buffer */
+    ...
+    signal(mutex);
+    signal(full);
+} while (true);
+```
+
+```
+The structure of the consumer process
+do {
+    wait(full);
+    wait(mutex);
+    ...
+    /* remove an item from buffer to next_consumed */
+    ...
+    signal(mutex);
+    signal(empty);
+    ...
+    /* consume the item in next consumed */
+    ...
+} while (true);
+```
+
+el escritor sera la prioridad mas alta, si un escritor es llamado, todos los demas lectores deben esperar
+
+#### Dining-Philosophers Problem
+
+> problema de los filosofos cenando;
+>
+>> ![](/TheusZero/images/post/SistemasOperativos/75.png)
+> el problema es: **¿what happens if all are hungry at the same time?**
+
+**clase 09**
+
+#### Pthreads Synchronization
+
+> Mutex locks
+> 
+> Los algoritmos de exclusión mutua (comúnmente abreviada como mutex por mutual exclusion) se usan en programación concurrente para evitar que entre más de un proceso a la vez en la sección crític
+>> representan la tecnica estandar de la sicronizacion
+>
+>> estos se usan con mutex_t que define un mutex lock, llamamos al mutex lock con **pthread_mutex_init()**
+>
+>> ![](/TheusZero/images/post/SistemasOperativos/76.png)
+
+los mutex locks and semaphores sirven para arreglar los race conditions y deadlocks
+
+#### Transactional Memory
+
+la memoria transactional es una secuencia de operaciones de escritura y lectura que son atomicas, si una de ellas falla, entonces
+se compromete toda la transaccion, es decir, se aborta esta misma y se hace un rolled back.
+
+tambien esta el **OpenMP** con el **#pragma omp parallel** para indicar que la region de codigo que sigue despues de eso, sera una seccion critica,
+su ventaja es que es mas facil y que la creacion y administracion de los threads lo hace todo la libreria
+
+#### Homework
+![](/TheusZero/images/post/SistemasOperativos/77.png)
+
+#### Process State
+
+![](/TheusZero/images/post/SistemasOperativos/78.png)
+
+#### Process Scheduling
+
+para maximizar el uso de la CPU, este cambia la cpu de proceso a proceso de forma muy rapida, este tiene que elejir entre colas de procesos
+
+![](/TheusZero/images/post/SistemasOperativos/79.png)
+
+#### Schedulers
+
+**Short-term scheduler (or CPU scheduler)** selecciona cual sera el proceso que sera ejecutado 
+siguiente y alojado por la cpu
+
+**Long-term scheduler (or job scheduler)** lo que hace es selccionar cual sera el proceso que debe traer del disco duro
+a la memoria y dentro de la lista ready. **controla la cantidad de procesos que se encuntran al mismo tiempo en la memoria del sistema - controls the degree of multiprogramming**
+
+![](/TheusZero/images/post/SistemasOperativos/80.png)
+
+#### Basic Concepts
+
+Maximum CPU utilization: el objetivo del multiprogramming es tener varios procesos corriendo al mismo tiempo
+
+![](/TheusZero/images/post/SistemasOperativos/81.png)
+![](/TheusZero/images/post/SistemasOperativos/82.png)
+
+#### CPU Scheduler
+
+![](/TheusZero/images/post/SistemasOperativos/83.png)
+
+#### Dispatcher
+
+el despachador es un modulo que le da control a la CPU para seleccionar procesos que seran envueltos en las acciones del CPU Scheduler
+
+> switching context
+>
+> switching to user mode
+>
+> umping to the proper location in the user program to restart that program
+
+#### Scheduling Criteria
+
+> CPU utilization - mantener la cpu lo mas ocupada posible
+>
+> Throughput: cantidad de trabajo divida del tiempo total
+>
+> waiting time: tiempo de espera que el proceso estaba en la cola sin ejecutarse
+>
+> Turnaround time: tiempo del proceso desde que entro a la cola, hasta que termino completamente de ejectarse
+>
+> Response time: tiempo que toma el proceso para dar una primera respuesta
+
+#### Scheduling Algorithm Optimization Criteria
+
+
+
+
+
+
+**clase 10**
+
+
+
+
+
+
+
+**clase 11**
+
+
+
+
+
+
 
 ## Ayudantias
 
