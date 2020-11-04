@@ -1890,9 +1890,51 @@ el despachador es un modulo que le da control a la CPU para seleccionar procesos
 
 #### Scheduling Algorithm Optimization Criteria
 
+los algoritmos tratan de maximizar lo siguiente:
 
+> Max CPU utilization
+>
+> Max throughput
+>
+> Min turnaround time
+>
+> Min waiting time
+>
+> Min response time
 
+#### First- Come, First-Served (FCFS) Scheduling
 
+es el mas simple algoritmo para la CPU-scheduling, es atender por orden de llegada, usa una fila FIFO.
+A pesar de ser simple, su desventaja es que el tiempo de espera la mayoria de las veces es largo.
+
+![](/TheusZero/images/post/SistemasOperativos/84.png)
+
+> Suppose that the processes arrive in the order:
+>> ![](/TheusZero/images/post/SistemasOperativos/85.png)
+
+>> Convoy effect - short process behind long process
+> CPU-bound process: se demora mucho
+>
+> I/O-bound processes: se demora poco
+
+#### Shortest-Job-First (SJF) Scheduling
+
+nos fijamos en el largo del proximo CPU burst, para dar prioridad a los I/O que demoraran menos tiempo en ejecutarse
+
+SJF es óptimo: proporciona un tiempo de espera promedio mínimo para un
+conjunto dado de procesos
+
+>> **EXAMPLE**
+> ![](/TheusZero/images/post/SistemasOperativos/86.png)
+>
+> ![](/TheusZero/images/post/SistemasOperativos/87.png)
+
+#### Priority Scheduling
+
+El SJF es un algoritmo que funciona a base de prioridades, la prioridad seria un numero entero
+que seria asociado a algun proceso que indica si es mayor o menor prioridad sobre otros procesos.
+
+Mientras menor sea el numero, mayor sera la prioridad ya que sera mas rapido de ejecutar, si hay 2 que tienen la misma prioridad, los atendemos por orden de llegada.
 
 
 **clase 10**
