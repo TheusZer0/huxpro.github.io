@@ -2006,6 +2006,11 @@ parametros que se deben seguir para una cumplir con una buena multilevel feedbac
 
 ## Ayudantias
 
+![](/TheusZero/images/post/SistemasOperativos/Ayudantias/1.png)
+
+![](/TheusZero/images/post/SistemasOperativos/Ayudantias/2.png)
+
+
 ## Libro
 
 ## Resumen
