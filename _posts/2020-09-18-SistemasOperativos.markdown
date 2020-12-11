@@ -2193,7 +2193,7 @@ Con paginacion la memoria de un proceso no es contigua
 
 el sistema operativo mantiene una copia de la page table de cada proceso
 
- el page table se mantiene en la memoria principal
+el page table se mantiene en la memoria principal
 
 el PTBR Page-Table base register -> apunta a la tabla de paginas
 
@@ -2204,6 +2204,119 @@ el PTLR Page-Table length register -> indica el tamano de la tabla de paginas
 existe un problema, ya que acceder a la page table requiere de por si un ciclo a la memoria principal ya que es ahi
 donde esta se almacena, por lo que en si, necesitariamos 2 ciclos, uno para ir a la memoria principal y otro para acceder
 al byte. La solucion para este problema es crear un cache llamado TLB (translation look-aside buffer).
+
+El TLB es una memoria asociativa, de rapida velocidad.
+El TLB consiste en dos partes, uno es el tag y otro es el value.
+La busqueda en memorias asocitavias es muy tapida, forma parte de la instruccion del pipeline.
+
+cuando una direccion logica es generada por la CPU, el page number esta presente en el TLB.
+Si el Page Number es encontrado, el marco (frame number) sera inmediatamente usado para acceder a memoria.
+En el caso de que NO este en el TLB (TLB MISS) la referencia a memoria debe hacerse en la page table hacerse.
+
+![](/TheusZero/images/post/SistemasOperativos/110.png)
+
+![](/TheusZero/images/post/SistemasOperativos/111.png)
+
+#### tiempo de acceso efectivo
+![](/TheusZero/images/post/SistemasOperativos/113.png)
+
+![](/TheusZero/images/post/SistemasOperativos/112.png)
+
+#### memory protection
+hay bits de proteccion asociados a cada frame de la page table.
+
+![](/TheusZero/images/post/SistemasOperativos/114.png)
+
+![](/TheusZero/images/post/SistemasOperativos/115.png)
+
+![](/TheusZero/images/post/SistemasOperativos/118.png)
+
+![](/TheusZero/images/post/SistemasOperativos/116.png)
+
+#### hashed pages tables
+![](/TheusZero/images/post/SistemasOperativos/117.png)
+
+**clase 14**
+
+#### virtual memory that is larger than physical memory
+
+![](/TheusZero/images/post/SistemasOperativos/120.png)
+
+![](/TheusZero/images/post/SistemasOperativos/119.png)
+
+#### demand paging
+
+cargar las paginas solamente cuando estas son necesarias, es similar al paging de las clases anteriores pero con swapping.
+
+se aplica el esquema del invalid o valid bit para distingir entre que paginas estas en memoria o en el disco. Si una pagina
+es Valida entonces es legal y esta en memoria. Si es invalida, entonces esta o no es legal o no se encuentra en memoria y
+ debe ser cargada desde el disco duro.
+
+#### valid-invalid bit
+![](/TheusZero/images/post/SistemasOperativos/121.png)
+
+> **page table when some pages are not in main memory**
+> ![](/TheusZero/images/post/SistemasOperativos/122.png)
+
+#### page fault
+
+page fault -> page marcada como invalido
+
+> pasos:
+>> el hardware de paging causa un trap
+> 
+>> se busca el free frame en el disco duro
+>
+>> una vez encontrado se hace el swap desde el disco al page table
+> 
+>> se actualiza la tabla y la page table ahora tiene el V de valido
+>
+>> se reincia la instruccion que causo el page fault
+> ![](/TheusZero/images/post/SistemasOperativos/123.png)
+
+#### instruccion restart
+
+> ![](/TheusZero/images/post/SistemasOperativos/124.png)
+
+si hay un page fault al momento de copiar o reescribir datos habra un gran problmea, ya que si esto ocurre a la mitad
+habria informacion que ya fue escrita.
+
+una solucion es comprobar primero si todas las pages estan validas para que no ocurra un page fault, o bien, hacer un
+buffer para la informacion.
+
+#### performance of demand paging
+
+> ![](/TheusZero/images/post/SistemasOperativos/125.png)
+
+> ![](/TheusZero/images/post/SistemasOperativos/126.png)
+
+#### copy and write 
+
+ejemplo fork():
+> ![](/TheusZero/images/post/SistemasOperativos/127.png)
+
+#### page replacement
+
+imagina el caso donde el usuario esta ejecutando un proceso y ocurre un page fault.
+ahora este saca un frame del disco y cuando va a actualizarlo en la page table se da cuenta
+de que todos estan ocupados y no hay ninguno libre. 
+
+> Unas de las soluciones pueden ser:
+>> terminar el proceso: no deberia ocurrir nunca
+>
+>> hacer un swap de algun proceso
+>
+>> reemplazo de algunas paginas (encontrar un frame que no este siendo utilizado y se
+>>  reemplaza por el que debe utilizarce)
+
+cuando esto ocurrre son 2 ciclos que se hacen. mover el page del disco y reemplazar el frame.
+
+para reducir este overhead se usa un modify bit (bit sucio o dirty bit).
+
+> ![](/TheusZero/images/post/SistemasOperativos/128.png)
+> ![](/TheusZero/images/post/SistemasOperativos/129.png)
+
+
 
 ## Ayudantias
 
