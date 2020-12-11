@@ -1987,22 +1987,223 @@ parametros que se deben seguir para una cumplir con una buena multilevel feedbac
 
 ![](/TheusZero/images/post/SistemasOperativos/90.png)
 
-#### Real-Time CPU Scheduling
+**certamen 2**
 
+> **clase 12**
 
+memoria es un arreglo unidimensional donde cada segmento de memoria es un byte y lo unico que ve es un stream (cada
+direccion de memoria tiene una orden especifica, sin embargo, el sistema no dicierne entre estas)
 
+> Main Memory - RAM | Registers (registros de datos guardados en la CPU) - CPU
 
+solo esos 2 lugares, RAM Y CPU son donde la CPU puede acceder inmediatamente (directamente, tiempo de respuesta nulo).
 
+registros en la cpu toman un solo ciclo en accederse, lo que no esta en este, toma mucho mas tiempo, ademas se debe 
+proteger el proceso de un usuario de los demas, esa proteccion debe proveerla el hardware.
+para separar el espacio de memoria entre procesos se utiliza el registro base y el registro limite.
 
+el registro base tiene el inicio del espacio de direcciones que corresponde a un proceso, el limite tiene todo el rango es decir
+LA BASE + EL ESPACIO ASIGNADO O LIMITE PARA EL PROCESO.
 
+>> BASE = 300040 | LIMIT = 120900
+> TOTAL= BASE+LIMIT -> 420940
+> ![](/TheusZero/images/post/SistemasOperativos/91.png)
+> Todo se realiza en kernel mode
+>> ![](/TheusZero/images/post/SistemasOperativos/92.png)
 
-**clase 11**
+usualmente un programa reside en el disco duro en un archivo binary ejecutable, sin embargo para ser ejecutado debe cargarse
+en memoria. todos los procesos que estan esperando a ser cargados en memoria para su ejecucion se le llama **input queue**.
 
+> un programa pasa entre diferentes steps antes de su ejecucion:
+>> las direcciones del programa generalmente son simbolicas, un compilador hace un binding (correspondencia)
+>> y con eso las convierte en direcciones **relocatable** o bien, direcciones que tienen un punto de referencia en la memoria
+>
+>> luego el linkage editor convierte las direeciones bindeadas en direeciones reales
 
+> Address binding of instruccions and data to memory addresses
+>> **Compile time**: si todas las direcciones absolutas se generan al momento de compilar, entonces sabriamos en la localizacion de memoria
+>> pero si por alguna razon este proceso debe moverse, tendriamos entonces que recompilar el programa.
+>> El programa será asignado a un lugar específico y conocido de la memoria física. La direcciones de memoria son referenciadas en forma absoluta (static relocation).
+>
+>> **Load Time**: solo generara codigo relocatable si la localizacion de memoria no se conoce al momento de compilar el programa
+>
+>> **Execution time**: el binding se retrazara solo si al momento de correr el programa el proceso puede moverse durante
+> su ejecucion de un segmento de memoria a otro (se necesita soporte de hardware).
+> ![](/TheusZero/images/post/SistemasOperativos/93.png)
 
+las direcciones de memoria generadas por la CPU se conocen como **logical addres**
 
+las direcciones que llegan al controlador de memoria para solicitar acceso a la memoria son **physical address**
 
+> Se definen varios tipos de direccionamiento:
+>> Direccionamiento físico (physical address): La unidad de memoria manipula direcciones físicas.
+>
+>> Direccionamiento virtual (virtual address): Son las direcciones lógicas que se generan cuando existe
+>> asociación de direccionamiento en tiempo de ejecución.
 
+el compile time y el load time generan **logical addres** y **physical address** identicas, sin embargo, en el 
+execution time su address-binding debe ser con solo una direccion, es decir, que no puede tomar physical address y logical addres
+al mismo tiempo, estas difieren.
+
+Memory Management Unit (MMU) se encarga de la traducción de las direcciones lógicas (o virtuales) a direcciones físicas (o reales), la protección de la memoria, el control de caché.
+
+La traducciones de direcciones lógicas a físicas son
+hechas por la MMU (Memory Management Unit)
+
+Los procesos solo manipulan direcciones lógicas y no
+visualizan las físicas, que solamente son vistas por la
+MMU.
+
+ahora el registro base sera llamado **relocation register** y este valor se agrega a cada una de las direcciones logicas que se generan a processos del usuario.
+
+el user program nunca ve las direcciones physical reales, son direcciones virtuales.
+
+![](/TheusZero/images/post/SistemasOperativos/95.png)
+
+#### dynamic loading
+
+las rutinas que no
+son utilizadas, no son cargadas en memoria física y, por
+lo tanto, no consumen recursos innecesariamente
+
+el dinamyc loading se ua para una mejor utilizacion del espacio en memoria, este consiste en que algunas rutinas no se cargaran si no son llamadas, (cuando sean llamadas se cargaran).
+
+#### dynamic linking
+
+Ensamblador (linker): combina todos los archivos objetos
+de un programa dentro de un único archivo objeto
+
+En la etapa de ensamblaje de un programa las bibliotecas
+compartidas pueden incorporarse al archivo ejecutable
+generado (ensamblaje estático o static linking)
+
+Otra alternativa es que las bibliotecas compartidas sean
+cargadas en tiempo de ejecución (ensamblaje dinámico o
+dynamic linking). todos los programas estan haciendo referencia a la misma libreria.
+
+En los archivos ejecutables las bibliotecas estáticas son
+incorporadas, mientras que para las dinámicas se
+mantiene una referencia.
+
+Esto permite, junto con la carga dinámica, hacer un uso
+más eficiente de la memoria, ya que las bibliotecas
+dinámicas se cargan una única vez en memoria principal
+
+#### swapping
+
+CPU <--(CONTEND SWITCH)--> MEMORY <--(SWAPPING)-->DISK
+
+un proceso debe llegar a la memoria principal para ser ejecutado. en la memoria aveces 
+no habra espacio y por eso deberemos
+sacar un proceso que este cargado en memoria para ser intercambiado por el que si debe ser cargado en memoria.
+aquellos que salen de memoria seran almacenados en el disco duro (swapping continuo), mover processos entre la memoria
+principal y el disco duro (backing store).
+
+> el CPU scheduler decide ejecutar un proceso recibe el nombre de dispatcher.
+>> este chequea si el proceso que sera cargado en memoria tiene espacio disponible en la memoria principal
+>>
+>> si este no tiene espacio en la memoria principal, entonces el **distpatcher realiza un swap con algun proceso**
+>> que se encuentra cargado en memoria.
+> ![](/TheusZero/images/post/SistemasOperativos/96.png)
+
+no debemos hacer un swapping a procesos que esten hacinedo I\O, ya que estos estan escribiendo datos.
+una de las soluciones es que, la ejecucion de operaciones I\O sea escrita en un buffer y que este sea luego
+escrito en memoria.
+
+los sistemas operativos actuales no usan el standard swapping.
+
+#### contiguous memory allocation
+
+> asignacion de memoria de forma contigua, la memoria se divide en dos particiones
+>> procesos del sistema operativo | procesos del usuario
+> estos se organizan de forma contigua
+
+para proteccion de memoria se usan el relocation register y el limit register.
+![](/TheusZero/images/post/SistemasOperativos/97.png)
+
+#### multiple-partition allocation
+
+dividir la memoria en particiones de tamano fijo, asi el grado de multiprogramming se limita a la cantidad de particiones
+que fueron creadas.
+
+cuando una particion esta libre, se selecciona un proceso de la input queue y es cargado dentro de la particion libre.
+
+cuando un proceso sera ejecutado en la memoria principal, se buscara un segmento (hole) lo suficientemente grande para albergar al proceso.
+
+![](/TheusZero/images/post/SistemasOperativos/98.png)
+
+En la asignación de memoria a un proceso existen varias
+estrategias:
+> First fit: Asigna el primer “agujero” de memoria libre que satisface la necesidad, da igual si es muy grande o muy justo
+> es el mas rapido pero un proceso que necesita poco hole puede usar uno extremadamente grande. 
+>
+> Best fit: Asigna el mejor “agujero” de memoria libre que
+exista en la memoria principal (un poco mas lento, pero es el mejor)
+>
+> Worst fit: Asigna el requerimiento en el “agujero” más
+grande que exista en la memoria principal.
+
+#### external fragmentation
+![](/TheusZero/images/post/SistemasOperativos/99.png)
+
+![](/TheusZero/images/post/SistemasOperativos/100.png)
+
+#### Internal Fragmentation
+![](/TheusZero/images/post/SistemasOperativos/101.png)
+
+> solucion para la fragmentacion externa:
+>> ![](/TheusZero/images/post/SistemasOperativos/102.png)
+> mover todos los procesos al final de la memoria para asi compactar cada uno de estos agujeros libres en un solo segmento.
+
+#### segmentation
+![](/TheusZero/images/post/SistemasOperativos/103.png)
+
+![](/TheusZero/images/post/SistemasOperativos/104.png)
+
+**clase 13**
+
+Es una manera de relocalizacion dinamica
+
+El espacio de direcciones fısicas esta dividido en zonas de tamano fijo llamadas frames de pagina
+
+El espacio de direcciones logico o virtual esta formado por zonas de tamano fijo denominadas paginas
+
+La direccion logica se compone de numero de pagina y desplazamiento dentro de la pagina
+
+Con el numero de pagina se obtiene una entrada en una tabla de paginas, en donde hay una direccion base de marco de pagina
+
+La direccion de memoria fısica a la que se accede se obtiene sumando
+el desplazamiento a la direccion base del marco de pagina
+
+Se necesita soporte del hardware (el uso del paging es similar a la tabla de base o relocation).
+
+![](/TheusZero/images/post/SistemasOperativos/105.png)
+
+Con paginacion la memoria de un proceso no es contigua
+
+> La paginacion no tiene fragmentacion externa, pero sı interna.
+>> A mayor tamano de pagina mayor fragmentacion interna
+>
+>> A menor tamano de pagina mayor gasto adicional en, p.e., tablas de paginas
+>  ![](/TheusZero/images/post/SistemasOperativos/108.png)
+
+![](/TheusZero/images/post/SistemasOperativos/106.png)
+
+![](/TheusZero/images/post/SistemasOperativos/107.png)
+
+el sistema operativo mantiene una copia de la page table de cada proceso
+
+ el page table se mantiene en la memoria principal
+
+el PTBR Page-Table base register -> apunta a la tabla de paginas
+
+el PTLR Page-Table length register -> indica el tamano de la tabla de paginas
+
+![](/TheusZero/images/post/SistemasOperativos/109.png)
+
+existe un problema, ya que acceder a la page table requiere de por si un ciclo a la memoria principal ya que es ahi
+donde esta se almacena, por lo que en si, necesitariamos 2 ciclos, uno para ir a la memoria principal y otro para acceder
+al byte. La solucion para este problema es crear un cache llamado TLB (translation look-aside buffer).
 
 ## Ayudantias
 
