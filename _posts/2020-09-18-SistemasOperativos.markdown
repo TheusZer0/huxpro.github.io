@@ -2316,6 +2316,45 @@ para reducir este overhead se usa un modify bit (bit sucio o dirty bit).
 > ![](/TheusZero/images/post/SistemasOperativos/128.png)
 > ![](/TheusZero/images/post/SistemasOperativos/129.png)
 
+**clase 15**
+
+virtual memory -> la ejecucion de los procesos que no estan completamente en la memoria, asi de esta forma los programas pueden ser mucho mas grandes.
+
+#### page and frame replacement algorithms
+
+![](/TheusZero/images/post/SistemasOperativos/130.png)
+
+#### first-in first-out FIFO algorithm
+
+![](/TheusZero/images/post/SistemasOperativos/131.png)
+
+su rendimiento no es tan bueno, ya que solo mira el historia segun el orden FIFO, por lo que al hacer una eleccion puede a la larga tomar mas tiempo que otros algoritmos.
+
+> belady's anomaly
+> ![](/TheusZero/images/post/SistemasOperativos/132.png)
+
+#### Optimal Page Replacement Algorithm
+
+resuelve la anomalia anteriormente descrita.
+
+este algoritmo necesita mirar hacia el futuro (que es imposible), por lo que
+solo se considera teoricamente para benchmarks o cosas asi.
+
+> se reemplaza la pagina que no sera usada por el periodo mas largo de tiempo:
+> ![](/TheusZero/images/post/SistemasOperativos/133.png)
+
+#### LRU - LEAST RECENTLY USED ALGORITHM
+![](/TheusZero/images/post/SistemasOperativos/134.png)
+
+tambien se le implementa un stack para que de esta manera el algoritmo sea
+aun mas eficiente ya que asi podremos ver de manera correcta el uso de LRU, esto es de la siguiente forma:
+
+![](/TheusZero/images/post/SistemasOperativos/135.png)
+
+con esto sabemos cual es la pagina mas lejos y las mas reciente, desde abajo hacia arriba (abajo no usada recientemente).
+
+el LRU no tiene la BELADY ANOMALY.
+
 
 
 ## Ayudantias
