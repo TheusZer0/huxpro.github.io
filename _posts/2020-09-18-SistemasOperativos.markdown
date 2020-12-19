@@ -2355,6 +2355,24 @@ con esto sabemos cual es la pagina mas lejos y las mas reciente, desde abajo hac
 
 el LRU no tiene la BELADY ANOMALY.
 
+#### fixed allocation
+
+la manera mas simple de dividir M frames en N procesos en darle a cada proceso la misma
+cantidad de frames que a sus iguales, es decir:
+![](/TheusZero/images/post/SistemasOperativos/136.png)
+
+sin embargo los procesos pueden no ocupar todos los frames asignados, por ello
+lo mejor es optar por la **PROPORTIONAL ALLOCATION**
+![](/TheusZero/images/post/SistemasOperativos/137.png)
+
+#### Global vs local allocation
+
+**global replacement**: un proceso selecciona el frame que va a reemplazar segun
+todos los frames del set de frames del sistema, esto es usado a procesos de high-priority.
+un proceso no puede controlar el page-fault rate de si mismo, y esto afecatra su ejecucion y la ejecucion de procesos
+de baja prioridad.
+
+**local replacement**: cada proceso tiene su asignacion y no le quita 
 
 
 ## Ayudantias
