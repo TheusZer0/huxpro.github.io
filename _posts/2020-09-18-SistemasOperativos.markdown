@@ -2112,6 +2112,11 @@ escrito en memoria.
 
 los sistemas operativos actuales no usan el standard swapping.
 
+#### Context Switch Time including Swapping
+contend switch
+![](/TheusZero/images/post/SistemasOperativos/149.png)
+
+
 #### contiguous memory allocation
 
 > asignacion de memoria de forma contigua, la memoria se divide en dos particiones
@@ -2373,6 +2378,96 @@ un proceso no puede controlar el page-fault rate de si mismo, y esto afecatra su
 de baja prioridad.
 
 **local replacement**: cada proceso tiene su asignacion y no le quita 
+
+**clase 16**
+
+#### trashing
+
+la alta actividad de paging se llama trashing, un proceso esta en trashing si se mantiene ocupado solamente haciendo swapping
+de paginas de disco a la memoria o al revez, en vez de ejecutarse.
+
+> que provoca el trashing
+> 
+>> cuando el sistema se entera de una baja utilizacion de la cpu, para incremetar el uso (traer mas procesos para usar toda la cpu)
+>> se utiliza un algoritmo de reemplazo de paginas, sacrificando frames.
+>
+>> generan pagefault y obtienen frames de otros procesos (quitan espacios de procesos, entonces cuando estos se ejecutan generan pagefault tambien y caga todo)
+
+> para lidiar con esto se debe:
+>> con un algoritmo de reemplazo local puede solucionarse el problema, es decir, que se reemplazara dependiendo de la prioridad del proceso
+
+#### working set-model
+
+![](/TheusZero/images/post/SistemasOperativos/138.png)
+
+#### page-fault frequency
+el trashing es una alta frecuencia de generacion de pagefault entonces, si queremos controlar el trashing, no necesitamos monitorear el
+working set de cada uno de los procesos, con mirar el **page fault frequency** bastaria.
+
+![](/TheusZero/images/post/SistemasOperativos/139.png)
+
+![](/TheusZero/images/post/SistemasOperativos/140.png)
+
+el trashing y el resultante de swapping tiene un gran impacto sobre el rendimiento de un sistema
+
+**clase 17**
+
+#### overview of mass storage structure
+
+> RPM: common drivers spin (5400, 7,200, 10000, 15000) rotations per minute
+
+![](/TheusZero/images/post/SistemasOperativos/141.png)
+
+disk speed has two parts:
+
+> ritmo de transferencia, es el ritmo segun los datos se mueven entre el disco duro y el cputador (bus de datos)
+>
+> tiempo de posicionamiento o random-acces time
+>> seek time: tiempo necesario para mover el brazo que lleva todos los cabezales
+>
+>> rotational latency: tiempo exacto para que el cabezal llegue al track especifico que estamos buscando
+
+bus de entrada y salida I/O bus es para la comunicacion eentre el disco y la PC
+
+>  controladores:
+>> host controller
+>> disk controller
+> cada uno se comunica con el otro para relacionar datos y leer y enviar datos a la memoria
+
+#### hard disk performance
+![](/TheusZero/images/post/SistemasOperativos/142.png)
+
+#### disk structure
+![](/TheusZero/images/post/SistemasOperativos/143.png)
+
+#### Disk Scheduling
+
+existen algoritmos que sirven para programar la atencion de los requerimientos de I/O del disco
+
+![](/TheusZero/images/post/SistemasOperativos/145.png)
+
+
+#### FCFS
+![](/TheusZero/images/post/SistemasOperativos/144.png)
+
+#### SSTF
+
+shortest-seek-time-fisrt, atiende primero a los mas cercanos al primer cabezal o requerimiento.
+
+![](/TheusZero/images/post/SistemasOperativos/146.png)
+
+pero podriamos tener casos de starvation, a pesar de mejorar muchisimo no es el optimo por eso mismo, por el caso de starvation.
+
+#### SCAN
+
+escanea de izquierda a derecha (y atiende todos los requerimientos). 
+
+![](/TheusZero/images/post/SistemasOperativos/147.png)
+
+#### CIRCULAR SCAN
+
+![](/TheusZero/images/post/SistemasOperativos/148.png)
+
 
 
 ## Ayudantias
