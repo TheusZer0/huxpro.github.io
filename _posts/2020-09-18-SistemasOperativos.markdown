@@ -2487,8 +2487,8 @@ escanea de izquierda a derecha (y atiende todos los requerimientos).
 > 
 >> memoria indexada de niveles, tamano maximo de archivo, espacio total del disco, BIT VECTOR (bit vector), administrar espacio libre.
 > ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/4.png)
-> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/5.png)
-> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/6.png)
+> 1: ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/5.png)
+> 2: ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/6.png)
 
 >> Free-Space List
 > 
