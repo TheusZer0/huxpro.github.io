@@ -2492,8 +2492,10 @@ escanea de izquierda a derecha (y atiende todos los requerimientos).
 > 3: ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/7.png)
 
 >> Free-Space List
+> es increiblemente costoso recuperar un puntero a un bloque perdido, pero si se puede hacer revisando los espacios ocupados para asi sacar por descarte cual podria ser el puntero que se perdio, es decir, recorrer todo el sistema de archivos
 > 
-> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/3.png)
+> la segunda respuesta consiste en implementar un sistema de listas doblemente enlazadas cosa de tener un puntero reversa para asi pillar mediante este puntero cualquier error o perdida de un bloque
+> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/8.png)
 
 ## Libro
 
