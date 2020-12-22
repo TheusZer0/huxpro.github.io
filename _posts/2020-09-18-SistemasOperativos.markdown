@@ -2476,6 +2476,13 @@ escanea de izquierda a derecha (y atiende todos los requerimientos).
 
 ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/2.png)
 
+#### Certamen 2
+
+>> Contiguos allocation, asignacion contigua
+> 
+>> como el archivo ocupaba 5 bloques y ahora se extendio 3 mas, entonces ahora ocupa 8 bloques, como empieza en el 21, el 22 que es el que le sigue tiene de espacio 2 (LEN), por lo que este debera buscar un nloque con espacio mayor o igual a 8 bloques, siguiendo la estrucutra de listas simplemente enlazada
+> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/3.png)
+
 
 ## Libro
 
