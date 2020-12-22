@@ -2489,6 +2489,7 @@ escanea de izquierda a derecha (y atiende todos los requerimientos).
 > ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/4.png)
 > 1: ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/5.png)
 > 2: ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/6.png)
+> 3: ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/7.png)
 
 >> Free-Space List
 > 
