@@ -2468,7 +2468,112 @@ escanea de izquierda a derecha (y atiende todos los requerimientos).
 
 ![](/TheusZero/images/post/SistemasOperativos/148.png)
 
+**clase 19**
 
+los archivos son una secuencia de bites o bytes que se almacenan en algun disco o storage determinado.
+la estructura del archivo depende de la estructura del archivo, es decir, el tipo del archivo, ya sea un ejecutable o un archivo de texto.
+
+![](/TheusZero/images/post/SistemasOperativos/150.png)
+
+#### File Operation
+
+> operaciones de archivos
+
+las operaciones validas que se pueden hacer en un archivo son llamadas al sistemas primitivas como crear, leer, escribir, reponer o borrar o truncar un archivo.
+![](/TheusZero/images/post/SistemasOperativos/151.png)
+![](/TheusZero/images/post/SistemasOperativos/152.png)
+
+la informacion de todos los archivos abiertos se guardan en un open-file table.
+Este archivo se abre una vez y se guarda esa operacion en un tipo de cache para
+que ese registro quede guardado en el openfile table.
+
+>> el sistema operativo mantiene dos niveles de tablas internas para guardar informacion de que se hace en cada cosa
+> per-process table
+> 
+> system-wide table
+
+cada entrada de la tabla per-process aunta a una del sistem-wide open-file table.,
+
+una tecnica comun para saber que tipo de archivo es se le agrega al final del nombre un .ALGO para saber el tipo del archivo.
+asi el sistema sabra que hacer y cual es la estructura interna del archivo o aplicacion.
+
+> el current position es secuencial, de corrido, no puede saltar de un lado a otro
+> ![](/TheusZero/images/post/SistemasOperativos/153.png)
+
+> volume: una entidad que contiene un sistema de archivo como una particion o varias particiones. RAID
+> ![](/TheusZero/images/post/SistemasOperativos/154.png)
+
+#### storage structure
+todos los archivos en un solo directorio
+> ![](/TheusZero/images/post/SistemasOperativos/155.png)
+
+>> estructura de dos niveles
+>> se busca el User File Directori de interes
+>> ![](/TheusZero/images/post/SistemasOperativos/156.png)
+ 
+>>> estructura de tres niveles
+> sirve para referirse a un directorio root que pueda conectarse entre varios otros usuarios (mas de 2 users)
+>> ![](/TheusZero/images/post/SistemasOperativos/157.png)
+>> ![](/TheusZero/images/post/SistemasOperativos/158.png)
+
+#### acyclic graph directories
+
+> linkear carpetas para conectarse entre si mediante un link, para que varias cosas puedan apuntar a un archivo o una carpeta.
+>> ![](/TheusZero/images/post/SistemasOperativos/159.png)
+>> ![](/TheusZero/images/post/SistemasOperativos/160.png)
+
+**clase 20**
+
+
+#### ejercicios clase 18
+
+>> Clase 12, pp. 38
+> ¿Cuáles son las direcciones físicas correspondientes a las
+> siguientes direcciones lógicas, dadas en el formato <No de
+> segment, No de byte>?
+>> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/9.png)
+>> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/10.png)
+
+>> Clase 12, pp. 19-20
+> ¿Cuánto sería el tiempo total requerido para un cambio de
+> contexto (context switch), donde se saca un proceso de
+> 100MB de la memoria y se trae del disco un proceso de
+> 90MB, cuando el transfer rate del disco duro es de 80MB/s?
+>> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/12.png)
+>> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/11.png)
+
+>> Clase 13, pp. 18-21
+> En un sistema con espacio de direcciones lógicas de 256
+> páginas, donde cada página tiene 4KB, y la memoria física
+> es de 64 frames, calcule ¿cuántos bits se requieren para
+> representar cada dirección física?
+>> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/13.png)
+>> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/14.png) 
+
+>> Clase 12, pp. 27-30
+> En un “variable-partition scheme”, dados 6 partitions de 300 KB,
+> 600 KB, 350 KB, 200 KB, 750 KB, y 125 KB (que se encuentran en
+> este orden), dibuje un esquema para indicar cómo los algoritmos
+> first-fit, y best-fit colocarían en la memoria unos procesos con
+> tamaños 115 KB, 500 KB, 358 KB, 200 KB, y 375 KB (procesados
+> en este orden).
+>> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/15.png)
+>> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/16.png)
+>> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/17.png)
+
+>> Clase 13, pp. 16-21
+> Para un esquema “Paging”, responda lo siguiente:
+> 
+>> (a) ¿Cuántas páginas en total necesitará un proceso con
+>> tamaño 960.778.602 bytes, si el tamaño de cada página es 4KB?
+>
+>> (b) ¿Cuántos bytes se pierden por fragmentación? ¿Cuál sería el peor caso?
+>
+>> (c) Si asumimos un espacio de direcciones lógicas de 256 páginas, y cada página tiene 4KB, ¿cuántos bits se requieren para representar cada dirección lógica?
+>
+>> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/18.png)
+>> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/19.png)
+>> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/20.png)
 
 ## Ayudantias
 
@@ -2491,16 +2596,11 @@ escanea de izquierda a derecha (y atiende todos los requerimientos).
 > 2: ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/6.png)
 > 3: ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/7.png)
 
->> Free-Space List
+>> Free-Space List, espacio libre en una lista
+> 
 > es increiblemente costoso recuperar un puntero a un bloque perdido, pero si se puede hacer revisando los espacios ocupados para asi sacar por descarte cual podria ser el puntero que se perdio, es decir, recorrer todo el sistema de archivos
 > 
 > la segunda respuesta consiste en implementar un sistema de listas doblemente enlazadas cosa de tener un puntero reversa para asi pillar mediante este puntero cualquier error o perdida de un bloque
 > ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/8.png)
-
-## Libro
-
-## Resumen
-
-## Ejercicios Importantes
 
 
