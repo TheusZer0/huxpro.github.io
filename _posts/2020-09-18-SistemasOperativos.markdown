@@ -2575,6 +2575,69 @@ todos los archivos en un solo directorio
 >> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/19.png)
 >> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/20.png)
 
+>> Clase 13, pp. 20-23
+> ¿Cuál es la máxima cantidad de memoria física que se puede
+> referenciar con una CPU de 16 bits (direcciones se representan por
+> 16 bits), si aplicamos Paging con tamaño de frame de 4KB?
+>> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/21.png)
+>> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/22.png)
+
+>> Clase 14, pp. 24-27
+> Dado un sistema con “demand paging” con 40% probabilidad de un
+> “page fault” y tiempo de servicio de cada “page fault” de 8ms cuando la
+> página reemplazada no ha sido modificada (o cuando existe un frame
+> vacío/disponible en la memoria) y 20ms si la página se ha modificado, y
+> suponiendo además que la página a reemplazar ha sido modificada el
+> 70% de las veces y el tiempo de acceso a la memoria (memory access
+> time) es 100ns:
+>> (a) Calcule el “effective access time” en nanosegundos (ns)
+>> (b) ¿Cuánto podría ser como máximo la probabilidad de “page faults” para mantener la degradación del rendimiento por debajo del 10%?
+> 
+>> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/23.png)
+>> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/24.png)
+>> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/25.png)
+> para (b)
+>> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/26.png)
+>> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/27.png)
+
+>> Clase 15, pp. 14-27
+> Asumiendo que existen 5 frames, y considerando el siguiente string de “page references”:
+>> 1, 2, 3, 4, 2, 1, 5, 6, 2, 1, 2, 3, 7, 6, 3, 2, 1, 2, 3, 6
+>
+>> (a) Calcule el número de “page faults” que ocurrirán cuando se usa el algoritmo de reemplazo de páginas FIFO (recuerde que los 5 frames están inicialmente vacíos).
+>
+>> (b) Aplique el algoritmo LRU, y dibuje la evolución del estado del stack que se usa para mantener los “page numbers” mientras se está procesando el string.
+>
+>> (c) Para el algoritmo LRU, dibuje el estado final de los shift registers de 8-bit utilizados para mantener el historial de uso de cada página, asumiendo que inicialmente están en 0 y que se actualizan cada vez que hay una referencia a una nueva página.
+>
+>> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/28.png)
+>> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/29.png)
+>> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/30.png)
+>> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/31.png)
+
+>> Clase 17, pp. 14-18
+> (a) ¿Cuántos cilindros tiene un disco magnético que funciona a 5400 RPM, si tiene en total 10 platos (platters), 4096 pistas (tracks)por plato, y cada pista tiene 1024 sectores?
+>
+> (b) Explique cuál pista (track) tiene la mayor y cuál tiene la menor densidad de bits almacenados, en cualquier plato de un disco duro magnético.
+>
+> (c) En un disco magnético con 10 platos, 20 pistas (tracks) por plato y 32 sectores por pista, con el brazo de la cabeza inicialmente encontrado el cilindro más exterior, calcule el total “seek time” necesario para la lectura secuencial de los primeros 320 sectores del disco.
+> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/32.png)
+>> NUMERO DE PISTAS = NUMERO DE CILINDROS && RESPUESTA = 4096 PISTAS
+>
+>> EL DISCO GIRA A LA MISMA VELOCIDAD CONSTANTE, POR L OQUE SI SE ACCEDE A UN TRACK DE AFUERA O ADENTRO DEL DISCO ENTONCES LA DENSIDAD DE AFUERA DEBE SER MENOR Y LA DE ADENTRO ES MAYOR YA QUE AFUERA SE RECORRERAN MAS BITS QUE ADENTRO.
+>
+> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/33.png)
+
+>> Clase 17, pp. 21-29
+>Considere un disco magnético con una cola de requerimientos
+>I/O a bloques que se encuentran en los siguientes cilindros:
+>>95, 195, 80, 95, 200, 70, 85, 100, 55, 30
+>Evalúe el rendimiento del algoritmo shortest-seek-time-first
+>(SSTF) calculando el total de la distancia que recorrerá el
+>brazo de la cabeza (en num. de cilindros), inicialmente
+>encontrado el cilindro 90.
+
+
 ## Ayudantias
 
 ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/1.png)
