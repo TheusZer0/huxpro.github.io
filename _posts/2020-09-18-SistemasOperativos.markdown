@@ -2483,6 +2483,16 @@ escanea de izquierda a derecha (y atiende todos los requerimientos).
 >> como el archivo ocupaba 5 bloques y ahora se extendio 3 mas, entonces ahora ocupa 8 bloques, como empieza en el 21, el 22 que es el que le sigue tiene de espacio 2 (LEN), por lo que este debera buscar un nloque con espacio mayor o igual a 8 bloques, siguiendo la estrucutra de listas simplemente enlazada
 > ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/3.png)
 
+>> Indexed Allocation , memoria indexada
+> 
+>> memoria indexada de niveles, tamano maximo de archivo, espacio total del disco, BIT VECTOR (bit vector), administrar espacio libre.
+> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/4.png)
+> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/5.png)
+>
+
+>> Free-Space List
+> 
+> ![](/TheusZero/images/post/SistemasOperativos/Ayudantias/3.png)
 
 ## Libro
 
