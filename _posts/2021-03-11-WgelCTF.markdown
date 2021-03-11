@@ -1,0 +1,23 @@
+---
+layout: post
+title: "Wgel CTF"
+subtitle: 'TryHackMe - Easy Machine - Linux'
+date: 2020-08-30 12:00:00
+author: "TheusZero"
+header-img: "images/post/WindowsMachines/Active/1.png"
+catalog: true
+comments: true
+tags:
+  - Linux
+  - Machine
+  - Explotations
+  - Upgrade
+  - Shell
+  - Root
+  - User
+---
+
+RECORDAR
+
+
+
