@@ -17,7 +17,7 @@ tags:
   - User
 ---
 
-RECORDAR
+RECORDAR chmod 600 id_rsa
 
 
 
