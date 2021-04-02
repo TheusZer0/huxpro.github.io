@@ -1,0 +1,19 @@
+---
+layout: post
+title: "Iniciacion a la programacion"
+subtitle: 'TEL101 - Curso personal de autoayuda sobre Python'
+date: 2021-04-02 12:00:00
+author: "TheusZero"
+header-img: "images/post/PythonAutoayuda/solarized-wallpaper-python.png"
+catalog: true
+comments: true
+tags:
+    - Programacion
+    - Python
+    - USM
+    - Tareas
+---
+
+
+
+
