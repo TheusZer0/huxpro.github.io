@@ -14,6 +14,42 @@ tags:
     - Tareas
 ---
 
+## Guia de Autoayuda para TEL101 sobre Python
+
+Este post refiere al aprendizaje y autoayuda para el ramo TEL101, toda informacion es recibida y sera de ayuda,
+por lo que si deseas enviar algun tipo de reporte o recomendacion puedes hacerlo a **robert.parra@sansano.usm.cl**, muchas gracias
+
+#### Introduccion
+
+El aprendizaje sobre lo basico de python es un escalon importante y una pieza fundamental para los siguientes ramos de programacion, ya que
+en este curso se aprende sobre las bases, el pensamiento computacional y como realizar un programa.
+
+Pretendo hacer lo mas llevadero posible el ramo, ya que la informacion que hay por internet sobre Python es abrumadora, hay muchos cursos y guias,
+sin embargo, creo correcto dejar mi experiencia y opiniones como alumno para que cada uno pueda utilizarlas para su propio beneficio.
+
+Una vez ya explicado todo lo anterior, paso a decir que toda informacion sera recibida, mientras mas sea mejor.
+
+Por otro lado, este **Post** sera categorizado u ordenado de la siguiente forma:
+
+> Guia
+> 
+>> Introduccion
+> 
+>> Links
+> 
+>> Materia y Conceptos
+> 
+>> Codigos
+
+> Ejercicios
+>> Planteamiento
+> 
+>> Resolucion
+
+Espero les sirva de ayuda, con el coronavirus todo es mas complejo y por eso debemos ayudarnos entre todos.
+
+## Links
 
 
+## Conceptos
 
