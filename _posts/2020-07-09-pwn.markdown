@@ -16,14 +16,22 @@ tags:
   - Reverse
 ---
 
-# pwn
-Aqui guardare las cosas que voy aprendiendo sobre pwn y escritura de exploits.
-
 ## Videos
 
 > []()
 
 ## Links ricolinos
+
+## Guia de Autoestudio
+
+> un programa en assembler es una serie de instrucciones de máquina que al ejecutarse se almacenan en la memoria del proceso
+
+> **suma 1** al contenido de **eax**
+> ```Python
+> instrucción       | contenido binario en mem.       | contenido hexa en mem. 
+> add    eax, 0x1   | 1000 0011 1100 0000 0000 0001   | 83 c0 01
+> ```
+
 
 ## BufferOverflow
 el buffer es un espacio de memoria que se reserva en el sistema para hacer una tarea en especifica y ese buffer tiene un tamano, el *BufferOverflow* ocurre cuando nosotros le pasamos mas memoria de la que este buffer puede almacenar, de manera que esta se desborda y no tiene control de esta misma.
