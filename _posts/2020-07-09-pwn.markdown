@@ -42,8 +42,14 @@ tags:
 > 0804833c:   83 c3 02                add    ebx,0x2
 > ```
 
+> registros de propósito general de 32 bits están: 
 > ```Python
+> eax, ebx, ecx y edx. 
+> ```
 > 
+> Por convención cuando los registros son de 64 bits se denominan: 
+> ```Python
+> rax, rbx, rcx y rdx
 > ```
 
 > ```Python
