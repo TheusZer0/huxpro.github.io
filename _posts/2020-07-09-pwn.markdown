@@ -2,7 +2,7 @@
 layout: post
 title: "escritura de exploits"
 subtitle: 'Resumen de conceptos y cosas que voy aprendiendo'
-date: 2020-07-09 12:00:00
+date: 2021-04-06 12:00:00
 author: "TheusZero"
 header-img: "images/post/pwn/pwnFondo.png"
 catalog: true
