@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "pwn"
-subtitle: 'Resumen de conceptos de pwn y cosas que voy aprendiendo'
+title: "escritura de exploits"
+subtitle: 'Resumen de conceptos y cosas que voy aprendiendo'
 date: 2020-07-09 12:00:00
 author: "TheusZero"
 header-img: "images/post/pwn/pwnFondo.png"
@@ -22,14 +22,60 @@ tags:
 
 ## Links ricolinos
 
+> [Guia de escritura de exploits](https://fundacion-sadosky.github.io/guia-escritura-exploits/buffer-overflow/1-introduccion.html)
+
 ## Guia de Autoestudio
 
 > un programa en assembler es una serie de instrucciones de máquina que al ejecutarse se almacenan en la memoria del proceso
 
-> **suma 1** al contenido de **eax**
+> **ADD** es una **instruccion** que **suma 1** al contenido de **eax**
 > ```Python
 > instrucción       | contenido binario en mem.       | contenido hexa en mem. 
 > add    eax, 0x1   | 1000 0011 1100 0000 0000 0001   | 83 c0 01
+> ```
+
+> ```Python
+> dir. mem. | contenido en mem.   |   instrucción
+> 08048334:   83 c0 01                add    eax,0x1
+> 08048337:   83 c3 01                add    ebx,0x1
+> 0804833a:   83 c0 02                add    eax,0x2
+> 0804833c:   83 c3 02                add    ebx,0x2
+> ```
+
+> ```Python
+> 
+> ```
+
+> ```Python
+> 
+> ```
+
+> ```Python
+> 
+> ```
+
+> ```Python
+> 
+> ```
+
+> ```Python
+> 
+> ```
+
+> ```Python
+> 
+> ```
+
+> ```Python
+> 
+> ```
+
+> ```Python
+> 
+> ```
+
+> ```Python
+> 
 > ```
 
 
