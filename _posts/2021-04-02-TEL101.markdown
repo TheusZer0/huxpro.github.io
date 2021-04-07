@@ -22,7 +22,7 @@ por lo que si deseas enviar algun tipo de reporte o recomendacion puedes hacerlo
 #### Introduccion
 
 El aprendizaje sobre lo basico de python es un escalon importante y una pieza fundamental para los siguientes ramos de programacion, ya que
-en este curso se aprende sobre las bases, el pensamiento computacional y como realizar un programa.
+en este curso se aprende sobre las bases para escribir codigo, el pensamiento computacional y como realizar un programa.
 
 Pretendo hacer lo mas llevadero posible el ramo, ya que la informacion que hay por internet sobre Python es abrumadora, hay muchos cursos y guias,
 sin embargo, creo correcto dejar mi experiencia y opiniones como alumno para que cada uno pueda utilizarlas para su propio beneficio.
@@ -46,7 +46,7 @@ Por otro lado, este **Post** sera categorizado u ordenado de la siguiente forma:
 > 
 >> Resolucion
 
-Espero les sirva de ayuda, con el coronavirus todo es mas complejo y por eso debemos ayudarnos entre todos.
+Espero les sirva de ayuda.
 
 ## Links
 
@@ -69,5 +69,7 @@ es indicado por flechas que conectan los bloques.
 
 > ![](/TheusZero/images/post/TEL101-2021/1.png)
 >> ![](/TheusZero/images/post/TEL101-2021/2.png)
+
+
 
 
