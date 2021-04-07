@@ -17,7 +17,7 @@ tags:
 ## Guia de Autoayuda para TEL101 sobre Python
 
 Este post refiere al aprendizaje y autoayuda para el ramo TEL101, toda informacion es recibida y sera de ayuda,
-por lo que si deseas enviar algun tipo de reporte o recomendacion puedes hacerlo a **robert.parra@sansano.usm.cl**, muchas gracias
+por lo que si deseas enviar algun tipo de reporte o recomendacion puedes hacerlo a **gabriela.bustamante@usm.cl** y tambien a **robert.parra@sansano.usm.cl**, muchas gracias
 
 #### Introduccion
 
