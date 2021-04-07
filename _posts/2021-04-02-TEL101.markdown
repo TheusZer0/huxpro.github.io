@@ -68,6 +68,7 @@ pasos son representados por varios tipos de bloques, y el flujo de ejecucion
 es indicado por flechas que conectan los bloques.
 
 > ![](/TheusZero/images/post/TEL101-2021/1.png)
+> 
 >> ![](/TheusZero/images/post/TEL101-2021/2.png)
 
 
