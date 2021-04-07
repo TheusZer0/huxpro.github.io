@@ -94,9 +94,27 @@ En esta instalacion, les ayudare a configurar Pycharm con Anaconda en Windows. P
 Cualquier consulta, puedes preguntarme por correo o por el discord del ramo, no demorare
 en contestar.
 
-**Paso 1**:
+> **Paso 1**:  Descargar Anaconda
+>> La idea de esto, es descargar el interprete, anaconda trae todas las herramientas necesarias
+>> para el ramo, ya que al poseer librerias para ciencias, es super completo.
+>>> *si tienes un internet un poco lenta o no tienes el espacio suficiente recomiendo el interprete de python normal*
+> 
+> Links: 
+> 
+> [Anaconda](https://www.anaconda.com/products/individual) | [Python normal](https://www.python.org/downloads/)
 
+> **Paso 2**: Instalar Anaconda
+>> una vez descargado todo, cual sea la eleccion que tomaste (si anaconda o python), deberas instalarlos (ejecutando permisos de administrador), estos tienen una instalacion simple,
+>> solo debes darle a siguiente a todo y esperar a que se instalen.
 
+> **Paso 3**: Descargar Pycharm
+>> Pycharm es mi IDLE favorito, tiene muchas buenas funcionalidades y me ayudo bastante, te ayuda a ser ordenado y muchas cosas mas.
+>> La universidad tiene un convenio con github, si te creas una cuenta en github puedes pedir el paquete de estudiante ingresando el correo de la Universidad.
+>> Esto te dara acceso a un monton de softwares y licencias excelentes, Cursos y mas. Entre esas licencias se encuentra Pycharm Premiun **pero tranquilo** que no es necesario tener premiun para usar pycharm.
+>> en el link, debes descargar **Pycharm Edicion Community** que te dara acceso a pycharm sin la necesidad de pagar.
+> [Pycharm](https://www.jetbrains.com/es-es/pycharm/)
+
+> **Paso 4**: Instalar Pycharm
 
 
 
