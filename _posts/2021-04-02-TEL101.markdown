@@ -114,7 +114,16 @@ en contestar.
 >> en el link, debes descargar **Pycharm Edicion Community** que te dara acceso a pycharm sin la necesidad de pagar.
 > [Pycharm](https://www.jetbrains.com/es-es/pycharm/)
 
-> **Paso 4**: Instalar Pycharm
+> **Paso 4**: Instalar Pycharm con Anaconda o Normal
+>> [Video Explicativo](https://www.youtube.com/watch?v=GEtkuveUW6E)
+> 
+>> ![](/TheusZero/images/post/TEL101-2021/3.png)
+> 
+>> ![](/TheusZero/images/post/TEL101-2021/4.png)
+>
+>> ![](/TheusZero/images/post/TEL101-2021/5.png)
+
+####
 
 
 
