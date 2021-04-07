@@ -50,6 +50,24 @@ Espero les sirva de ayuda, con el coronavirus todo es mas complejo y por eso deb
 
 ## Links
 
+[TEL101-2020 Clases con Patricio Olivares](https://www.youtube.com/watch?v=s4d2oQs0q4g&list=PLJwrKxbCMmidRZeKhjcG_hIiESFaKhqu7)
 
-## Conceptos
+[Apuntes de Progra de Roberto Bonvallet](http://progra.usm.cl/Archivos/certamenes/Libro_prograRB.pdf)
+
+[Curso de Python](https://www.youtube.com/watch?v=G2FCfQj-9ig&list=PLU8oAlHdN5BlvPxziopYZRd55pdqFwkeS)
+
+## Materia y Conceptos
+
+Un **Algoritmo** es una secuencia de pasos para resolver un problema. Los
+pasos deben estar muy bien definidos, y tienen que describir sin ambiguedades ¨
+como llegar desde el inicio hasta el final.
+
+#### Diagrama de flujo
+Un diagrama de flujo es una representacion grafica de un algoritmo. Los
+pasos son representados por varios tipos de bloques, y el flujo de ejecucion
+es indicado por flechas que conectan los bloques.
+
+> ![](/TheusZero/images/post/TEL101-2021/1.png)
+>> ![](/TheusZero/images/post/TEL101-2021/2.png)
+
 
