@@ -52,6 +52,8 @@ Espero les sirva de ayuda.
 
 [TEL101-2020 Clases con Patricio Olivares](https://www.youtube.com/watch?v=s4d2oQs0q4g&list=PLJwrKxbCMmidRZeKhjcG_hIiESFaKhqu7)
 
+[Apuntos de Curso USM Informatica](http://progra.usm.cl/Apuntes_del_curso.html)
+
 [Apuntes de Progra de Roberto Bonvallet](http://progra.usm.cl/Archivos/certamenes/Libro_prograRB.pdf)
 
 [Curso de Python](https://www.youtube.com/watch?v=G2FCfQj-9ig&list=PLU8oAlHdN5BlvPxziopYZRd55pdqFwkeS)
@@ -63,13 +65,41 @@ pasos deben estar muy bien definidos, y tienen que describir sin ambiguedades ¨
 como llegar desde el inicio hasta el final.
 
 #### Diagrama de flujo
-Un diagrama de flujo es una representacion grafica de un algoritmo. Los
+Un diagrama de flujo es una **representacion grafica de un algoritmo**. Los
 pasos son representados por varios tipos de bloques, y el flujo de ejecucion
 es indicado por flechas que conectan los bloques.
 
 > ![](/TheusZero/images/post/TEL101-2021/1.png)
 > 
 >> ![](/TheusZero/images/post/TEL101-2021/2.png)
+
+#### Desarrollo de programas
+
+Un programa es un archivo de texto que contiene codigo para ser ejecutado
+por el computador. En el caso del lenguaje **Python**, el **programa es ejecutado
+por un interprete**. El interprete es un programa que ejecuta programas.
+Los programas escritos en Python deben estar contenidos en un archivo
+que tenga la extension .py
+
+#### Instalacion de IDLE e interprete (Recomendacion)
+
+Un programa es un archivo de texto. Por lo tanto, puede ser creado y
+editado usando cualquier editor de texto, como el Bloc de Notas.
+Los programadores usan editores de textos, conocidos como IDLE, entre los cuales
+recomiendo:
+
+> Pycharm | Visual Studio | ATOM | Jupyter Notebook | Sublime Text
+
+En esta instalacion, les ayudare a configurar Pycharm con Anaconda en Windows. Para
+Cualquier consulta, puedes preguntarme por correo o por el discord del ramo, no demorare
+en contestar.
+
+**Paso 1**:
+
+
+
+
+
 
 
 
