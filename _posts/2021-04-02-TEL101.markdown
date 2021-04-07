@@ -115,7 +115,7 @@ en contestar.
 > [Pycharm](https://www.jetbrains.com/es-es/pycharm/)
 
 > **Paso 4**: Instalar Pycharm con Anaconda o Normal
->> [Video Explicativo](https://www.youtube.com/watch?v=GEtkuveUW6E)
+>> [Video Explicativo de Pycharm y su instalacion](https://www.youtube.com/watch?v=GEtkuveUW6E)
 > 
 >> ![](/TheusZero/images/post/TEL101-2021/3.png)
 > 
