@@ -16,4 +16,22 @@ tags:
     - C++
 ---
 
-## Clase 1
+## Clases, objetos y comportamiento
+
+> Clases, forma generalizada (idea) para hablar de objetos ya que estas definen las caracterizticas generales de una clase objeto.
+>> objeto Patricio, clase Persona
+
+Estas clases tienen **atributos** que son generales (RUT, EDAD, etc) y tambien tenemos comportamientos llamados **metodos**, (caminar, comer, respirar, etc).
+Estos estaran definidos desde la clase.
+
+![](/TheusZero/images/post/POO/1.png)
+
+## Jerarquias de Clases: Herencia
+
+> la clase estudiante y profesor heredan de la clase persona atributos, por lo que hay una jerarquia que define a persona como un general del cual heredan atributos otras clases
+> ![](/TheusZero/images/post/POO/2.png)
+> ![](/TheusZero/images/post/POO/3.png)
+> ![](/TheusZero/images/post/POO/4.png)
+> ![](/TheusZero/images/post/POO/5.png)
+
+
