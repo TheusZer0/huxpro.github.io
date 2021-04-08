@@ -1,0 +1,68 @@
+---
+layout: post
+title: "ADS"
+subtitle: 'ADS'
+date: 2021-04-02 12:00:00
+author: "TheusZero"
+header-img: "images/post/PythonAutoayuda/solarized-wallpaper-python.png"
+catalog: true
+comments: true
+tags:
+    - Programacion
+    - Python
+    - USM
+    - Tareas
+    - Java
+    - C++
+---
+
+## Lecturas
+
+#### Primera Lectura
+
+> Unusable Software Is Useless | el software inutilizado es inutil
+
+LA USABILIDAD TIENE UN IMPACTO SIGNIFICATIVO
+sobre el éxito de los sistemas y productos centrados en software.
+Por ejemplo, si un sistema de software no es compatible con los usuarios finales en su trabajo diario, no se utilizará
+productivamente. 
+
+Del mismo modo, si los desarrolladores no entienden la arquitectura de su software,
+la variacion de la complejidad y arquitectura del codigo seran consecuencias obvias.
+
+En última instancia, no diseñar software utilizable
+podría degradar seriamente la capacidad de un proyecto de entregarse a tiempo, presupuesto, funcionalidad y calidad.
+
+En las dos próximas entregas de este
+columna, exploro seleccionados pero esenciales
+actividades, métodos y técnicas que
+Apoyar a los arquitectos pragmáticos en el desarrollo de sistemas para su uso. Esta entrega en particular se centra en la usabilidad operativa; Me centro en dos aspectos que contribuyen significativamente a diseñar sistemas aceptados por clientes y usuarios finales: idoneidad empresarial y ergonomía.
+
+>> Business Suitability | idoneidad(aptitud) empresarial
+
+Cada sistema de software está construido para un propósito específico y negocio, todos lo sabemos.
+Por lo tanto, el interés principal de los clientes es que el sistema de software que compran sirvan bien para sus negocios. 
+Sin embargo, una y otra vez, he observado proyectos de software que **tienden a mantener el diálogo con los clientes en un "Mínimo inevitable"**,
+como si fuera necesario pero no particularmente una actividad útil.
+A pesar de todas las prácticas ágiles que recomiendan involucrarlos temprano a los clientes y, con regularidad, **"los clientes no saben lo que realmente quieren o necesitan”** es una frase que escucho a menudo.
+La misma observación también se aplica a los productos de software, en que los principales "clientes" se encargan casi siempre de la gestión de productos de la empresa,
+divisiones de marketing y ventas en vez de probar si es un buen producto para el usuario final (se encargan solo del marketing y no tanto de probar el producto).
+
+Sin embargo, los proyectos de software que no están en continuo diálogo con las partes interesadas del negocio pierden una gran oportunidad
+para ganar y que estas partes interesadas confien y se aseguren de sus sistemas de trabajo. 
+Este diálogo puede ser un desafío para personas con fuerte antecedentes técnicos porque el interés empresarial de 
+los titulares normalmente no hablan en términos de requisitos concretos o arquitectura de conceptos, 
+solo hablan de las cosas en las que los arquitectos estan interesados.
+Y si lo hacen, ellos tienden a expresar sus requisitos más como deseos o en términos vagos y ambiguos.
+
+Sin embargo, los actores económicos (business stakeholders) estan generalmente interesadas en conocer 
+el software o sistemas que patrocinan y ser involucrado en decisiones clave.
+Para iniciar diálogo con las partes interesadas del negocio (business stakeholders), 
+Los arquitectos pueden elegir entre un conjunto completo de métodos. 
+La clave del éxito aquí es (en mi experiencia), que el propósito previsto del software sea el enfoque principal.
+
+Comprender y capturar de manera concreta el dominio de un modelo suele ser un buen
+comienzo para obtener la perspectiva general del cliente en un sistema.
+
+Esto a menudo significa en términos de requisitos concretospero más en términos de la estructura de sudominio y, lo que es más importante, el núcleoflujos de trabajo, tareas y actividades quetranspirar en ese dominio. Trabajando enel modelo de dominio también indicaconsumidores de los que los arquitectos hablan de la "derecha"idioma y comprender su (negocio)
+
