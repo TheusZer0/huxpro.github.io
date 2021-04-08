@@ -122,3 +122,5 @@ De manera similar a la discusión anterior sobre la idoneidad empresarial, la pa
 
 Los desarrolladores son el tercer grupo importante de usuarios de sistemas centrados en software: viven dentro de la arquitectura y el código de un sistema.
 Por lo tanto, es una responsabilidad clave de los arquitectos asegurarse de que los desarrolladores se sientan habitables allí. La próxima entrega de esta columna explorará los métodos y las mejores prácticas que ayudan a los arquitectos a lograr esta tarea.
+
+**Resumen**
