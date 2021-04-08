@@ -22,6 +22,9 @@ tags:
 
 > Unusable Software Is Useless | el software inutilizado es inutil
 
+**software architect = arquitecto**
+software person = persona de software = programador o arquitecto de software
+
 LA USABILIDAD TIENE UN IMPACTO SIGNIFICATIVO
 sobre el éxito de los sistemas y productos centrados en software.
 Por ejemplo, si un sistema de software no es compatible con los usuarios finales en su trabajo diario, no se utilizará
@@ -80,4 +83,42 @@ Utilizando el modelo de dominio y los escenarios como guía, la especificación 
 Otros métodos ayudan en la comunicacion de la arquitectura del sistema,
 las consecuencias y las compensaciones, junto con los comentarios recibidos sobre si cumple las expectativas del cliente
 Este tipo de esqueleto ayuda al arquitecto a realizar escenarios funcionales clave al ilustrar cómo funciona la arquitectura a través de la experiencia del sistema real en lugar de descripciones formales del diseño.
+Las notaciones de modelado de software y sistemas son útiles y esenciales para la documentación y comunicación técnica adecuadas de una arquitectura, pero es probable que requieran una explicación significativa para que las partes interesadas del negocio las comprendan.
+La experiencia real del sistema también es esencial para obtener comentarios útiles sobre la idoneidad de la arquitectura; Las partes interesadas del negocio a menudo no pueden discutir las consecuencias de las decisiones de diseño basadas en diagramas o descripciones textuales.
 
+Cuando es necesario explicar las arquitecturas a través de diagramas técnicos, 
+las metáforas son un vehículo útil porque ayudan a esbozar el diseño concreto de un sistema
+al describirlo en términos de como es su estructura pero aplicado en un contexto sobre algo del mundo real. Por ejemplo, suelo utilizar la metáfora de "herramientas y materiales" para describir la estructura clave de los editores gráficos.
+los objetos que manipula el sistema corresponden a los materiales y la funcionalidad de edición a las herramientas. El concepto de "carrito de compras" es otra metáfora bien conocida que se usa comúnmente para describir la funcionalidad de compra en los sistemas de comercio electrónico.
+
+>> Ergonomics | Ergonomía
+
+Los usuarios finales viven con los sistemas que construimos, por lo que su principal interés es que estos sistemas respalden su trabajo diario de manera efectiva.
+De lo contrario, es probable que no acepten nuestros sistemas porque los hacen menos productivos.
+En dominios críticos para la seguridad, como la automatización ferroviaria,
+la capacidad de usar un sistema de manera efectiva y correcta en todas las circunstancias
+relevantes es realmente obligatoria para obtener la certificación necesaria.
+
+Desafortunadamente, parece existir un conflicto entre
+la visión técnica de muchos programadores de software
+y la visión orientada a tareas de muchos usuarios finales. Un ejemplo del mundo real que encontré recientemente en uno de mis proyectos fue una herramienta de ingeniería para un producto de automatización industrial.
+Esta herramienta expuso la vista física completa del producto, que constaba de aproximadamente 10,000 parámetros, al usuario final, sin embargo, la mayoría de los usuarios no estaban interesados en configurar parámetros individuales de la máquina porque es una actividad tediosa y propensa a errores.
+En cambio, su principal interés estaba en diseñar tareas completas que fueran significativas en su dominio de aplicación, como encender una máquina específica o mover la máquina a una posición de mantenimiento.
+
+Claramente, una forma eficaz de comprender las necesidades y los requisitos del usuario final es involucrar a los usuarios de forma activa en el diseño del sistema, con un enfoque en la interacción persona-computadora.
+
+HCI se centra específicamente en los usuarios de un sistema
+y las tareas que realizan: ¿Qué características debería ofrecer el sistema para realizar tareas específicas del usuario? ¿Qué pasos son necesarios para realizar esas tareas de manera eficiente? ¿Cómo debería ofrecer sus funciones la interfaz de usuario del sistema?
+En mi experiencia, es en realidad esta orientación de tareas la que permite a los usuarios trabajar con un sistema de manera productiva porque admite una operación del sistema intuitiva e integrada. No se logra a través de una apariencia elegante de la interfaz de usuario, como podrían asumir algunos programadores de software. Un aspecto nuevo y atractivo suele ser más importante para fines de marketing, para indicar que un sistema está actualizado y sigue la última tecnología.
+
+Métodos como el diseño participativo o el diseño centrado en el uso, junto con patrones y prácticas documentados para HCI, permiten el diseño cooperativo de interfaces de usuario orientadas a tareas y diseños de flujo de trabajo. Estos métodos definen actividades concretas para la cooperación entre usuarios y desarrolladores y los resultados y artefactos esperados.
+Muchos de los proyectos en los que estoy involucrado actualmente llevan a cabo talleres de usabilidad regulares con clientes y usuarios finales.
+Los patrones y prácticas de HCI definen un lenguaje común entendido por todas las partes: los usuarios finales pueden expresar lo que necesitan, y los arquitectos y desarrolladores obtienen información sobre qué construir y cómo.
+
+Por ejemplo, los patrones de Jan Borchers para hardware invisible y dispositivos apropiados para el dominio enfatizan la importancia de ocultar tecnologías de hardware complejas y desconocidas a los usuarios del sistema.
+permitiéndoles en cambio comunicarse con el sistema utilizando dispositivos y abstracciones que conocen de sus propios dominios. Otros patrones, como el árbol plano y estrecho y la información justo a tiempo, logran el equilibrio estrecho entre no abrumar a los usuarios con demasiada información y proporcionar datos insuficientes.
+
+De manera similar a la discusión anterior sobre la idoneidad empresarial, la participación de los usuarios finales en el diseño de HCI de un sistema guía el trabajo de arquitectura concreta de un proyecto de software. Los estudios de usabilidad con prototipos de interfaz o, mejor aún, esqueletos ambulantes, brindan información sobre la usabilidad real de ese diseño, con una oportunidad adicional para mejoras y ajustes. El ciclo de retroalimentación de la participación activa del usuario se cierra, pero de una manera que brinda a los arquitectos la mejor orientación para diseñar sistemas con los que los usuarios finales puedan "vivir bien".
+
+Los desarrolladores son el tercer grupo importante de usuarios de sistemas centrados en software: viven dentro de la arquitectura y el código de un sistema.
+Por lo tanto, es una responsabilidad clave de los arquitectos asegurarse de que los desarrolladores se sientan habitables allí. La próxima entrega de esta columna explorará los métodos y las mejores prácticas que ayudan a los arquitectos a lograr esta tarea.
