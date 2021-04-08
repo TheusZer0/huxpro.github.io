@@ -60,9 +60,24 @@ el software o sistemas que patrocinan y ser involucrado en decisiones clave.
 Para iniciar diálogo con las partes interesadas del negocio (business stakeholders), 
 Los arquitectos pueden elegir entre un conjunto completo de métodos. 
 La clave del éxito aquí es (en mi experiencia), que el propósito previsto del software sea el enfoque principal.
-
 Comprender y capturar de manera concreta el dominio de un modelo suele ser un buen
 comienzo para obtener la perspectiva general del cliente en un sistema.
+Esto a menudo significa menos en términos de requisitos concretos pero más en términos de la estructura
+de este sudominio y, lo que es más importante, que el núcleo de trabajo fluya, tareas y actividades que para transpirar y desarrollar asi
+ese dominio. Trabajar en el modelo del dominio también indica a los clientes que los arquitectos hablan en el "correcto"
+idioma y pueden entender sus intereses.
 
-Esto a menudo significa en términos de requisitos concretospero más en términos de la estructura de sudominio y, lo que es más importante, el núcleoflujos de trabajo, tareas y actividades quetranspirar en ese dominio. Trabajando enel modelo de dominio también indicaconsumidores de los que los arquitectos hablan de la "derecha"idioma y comprender su (negocio)
+En todos los proyectos en los que me he envuelto en mi carrera, los consumidores o clientes han confirmado 
+que elaborar un modelo de dominio fue un resultado valioso para ellos mismos, incluso desde, una perspectiva tecnica,
+eso era "solo" un vehículo para impulsar el diseño y implementación de una manera correcta.
+
+Los modelos de dominio también son vehículos adecuados para obtener y aclarar requisitos clave junto con especificaciones de escenarios concretos.
+Los escenarios ayudan a especificar los estímulos relevantes y las respuestas esperadas para todas las tareas relevantes del sistema.
+ellos consideran el sistema en sí ser una **black box**.
+La asignación de escenarios al modelo de dominio amplía esta vista a cómo el sistema realizará tareas relevantes como flujos de trabajo concretos en el dominio de la aplicación, incluidos los requisitos de calidad relevantes, como el rendimiento y las variaciones de escenario.
+Utilizando el modelo de dominio y los escenarios como guía, la especificación y clasificación del alcance y los requisitos de un sistema se basa, por lo tanto, en menos suposiciones y más en las necesidades reales y el valor comercial.
+
+Otros métodos ayudan en la comunicacion de la arquitectura del sistema,
+las consecuencias y las compensaciones, junto con los comentarios recibidos sobre si cumple las expectativas del cliente
+Este tipo de esqueleto ayuda al arquitecto a realizar escenarios funcionales clave al ilustrar cómo funciona la arquitectura a través de la experiencia del sistema real en lugar de descripciones formales del diseño.
 
