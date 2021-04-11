@@ -109,12 +109,36 @@ mov es la instrucción encargada de los accesos a memoria.
 > ==========================
 > ```
 
+> **Con [ ]: mov eax, [ebx]**
+Al segundo operando de mov se lo trata como un puntero, se sigue esa dirección y se copia el valor almacenado en ella en eax.
 > ```Python
-> 
+> ==========================
+> registro eax = 00 00 00 00
+> registro ebx = 08 04 85 10    ; 0x08048510
+> ==========================
+> dir. mem. | contenido en mem. | instrucción     | ¿qué hace?
+> 08048334:   8b 03               mov eax, [ebx]  ; ebx = 0x08048510. [ebx] = 0x123. eax = 0x123.
+> ...                                        |    ; guardo en eax el contenido almacenado en 0x08048510
+> 08048510:   23 01 00 00         <----------+
+> ==========================
+> registro eax = 00 00 01 23     ; Notar que el valor está invertido en relación a cómo se almacena en little endian en memoria
+> ==========================
 > ```
 
+**Sin [ ]: mov eax, ebx (es practicamente que ebx = eax , su direccion de memoria es igual ahora)**
+Al no usar corchetes, el segundo operando consiste en el contenido de ebx (no entendido ya como puntero), por lo que se lo copia directamente en eax.
 > ```Python
-> 
+> ==========================
+> registro eax = 00 00 00 00
+> registro ebx = 08 04 85 10    ; 0x08048510
+> ==========================
+> dir. mem. | contenido en mem. | instrucción      | ¿qué hace?
+> 08048336:   89 d8               mov eax, ebx     ; ebx = 0x08048510. eax = 0x08048510.
+> ...                                              ; guardo en eax el contenido almacenado en ebx
+> 08048510:   23 01 00 00
+> ==========================
+> registro eax = 08 04 85 10
+> ==========================
 > ```
 
 > ```Python
