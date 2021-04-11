@@ -22,7 +22,6 @@ tags:
 
 > Unusable Software Is Useless | el software inutilizado es inutil
 
-**software architect = arquitecto**
 software person = persona de software = programador o arquitecto de software
 
 LA USABILIDAD TIENE UN IMPACTO SIGNIFICATIVO
@@ -124,3 +123,4 @@ Los desarrolladores son el tercer grupo importante de usuarios de sistemas centr
 Por lo tanto, es una responsabilidad clave de los arquitectos asegurarse de que los desarrolladores se sientan habitables allí. La próxima entrega de esta columna explorará los métodos y las mejores prácticas que ayudan a los arquitectos a lograr esta tarea.
 
 **Resumen**
+
