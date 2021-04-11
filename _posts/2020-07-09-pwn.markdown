@@ -72,7 +72,7 @@ tags:
 >
 >> big endian (x64) los datos se almacenan de una forma normal
 >
-> ![](/TheusZero/images/post/pwn/bufferCodeExample.png)
+> ![](/TheusZero/images/post/pwn/1.png)
 > 
 > Por lo tanto, en little endian el dato 0x12345678 se almacena en memoria:
 >> ```Python
