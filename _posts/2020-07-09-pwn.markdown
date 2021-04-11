@@ -53,12 +53,35 @@ tags:
 > ```
 
 > ```Python
+> ==========================
+> registro eax = 00 00 00 00
+> ==========================
 > 
+> dir. mem. | instrucción       | ¿qué hace?
+> 08048334:   mov eax, 0x4      ; almacena el valor 4 en el registro eax
+> 08048339:   add eax, 0x3      ; suma 3 al valor almacenado en eax
+> 0804833f:   mov ebx, eax      ; almacena el valor del registro eax en ebx
+> ==========================
+> registro eax = 00 00 00 07
+> registro ebx = 00 00 00 07
+> ==========================
 > ```
 
-> ```Python
+> Consideraciones: 
+>> little endian (x86) se almacenan los datos al revez, es decir, el byte menos significativo se almacena en una posición de memoria menor, y así hasta el byte más significativo.
+>
+>> big endian (x64) los datos se almacenan de una forma normal
+>
+> ![](/TheusZero/images/post/pwn/bufferCodeExample.png)
 > 
-> ```
+> Por lo tanto, en little endian el dato 0x12345678 se almacena en memoria:
+>> ```Python
+>> El dato ABCD, es decir \x41\x42\x43\x44 se almacena en memoria como DCBA:
+>> 0x44 | 0x43 | 0x42 | 0x41
+>> n    | n+1  | n+2  | n+3
+>> ```
+
+#### Registro eip
 
 > ```Python
 > 
