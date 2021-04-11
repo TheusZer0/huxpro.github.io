@@ -37,8 +37,7 @@ podría degradar seriamente la capacidad de un proyecto de entregarse a tiempo, 
 
 En las dos próximas entregas de este
 columna, exploro seleccionados pero esenciales
-actividades, métodos y técnicas que
-Apoyar a los arquitectos pragmáticos en el desarrollo de sistemas para su uso. Esta entrega en particular se centra en la usabilidad operativa; Me centro en dos aspectos que contribuyen significativamente a diseñar sistemas aceptados por clientes y usuarios finales: idoneidad empresarial y ergonomía.
+actividades, métodos y técnicas que sirven de apoyo a los arquitectos pragmáticos en el desarrollo de sistemas para su uso. Esta entrega en particular se centra en la usabilidad operativa; Me centro en dos aspectos que contribuyen significativamente a diseñar sistemas aceptados por clientes y usuarios finales: idoneidad empresarial y ergonomía.
 
 >> Business Suitability | idoneidad(aptitud) empresarial
 
@@ -124,3 +123,32 @@ Por lo tanto, es una responsabilidad clave de los arquitectos asegurarse de que 
 
 **Resumen**
 
+> Business Suitability
+>> los proyectos de software que no están en continuo diálogo con las partes interesadas del negocio pierden una gran oportunidad para ganar y que estas partes interesadas confien y se aseguren de sus sistemas de trabajo.
+> 
+>>  los actores económicos (business stakeholders) estan generalmente interesadas en conocer el software o sistemas que patrocinan y ser involucrado en decisiones clave.
+> 
+>> el propósito previsto del software sea el enfoque principal. Comprender y capturar de manera concreta el dominio de un modelo suele ser un buen comienzo para obtener la perspectiva general del cliente en un sistema
+> 
+>> los consumidores o clientes han confirmado que elaborar un modelo de dominio fue un resultado valioso para ellos mismos
+> 
+>> modelos de dominio también son vehículos adecuados para obtener y aclarar requisitos clave junto con especificaciones de escenarios concretos
+> 
+>> Utilizando el modelo de dominio y los escenarios como guía, la especificación y clasificación del alcance y los requisitos de un sistema se basa, por lo tanto, en menos suposiciones y más en las necesidades reales y el valor comercial.
+> 
+>> Cuando es necesario explicar las arquitecturas a través de diagramas técnicos, las metáforas son un vehículo útil porque ayudan a esbozar el diseño concreto de un sistema al describirlo en términos de como es su estructura pero aplicado en un contexto sobre algo del mundo real
+> 
+
+> Ergonomics
+>> Los usuarios finales viven con los sistemas que construimos, por lo que su principal interés es que estos sistemas respalden su trabajo diario de manera efectiva
+> 
+>>  la mayoría de los usuarios no estaban interesados en configurar parámetros individuales de la máquina porque es una actividad tediosa y propensa a errores
+> 
+>> una forma eficaz de comprender las necesidades y los requisitos del usuario final es involucrar a los usuarios de forma activa en el diseño del sistema, con un enfoque en la interacción persona-computadora
+> 
+>> HCI se centra específicamente en los usuarios de un sistema y las tareas que realizan
+> 
+>>  los patrones de Jan Borchers para hardware invisible y dispositivos apropiados para el dominio enfatizan la importancia de ocultar tecnologías de hardware complejas y desconocidas a los usuarios del sistema
+>>>  permitiéndoles en cambio comunicarse con el sistema utilizando dispositivos y abstracciones que conocen de sus propios dominios
+> 
+>> La Interacción Persona-Ordenador del inglés Human Computer Interaction (HCI) «es una disciplina relacionada con el diseño, evaluación, desarrollo y estudio de los fenómenos que rodean los sistemas informáticos para uso humano»
