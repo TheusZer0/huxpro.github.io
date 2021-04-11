@@ -79,12 +79,34 @@ tags:
 >> El dato ABCD, es decir \x41\x42\x43\x44 se almacena en memoria como DCBA:
 >> 0x44 | 0x43 | 0x42 | 0x41
 >> n    | n+1  | n+2  | n+3
+>> D    |  C   |  B   |  A
 >> ```
 
 #### Registro eip
 
-> ```Python
+El instruction pointer register apunta a la siguiente instrucción a ser ejecutada por el programa.
+Cada vez que una instrucción se procesa, el procesador actualiza automáticamente este registro para que apunte a la siguiente instrucción a ser ejecutada.
+
+#### Instrucción MOV
+
+mov es la instrucción encargada de los accesos a memoria.
+
+>> **mov reg, [addr]**: permite copiar valores desde una dirección de memoria a un registro.
 > 
+>> **mov [addr], reg**: permite copiar valores desde un registro a una dirección de memoria.
+> ```Python
+> ==========================
+> registro ebx = 00 00 00 00
+> ==========================
+> dir. mem. | contenido en mem.  | instrucción           | ¿qué hace?
+> 08048334:   68 10 85 04 08       mov ebx, [0x08048510] ; almacena el valor 0x123 en el registro ebx
+> 08048339: ....                                  |
+> ...                                             |
+> 08048510:   23 01 00 00      <------------------+      ; 0x123 almacenado en little endian
+>
+> ==========================
+> registro ebx = 00 00 01 23
+> ==========================
 > ```
 
 > ```Python
