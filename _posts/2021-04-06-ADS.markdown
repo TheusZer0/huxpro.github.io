@@ -16,6 +16,84 @@ tags:
     - C++
 ---
 
+## Clases
+
+**clase 2**
+
+#### Requisitos
+Aplicados al software, cumplir con estos requisitos es fundamental
+>> Descripciones de lo que el sistema debe/deberia hacer
+> 
+>> Capacidades y condiciones a las que el sistema debe adherir
+> 
+> Dos tipos:
+> 
+>> Funcionales
+> 
+>> Extra funcionales (No Funcionales)
+
+**Funcionales**
+
+Son las tareas faciles de identificar que en el software deben ser funcionalidades o servicios que el sistema debe o deberia realizar.
+
+Funcionalidad: entrada de los datos / comportamiento de los mismos, con la funcionalidad del sistema / salida o resultado final para el usuario
+
+>> Pueden existir limitaciones puestas por el usuario (reestricciones)
+> ![](/TheusZero/images/post/ads/1.png)
+ 
+Los requisitos extra-funcionales son importantes, son un gran impacto a nivel de la arquitectura y puede que haga la diferencia a la hora de que el usuario elija tu software
+
+#### Requerimientos
+
+Es un levantamiento o elicitacion (captar) de requerimientos.
+
+> Aqui participan
+>> Usuario: es Quien Utiliza el software. Una persona o una comunidad
+> 
+>> Cliente: Quien Paga por el software (inversionista)
+> 
+>> Stakeholder: Concepto generico para persona o institucion que tiene algun interes en el proyecto y que puede influir en las deciciones que se toman para el proyecto.
+> 
+>> Analista: Quien debe caracterizar y precisar lo que los usuarios o clientes requieren
+> ![](/TheusZero/images/post/ads/2.png)
+
+#### Diagrama de contexto
+
+Nos sirve para graficar todo antes de ponernos a programas, es una forma de traducir los requerimientos y los requisitos, es una manera para desenvolvernos y comprender antes de programar.
+
+> El software vive en un contexto
+>> interactua con su entorno = interactua con funcionalidades de su entorno.
+> 
+>> Provee funcionalidades a su entorno | Necesita funcionalidades de su entorno
+> ej: Necesitar cosas de la base de datos, ingresar valores a x lugar.
+
+> primera aproximacion del sistema dentro de su entorno
+> 
+> Podemos identificar con quien se relaciona el sistema
+>> Pero no nos dice la forma, no nos dice como conseguir algo (que servicios tecnicos tendra)
+
+> Definir las fronteras o limites del sistema y como este interactua con su entorno.
+>> estos limites pueden estar claramente definidos | Puede definirse en etapas tempranas, a base de criterios de funcionalidad.
+>
+>> Reconocer o identificar cuales seran funcionalidades automatizadas o manuales, ya que de esa forma sabremos que sera lo que el usuario ingresara en el software.
+
+> Impacto
+>> La toma de decisiones generan costos y beneficios
+> ![](/TheusZero/images/post/ads/4.png)
+> 
+> ![](/TheusZero/images/post/ads/3.png)
+>> Ambas opciones tienen costos y beneficios
+> ![](/TheusZero/images/post/ads/5.png)
+
+#### Modelo de dominio
+
+
+
+
+#### 
+
+
+
 ## Lecturas
 
 #### Primera Lectura
