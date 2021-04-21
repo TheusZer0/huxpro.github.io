@@ -39,6 +39,7 @@ Son las tareas faciles de identificar que en el software deben ser funcionalidad
 Funcionalidad: entrada de los datos / comportamiento de los mismos, con la funcionalidad del sistema / salida o resultado final para el usuario
 
 >> Pueden existir limitaciones puestas por el usuario (reestricciones)
+>
 > ![](/TheusZero/images/post/ads/1.png)
  
 Los requisitos extra-funcionales son importantes, son un gran impacto a nivel de la arquitectura y puede que haga la diferencia a la hora de que el usuario elija tu software
@@ -55,6 +56,7 @@ Es un levantamiento o elicitacion (captar) de requerimientos.
 >> Stakeholder: Concepto generico para persona o institucion que tiene algun interes en el proyecto y que puede influir en las deciciones que se toman para el proyecto.
 > 
 >> Analista: Quien debe caracterizar y precisar lo que los usuarios o clientes requieren
+>
 > ![](/TheusZero/images/post/ads/2.png)
 
 #### Diagrama de contexto
