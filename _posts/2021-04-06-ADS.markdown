@@ -79,16 +79,31 @@ Nos sirve para graficar todo antes de ponernos a programas, es una forma de trad
 
 > Impacto
 >> La toma de decisiones generan costos y beneficios
+> 
 > ![](/TheusZero/images/post/ads/4.png)
 > 
 > ![](/TheusZero/images/post/ads/3.png)
+> 
 >> Ambas opciones tienen costos y beneficios
+> 
 > ![](/TheusZero/images/post/ads/5.png)
 
 #### Modelo de dominio
 
+es una interpretacion del negocio, este mismo tiene un alcance
 
+> tenemos que ser capaces de:
+>> Comprender el contexto de negocio
+> 
+>> identificar conceptos clave
+> 
+>> entender como los conceptos se relacionan
 
+El modelo de dominio es un diagrama que ilsutra clases (objetos) significativas de un dominio de problema particular para el analista y el disenador.
+Su objetivo es visualizar y comprender la relacion de los conceptos que se manejan en el dominio del problema 
+![](/TheusZero/images/post/ads/6.png)
+
+![](/TheusZero/images/post/ads/7.png)
 
 #### 
 
