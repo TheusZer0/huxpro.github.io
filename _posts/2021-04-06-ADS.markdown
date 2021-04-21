@@ -103,9 +103,13 @@ es una interpretacion del negocio, este mismo tiene un alcance
 
 El modelo de dominio es un diagrama que ilsutra clases (objetos) significativas de un dominio de problema particular para el analista y el disenador.
 Su objetivo es visualizar y comprender la relacion de los conceptos que se manejan en el dominio del problema 
+
 ![](/TheusZero/images/post/ads/6.png)
 
 ![](/TheusZero/images/post/ads/7.png)
+
+![](/TheusZero/images/post/ads/8.png)
+
 
 #### 
 
