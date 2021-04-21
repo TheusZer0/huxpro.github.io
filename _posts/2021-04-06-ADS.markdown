@@ -110,8 +110,34 @@ Su objetivo es visualizar y comprender la relacion de los conceptos que se manej
 
 ![](/TheusZero/images/post/ads/8.png)
 
+> ejemplo: aqui faltan las asociaciones y atributos.
+> ![](/TheusZero/images/post/ads/9.png)
 
-#### 
+> Atributos:
+>> Valores que caracterizan una clase (soy persona, mi nombre es Robert)
+> 
+>> una clase puede tener multiples atributos.
+>
+> ![](/TheusZero/images/post/ads/10.png)
+
+> UML :
+>
+> ![](/TheusZero/images/post/ads/11.png)
+>
+> Es relevante?: SI, pero depende de en que contexto es relevante. ya que si se necesita un software del horoscopo, este atributo seria muy relevante
+
+> Modelos de Dominio: **Atributos simple**
+>
+> ![](/TheusZero/images/post/ads/12.png)
+>> No utiliza claves foraneas (como una base de datos)
+
+**Clase 3**
+![](/TheusZero/images/post/ads/13.png)
+
+![](/TheusZero/images/post/ads/14.png)
+
+
+####
 
 
 
