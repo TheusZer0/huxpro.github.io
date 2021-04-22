@@ -136,6 +136,64 @@ Su objetivo es visualizar y comprender la relacion de los conceptos que se manej
 
 ![](/TheusZero/images/post/ads/14.png)
 
+> **en resumen modelo de dominio:** es una representacion garfica de los conceptos y sus atributos, y sus relaciones cen el dominio del problema.
+
+> Asociaciones ya tributos son elementos secundarios
+>> el esfuerzo debe estar en encontrar clases, conceptos. 
+
+#### Multiplicidad Modelo de dominio
+
+![](/TheusZero/images/post/ads/15.png)
+
+![](/TheusZero/images/post/ads/16.png)
+
+![](/TheusZero/images/post/ads/17.png)
+
+**Resumen Modelo de Dominio**
+
+El modelo de dominio es un **diagrama que ilustra clases (objetos) significativas de un dominio** de problema
+particular para el analista y el diseñador. Un modelo de domino es una
+**representación gráfica de los conceptos**, sus atributos y sus relaciones en el
+dominio del problema
+
+**El objetivo es Visualizar y comprender la relación de los conceptos** que se manejan en
+el domino del problema.
+
+> Elementos:
+>> Clases conceptuales: Representan objetos del dominio, pero aquellos relevantes para su comprensión
+>
+> Atributos: Valores que caracterizan una clase (pueden ser múltiples)
+> 
+> Asociaciones: Relación entre conceptos del modelo de dominio. (son bidireccionales)
+
+> Multiplicidad asociaciones:
+>> Rol: las clases en cada extremo de la asociación (A – B).
+> 
+>> Cada rol, tiene una multiplicidad.
+> 
+>> Multiplicidad: Define cuantas instancias de la clase A, pueden ser asociadas a instancias de la clase B. Se expresan por rangos o valores acotados.
+>
+> ![](/TheusZero/images/post/ads/20.png)
+
+> Consideraciones
+>> ![](/TheusZero/images/post/ads/21.png)
+
+
+>> Un modelo de domino es una representación gráfica de los conceptos,
+>> sus atributos y sus relaciones en el dominio del problema.
+> 
+>> Asociaciones y atributos son elementos secundarios
+>>> El esfuerzo debe estar en encontrar clases, conceptos y  deben agregarse en la medida que aporten al entendimiento del dominio.
+
+**Ejercicio**
+
+[Ejemplo del profe](https://github.com/wormaza/EjemploModeloDominio)
+
+![](/TheusZero/images/post/ads/18.png)
+
+![](/TheusZero/images/post/ads/19.png)
+
+
 
 ####
 
