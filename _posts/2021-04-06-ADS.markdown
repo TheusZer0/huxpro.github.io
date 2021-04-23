@@ -331,6 +331,15 @@ nombre.
 
 ![](/TheusZero/images/post/ads/49.png)
 
+> MENSAJES e INTERACCION
+>> Tambien podemos encontrar diferentes tipos de mensajes y formas en que los participantes interactúan:
+>
+> Mensaje síncrono: La entidad que envía el mensaje espera mientras la entidad que recibe el mensaje termine el procesamiento y envíe su respuesta (la más común)
+>
+> Mensaje asíncrono: La entidad que envía el mensaje continua su ejecución sin esperar respuesta
+>
+> ![](/TheusZero/images/post/ads/50.png)
+
 ## Lecturas
 
 #### Primera Lectura
