@@ -295,8 +295,41 @@ contenga descripción y criterios de aceptación:
 
 #### Diagrama de Secuencia
 
+Un diagrama de secuencia del sistema ilustra eventos (*) de entrada y
+salida relacionados con el sistema en discusión:
 
+![](/TheusZero/images/post/ads/38.png)
 
+Importa el que hacen, y NO el como lo hace: entidades como caja
+negra.
+
+• Perspectiva dinámica de análisis y descripción del sistema
+
+![](/TheusZero/images/post/ads/39.png)
+
+![](/TheusZero/images/post/ads/40.png)
+
+![](/TheusZero/images/post/ads/41.png)
+
+> OBJETO
+>> ![](/TheusZero/images/post/ads/42.png)
+>
+>> ![](/TheusZero/images/post/ads/43.png)
+
+Tambien podemos tener multiples objetos que reciben el mismo
+nombre.
+
+![](/TheusZero/images/post/ads/44.png)
+
+> ESTEREOTIPOS
+>> ![](/TheusZero/images/post/ads/45.png)
+>
+> ![](/TheusZero/images/post/ads/46.png)
+>> ![](/TheusZero/images/post/ads/47.png)
+
+![](/TheusZero/images/post/ads/48.png)
+
+![](/TheusZero/images/post/ads/49.png)
 
 ## Lecturas
 
