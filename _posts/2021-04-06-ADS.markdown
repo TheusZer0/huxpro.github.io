@@ -246,6 +246,33 @@ software) hacia el equipo de desarrollo (quienes lo construyen).
 >>> ![](/TheusZero/images/post/ads/27.png)
 >
 >>> ![](/TheusZero/images/post/ads/28.png)
+>
+>>> ![](/TheusZero/images/post/ads/29.png)
+> 
+>>> ![](/TheusZero/images/post/ads/30.png)
+
+
+> Estructura tipo: Criterios de aceptación
+>> Permiten validar si lo diseñado/construido está en conformidad con lo que desea el cliente.
+>
+>> Una técnica común es utilizar la estructura Given-When-Then (Dado-CuandoEntonces).
+>
+>> Una HU puede tener más de un criterio de aceptación.
+>
+>> ![](/TheusZero/images/post/ads/31.png)
+> 
+>> ![](/TheusZero/images/post/ads/32.png)
+>
+>> ![](/TheusZero/images/post/ads/33.png)
+
+> Estructura tipo: Conversación
+>> Los detalles de la historia vienen a través de conversaciones con quienes toman decisiones
+>
+>> Sirven de antecedente para justificar la descripción y criterios de validación
+>>> ![](/TheusZero/images/post/ads/34.png)
+
+**Ejercicio:** Tomando como base el escenario del supermercado, escriba una HU que
+contenga descripción y criterios de aceptación:
 
 
 ## Lecturas
