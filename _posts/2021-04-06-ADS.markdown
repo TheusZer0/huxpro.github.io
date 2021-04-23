@@ -195,8 +195,57 @@ el domino del problema.
 
 
 
-####
+#### Historias de usuarios
 
+Necesitamos comunicar los requisitos desde el negocio (quien necesita el
+software) hacia el equipo de desarrollo (quienes lo construyen).
+
+> **Podemos especificar requisitos puros**. Indican una operación del sistema, podrían tender a una documentación detallada.
+>> ![](/TheusZero/images/post/ads/22.png)
+
+> **Casos de uso**: Podemos enfocarlos como la interacción entre el usuario y el sistema. Podrían tender a una documentación más detallada.
+>> ![](/TheusZero/images/post/ads/23.png)
+
+> **Historias deUsuario (HU)**
+>> Descripción concisa por escrito de un requisito funcional
+> 
+>> Proporciona valor para un usuario
+> 
+>> Basada en los objetivos de usuario (los usuarios interactúan con el sistema para el lograrlos): De ahí su nombre
+>
+>> Técnica vinculada a procesos ágiles y al tratamiento iterativo de los requisitos. (Fomenta la comunicación)
+>
+>> Una Historia de Usuario(HU) se enfoca en una necesidad del usuario.
+> 
+>> ![](/TheusZero/images/post/ads/24.png)
+> 
+>> ![](/TheusZero/images/post/ads/25.png)
+>
+> Deben ser completa y lo suficientemente grande para proporcionar valor al usuario.
+>> Pero lo suficientemente pequeña para poder ser abordada en una iteración.
+>
+> Deben estar centradas en el usuario
+>> Normalmente las personas escriben historias de usuario que son demasiado centradas en aspectos de los componentes o sistemas.
+
+> Generalmente, se escriben en tarjetas (o cartas).
+> 
+> Los detalles de la HU nacen de la conversación entre los stakeholders (consenso).
+> 
+> Deben contener un criterio de aceptación que permita confirmar que la HU fue implementada de forma correcta.
+
+> Estructura:
+>> ![](/TheusZero/images/post/ads/26.png)
+
+> Estructura tipo: Título
+>> Breve oración que resume la necesidad de la HU.
+>>> Debe ser específica para que se puede diferenciar de otras HU
+>> Puede ir acompañada de un identificador.
+
+> Estructura tipo: Descripción
+>> Identifica el tipo de usuario, lo que quiere realizar y el valor que entrega:
+>>> ![](/TheusZero/images/post/ads/27.png)
+>
+>>> ![](/TheusZero/images/post/ads/28.png)
 
 
 ## Lecturas
