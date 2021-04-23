@@ -271,8 +271,31 @@ software) hacia el equipo de desarrollo (quienes lo construyen).
 >> Sirven de antecedente para justificar la descripción y criterios de validación
 >>> ![](/TheusZero/images/post/ads/34.png)
 
+**Criterio Invest:** (criterios a seguir)
+![](/TheusZero/images/post/ads/36.png)
+
 **Ejercicio:** Tomando como base el escenario del supermercado, escriba una HU que
 contenga descripción y criterios de aceptación:
+![](/TheusZero/images/post/ads/35.png)
+
+>> **RESUMEN:**
+> No describen el como se implementará.
+>
+> Desde la perspectiva del usuario (Como X yo quiero …)
+>
+> Fomenta la comunicación  Lograr consenso.
+>
+>  Permiten realizar estimaciones a través de “story points”
+>>  Los story points son una medida del esfuerzo requerido para realizar una
+>> historia de usuario, basándose en términos de complejidad, tamaño, nivel
+>> de incertidumbre y riesgos asociados.
+
+> USER STORY MAPPING
+> ![](/TheusZero/images/post/ads/37.png)
+
+#### Diagrama de Secuencia
+
+
 
 
 ## Lecturas
