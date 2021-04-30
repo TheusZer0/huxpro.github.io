@@ -21,27 +21,22 @@ tags:
 
 #### campo electrico ubicado a lo largo de una linea recta
 
+>> **Ejercicio:**
 > ![](/TheusZero/images/post/fis120/4.png)
-> 
 > ![](/TheusZero/images/post/fis120/5.png)
-> 
 > ![](/TheusZero/images/post/fis120/6.png)
-> 
 > ![](/TheusZero/images/post/fis120/7.png)
-> 
 > ![](/TheusZero/images/post/fis120/8.png)
-> 
 > ![](/TheusZero/images/post/fis120/9.png)
-> 
 > ![](/TheusZero/images/post/fis120/10.png)
->
 > ![](/TheusZero/images/post/fis120/11.png)
-> 
 > ![](/TheusZero/images/post/fis120/12.png)
 
+>> **Ejercicio:**
 > ![](/TheusZero/images/post/fis120/19.png)
 > ![](/TheusZero/images/post/fis120/20.png)
 
+>> **Ejercicio:**
 > ![](/TheusZero/images/post/fis120/21.png)
 > ![](/TheusZero/images/post/fis120/22.png)
 
@@ -49,18 +44,22 @@ tags:
 
 #### anillos con densidad de carga
 
+>> **Ejercicio:**
 >> anillo con densidad de Cos(theta)
 > ![](/TheusZero/images/post/fis120/3.png)
 
+>> **Ejercicio:**
 >> anillo con densidad de Cos(theta)
 > ![](/TheusZero/images/post/fis120/16.png)
 
 
 #### semi anillos
 
+>> **Ejercicio:**
 > ![](/TheusZero/images/post/fis120/13.png)
 > ![](/TheusZero/images/post/fis120/14.png)
 
+>> **Ejercicio:**
 > ![](/TheusZero/images/post/fis120/17.png)
 > ![](/TheusZero/images/post/fis120/18.png)
 
