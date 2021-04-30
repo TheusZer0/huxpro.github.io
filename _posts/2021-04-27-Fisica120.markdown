@@ -22,6 +22,12 @@ tags:
 #### campo electrico ubicado a lo largo de una linea recta
 
 >> **Ejercicio:**
+> ![](/TheusZero/images/post/fis120/38.png)
+
+>> **Ejercicio:**
+> ![](/TheusZero/images/post/fis120/39.png)
+
+>> **Ejercicio:**
 > ![](/TheusZero/images/post/fis120/4.png)
 > ![](/TheusZero/images/post/fis120/5.png)
 > ![](/TheusZero/images/post/fis120/6.png)
