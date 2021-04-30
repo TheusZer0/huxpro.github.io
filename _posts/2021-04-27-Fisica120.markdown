@@ -1,0 +1,69 @@
+---
+layout: post
+title: "Fisica120 Ejercicios"
+subtitle: 'Ejercicios para fisica 120'
+date: 2021-04-02 12:00:00
+author: "TheusZero"
+header-img: "images/post/fis120/1.png"
+catalog: true
+comments: true
+tags:
+    - USM
+    - Tareas
+    - Fisica
+---
+
+## Campo Electrico
+
+#### densidad de carga
+
+> ![](/TheusZero/images/post/fis120/2.png)
+
+#### campo electrico ubicado a lo largo de una linea recta
+
+> ![](/TheusZero/images/post/fis120/4.png)
+> 
+> ![](/TheusZero/images/post/fis120/5.png)
+> 
+> ![](/TheusZero/images/post/fis120/6.png)
+> 
+> ![](/TheusZero/images/post/fis120/7.png)
+> 
+> ![](/TheusZero/images/post/fis120/8.png)
+> 
+> ![](/TheusZero/images/post/fis120/9.png)
+> 
+> ![](/TheusZero/images/post/fis120/10.png)
+>
+> ![](/TheusZero/images/post/fis120/11.png)
+> 
+> ![](/TheusZero/images/post/fis120/12.png)
+
+> ![](/TheusZero/images/post/fis120/19.png)
+> ![](/TheusZero/images/post/fis120/20.png)
+
+> ![](/TheusZero/images/post/fis120/21.png)
+> ![](/TheusZero/images/post/fis120/22.png)
+
+
+
+#### anillos con densidad de carga
+
+>> anillo con densidad de Cos(theta)
+> ![](/TheusZero/images/post/fis120/3.png)
+
+>> anillo con densidad de Cos(theta)
+> ![](/TheusZero/images/post/fis120/16.png)
+
+
+#### semi anillos
+
+> ![](/TheusZero/images/post/fis120/13.png)
+> ![](/TheusZero/images/post/fis120/14.png)
+
+> ![](/TheusZero/images/post/fis120/17.png)
+> ![](/TheusZero/images/post/fis120/18.png)
+
+
+
+
