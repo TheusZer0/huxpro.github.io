@@ -340,6 +340,92 @@ nombre.
 >
 > ![](/TheusZero/images/post/ads/50.png)
 
+## Reuniones clientes
+
+#### Primera reunion
+
+>>> **Escenario prensencial**
+> dinamica propia de cada comunidad educativa (como realizaran las actividades, como las fechas de las pruebas)
+>
+> Comunicacion fluida e inmediata (los avisos se dan en la misma clase o despues de la misma, mucho mas instantanea)
+> 
+> Muchos participantes (alumnos y directivos, profesores y profesores jefe)
+> 
+> muchos niveles (informacion que debe ser transimita a todo el colegio, otra a solo el curso y otra a solo una asignatura)
+
+> Reunion de apoderados
+>> profesor jefe comunica noticias del establecimiento, del curso y otras cosas.
+> 
+>> notas de cada alumno
+
+> Sala de clase
+>> cada profesor en su asignatura comunica al curso las actividades que van a realizar
+>>> Tareas, pruebas, material de estudio
+
+>>> **Escenario actual**
+> COVID
+> 
+> Actividades semi-presenciales y remotas
+> 
+
+> En que podemos ayudar
+>> generar un medio de comunicacion entre los diversos actores de la comunidad educativa
+
+> Posibles escenarios
+
+> Escenario 1: sala de clase
+>> profesor de la asignatura debe enviar un aviso a los alumnos del curso que esten en su asignautra, no existen canales oficiales y cuando se da por clase quiza no todos esten presente falta comunicacion
+> 
+>> profesor debe comunicarse con un alumno
+
+
+> Escenario 2: consejo de curso
+>> profesor jefe enviar a todos sus alumnos informacion que recibe desde la directiva.
+> 
+>> avisos del establecimiento
+> 
+>> el profesor jefe debe comunicarse de forma particular a un alumno
+
+
+> 3 niveles de comunicacion
+>> entregar informacion a nivel del establecimiento (por el profesor jefe)
+> 
+>> entregar informacion a nivel de curso
+> 
+>> entregar informacion a nivel de profesor a alumno en particular
+
+> Escenario 3: reunion de apoderados
+>> el profesor jefe debe entregar a cada apoderado las notas del alumno 
+> 
+>> el profesor jefe comunica a los apoderados informaciones relevantes (a nivel establecimiento y de curso)
+> 
+>> profesor jefe se comunica con un apoderado en particular sobre alguna situacion
+
+> la idea es que la comunicacion sea unidimensional
+> el profesor le manda un aviso al alumno, este aviso la idea es que sea copiada y enviada al apoderado
+
+> Escenario 4: escenario actual
+>> se debe informar sobre posible caso estrecho
+>
+>> suspension de emergencia de actividades presenciales
+>
+>> alumnos y apoderados deben estar al tanto de las comunicaciones
+
+> como la comunicacion es unidimensional, debe haber algun apartado que muestre los correo o datos del profesor para que exista aunque sea externo una comunciacion entre alumno y profesor.
+
+> Actores que interactuan en la plataforma segun su nivel
+> 
+> Director
+>> Jefe de UTP
+>>> Profesor jefe
+>>>> Profesor asignatura
+>>>>> Apoderados
+>>>>>> Alumnos
+
+> contacto estrecho debe ser informado al curso, no a todo el colegio
+
+
+
 ## Lecturas
 
 #### Primera Lectura
