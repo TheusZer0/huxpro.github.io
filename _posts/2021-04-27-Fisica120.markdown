@@ -101,3 +101,36 @@ tags:
 >> **Ejercicio:**
 > ![](/TheusZero/images/post/fis120/43.png)
 
+## Ley de Gauss
+
+sirve para calcular el campo electrico en distintas superficies uniformes y no uniformes
+
+![](/TheusZero/images/post/fis120/44.png)
+
+![](/TheusZero/images/post/fis120/47.png)
+
+
+el flujo electrico:
+
+![](/TheusZero/images/post/fis120/51.png)
+![](/TheusZero/images/post/fis120/52.png)
+
+
+> campo electrico Uniforme
+>> ![](/TheusZero/images/post/fis120/45.png)
+
+> campo electrico no uniforme
+>> ![](/TheusZero/images/post/fis120/46.png)
+
+>  characteristics de la ley de gauss
+>> ![](/TheusZero/images/post/fis120/48.png)
+> 
+>> ![](/TheusZero/images/post/fis120/49.png)
+> 
+>> ![](/TheusZero/images/post/fis120/50.png)
+
+
+
+
+ 
+
