@@ -424,6 +424,17 @@ nombre.
 
 > contacto estrecho debe ser informado al curso, no a todo el colegio
 
+> Que se necesita:
+>
+> los alumnos/apoderados deben tener horario de clases a las cuales deben asistir
+> 
+> planificacion de las actividades importantes 
+> 
+> miembros de la comunidad deben tener informacion basica disponible y acceso a la particular
+> 
+> comunicacion relevante entre actores
+
+> ingresar con credenciales
 
 
 ## Lecturas
@@ -596,3 +607,12 @@ La segunda edición de Extreme Programming Explained enumera 14 principios coher
 En general, un equipo puede manifestar estos principios de muchas maneras. Un equipo al estilo de ExtremeProgramming podría sentarse juntos, emparejar a un cliente y a un desarrollador
 para las tareas difíciles, o lanzar el software a la producción semanalmente. Un equipo de estilo cascada podría utilizar los mismos principios para celebrar sesiones de diseño conjuntas, formar a los desarrolladores como usuarios del sistema que se va a sustituir o dividir el ciclo de lanzamiento a la mitad (dos lanzamientos al año fomentarán más la colaboración que uno).
 Las prácticas precisas no son tan importantes como la intención que hay detrás de ellas. Si todos los miembros del equipo aceptan la responsabilidad del valor del sistema, si los desarrolladores se comprometen a escuchar las necesidades reales de los clientes, si los clientes asimilan los comentarios sobre sus deseos, todo el equipo logrará mucho más de lo que lograría si los desarrolladores se limitaran a "hacer lo que me dicen".
+
+
+## Ayudantias
+
+#### Jira: gestionar historias de usuarios atravez de una pizarra kanban
+
+> ![](/TheusZero/images/post/ads/51.png)
+> ![](/TheusZero/images/post/ads/52.png)
+
