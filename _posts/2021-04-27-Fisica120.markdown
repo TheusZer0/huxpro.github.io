@@ -155,6 +155,19 @@ tags:
 
 sirve para calcular el campo electrico en distintas superficies uniformes y no uniformes
 
+#### Resumen
+
+> ![](/TheusZero/images/post/fis120/106.png)
+> ![](/TheusZero/images/post/fis120/107.png)
+> ![](/TheusZero/images/post/fis120/108.png)
+> ![](/TheusZero/images/post/fis120/109.png)
+
+
+#### control formativo
+
+
+#### Ejercicios
+
 ![](/TheusZero/images/post/fis120/44.png)
 
 ![](/TheusZero/images/post/fis120/47.png)
