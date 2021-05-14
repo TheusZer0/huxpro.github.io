@@ -15,6 +15,56 @@ tags:
 
 ## Campo Electrico
 
+> principio de superposicion
+>
+> ![](/TheusZero/images/post/fis120/57.png)
+>
+> ![](/TheusZero/images/post/fis120/58.png)
+>
+> ![](/TheusZero/images/post/fis120/59.png)
+>
+> ![](/TheusZero/images/post/fis120/60.png)
+
+> ejercicios:
+
+#### forma fectorial
+
+>> **Ejercicio:**
+> ![](/TheusZero/images/post/fis120/54.png)
+> ![](/TheusZero/images/post/fis120/56.png)
+
+>> **Ejercicio:**
+> ![](/TheusZero/images/post/fis120/61.png)
+> ![](/TheusZero/images/post/fis120/62.png)
+> ![](/TheusZero/images/post/fis120/63.png)
+> ![](/TheusZero/images/post/fis120/64.png)
+> ![](/TheusZero/images/post/fis120/65.png)
+> ![](/TheusZero/images/post/fis120/66.png)
+
+>> **Ejercicio:**
+> ![](/TheusZero/images/post/fis120/67.png)
+> ![](/TheusZero/images/post/fis120/68.png)
+> ![](/TheusZero/images/post/fis120/69.png)
+> ![](/TheusZero/images/post/fis120/70.png)
+> ![](/TheusZero/images/post/fis120/71.png)
+> ![](/TheusZero/images/post/fis120/72.png)
+> ![](/TheusZero/images/post/fis120/73.png)
+> ![](/TheusZero/images/post/fis120/74.png)
+
+>> **Ejercicio:**
+> ![](/TheusZero/images/post/fis120/75.png)
+> ![](/TheusZero/images/post/fis120/76.png)
+> ![](/TheusZero/images/post/fis120/77.png)
+> ![](/TheusZero/images/post/fis120/78.png)
+
+>> **Ejercicio:**
+> ![](/TheusZero/images/post/fis120/79.png)
+> ![](/TheusZero/images/post/fis120/80.png)
+> ![](/TheusZero/images/post/fis120/81.png)
+> ![](/TheusZero/images/post/fis120/82.png)
+> ![](/TheusZero/images/post/fis120/83.png)
+
+
 #### densidad de carga
 
 > ![](/TheusZero/images/post/fis120/2.png)
@@ -129,53 +179,3 @@ el flujo electrico:
 >> ![](/TheusZero/images/post/fis120/49.png)
 > 
 >> ![](/TheusZero/images/post/fis120/50.png)
-
-> principio de superposicion
->
-> ![](/TheusZero/images/post/fis120/57.png)
-> 
-> ![](/TheusZero/images/post/fis120/58.png)
-> 
-> ![](/TheusZero/images/post/fis120/59.png)
-> 
-> ![](/TheusZero/images/post/fis120/60.png)
-
-> ejercicios:
-
-#### forma fectorial
-
->> **Ejercicio:**
-> ![](/TheusZero/images/post/fis120/54.png)
-> ![](/TheusZero/images/post/fis120/56.png)
-
->> **Ejercicio:**
-> ![](/TheusZero/images/post/fis120/61.png)
-> ![](/TheusZero/images/post/fis120/62.png)
-> ![](/TheusZero/images/post/fis120/63.png)
-> ![](/TheusZero/images/post/fis120/64.png)
-> ![](/TheusZero/images/post/fis120/65.png)
-> ![](/TheusZero/images/post/fis120/66.png)
-
->> **Ejercicio:**
-> ![](/TheusZero/images/post/fis120/67.png)
-> ![](/TheusZero/images/post/fis120/68.png)
-> ![](/TheusZero/images/post/fis120/69.png)
-> ![](/TheusZero/images/post/fis120/70.png)
-> ![](/TheusZero/images/post/fis120/71.png)
-> ![](/TheusZero/images/post/fis120/72.png)
-> ![](/TheusZero/images/post/fis120/73.png)
-> ![](/TheusZero/images/post/fis120/74.png)
-
->> **Ejercicio:**
-> ![](/TheusZero/images/post/fis120/75.png)
-> ![](/TheusZero/images/post/fis120/76.png)
-> ![](/TheusZero/images/post/fis120/77.png)
-> ![](/TheusZero/images/post/fis120/78.png)
-
->> **Ejercicio:**
-> ![](/TheusZero/images/post/fis120/79.png)
-> ![](/TheusZero/images/post/fis120/80.png)
-> ![](/TheusZero/images/post/fis120/81.png)
-> ![](/TheusZero/images/post/fis120/82.png)
-> ![](/TheusZero/images/post/fis120/83.png)
-
