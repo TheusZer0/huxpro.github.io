@@ -16,7 +16,24 @@ tags:
     - C++
 ---
 
+## Programacion en java
+
+#### arrays Unidimensionales
+> ![](/TheusZero/images/post/POO/6.png)
+> ![](/TheusZero/images/post/POO/7.png)
+> ![](/TheusZero/images/post/POO/8.png)
+
+#### arrays bidimensionales o de muchas dimensiones
+> ![](/TheusZero/images/post/POO/10.png)
+> ![](/TheusZero/images/post/POO/11.png)
+> ![](/TheusZero/images/post/POO/12.png)
+
+#### for each
+> ![](/TheusZero/images/post/POO/9.png)
+
 ## Clases, objetos y comportamiento
+
+> ![](/TheusZero/images/post/POO/13.png)
 
 > Clases, forma generalizada (idea) para hablar de objetos ya que estas definen las caracterizticas generales de una clase objeto.
 >> objeto Patricio, clase Persona
@@ -24,7 +41,46 @@ tags:
 Estas clases tienen **atributos** que son generales (RUT, EDAD, etc) y tambien tenemos comportamientos llamados **metodos**, (caminar, comer, respirar, etc).
 Estos estaran definidos desde la clase.
 
-![](/TheusZero/images/post/POO/1.png)
+> por lo que, las clases son un conjunto de objetos con caracteristicas similares
+> ![](/TheusZero/images/post/POO/14.png)
+
+> Clase: es la definición de las características comunes a un conjunto de objetos. Las característica comunes son los atributos a considerar y el comportamiento de esos objetos.
+
+> Objeto: en POO un objeto es la representación en un programa de un objeto real. Esta representación define un nombre, un estado y un comportamiento para el objeto. Un objeto es una instancia de una Clase.
+
+> Atributo: es una un dato que permite almacenar parte del estado de un objeto. El conjunto de atributos de un objeto almacenan su estado.
+
+> Constructor: Código que define el valor inicial de un objeto al ser creado.
+
+#### creacion de clases y objetos
+
+> ![](/TheusZero/images/post/POO/15.png)
+
+> ![](/TheusZero/images/post/POO/16.png)
+
+> ![](/TheusZero/images/post/POO/17.png)
+
+> ![](/TheusZero/images/post/POO/18.png)
+
+> ![](/TheusZero/images/post/POO/19.png)
+
+> ![](/TheusZero/images/post/POO/20.png)
+
+
+#### Constructores
+
+> ![](/TheusZero/images/post/POO/21.png)
+>> O bien tambien puede quedar: 
+>> ![](/TheusZero/images/post/POO/22.png)
+> ![](/TheusZero/images/post/POO/23.png)
+
+#### metodos getter/setter
+
+> ![](/TheusZero/images/post/POO/24.png)
+
+
+
+
 
 ## Jerarquias de Clases: Herencia
 
