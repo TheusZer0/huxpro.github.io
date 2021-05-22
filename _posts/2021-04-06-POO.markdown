@@ -78,11 +78,7 @@ Estos estaran definidos desde la clase.
 
 > ![](/TheusZero/images/post/POO/24.png)
 
-
-
-
-
-## Jerarquias de Clases: Herencia
+#### Jerarquias de Clases: Herencia
 
 > la clase estudiante y profesor heredan de la clase persona atributos, por lo que hay una jerarquia que define a persona como un general del cual heredan atributos otras clases
 > ![](/TheusZero/images/post/POO/2.png)
@@ -90,4 +86,74 @@ Estos estaran definidos desde la clase.
 > ![](/TheusZero/images/post/POO/4.png)
 > ![](/TheusZero/images/post/POO/5.png)
 
+## Preguntas Certamenes
+
+> Explique por qué se recomienda reemplazar los “tabs” por espacios para indentar código fuente.
+>> Así la indentación se visualiza de igual forma en distintos editores y sus versiones impresas. El
+>> tamaño de cada tab es definido por el entorno, luego lo que se ve indentado en uno puede no
+>> estarlo en otro.
+
+> Nombre y explique tres características que comparten los lenguajes orientados a objetos.
+>> Herencia: la posibilidad de definir una clase o tipo de objeto a partir de la definición de otra.
+>
+>> Subtipo: la posibilidad de usar instancias de clases derivadas donde se espera una instancia de la
+>> clase base.
+> 
+>> Ligado dinámico: el código invocado ante un llamado es definido en tiempo de ejecución
+>> permitiendo así que el resultado dependa del objeto específico que recibe el llamado. En conjunto
+>> con subtipo, permite generar códigos reusables
+
+> La clase Timer está definida en java.util.Timer y en javax.swing.Timer. ¿Qué definición de import debe
+> hacer en su código para usar Timer del paquete java.util?
+>> import java.util.Timer;
+> ¿Cómo lo hace si además de esta clase, en su programa usted requiere crear instancias de Timer el paquete
+> javax.swing?
+>> Como antes al inicio uso:
+>> import java.util.Timer;
+>> Luego cada vez que desee usar una instancia de Timer de javax.swing, uso la versión completa
+>> para la clase, esto es:
+>> javaxswing.Timer miTiner; /* así cada vez que requiero referirme a instancias de esta clase*/
+
+> Alguien dice: “Sea emp una instancia de Empleado, al asignar emp=null; en todos los casos el espacio de
+> memoria referenciado por emp será recolectado por el recolector de basura de java. ¿Está de cuerdo? Explique.
+>> No, debido a que podemos tener más de un nombre para un objeto; es decir, pude haber más de
+>> una referencia apuntando a un objeto. El recolector de basura sólo recupera el espacio de memoria
+>> cuando no hay referencias a ese espacio
+
+> ![](/TheusZero/images/post/POO/25.png)
+
+> Alguien dice: “Si en un archivo tenemos definidas dos clases A y B, sólo una de ellas puede contener el
+> método public static void main (String argv[]) {….. }” ¿Está usted de acuerdo? Justifique.
+>> No estoy de acuerdo. El método main puede estar en más de una clase. Aquella que use al correr el
+>> programa definirá qué método main es usado.
+
+<details>
+  <summary>Ejemplo</summary>
+
+  ```
+  Funciona!
+  ```
+</details>
+
+> La clase C hereda de B, y B hereda de A. A posee un método protegido getPeso(), el cual no es redefinido
+> por B. ¿Es posible redefinir este método en C?
+>> Sí. Los métodos protegidos dan visibilidad a las clases derivadas.
+> Si su respuesta es afirmativa, ¿cómo podemos llamar la implementación de A de getPeso() desde algún
+>método de C?
+>> La invocación la haríamos con super.getPeso();
+>> Esto funciona pues la versión de getPeso() visible en la clase B es justamente aquella definida en A
+
+
+
+
+
+
+
+>  ¿Qué diferencia existe entre el operador == y el uso del método equals(…)?
+> Un estudiante revisa una clase y no encuentra en ella la implementación del método equals(…) ¿por qué
+> no se produce error al invocarlo sobre una instancia de esa clase?
+>> Diferencia entre == y método equals(…): El primero compara dos referencias, será verdadero si dos
+>> nombres (o referencias a objetos) se refieren al mismo objeto. El método equals(…) compara dos objetos por igualdad.
+>> No se produce error pues todo objeto hereda de la clase Object aunque no lo explicite. La clase Object
+>> implementa el método equals(…) por ello no hay error al invocarlo.
 
