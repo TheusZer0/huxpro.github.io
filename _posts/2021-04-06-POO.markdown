@@ -89,11 +89,11 @@ Estos estaran definidos desde la clase.
 ## Preguntas Certamenes
 
 > <details>
->  <summary>Ejemplo</summary>
->
->  ```
->  Funciona!
->  ```
+>   <summary>Ejemplo</summary>
+> 
+>   ```
+>   Funciona!
+>   ```
 > </details>
 
 > Explique por qué se recomienda reemplazar los “tabs” por espacios para indentar código fuente.
