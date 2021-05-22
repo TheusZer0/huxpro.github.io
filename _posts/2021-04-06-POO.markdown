@@ -88,6 +88,14 @@ Estos estaran definidos desde la clase.
 
 ## Preguntas Certamenes
 
+> <details>
+>  <summary>Ejemplo</summary>
+>
+>  ```
+>  Funciona!
+>  ```
+> </details>
+
 > Explique por qué se recomienda reemplazar los “tabs” por espacios para indentar código fuente.
 >> Así la indentación se visualiza de igual forma en distintos editores y sus versiones impresas. El
 >> tamaño de cada tab es definido por el entorno, luego lo que se ve indentado en uno puede no
