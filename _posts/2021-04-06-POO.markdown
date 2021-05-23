@@ -94,6 +94,27 @@ Estos estaran definidos desde la clase.
 > ![](/TheusZero/images/post/POO/4.png)
 > ![](/TheusZero/images/post/POO/5.png)
 
+#### clases y metodos abstractos:
+
+> Clase abstracta
+>> Se utilizan solo como super clases (clases padres)
+>
+>> No se pueden instanciar objetos, no puedes crear objetos
+>
+>> Sirve para proporcionar una clase padre apropiada a partir de la cual heredan otras clases, siendo estas otras clases hijas las que extenderan el funcionamiento de los metodos, es decir, que seran quienes expliquen el funcionamiento en base a codigo. La clase Padre solo dice que el metodo existe, pero no como es que sera llevado a cabo.
+>
+>> ![](/TheusZero/images/post/POO/30.png)
+>> ![](/TheusZero/images/post/POO/31.png)
+>> ![](/TheusZero/images/post/POO/32.png)
+>> ![](/TheusZero/images/post/POO/33.png)
+>> ![](/TheusZero/images/post/POO/34.png)
+>> ![](/TheusZero/images/post/POO/35.png)
+>> ![](/TheusZero/images/post/POO/36.png)
+
+
+
+
+
 ## Preguntas Certamenes
 
 > Explique por qué se recomienda reemplazar los “tabs” por espacios para indentar código fuente.
@@ -114,8 +135,7 @@ Estos estaran definidos desde la clase.
 > La clase Timer está definida en java.util.Timer y en javax.swing.Timer. ¿Qué definición de import debe
 > hacer en su código para usar Timer del paquete java.util?
 >> import java.util.Timer;
-> ¿Cómo lo hace si además de esta clase, en su programa usted requiere crear instancias de Timer el paquete
-> javax.swing?
+> ¿Cómo lo hace si además de esta clase, en su programa usted requiere crear instancias de Timer el paquete javax.swing?
 >> Como antes al inicio uso:
 >> import java.util.Timer;
 >> Luego cada vez que desee usar una instancia de Timer de javax.swing, uso la versión completa
@@ -162,6 +182,100 @@ Estos estaran definidos desde la clase.
 >> La sentencia import javax.swing.JOptionPane; se usa cuando deseamos crear instancias de la clase JOptionPane, como en:
 >> ```JOptionPane obj=new JOptionPane();``` Sí se puede omitir, pero cada vez que deseemos crear una instancia de esa clase debemos usar la especificación completa como en:
 >> ```javax.swing.JOptionPane obj=new javax.swing.JOptionPane();```
+
+> Alguien dice: un cuadrado es un rectángulo de lados iguales. Al ver la forma es-un,
+> piensa en herencia. Dé dos razones por las que no es bueno definir la clase Cuadrado como heredando de Rectángulo.
+>> Al hacerlo estaríamos usando más memoria de la necesaria para almacenar cuadrados.
+>
+>> Habría problemas al aplicar el principio de sustitución. Si un método espera un rectángulo para crear la portada de un libro, el método no podrá definir un alto distinto de un ancho si el objeto fuera instancia de cuadrado.
+
+> La expresión “hola”==”hola”, ¿es verdadera o falsa? Explique.
+>> Es verdadera. Los strings son objetos en Java, pero por tratarse de strings literales, es
+>> secuencia de caracteres entre “”, éstos quedan internos en la clase String y el
+>> compilador asocia una única referencia a iguales contenidos
+
+> Si las técnicas de orientación a objeto pueden dar solución a los mismos problemas que
+> los lenguajes no orientados a objetos, ¿Dé dos razones para su uso común en los lenguajes actuales?
+>> La orientación a objeto facilita la reutilización de código.
+> 
+>> La orientación a objeto facilita el trabajo en equipo
+
+> Juan instaló el JDK de java, Pedro instaló JRE. Mencione dos cosas que puede hacer Juan pero no Pedro.
+>> Juan puede compilar programas con javac.
+> 
+>> Juan puede extraer la documentación de un programa con javadoc
+
+>> Pregunta Importante
+> La clase B es derivada de A. En B redefinimos el método público getEdad() de A.
+> ¿Cómo podemos invocar getEdad() implementado por A desde otro método en B?
+> ¿Cómo desde este método en B podemos invocar getEdad() implementado en B?
+>> Para invocar implementación de A, en el método de B pongo: ```super.getEdad();``` // con esto invocamos la implementación de A.
+>
+>> Para invocar implementación de B, pongo: ```getEdad();``` // Así invocamos la implementación en B desde un método de B.
+
+> ¿Es posible impedir que un método sea redefinido en una clase derivada? Justifique.
+> Sí es posible, basta poner agregar el calificador final al método, como en: ```class A { public final int getEdad() {....} ....}```
+
+> a) Para un juego se le pide crear dados de N caras. Estos dados pueden tomar valores dentro del
+> conjunto {1,2,3,..., N}. Cree la clase Dado. Ésta permite definir el número de caras en su
+> constructor. Si no se señala, se asume 6 caras. Estos dados deben permitir ser lanzados y en
+> cualquier momento se puede consultar el valor del último lanzamiento del dado.
+> b) Desarrolle Juego, una aplicación Java que usa la clase definida en a) y muestra una interfaz
+> gráfica con un botón, el cual lanza un dado al ser presionado, y un área para mostrar el resultado
+> del lanzamiento. El número de caras es ingresado por consola vía un argumento en la línea de
+> ejecución de esta aplicación.
+> c) Señale qué cambio debe hacer a su clase Dado para implementar la interfaz Comparable
+> basado en el último lanzamiento de los dados.
+
+> ¿La Programación Orientada a Objeto es un tipo de programación Imperativa o Declarativa? Explique.
+>> La Programación Orientada a Objetos (POO) es Imperativa. En la programación Imperativa el
+>> programa señala cómo se debe llevar la computación. Éste es el caso de la POO.
+>> (Nota: En la programación declarativa se indica qué se debe hacer y las condiciones en las cuales se
+>> hace, pero no el cómo se debe hacer)
+
+> Defina con sus palabras los siguientes términos: instancia, clase heredada, principio de sustitución.
+>> Instancia es un objeto o ente específico que cumple con la descripción hecha en una clase.
+>> Clase heredada: es una clase definida a partir de otra más general llamada clase base, padre o
+>> superclase. Una clase heredada reutiliza el código y extiende la clase base haciéndola más específica.
+>> Principio de sustitución: es la propiedad de los objetos de poder tomar el lugar donde se esperaba uno de
+>> categoría más general. Se da entre instancias de clases derivadas donde se espera una de la base o de
+>> jerarquía superior. También se da entre instancias de una clases que toman el lugar donde se espera un
+>> objeto que cumpla una interfaz
+
+> ¿Qué hace posible que un mismo byte-code pueda correr en máquinas de distintas arquitecturas y distintos sistemas operativos?
+>> Esto se logra por la existencia de una Máquina Virtual Java (JVM) para cada par (arquitectura, sistema operativo).
+
+> Mencione dos usos de la palabra reservada “final”.
+>> “final” lo usamos para identificar que un atributo no puede cambiar su valor una vez asignado en su constructor. “final” también lo usamos para indicar que un método no puede ser redefinido en clases derivadas
+
+> ¿Por qué se dice que la relación es-un entre clases es una condición necesaria pero no suficiente para
+> identificar relación de herencia entre clases? ¿Qué condición adicional se debe cumplir para que identificar herencia?
+>> Es una condición necesaria pues la relación de herencia sólo se da cuando existe la relación es-un entre
+>> una instancia de la clase heredada y una instancia de la clase base. No es suficiente pues existen casos
+>> de relación es-un pero donde no hay herencia. Un ejemplo de esto es: un cuadrado es un rectángulo de
+>> lados iguales. Existe relación es-un pero no herencia.
+>> La condición adicional es cumplir el principio de sustitución. En el ejemplo previo el comportamiento de
+>> un rectángulo nos permite ensancharlo hasta que su ancho sea, por ejemplo, el doble de su alto. Si en su
+>> lugar usáramos un cuadrado, este comportamiento no es posible.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
