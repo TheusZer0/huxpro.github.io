@@ -224,7 +224,8 @@ programacion de graficas con JavaFX.
 #### Gráficas y Eventos
 
 > Oyente de acción (ActionListener)
->> 
+>> metodo que agrega un oyente de accion, es decir, que cuando suceda algo entonces accionara una respuesta, se usa para los botones de JavaFX
+> 
 
 ## Preguntas Certamenes
 
@@ -534,12 +535,150 @@ programacion de graficas con JavaFX.
 >> ```
 >> Retorna Source.
 
+> ¿En qué contexto en Java se usan los listeners? Haga un diagrama de secuencia para mostrar los pasos generales para su uso.
+>> Los listener se usan para registrar código a ejecutar ante la ocurrencia de un evento.
+>> ![](/TheusZero/images/post/POO/46.png)
 
+> ¿Describa por qué motivo se extiende JFrame en el contexto de los GUIs de Java? ¿Qué parte juegan los listeners en esta implementación?
+>> Se extiende JFrame porque ésta es una componente gráfica de nivel superior; es decir, puede
+>> existir por sí sola en un escritorio.
+>> Los listener llevan a cabo la ejecución de la lógica del programa cada vez que un evento ocurre.
+>> Otra respuesta es: los listener permiten implementar la programación conducida por eventos.
 
+> ¿Qué beneficios otorgan las excepciones? ¿Cuántos tipos hay y cuales son?
+>> El beneficio de las excepciones es separar las condiciones de error de la lógica principal de un
+>> segmento de código (o método).
+>> Hay de dos tipos, aquellas generadas por el lenguaje; por ejemplo, cuando se accede a una
+>> referencia null. El otro tipo son las incluidas por el programador.
 
+> ¿Las excepciones siempre tienen que ser capturadas? ¿Por qué? ¿En qué caso no es necesario
+> capturar una excepción? ¿En qué caso no es posible relanzar una excepción?
+>> No, por que una excepción también puede ser relanzada.
+>> No es necesario capturar excepciones cuando son generadas por el lenguaje (división por cero, etc).
+>> No es posible relanzar una excepción cuando estamos redefiniendo un método que no lo hace.
 
-
-
+> Para este código utilice instance of y Casteo para lograr que el arreglo staff almacene Managers y
+> Employees. También debe poder almacenar valores de bonus en staff de tipo Manager, debe poder
+> imprimir toda la información de staff (incluyendo el bono de los Managers). Debe modificar las clases
+> y métodos si es necesario.
+```java
+import java.util.*;
+public class Main {
+ public static void main(String[] args) {
+ Employee[] staff = new Employee[3];
+ // fill the staff array with Manager and Employee objects
+ staff[0] =
+ staff[1] =
+ staff[2] =
+ // using cast set bonus information for Manager staff to 9999
+ for (int i = 0; i < staff.length; i++) {
+ ...
+ }
+ // print out ALL information about all staff including Managers and Employees
+ for (int i = 0; i < staff.length; i++) {
+ ...
+ }
+ }
+}
+class Employee {
+ public Employee(String n, double s,
+ int year, int month, int day) {
+ name = n;
+ salary = s;
+ GregorianCalendar calendar = new GregorianCalendar(year, month - 1, day);
+ // GregorianCalendar uses 0 for January
+ hireDay = calendar.getTime();
+ }
+ ...
+}
+class Manager extends Employee {
+ public Manager(String n, double s,
+ int year, int month, int day) {
+ super(n, s, year, month, day);
+ bonus = 0;
+  }
+ ...
+ private double bonus;
+}
+```
+> Solucion
+```java
+import java.util.*;
+/**
+ * @author tomas agustin
+ */
+public class Main {
+ public static void main(String[] args) {
+ Employee[] staff = new Employee[3];
+ // fill the staff array with Manager and Employee objects
+ staff[0] = new Manager("Carl Cracker", 80000, 1987, 12, 15); 4 pts
+ staff[1] = new Employee("Harry Hacker", 50000, 1989, 10, 1);
+ staff[2] = new Employee("Tommy Tester", 40000, 1990, 3, 15);
+ // using cast set bonus information for Manager staff to 9999
+ for (int i = 0; i < staff.length; i++) {
+ if (staff[i] instanceof Manager) { 5 pts
+ Manager m = (Manager) staff[i];
+ m.setBonus(9999);
+ }
+ }
+ // print out information about all staff
+ for (int i = 0; i < staff.length; i++) {
+ Employee e = staff[i]; 8 pts.
+ System.out.print("name=" + e.getName() + ",salary=" + e.getSalary());
+ if (e instanceof Manager) {
+ Manager m = (Manager) e;
+ System.out.print(",bonus=" + m.getBonus());
+ }
+ System.out.println();
+ }
+ }
+ }
+}
+class Employee {
+ public Employee(String n, double s,
+ int year, int month, int day) {
+ name = n;
+ salary = s;
+ GregorianCalendar calendar = new GregorianCalendar(year, month - 1, day);
+ // GregorianCalendar uses 0 for January
+ hireDay = calendar.getTime();
+ }
+ public String getName() { 4 pts resto de clase
+ return name;
+ }
+ public double getSalary() {
+ return salary;
+ }
+ public Date getHireDay() {
+ return hireDay;
+ }
+ public void raiseSalary(double byPercent) {
+ double raise = salary * byPercent / 100;
+ salary += raise;
+ }
+ private String name;
+ private double salary;
+ private Date hireDay;
+}
+class Manager extends Employee {
+ public Manager(String n, double s,
+ int year, int month, int day) {
+ super(n, s, year, month, day);
+ bonus = 0;
+ }
+ public double getSalary() { 4 pts resto de clase
+ double baseSalary = super.getSalary();
+ return baseSalary + bonus;
+ }
+ public void setBonus(double b) {
+ bonus = b;
+ }
+ public double getBonus() {
+ return bonus;
+ }
+ private double bonus;
+}
+```
 
 
 
