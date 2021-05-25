@@ -680,6 +680,462 @@ class Manager extends Employee {
 }
 ```
 
+> Modifique el código anterior para tener una clase abstracta base que se llame Person. En main
+> utilice un ```ArrayList<Person> persons = new ArrayList<Person>();``` para contener los Employees y
+> Managers. Replique la funcionalidad de main del problema 9 con el ArrayList, muestre los cambios
+> del código.
+```java
+abstract class Person
+{
+...
+}
+class Employee extends Person
+{
+...
+}
+class Manager extends Person
+{
+…
+}
+```
+> Solucion
+```java
+import java.util.*;
+public class Main {
+ public static void main(String[] args) {
+ ArrayList<Person> persons = new ArrayList<Person>();
+ // fill the persons list with Manager and Employee objects
+ persons.add(new Manager("Carl Cracker", 80000, 1987, 12, 15)); 4 pts.
+ persons.add(new Employee("Harry Hacker", 50000, 1989, 10, 1));
+ persons.add(new Employee("Tommy Tester", 40000, 1990, 3, 15));
+ // using list set bonus information for Manager staff to 9999
+ for (int i = 0; i < persons.size(); i++) {
+ if (persons.get(i) instanceof Manager) { 3 pts.
+ Manager m = (Manager) persons.get(i);
+ m.setBonus(9999);
+ }
+ }
+ for (int i = 0; i < persons.size(); i++) {
+ persons.get(i).print(); 6 pts.
+ }
+ }
+}
+abstract class Person {
+ abstract void print();
+}
+class Employee extends Person {
+public Employee(String n, double s, int year, int month, int day) {
+ name = n;
+ salary = s;
+ GregorianCalendar calendar = new GregorianCalendar(year, month - 1, day);
+ // GregorianCalendar uses 0 for January
+ hireDay = calendar.getTime();
+ }
+ public String getName() {
+ return name;
+ }
+ public double getSalary() {
+ return salary;
+ }
+ public Date getHireDay() {
+ return hireDay;
+ }
+ public void raiseSalary(double byPercent) {
+ double raise = salary * byPercent / 100;
+ salary += raise;
+ }
+ public void print() { 4 pts
+ System.out.println("name=" + name + ",salary=" + salary);
+ }
+ private String name; 2 pts atributos
+ private double salary;
+ private Date hireDay;
+}
+class Manager extends Person {
+ public Manager(String n, double s, int year, int month, int day) {
+ bonus = 0;
+ name = n;
+ salary = s;
+ GregorianCalendar calendar = new GregorianCalendar(year, month - 1, day);
+ // GregorianCalendar uses 0 for January
+ hireDay = calendar.getTime();
+ }
+ public String getName() {
+ return name;
+ }
+ public Date getHireDay() {
+ return hireDay;
+ }
+ public void raiseSalary(double byPercent) {
+ double raise = salary * byPercent / 100;
+ salary += raise;
+ }
+ public double getSalary() {
+ return salary + bonus;
+ }
+ public void setBonus(double b) {
+ bonus = b;
+ }
+ public double getBonus() {
+ return bonus;
+ }
+ public void print() { 4 pts
+ System.out.println("name=" + name + ",salary=" + salary+ ",bonus=" + bonus);
+ }
+ private double bonus; 2 pts por atributos
+ private String name;
+ private double salary;
+ private Date hireDay;
+}
+```
+> [ejercicios aca, tambien hay uno con MouseHandler](http://profesores.elo.utfsm.cl/~agv/elo329/1s13/grades/C1_1s13_Sol.pdf)
+
+> ¿Cuál es la diferencia entre un objeto real y un modelo de un objeto real? ¿Qué debemos incluir en el modelo?
+>> El modelo de un objeto real imita o representa algunas de las características del objeto real. (La realidad es
+>> muy compleja para ser representada en su totalidad.)
+>> El modelo debe incluir lo necesario para obtener resultados que semejen la realidad dentro del grado de
+>> precisión deseado
+
+> Indique qué respondería si en una entrevista de trabajo el preguntan ¿Qué es herencia?
+>> Herencia es un mecanismo que permite definir una clase extendiendo la definición de otra.
+>> Para que haya herencia debe existir la relación “es-un” y la propiedad de subtipo entre ambas clases.
+
+> Si en la creación de una clase, un programador opta por un nombre de archivo distinto al de la clase ¿se genera
+> algún problema? Refiérase al caso en que la compilación es por consola y considere dos casos: i) la clase
+> incluye el método main, ii) la clase es usada por la aplicación pero no incluye el método main.
+>> Sí se genera un problema. Casos:
+> 
+>> i) El comando para compilar debe usar el nombre del archivo, pero el comando para ejecutar debe usar el
+>> nombre de la clase.
+> 
+>> ii) En este caso el problema es mayor pues la compilación de la aplicación arroja error al no encontrar la
+>> implementación de la clase por usar otro nombre en el archivo. El usuario deberá compilar esa clase primeroo
+>> y luego otras que la ocupen.
+> 
+>> (Nota: En ambos casos no es algo recomendado.)
+
+> Un amigo le pide ayuda para superar el siguiente error de compilación:
+> ```Python
+> agustin@agustin-Satellite-P55-A:~/teaching/elo329/1s14/Assignments/T2/source$ javac Etapa1/PhysicsLab.java
+> Etapa1/PhysicsLab.java:25: error: cannot find symbol
+> private void createConfiguration(MyWorld world) {
+> ^
+> symbol: class MyWorld
+> location: class PhysicsLab_GUI
+> ```
+> Si su amigo no puede cambiar el comando para compilar ¿qué consejo de da usted?
+>> Debe configurar la variable de ambiente CLASSPATH parra incluir en ella el directorio donde se encuentre el código fuente.
+
+> ![](/TheusZero/images/post/POO/47.png)
+
+> ¿Cuándo debemos poner la palabra reservada “throws” en la declaración de un método? Por ejemplo en:
+> ```public void doio (InputStream in, OutputStream out) throws IOException {...}```
+>> Se debe poner cuando el método invoca código que puede generar excepciones y no utiliza la sentencia trycatch. También se debe utilizar cuando el código del método lanza expeciones con sentencia throw.
+
+> Un programador afirma: “Cuando existen clases anónimas en una aplicación, no existirá archivo separado .class para esa clase” ¿Está usted de acuerdo? Justifique.
+>> No. El compilador genera un archivo .class por cada clase anónima o no del código. La clase anónima
+>> aparecerá con el nombre de la clase que la contiene seguido de un punto y un número.
+
+> Desarrolle una aplicación gráfica en Java que muestre un texto indicando el estado del botón izquierdo del mouse
+> (presionado o no) y otro texto para indicar si el mouse se ha arrastrado (drag). El arrastrado concluye cuando el
+> botón izquierdo es liberado.
+```java
+import java.awt.event.*;
+import javax.swing.*;
+import java.awt.event.MouseAdapter;
+import java.awt.BorderLayout;
+public class MouseTest extends JFrame { // 5 puntos constructor
+ MouseTestGUI gui = new MouseTestGUI(); // pudo ir en constructor
+ public MouseTest() {
+ setTitle("Mouse Test");
+ setSize(200,50);
+ setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+ getContentPane().add(gui);
+ setVisible(true);
+ }
+ public static void main( String[] args) { // 5 puntos
+ MouseTest mimic = new MouseTest();
+ }
+}
+class MouseTestGUI extends JPanel {
+ private JLabel pressedState = new JLabel("Mouse State"); // 5 puntos atributos
+ private JLabel draggedState = new JLabel("Dragging State");
+ public MouseTestGUI() { // 5 puntos constructor
+ super(new BorderLayout()); // it's OK defaut layout manager
+ add(pressedState,BorderLayout.PAGE_START);
+ add(draggedState, BorderLayout.CENTER);
+
+ MouseAdapter listener = new MouseAdapter(){ // 9 puntos implementación de listeners
+ public void mousePressed(MouseEvent e) {
+ if (e.getButton()==MouseEvent.BUTTON1) // it's Ok if missing.
+ pressedState.setText("Mouse Pressed");
+ }
+ public void mouseDragged(MouseEvent e) {
+ draggedState.setText("Dragging Mouse");
+ }
+ public void mouseReleased(MouseEvent e) {
+ draggedState.setText("Not Dragging");
+ pressedState.setText("Mouse Released");
+ }
+ };
+ addMouseMotionListener(listener); // 5 puntos registro de listeners
+ addMouseListener(listener);
+ }
+}
+```
+
+> ¿Qué diferencia hay entre programación imperativa y declarativa? ¿A cuál de ellas corresponde la
+> programación orientada a objetos? Justifique
+>> En la programación declarativa se especifica el resultado deseado y no la forma de obtenerlo, en cambio
+>> en programación imperativa se indican los pasos para obtener el resultado.
+>> La programación orientada a objetos es imperativa.
+
+> Indique qué respondería si en una entrevista de trabajo le preguntan ¿Qué es ligado dinámico?
+> ¿Existe o no relación entre ligado dinámico y la programación genérica? ¿Si existe, cuál sería esa
+> relación; si no, explique?
+>> Ligado dinámico es una propiedad de los lenguajes orientados a objetos que consiste en la determinación
+>> en tiempo de ejecución del código a ejecutar ante la invocación de un método. Este código queda definido
+>> por el objeto que recibe la invocación y no por la referencia usada para invocar el método.
+>> Sí existe relación. Gracias al ligado dinámico es posible tener métodos genéricos, lo cual hace posible la
+>> reutilización de código.
+>> Nota: Ejemplo: el método para ordenar datos dentro de un arreglo sólo requiere que sus elementos sean
+>> comparables según cada clase de objeto lo defina
+
+> En un archivo Java se ocupa la instancia t1 de la clase Timer del paquete javax.swing, y la instancia
+> t2 de la clase Timer del paquete java.util. Suponga que éstos son los únicos objetos del archivo.
+> Muestre qué pondría usted en la sección “import” y las instrucciones usadas por usted para crear las
+> instancias t1 y t2. Para t1 use constructor Timer(int delay, ActionListener listener), pata t2 use
+> constructor por omisión.
+```
+Bajo inport no iría código.
+javax.swing.Timer t1 = new javax.swing.Timer( “delay”, myListener); /* siendo myListener un
+objeto subtipo de ActionListener */
+java.util.Timer t2 = new java.util.Timer();
+```
+
+> Un compañero le pregunta: “¿Cómo sé si debo o no redefinir el método clone de una clase para
+> generar copias de instancias de esa clase?” ¿Cuál sería su respuesta?
+>> Se debe redefinir el método clone si la clase tiene objetos no instancias de String como atributos y el
+>> problema requiere usar semántica equivalente a copia profunda
+
+> ¿Cuál es la función de los layout manager? ¿En qué clase se especifica cuál usar?
+>> Su función es facilitar la organización del espacio en una interfaz gráfica de manera que ante cambios de
+>> tamaño de la ventana la posición de los objetos sea la deseada.
+>> Se especifica en la instancia de la clase panel.
+
+> Mencione dos ventajas de la incorporación de manejo de excepciones en lenguajes orientados a
+> objetos, respecto de lenguajes no orientados a objetos como C.
+>> El código que implementa la lógica del programa se separa del código para atender las condiciones
+>> de excepción. Esto facilita la claridad y mantención del código.
+>> Varias situaciones de error pueden ser agrupadas y manejadas en forma conjunta.
+
+> ¿Qué diferencia existe entre una clase anidada estática de aquella anidada no estática?
+>> Si tenemos la clase A y la clase B anidada dentro de A. Dé un ejemplo de creación de una instancia
+>> de B cuando ésta está definida como estática.
+>> La clase anidada no estática puede acceder a todos los métodos y atributos de la clase anfitriona. Las
+>> clases anidadas estáticas sólo pueden acceder a métodos estáticos de la clase anfitriona.
+>> Ejemplo: ```A.B b = new A.B();```
+
+> Defina método, atributo y referencia en un lenguaje orientado a objetos como Java.
+>> Método: es el miembro función de una clase. Es el que permite modelar el comportamiento de una clase.
+> 
+>> Atributo: es un miembro dato de una clase. El conjunto de atributos permiten almacenar el estado de un objeto.
+> 
+>> Referencia: es el nombre con el cual identificamos un objeto específico. Usamos la referencia para acceder a los métodos y atributos de un objeto específico.
+
+> ¿Qué condición (es) se debe(n) cumplir para que haya una relación de herencia entre dos clases?
+> Mencione dos clases donde haya relación de herencia y explique cómo se cumple esta(s)
+> condición(es).
+>> Se deben satisfacer dos condiciones: debe existir una relación es-un entre ellas y además debe haber una
+>> relación de subtipo entre ambas.
+>> La clase Bola hereda de ElementoFisico. Se cumple relación es-un debido a que una Bola es un Elemento
+>> Físico. Además, si se requiere un elemento físico, una bola puede cumplir ese rol de buena forma al tener
+>> las propiedades esperadas para un elemento físico.
+
+> Explique dos características de Java que no estaban presentes en C++ y cómo la Máquina Virtual
+> Java ayuda en ello.
+>> Java es un lenguaje interpretado y multiplataforma.
+>> Java no se generan “fugas de memoria” (Memory leaks).
+>> La JVM (Java Virtual Machine) permite la multiplataforma al disponer de una específica para cada
+>> plataforma y como las aplicaciones Java son interpretadas por la JVM, se logra que cualquier aplicación
+>> pueda correr en cualquier plataforma.
+>> La JVM efectúa una recolección de basura (Garbage collection) en la que recupera los espacios de
+>> memoria luego que éstos son inaccesibles para la aplicación
+
+> IMPORTANTE
+> Indique si el siguiente código tiene algún problema. Muestre los comandos que usaría para compilar
+```Java
+public class FirstSample {
+ private course = "ELO329";
+ public static void main(String[ ] args){
+ System.out.println("Hello " + course);
+ }
+}
+```
+>
+>>Sí tiene problema. El atributo course no tiene clase asociada (String) y es propio de una instancia de la
+>>clase FirstSample y no puede ser accedido desde el método estático main. Hasta ese momento no se ha
+>>creado ninguna instancia de FirstSample. Los métodos estáticos solo pueden acceder a atributos estáticos.
+> 
+>>Para compilar: $ javac FirstSample.java
+> 
+>>Para ejecutar: $ java FirstSample
+
+>¿En qué situaciones se utiliza el bloque de inicialización estática? Un ejemplo de ello es:
+```java
+static {
+Random generator = new Random();
+nextId = generator.nextInt(10000);
+}
+```
+>> Se ocupa para dar el valor inicial a variables estáticas y en especial cuando ello requiere la ejecución de varias instrucciones del lenguaje.
+
+> IMPORTANTE
+> Para el código: ClassA a = new ClassB();
+> i) Indique qué relación debe existir entre ClassA y ClassB para que la instrucción sea válida.
+>>La clase ClassB debe heredar de la clase ClassA en forma directa o indirecta a través de otras clases intermedias.
+> ii) ¿Qué métodos y de qué clase puedo invocar usando la referencia a?
+>> Con la referencia a se puede invocar cualquier método de la clase ClassA o de cualquiera de las
+>> clases superiores de las cuales la clase ClassA hereda.
+> iii) ¿Si un mismo método público aparece implementado en ambas clases, el código de qué clase se ejecuta?
+>>Se ejecuta el código de la clase ClassB, excepto que el método sea privado en ClassA, en cuyo caso se ejecuta la implementación de ClassA.
+
+> ¿Qué es la programación basada, dirigida o conducida por eventos? ¿Podrá su programa atender
+> varios eventos si al generarse uno de ellos, el método invocado se queda en un loop infinito?
+>> La programación conducida por eventos es aquella donde el programador accede a un mecanismo (creado
+>> por él o el lenguaje) para registrar objetos asociados a eventos de interés. Luego ante la llegada de un
+>> evento, ese mecanismo invoca el método que corresponda del objeto registrado para ese evento.
+>> No. En un loop infinito no se pueden atender, en general, otros eventos (a menos que usemos hebras)
+
+> Un amigo le hace entrega del archivo Final.jar que contiene todas las clases de una aplicación; sin
+> embargo, no incluye el archivo manifiesto. Además le indica que la clase “Principal” contiene el
+> método main. Muestre el comando que le permite ejecutar la aplicación.
+> Suponga ahora que su jefe le pide que la aplicación se pueda ejecutar usando $java -jar Principal.jar
+> Explique los pasos para generaría el archivo Principal.jar
+```python
+$java -cp Final.jar Principal
+Una opción para generar el archivo Principal.jar se:
+* Expandir todos los archivos .class presentes en Final.jar
+  ($ jar xf Final.jar)
+* Crear un archivo de manifiesto que especifique cuál es la clase que contiene el main.
+  ($ echo “Main-class: Principal” > manifiesto.mf)
+* Volver a generar ell archivo jar incluyendo el archivo de manifiesto.
+  ($ jar cmf manifiesto.mf Principal.jar *.class )
+  Nota: los comandos entre paréntesis no son pedidos en la pregunta.
+```
+
+>IMPORTANTE
+> ¿Por qué al invocar un atributo no estático desde un método estático de la misma clase se genera un error de compilación?
+>> Hay error de compilación porque los métodos estáticos pueden ser invocados sin existir previamente un
+>> objeto creado con lo cual no existe aún ese atributo. Otra razón para prohibir este acceso es que aún
+>> existiendo varios objetos previamente creados, la invocación de un método estático vía en nombre de la clase
+>> no permite identificar el objeto para el cual su atributo debe ser usado.
+>> Nota: no es del todo completa la respuesta si usted dice: No es posible porque desde un método estático sólo
+>> se puede acceder a atributos estáticos
+
+> Para las dos clases dadas implemente el método equals, el cual redefine el de la clase Object.
+>> ![](/TheusZero/images/post/POO/48.png)
+> Preguntar
+
+> IMPORTANTE
+> En un archivo Java podemos definir varias clases. ¿Por qué el compilador pide crear un archivo por cada
+> clase cuando las clases llevan calificador de visibilidad public?
+>> Las clases públicas pueden ser accedidas desde fuera del archivo que las contiene. Si ponemos dos clases públicas en un archivo, el compilador no podrá encontrar el archivo que contiene la descripción de una de
+>> ellas cuando ésta es usada en otro archivo.
+
+> En el contexto de programación gráfica en Java ¿cuál es la diferencia entre el modelo y la vista? Dé un
+> ejemplo en el cual un mismo modelo puede estar asociado a más de una vista.
+>> El modelo es el conjunto de atributos que representan a un objeto en memoria, mientras que la vista es la
+>> representación visual de las características contenidas en el modelo.
+>> Ej: Un termómetro es modelado a través de su atributo “temperatura”, sin embargo visualmente se puede ver
+>> como un termómetro de mercurio o un termómetro digital (u otros tipos de termómetros).
+
+> IMPORTANTE
+> Considere las siguientes clases ya definidas:
+> ![](/TheusZero/images/post/POO/49.png)
+> ¿En qué contexto se justificaría la creación de la super clase “Animales”? ¿En qué contexto no se
+> justifica? Dé un ejemplo de cada caso (no se pide código, sólo explicar cada ejemplo.
+>> Una de las ventajas de crear súper clases es evitar la duplicidad de código y favorecer el mantenimiento. Sin
+>> embargo, en este caso, si bien, se podría argumentar que ambas clases tienen en común que son animales, en
+>> cuanto a su implementación no tienen elementos en común.
+>> Considerando esto como base, no se justificaría la creación de una clase animales si estas clases
+>> efectivamente son utilizadas en contextos dentro del código distintos.
+>> En caso de que sí sean utilizadas en un mismo contexto dentro del código y que además sea necesaria la
+>> agrupación de estas clases, entonces sí se justificaría la creación de la clase padre animales.
+>> 
+>> Algunos ejs. de creación clase animales:
+>> • Se necesita agrupar tanto perros como gatos en un arreglo de animales
+>> • Existe un método que recibe animales como entrada, pudiendo ser tanto perros como gatos
+>> 
+>> Alugnos ejs. de no creación de clase animales:
+>> • Existen métodos separados para recibir gatos y perros
+>> • No sea necesaria ningún tipo de agrupación de animales en el programa
+
+> En el contexto de programación genérica, cree un método estático insertar(pos, a, arr) que inserte un
+> elemento a en la posición pos de un arreglo java arr, siempre y cuando pos sea una posición válida. Si
+> la posición es válida, luego de insertar el elemento se retorna true, en caso contrario, se retorna false.
+> El arreglo arr puede contener elementos de cualquier clase. Solo debe escribir el código asociado al
+> método, no es necesario escribir la definición de clase.
+> ```java
+> Ej. de uso: /* Uso: GenericClass.insertar(pos,a,arr); */
+> Integer[] arr = {1,2,3,4,5,6,7,8}; // arr = [1, 2, 3, 4, 5, 6, 7, 8]
+> int a = 10;
+> System.out.print(GenericClass.insertar( 0, a, arr)); // arr = [10, 2, 3, 4, 5, 6, 7, 8], imprime true
+> System.out.print(GenericClass.insertar(15, a, arr)); // arr = [10, 2, 3, 4, 5, 6, 7, 8], imprime false
+> ```
+>> ```java
+>> public static boolean insertar(int pos, Object a, Object[] arr){
+>> if(pos >= 0 && pos < arr.length){
+>> arr[pos] = a;
+>> return true;
+>> }
+>> return false;
+>> }
+>> ```
+
+> IMPORTANTE
+> ¿Puede una clase abstracta heredar de otra clase abstracta? ¿Puede una interfaz implementar otra
+> interfaz? Justifique.
+>> Una clase abstracta SÍ puede heredar de otra clase abstracta. Una clase abstracta es una clase cuya
+>> única diferencia con el resto es que nunca será instanciada y que tiene al menos un método no
+>> implementado. Respetando esta definición, cumple con las mismas características de cualquier clase Java,
+>> por lo que no hay ninguna restricción para que se cumpla herencia entre ellas.
+>
+>> Una interfaz NO puede implementar otra interfaz. Una interfaz es la descripción de uno o más métodos
+>> que alguna clase puede ofrecer. Utilizar una interfaz implica la implementación de la misma, y por tanto, de
+>> los métodos definidos en ella. Una interfaz no sería capaz de implementar los métodos que ofrezca otra
+>> interfaz (por definición, una interfaz no tiene ningún método implementado), por lo que es incompatible
+>> implementar una en la otra.
+
+> Desarrolle el programa DragMe.java. Cuando se ejecute este programa, aparecerá una
+> ventana con un elemento gráfico de tipo rectángulo en la esquina superior izquierda de la misma.
+> Este rectángulo puede ser arrastrado libremente usando el mouse.
+> Para arrastrarlo, se debe hacer click con el botón del mouse en cualquier punto interior del rectángulo y, sin
+> soltarlo, mover el mouse con el rectángulo a la nueva posición deseada para luego soltar el botón del mouse.
+> La posición del centro del rectángulo deberá coincidir con la última posición del mouse antes de soltar el
+> botón.
+> El programa finaliza al cerrar la ventana principal.
+> Características del programa:
+> - La ventana tendrá dimensiones de 300 pixeles de ancho y 200 pixeles de alto
+> - El rectángulo tendrá dimensiones de 100 pixeles de ancho y 30 pixeles de alto
+>> [RESPUESTA](http://profesores.elo.utfsm.cl/~agv/elo329/1s17/grades/C1_1s17_Sol.pdf)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
