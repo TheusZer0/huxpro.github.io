@@ -111,7 +111,54 @@ Estos estaran definidos desde la clase.
 >> ![](/TheusZero/images/post/POO/35.png)
 >> ![](/TheusZero/images/post/POO/36.png)
 
+#### Interfaces
 
+![](/TheusZero/images/post/POO/39.png)
+
+> colecciones de metodos abstractos y propiedades constantes, en que se especifican que se hara, es decir, que definen metodos pero sin cuerpo, dictan que se hara, pero no como se implementara.
+> Las clases hijas deeben definir el comportamiento de todo metodo abstracto
+>> ![](/TheusZero/images/post/POO/37.png)
+
+
+> Clase abstracta vs Intefaz
+>> la principal diferencia entre una clase abstracta y una normal, es que la clase abstracta tiene almenos (por obligacion) un metodo abstracto
+>>> metodo abstracto = no posee cuerpo, es un metodo que solo define que existe, pero que no tiene que cuerpo, es decir, que no explica que se hara.
+> Como java no permite la herencia multiple, son las interfaces las que se usan, siendo estas contratos donde se estipula que se debe hacer en cada tarea y seran las clases hijas las encargadas de realizar estas tareas. 
+
+#### metodo copiar, Copia baja y profunda
+
+**Copia baja** es aquella donde la **copia de un objeto** se efectúa **copiando el valor de sus atributos** y **cuando
+un atributo es un objeto sólo se copia su referencia**, como consecuencia **en copia baja los atributos
+objetos son compartidos entre el objeto original copiado y su destino**.
+
+Copia profunda es aquella donde la copia de un objeto sólo copia los atributos escalares (no objetos) y
+los objetos inmutables (que no pueden cambiar) y para aquellos objeto mutables se generan copias
+profundas de cada uno. De este modo se genera una nueva versión del objeto que no comparte objetos
+mutables con el objeto copiado.
+
+El método clone() implementa copia baja
+
+![](/TheusZero/images/post/POO/41.png)
+
+>> Copia profunda: todas las variables del objeto copiado contienen el mismo valor que el objeto original, excepto aquellas variables que se refieren a otros objetos. Las variables que se refieren a otros objetos apuntarán a los objetos nuevos copiados y ya no serán los objetos referenciados originales. En otras palabrasCopia profunda copia los objetos a los que hace referencia el objeto a copiar
+>
+>> Copia superficial:Todas las variables del objeto copiado tienen el mismo valor que el objeto original, mientras que todas las referencias a otros objetos todavía apuntan al objeto original. En otras palabrasLa copia superficial solo copia el objeto en cuestión, no los objetos a los que hace referencia.
+
+El método clone() existe con acceso protegido en la clase Object.
+
+Para invocarlo sobre un objeto se requiere que la clase del
+objeto implemente la interfaz Cloneable, lo cual significa que
+debemos redefinir el método clone.
+
+Para generar un clone correcto, debemos hacerlo invocando
+el método clone de la clase Object.
+
+El método clone de Object crea y retorna un objeto con igual
+estructura al objeto llamado e inicializa todos sus campos
+con el mismo contenido de los campos del objeto llamado.
+Los contenidos de cada campo no son clonados (hasta aquí
+se le llama copia baja), luego para una copia completa
+(profunda) se debe llamar el método clone de cada atributo.
 
 
 
@@ -257,6 +304,76 @@ Estos estaran definidos desde la clase.
 >> La condición adicional es cumplir el principio de sustitución. En el ejemplo previo el comportamiento de
 >> un rectángulo nos permite ensancharlo hasta que su ancho sea, por ejemplo, el doble de su alto. Si en su
 >> lugar usáramos un cuadrado, este comportamiento no es posible.
+
+> Mencione dos semejanzas entre clases abstractas e interfaces en Java. Mencione una diferencia entre ambas.
+>> Semejanzas: No podemos crear instancias de clases abstractas ni de interfaces. Las clases abstractas y
+>> las interfaces poseen métodos no implementados.
+> 
+>> Diferencia: Una clase pude derivar de sólo una clase abstracta, pero puede implementar múltiples
+>> interfaces.
+
+>> ¿Qué imprime el programa Test?
+> ![](/TheusZero/images/post/POO/40.png)
+>> Preguntar por el ultimo ```A aa = (A)a; aa.quienSoy();```
+
+> Reescriba el programa adjunto para crear una versión que no haga uso de clases internas ni clases anónimas
+> ```java
+>     public class CreaBotones {
+>      public static void main(String[] args) {
+>      CreaBotonesFrame frame = new CreaBotonesFrame();
+>      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+>      frame.setVisible(true);
+>       }
+>     }
+>     class CreaBotonesFrame extends JFrame {
+>      public CreaBotonesFrame() {
+>      setSize(250, 150);
+>      CreaBotonesPanel panel = new CreaBotonesPanel();
+>      Container contentPane = getContentPane();
+>      contentPane.add(sp);
+>       }
+>     }
+>     class CreaBotonesPanel extends JPanel {
+>      public CreaBotonesPanel() {
+>      creaBoton();
+>       }
+>      private void creaBoton() {
+>      JButton boton = new JButton("Crea Boton");
+>      boton.addActionListener( new ActionListener (){
+>      public void actionPerformed(ActionEvent event) {
+>      creaBoton();
+>       };
+>      });
+>      add(boton);
+>      validate();
+>       }
+>     }
+> ```
+>> ![](/TheusZero/images/post/POO/42.png)
+
+> ¿Qué pasos involucra el diseño e implementación orientados a objetos?
+>> Identificar los objetos relevantes del problema a resolver. Cada categoría de objetos da origen a una clase.
+>> Identificar la relación entre las clases.
+>> Identificar los atributos y comportamientos o servicios que éstas deben cumplir.
+>> Implementar cada uno de los comportamientos o servicios, eventualmente haciendo uso de los servicios ofrecidos
+>> por otras clases de objetos.
+
+> Además de mantener el nombre del método y sus parámetros ¿En qué otra(s) cosa(s) debemos poner atención al redefinir un método presente en una clase base?
+>> Debemos fijarnos que si retornamos un objeto, éste debe ser instancia de la misma clase del método a redefinir o bien instancia de una clase derivada de ésta.
+> 
+>> También debemos fijarnos en mantener las excepciones, si éstas no son lanzadas, en la redefinición no podemos
+>> lanzar excepciones.
+
+> ¿Es posible tener un programa con implementaciones para el método main en dos clases? Explique por qué no o cómo se usaría tal cosa.
+>> Sí es posible.
+>
+>> Cómo se usaría: Se crean métodos main en dos clases distintas, luego al compliar se generarán los dos .class
+>> correspondientes. Para correr cada versión de main, usamos el nombre de la clase correspondiente como
+>> parámetro de la máquina virtual Java.
+
+> ¿Qué debemos hacer para dar sentido a la salida: System.out.print(persona); cuando persona es un objeto?
+>> Basta redefinir el método toString en la clase correspondiente a persona.
+
 
 
 
