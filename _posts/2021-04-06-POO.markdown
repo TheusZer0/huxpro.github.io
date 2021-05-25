@@ -374,7 +374,16 @@ se le llama copia baja), luego para una copia completa
 > ¿Qué debemos hacer para dar sentido a la salida: System.out.print(persona); cuando persona es un objeto?
 >> Basta redefinir el método toString en la clase correspondiente a persona.
 
-
+> Como atributo de una clase se tiene static final double valorDolar, cuyo valor es leído desde teclado ¿cómo se debe
+> programar tal inicialización? (puede usar pseudo código para la lectura de teclado).
+> En la clase donde esta constante está incluir una inicialización estática, del tipo:
+> ```java
+> static final double valorDolar;
+> static {
+> Scanner s = new Scanner(System.in);
+> valorDolar = s.nextDouble();
+> }
+> ```
 
 
 
