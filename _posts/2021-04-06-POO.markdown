@@ -16,7 +16,11 @@ tags:
     - C++
 ---
 
-## Programacion en java
+## Programacion en java codigo
+
+[Curso Java Intermedio - La Geekipedia De Ernesto](https://www.youtube.com/watch?v=TjrPp48_ms0&list=PLyvsggKtwbLXEZjb8HrNTbWesTKIfpNak)
+
+[Curso Java - Programacion ATS](https://www.youtube.com/watch?v=2ZXiuh0rg3M&list=PLWtYZ2ejMVJkjOuTCzIk61j7XKfpIR74K)
 
 #### arrays Unidimensionales
 > ![](/TheusZero/images/post/POO/6.png)
@@ -118,6 +122,7 @@ Estos estaran definidos desde la clase.
 > colecciones de metodos abstractos y propiedades constantes, en que se especifican que se hara, es decir, que definen metodos pero sin cuerpo, dictan que se hara, pero no como se implementara.
 > Las clases hijas deeben definir el comportamiento de todo metodo abstracto
 >> ![](/TheusZero/images/post/POO/37.png)
+>> ![](/TheusZero/images/post/POO/38.png)
 
 
 > Clase abstracta vs Intefaz
@@ -160,7 +165,66 @@ Los contenidos de cada campo no son clonados (hasta aquí
 se le llama copia baja), luego para una copia completa
 (profunda) se debe llamar el método clone de cada atributo.
 
+#### Poliformismo
 
+El uso de abstracciones e interfaces son formas de poliformismo. (clase padre define un metodo y las hijas lo expanden para su uso especifico).
+
+Polimorfismo es un concepto donde un
+mismo nombre puede referirse a objetos de clases
+diferentes que están relacionadas por una clase base
+común.
+
+Es una relacion de tipo herencia, donde un objeto de la superclase (clase padre) puede almacenar un objeto de cualquiera de las subclases (clases hijas)
+
+Esto significa que la clase padre o superclase es compatible con los tipos que derivan de ella pero no al reves.
+
+![](/TheusZero/images/post/POO/43.png)
+![](/TheusZero/images/post/POO/44.png)
+![](/TheusZero/images/post/POO/45.png)
+
+#### ligadura
+
+La ligadura dinámica se encarga de ligar o relacionar la llamada a un método con el cuerpo del método que se ejecuta finalmente.
+
+>Ligadura estática:
+>> Consiste en realizar el proceso de ligadura en tiempo de compilación según el tipo declarado del objeto al que se manda el mensaje.
+> 
+>> La utilizan (en Java) los métodos de clase y los métodos de instancia que son privados o final (ya que estos últimos no pueden ser sobrescritos).
+
+>Ligadura dinámica:
+>>Consiste en realizar el proceso de ligadura en tiempo de ejecución siendo la forma dinámica del objeto la que determina la versión del método a ejecutar.
+>
+>>Se utiliza en todos los métodos de instancia de Java que no son privados ni final.
+
+> Funcionamiento de la Ligadura Dinámica:
+>> Resolución de conflictos entre Superclases y Subclases:
+>
+>> Cuando existe un conflicto entre un método de una superclase y un método de la subclase, el comportamiento correcto es que el método de la subclase sobrescriba al de la superclase.
+>
+>> Si estamos llamando a un método de la subclase desde una variable que ha sido declarada del tipo de la superclase. ¿Cómo se consigue que funcione correctamente?
+>
+> Ligadura Dinámica:
+>> Significa que la forma dinámica del objeto determina la versión de la operación que se aplicará.
+>
+>> Esta capacidad de las operaciones para adaptarse automáticamente a los objetos a los cuales se aplican es una de las propiedades más importantes de la orientación a objetos.
+>
+> Características de la Ligadura Dinámica:
+>> Puede variar de un lenguaje a otro, pero básicamente presentan unas características comunes. Los métodos que necesitan ligadura dinámica:
+>
+>> Deben presentar ligadura dinámica solo aquellos que pueden ser redefinidos.
+>
+>> Por ejemplo, en Java, los métodos de clase y los métodos de instancia privados y/o finales no presentan ligadura dinámica.
+>
+>> En Java, si no se especifica nada se entenderá que el método puede ser redefinido y por tanto debe presentar ligadura dinámica
+
+## Programacion JavaFX
+
+programacion de graficas con JavaFX.
+
+#### Gráficas y Eventos
+
+> Oyente de acción (ActionListener)
+>> 
 
 ## Preguntas Certamenes
 
@@ -385,13 +449,90 @@ se le llama copia baja), luego para una copia completa
 > }
 > ```
 
+> Al diseñar una solución de software ¿qué lo hace decidir por crear una clase abstracta en lugar de una clase en
+> propiedad? ¿qué lo hace optar por crear una interfaz?
+>> Creamos una clase abstracta cuando no es posible dar una implementación a alguno de los métodos de la clase.
+>> Optamos por una interfaz cuando no se cuenta con lo necesario para implementar cada uno de los métodos no
+>> estáticos. También optamos por una interfaz cuando las clases que la implementan ya derivan de alguna otra clase.
 
+> Un segmento de código Java muestra:
+> ```
+> String texto = “UTFSM”;
+> JLabel label = new JLabel(texto);
+> …..….. /*Aquí se muestra el label en pantalla y luego*/
+> texto = “USM”; repaint();
+> ```
+> ¿Al actualizar texto en la línea previa, cambia lo desplegado por label en pantalla? Justifique.
+>> No cambia. El string pasado en el constructor de JLabel no cambia por la asignación de un nuevo string a texto.
+>> En java se pasan referencias. Además los string son inmutables, cualquier invocación de método sobre texto, no
+>> cambiará el string originalmente asignado
 
+> ¿Qué crítica se hizo a los lenguajes tradicionales no orientados a objetos que condujo a incorporar excepciones en los
+> lenguajes Orientados a Objetos como Java y C++?
+>> Que mezclaban el tratamiento de errores (casos poco frecuentes) con la lógica principal del código (objetivo
+>> principal del código), dificultando su claridad y mantención futura.
 
+> ¿Qué significa polimorfismo? ¿Cuáles son los distintos tipos de polimorfismo?
+> Polimorfismo es la cualidad de usar un mismo nombre para referirse a cosas similares.
+>> Algunos tipos de polimorfismo son:
+> 
+>> a) Cuando vía herencia un mismo nombre, instancia de la clase hoja, puede tomar también el lugar
+>> de una instancia de la clase base.
+> 
+>> b) Hay polimorfismo cuando varias clases implementan una interfaz. Luego podemos crear código
+>> genérico en el sentido que depende sólo de los métodos de la Interfaz. Este código genérico puede
+>> ser usado con objetos de distintas clases que implementan la interfaz.
+> 
+>> c) Hay polimorfismo cuando en una clase base definimos métodos abstractos que luego las clases
+>> derivadas definen. Este es un caso similar al b).
+> 
+>> d) Algunos autores también consideran polimorfismo cuando un mismo método puede ser
+>> invocado usando diferentes tipos de datos como parámetros (sobrecarga de métodos), pero otros no
+>> lo consideran así.
+> 
+>> Con un par de casos es OK.
 
+> Dé ejemplos simples de dos distintos tipos de polimorfismo
+> 
+>> Primer ejemplo: Polimorfismo cuando hay herencia.
+>> ```java
+>> class Persona {
+>> ….
+>> }
+>> class Empleado extends Persona {
+>> …
+>> }
+>> ```
+>
+>> ```java
+>> Segundo caso: Polimorfismo cuando tenemos interfaces.
+>> Class Empleado implements Comparable{
+>> ….
+>> }
+>> Empleado[] funcionarios = new Empleado[50];
+>> /* Crear los empleados */
+>> Array.sort(funcionarios);
+>> ```
 
+> ¿Qué es ligado dinámico? Indique un beneficio y un perjuicio de usar esta técnica.
+>> Ligado dinámico es la definición en tiempo de ejecución del código a ejecutar ante una
+>> invocación de un método.
+> 
+>> Beneficio: permite crear código reutilizable.
+> 
+>> Perjuicio: El ligado dinámico es más lento de ejecutar que el estático definido en tiempo de
+>> compilación.
 
-
+> ¿Para qué sirve la clase Class? De un ejemplo simple de su uso.
+>> La clase Class permite consultar información sobre la clase de un objeto en tiempo de
+>> ejecución.
+>> ```java
+>> class Source {
+>> ..
+>> }
+>> System.out.println((new Source()).getClass.getName());
+>> ```
+>> Retorna Source.
 
 
 
