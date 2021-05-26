@@ -24,13 +24,16 @@ tags:
 
 #### constantes final y static
 
-Se usa la palabra reservada final
+Se usa la palabra reservada final, este atributo no sera cambiado nunca
 
 Ej: public final float CM_PER_INCH=2.54;
 
 > Si deseamos crear sólo una instancia de esta constante para todos los objetos de una clase, usamos:
 
 static lo que hace es fijar un contenido en memoria reservado para la variable. con final, su valor no cambiara nunca y siempre podremos acceder a la variable static, static nos deja acceder siempre a la variable
+static tambien se ejecuta antes de cualquiera instruccion del main
+![](/TheusZero/images/post/POO/63.png)
+
 
 ```java
 public class Constante {
@@ -101,8 +104,30 @@ Estos estaran definidos desde la clase.
 
 > ![](/TheusZero/images/post/POO/20.png)
 
+> ![](/TheusZero/images/post/POO/64.png)
+
+> ![](/TheusZero/images/post/POO/65.png)
+
 
 #### Constructores
+
+> Inicializa objetos nuevos siguiendo el siguiente orden:
+> 
+> 1. Localiza memoria
+> 
+> 2. Asigna valores a atributos (0, 0.0, null, …)
+> 
+> 3. Según el orden de aparición de los atributos de la clase se ejecutan las inicializaciones allí hechas
+> 
+> 4. Llama constructor de Superclase (o clase padre).
+> 
+> 5. Se ejecutan las sentencias del constructor.
+
+> La primera sentencia puede ser:
+>>```super( … )``` para llamar a un constructor de la clase base (o padre o superclase)
+> 
+>>```this( … )``` para invocar a otro constructor de la misma clase
+
 
 > ![](/TheusZero/images/post/POO/21.png)
 >> O bien tambien puede quedar: 
@@ -146,6 +171,71 @@ Estos estaran definidos desde la clase.
 >> ![](/TheusZero/images/post/POO/35.png)
 >> ![](/TheusZero/images/post/POO/36.png)
 
+#### herencias
+
+La idea básica es poder crear clases basadas en clases ya
+existentes.
+
+Cuando heredamos de una clase existente, estamos
+reutilizando código (métodos y atributos de la clase base).
+
+Agregar métodos y atributos para adaptar la clase heredada a
+las particularidades de la nueva categoría de objetos.
+
+Java también permite consultar por la estructura de una clase
+(cuáles son sus métodos y atributos). A esto se le llama
+reflexión. ¿Sabrán los animales que son animales?
+
+Identificamos herencia cuando encontramos la relación **es-un**
+entre una clase nueva y una ya existente. Ej.: un estudiante es
+una persona
+
+La relación es-un es una condición necesaria pero no
+suficiente, además los objetos de la clase heredada deben
+cumplir el principio de sustitución.
+
+Se cumple el principio de sustitución cuando un objeto de la
+clase derivada puede responder de buena forma a todos los
+métodos públicos de la clase base
+
+La clase ya existente se le llama superclase, clase base, o
+clase padre (son sinónimos aquí).
+A la clase nueva se le llama subclase, clase derivada, o clase
+hija.
+
+![](/TheusZero/images/post/POO/67.png)
+
+> Aspectos sintácticos en Java
+> 
+> Si un mánager es un empleado y cumple el principio de sustitución, entonces podemos definir Manager extendiendo la clase Empleado:
+> ![](/TheusZero/images/post/POO/68.png)
+
+
+> Redefinición de métodos
+> En la clase derivada podemos redefinir (override, o sobremontar) métodos, lo cual corresponde a re-implementar o recodificar en la subclase un método de la clase base.
+>
+> Si en la clase hija deseamos acceder al método de la clase base, lo podemos hacer utilizando la palabra super como referencia al padre.
+>
+> Recordar que también usamos esta palabra reservada para invocar constructores de la clase base.
+> ![](/TheusZero/images/post/POO/69.png)
+
+#### principio de sustitucion
+
+Según el principio de sustitución, referencias a objetos
+de la clase base, pueden apuntar a objetos de una
+clase derivada sin crear problemas.
+
+Hay que tener cuidado con la relación es-un. El
+castellano permite decir que un cuadrado es un
+rectángulo de lados iguales; sin embargo, esto lleva a
+problemas cuando queremos aplicar el principio de
+sustitución.
+
+> Ejemplo: ¿Los cuadrados son rectángulos?
+> ![](/TheusZero/images/post/POO/70.png)
+> ![](/TheusZero/images/post/POO/71.png)
+
+
 #### Interfaces
 
 ![](/TheusZero/images/post/POO/39.png)
@@ -162,6 +252,9 @@ Estos estaran definidos desde la clase.
 > Como java no permite la herencia multiple, son las interfaces las que se usan, siendo estas contratos donde se estipula que se debe hacer en cada tarea y seran las clases hijas las encargadas de realizar estas tareas. 
 
 #### metodo copiar, Copia baja y profunda
+
+![](/TheusZero/images/post/POO/66.png)
+
 
 **Copia baja** es aquella donde la **copia de un objeto** se efectúa **copiando el valor de sus atributos** y **cuando
 un atributo es un objeto sólo se copia su referencia**, como consecuencia **en copia baja los atributos
@@ -198,6 +291,15 @@ se le llama copia baja), luego para una copia completa
 
 #### Poliformismo
 
+> Hay varias formas de polimorfismo:
+>> Cuando vía subtipo asignamos una instancia de una subclase a una referencia de la clase base. Ej. Un Estudiante adopta el rol de Persona.
+>
+>> Cuando invocamos el mismo nombre de método sobre instancias de distintas clases
+>
+>> Cuando creamos múltiples métodos de igual nombre
+> ![](/TheusZero/images/post/POO/72.png)
+
+
 El uso de abstracciones e interfaces son formas de poliformismo. (clase padre define un metodo y las hijas lo expanden para su uso especifico).
 
 Polimorfismo es un concepto donde un
@@ -217,15 +319,51 @@ Esto significa que la clase padre o superclase es compatible con los tipos que d
 
 La ligadura dinámica se encarga de ligar o relacionar la llamada a un método con el cuerpo del método que se ejecuta finalmente.
 
->Ligadura estática:
->> Consiste en realizar el proceso de ligadura en tiempo de compilación según el tipo declarado del objeto al que se manda el mensaje.
+> Ligado Dinámico
+> Al momento de la compilación el compilador intenta resolver el método que corresponda según su nombre y parámetros. Si la superclase y la clase base tienen definido el mismo método ¿Qué implementación se invoca?
 > 
->> La utilizan (en Java) los métodos de clase y los métodos de instancia que son privados o final (ya que estos últimos no pueden ser sobrescritos).
+> **Si el método en la clase de la referencia no es privado, static, o final, se invocará en forma dinámica.**
+>> **se invocará el método definido en la clase del objeto y no el método de la clase de la referencia. A esto se le llama ligado dinámico.**
+> Por ello, si una clase derivada redefine el mismo método, éste será invocado para sus instancias (excepto para los casos nombrados).
 
->Ligadura dinámica:
+> Ejemplo importante
+> ![](/TheusZero/images/post/POO/73.png)
+> Se crea una clase manager hija de empleado, en la clase manager se hace la sobreescritura con Overwrite del metodo getSalary()
+> que posee la clase padre Empleado, al momento de crear el objeto de tipo manager y almacenarlo en un array de tipo empleados, es decir, del tipo de la clase padre,
+> entonces en el objeto boss creado se emplea el principio de sustitucion, pero al momento de llamar a get.salary(), si el objeto boss tiene como referencia ahora a la clase empleado, se ejecuta el metodo de getsalary() para boss o para empleado?
+>> La respuesta es que, si el metodo getsalary() fue sobreecrito, es decir, que su cuerpo de codigo cambio dentro de la clase hija, entonces se ejecuta el getsalary() que la clase hija posee,
+>> debido a que al jefe se le deben aplicar los bonos, es decir que de otra forma, que si el cuerpo del getsalary() cambio, entonces se emplea este. Esto se hace en tiempo de ejecucion
+> De otra forma, si hay un metodo que no esta definido en empleado, pero si en manager, este no se puede usar en el principio de sustitucion
+> ![](/TheusZero/images/post/POO/74.png)
+
+> Si la superclase -Employee- y la clase hija -Manager- tienen
+> implementado el mismo método -getSalary()- ¿Qué implementación se
+> invoca?
+> 
+>> Si el método en la clase de la referencia no es privado, static, o final, se invocará en forma dinámica.
+> 
+>> Ligado dinámico es la ejecución de un método según su implementación en la clase del objeto apuntado y no según la clase de la referencia usada.
+
 >>Consiste en realizar el proceso de ligadura en tiempo de ejecución siendo la forma dinámica del objeto la que determina la versión del método a ejecutar.
 >
 >>Se utiliza en todos los métodos de instancia de Java que no son privados ni final.
+
+Gracias al ligado dinámico es posible hacer programas fácilmente
+extensibles.
+
+Creamos una clase derivada y redefinimos los comportamientos que
+deseamos.
+
+No se requiere recompilar las clases existentes. Esto es usado
+intensamente al utilizar clases predefinidas en el lenguaje.
+
+Si deseamos impedir que una de nuestras clases se use como base,
+la declaramos como final. Éstas no se pueden derivar.
+final class Manager extends Employee { ... }, 
+Si un método es final, ninguna subclase puede redefinirlo.
+
+El ligado dinámico es más lento que el estático (> tiempo de
+ejecución).
 
 > Funcionamiento de la Ligadura Dinámica:
 >> Resolución de conflictos entre Superclases y Subclases:
@@ -247,6 +385,39 @@ La ligadura dinámica se encarga de ligar o relacionar la llamada a un método c
 >> Por ejemplo, en Java, los métodos de clase y los métodos de instancia privados y/o finales no presentan ligadura dinámica.
 >
 >> En Java, si no se especifica nada se entenderá que el método puede ser redefinido y por tanto debe presentar ligadura dinámica
+
+>Ligadura estática:
+>> Consiste en realizar el proceso de ligadura en tiempo de compilación según el tipo declarado del objeto al que se manda el mensaje.
+>
+>> La utilizan (en Java) los métodos de clase y los métodos de instancia que son privados o final (ya que estos últimos no pueden ser sobrescritos).
+
+#### Compilación v/s Ejecución
+
+El compilador verifica que los accesos y métodos invocados
+sean válidos en la clase declarada para el identificador o
+nombre del objeto.
+
+En tiempo de ejecución, el código ejecutado depende de la
+declaración del método invocado. Si corresponde ligado
+dinámico, el código ejecutado será el del objeto apuntado por la
+referencia.
+
+Debemos distinguir entre la clase de la referencia y la clase del
+objeto apuntado por la referencia.
+
+#### Casteo 
+
+acceder a un método definido sólo en una clase derivada con una
+referencia de la clase base, es decir, invocar los métodos sólo presentes en Manager
+
+¿Cómo sabemos que e es una referencia a una instancia de
+Manger?
+
+Lo podemos preguntar con el operador instanceof.
+
+![](/TheusZero/images/post/POO/75.png)
+![](/TheusZero/images/post/POO/76.png)
+
 
 ## Programacion JavaFX
 
