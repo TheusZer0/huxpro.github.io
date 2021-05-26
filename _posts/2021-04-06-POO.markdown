@@ -22,7 +22,38 @@ tags:
 
 [Curso Java - Programacion ATS](https://www.youtube.com/watch?v=2ZXiuh0rg3M&list=PLWtYZ2ejMVJkjOuTCzIk61j7XKfpIR74K)
 
+#### constantes final y static
+
+Se usa la palabra reservada final
+
+Ej: public final float CM_PER_INCH=2.54;
+
+> Si deseamos crear sólo una instancia de esta constante para todos los objetos de una clase, usamos:
+
+static lo que hace es fijar un contenido en memoria reservado para la variable. con final, su valor no cambiara nunca y siempre podremos acceder a la variable static, static nos deja acceder siempre a la variable
+
+```java
+public class Constante {
+public static final float CM_PER_INCH=2.54;
+...}
+```
+
+**Para acceder al valor: Constante.CM_PER_INCH**
+
 #### arrays Unidimensionales
+
+Los arreglos almacenan una colección de valores de igual tipo, su
+acceso es vía un índice entero (0<= índice < max)
+
+> Declaración de una variable arreglo de enteros:
+> 
+>> ```int [] a;``` // hasta aquí sólo tenemos en identificador
+> 
+>> ```a = new int[100];``` //recién ahora tenemos los datos
+
+> ![](/TheusZero/images/post/POO/61.png)
+> ![](/TheusZero/images/post/POO/62.png)
+
 > ![](/TheusZero/images/post/POO/6.png)
 > ![](/TheusZero/images/post/POO/7.png)
 > ![](/TheusZero/images/post/POO/8.png)
