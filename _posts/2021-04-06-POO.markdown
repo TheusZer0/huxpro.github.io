@@ -1120,22 +1120,95 @@ Una opción para generar el archivo Principal.jar se:
 > - El rectángulo tendrá dimensiones de 100 pixeles de ancho y 30 pixeles de alto
 >> [RESPUESTA](http://profesores.elo.utfsm.cl/~agv/elo329/1s17/grades/C1_1s17_Sol.pdf)
 
+> Importante
+> Ejercicio static y final
+> ![](/TheusZero/images/post/POO/50.png)
 
+> IMPORTANTE
+> Ejercicio equals
+> ![](/TheusZero/images/post/POO/51.png)
 
+>> EJERCICIO MUY IMPORTANTE
+> Como parte del código de un software de manejo de gestión de empleados, se han definido las clases
+> Employee y Manager, siendo esta última una extensión de la clase Employee. Esto permite contar con
+> una instancia que además de ser Employee, se le puede asignar y solicitar funciones propias de un cargo
+> de gerencia, como ejecutar un control de proyectos a través del método projectControl().> 
+>
+>  ¿Cuál de las siguientes asignaciones son correctas? Comente
+```Java
+ Employee e = New Manager();
+Manager m = New Employee();
+```
+>> La primera asignación es correcta. Es posible asignar una instancia de tipo Manager a un objeto Employee,
+>> ya que un Manager puede realizar todo lo que un Employee realiza (Manager es una extensión de
+>> Employee).
+>>
+>> La segunda asignación no es correcta. No es posible asignar una instancia de Employee a un objeto de tipo
+>> Manager, ya que es posible que se le exijan tareas específicas de Manager, para las que Employee no
+>> cuenta con una implementación
 
+> Se cuenta con una lista dinámica de Employee.
+> ```java
+> ArrayList<Employee> e = New ArrayList<Employee>;
+> e.add((Employee) new Manager(“buenaJefa”)); // único elemento del arrayList.
+> ```
+> // Complete el código para invocar el método projectControl del mánager ingresado.
+>> Employee tmpE = e.get(0); // Se accede al empleado
+>> if (tmpE instanceof Manager) { // Nos aseguramos de que sea de tipo Manager
+>> Manager m = (Manager) tmpE; // Casteamos Employee a Manager
+>> m.projectControl(); // Ahora podemos acceder a los métodos de Manager
+>> }
 
+>> Importante
+> El uso de métodos que arrojan excepciones requiere que éstas se manejen.
+> 
+> Comente cuál es la función de los bloques utilizados al capturar excepciones: try, catch, y finally
+>
+> try { // Bloque try
+>> Ejecución de código de forma segura. Si algo falla, se generará un evento de
+>> error que puede ser capturado con catch.
+> 
+> } catch (e-clase1 e ) { // Bloque catch
+>> El bloque catch permite realizar una serie de instrucciones específicas para
+>> abordar una situación de error. Para cada tipo de error, existirá alguna clase
+>> exception (en este bloque sería e-clase1), que incluye los errores que se han de
+>> manejar, por ejemplo IOException para errores relacionados al uso de
+>> entradas/salidas..
+> 
+>> } catch (e-clase2 e ) { // Bloque catch
+>> Aquí se manejarían excepciones de tipo e-clase2.
+>> } …
+> 
+>> finally { // Bloque finally
+>> Permite ejecutar instrucciones al finalizar el bloque try, luego de haber generado
+>> y respondido a alguna (o ninguna) excepción.
+>> }
+> ![](/TheusZero/images/post/POO/52.png)
 
+> ¿Qué significa relanzar una excepción?
+>> La sección de código (método) que generó la excepción tiene la posibilidad de manejarla o relanzarla. Al
+>> relanzarla, se deberá encargar de manejar la excepción la sección de código que llamó al método donde se
+>> generó la excepción. Eso permite entregar la responsabilidad de manejar los problemas a un nivel de
+>> jerarquía superior, de forma más general, en comparación a sólo manejarlo en la posición donde se generó el
+>> problema. La excepción a ser manejada puede subir hasta el mismo método main.
+>> Para esto, el método debe indicar ```throws exceptionType``` en su declaración, por ejemplo:
+>> 
+>> ```public static void readFile() throws IOException { … }```
 
+> Importante
+> Liste los calificadores de visibilidad (= modificador de acceso) de métodos y atributos. Dejando fuera el
+> más restrictivo y el menos restrictivo, explique el uso de los restantes.
+>> Modificadores de acceso: private, protected, public y la omisión del calificador de visibilidad.
+>> private y public son el más y el menos restrictivo respectivamente.
+>> protected: se usa cuando se desea dar acceso a una clase heredada de aquella que define el método o
+>> atributo protected o bien alguna clase del mismo paquete.
+>> Omisión del modificador de acceso: corresponde a acceso permitido a todas las clases que forman parte de
+>> un mismo paquete
 
+> Para las dos clases dadas implemente el método clone, el cual redefine el de la clase Object.
+>> ![](/TheusZero/images/post/POO/53.png)
 
-
-
-
-
-
-
-
-
+> [ejercicios programacion](http://profesores.elo.utfsm.cl/~agv/elo329/1s18/grades/C1_1s18_Sol.pdf)
 
 
 
