@@ -1210,10 +1210,62 @@ Manager m = New Employee();
 
 > [ejercicios programacion](http://profesores.elo.utfsm.cl/~agv/elo329/1s18/grades/C1_1s18_Sol.pdf)
 
+>> Importante
+> En el contexto de la Programación Orientada a Objetos defina: clase, objeto, atributo, constructor
+>> Clase: es la definición de las características comunes a un conjunto de objetos. Las característica comunes
+>> son los atributos a considerar y el comportamiento de esos objetos.
+>> Objeto: en POO un objeto es la representación en un programa de un objeto real. Esta representación define
+>> un nombre, un estado y un comportamiento para el objeto.
+>> Un objeto es una instancia de una Clase.
+>> Atributo: es una un dato que permite almacenar parte del estado de un objeto. El conjunto de atributos de un
+>> objeto almacenan su estado.
+>> Constructor: Código que define el valor inicial de un objeto al ser creado.
 
+> IMPORTANTE PREGUNTAR
+> ![](/TheusZero/images/post/POO/54.png)
 
+>> IMPORTANTE PREGUNTAR
+> Implemente el método equals de la clase B.
+> ![](/TheusZero/images/post/POO/55.png)
 
+>> IMPORTANTE
+> Se tiene la definición de clases anidadas como se muestra a la izquierda. Ponga a la derecha el código para
+> crear el objeto de nombre “anidado” como instancia de la clase AnidadaEstatica y el objeto “interno” como instancia de la clase Interna.
+```Java
+Externa.AnidadaEstatica anidado = new Externa.AnidadaEstatica();
+Externa externo = new Externa();
+Externa.Interna interno = externo.new Interna();
+```
+> ![](/TheusZero/images/post/POO/56.png)
 
+>> Importante
+> Considere que existen las clases Silla y Estante las cuales derivan de la clase abstracta Mueble.
+> Suponiendo que existen los constructores por defecto, determine si las siguientes secciones de código son correctas o no y explique el motivo.
+>> ![](/TheusZero/images/post/POO/57.png)
+
+>Si bien todas las excepciones deben retornar elementos subclases de Throwable, java prohíbe crear
+>subclases directas de ésta. Comente si es posible crear excepciones propias, y si es así, cómo se resuelve el
+>no poder extender Throwable.
+>> Sí es posible crear excepciones propias.
+>> La situación se resuelve porque existe una clase (Exception), que deriva de Throwable, de la cual sí es
+>> posible crear subclases directas.
+
+> Usted cuenta con la lista dinámica pers, la cual contiene objetos tipo Personas y Ayudantes (esta última
+> extiende de Personas). Defina el método cuentaAyudantes, tal que retorne la cantidad de ayudantes
+> existentes en la lista (responda en el espacio de la derecha).
+>> ![](/TheusZero/images/post/POO/58.png)
+
+> En relación a los archivos Java Archive (jar):
+>> h.1) Comente 2 ventajas de su uso.
+>> Se facilita el transporte del código. En lugar de copiar o enviar múltiples archivos .class, imágenes,
+>> audios, etc. se copia o envía solo un archivo.
+>
+>> La ejecución se simplifica pues se puede configurar su ejecución con doble click sobre ellos.
+>> h.2) Describa la funcionalidad del documento de manifiesto.
+>> El documento manifiesto permite indicar a la máquina virtual qué clase dentro de un jar contiene el
+>> método main de inicio.
+
+> [ejercicios](http://profesores.elo.utfsm.cl/~agv/elo329/1s19/grades/C1_1s19_Sol.pdf)
 
 >  ¿Qué diferencia existe entre el operador == y el uso del método equals(…)?
 > Un estudiante revisa una clase y no encuentra en ella la implementación del método equals(…) ¿por qué
@@ -1222,3 +1274,87 @@ Manager m = New Employee();
 >> nombres (o referencias a objetos) se refieren al mismo objeto. El método equals(…) compara dos objetos por igualdad.
 >> No se produce error pues todo objeto hereda de la clase Object aunque no lo explicite. La clase Object
 >> implementa el método equals(…) por ello no hay error al invocarlo.
+
+> IMPORTANTE
+>> ![](/TheusZero/images/post/POO/59.png)
+
+> En clases vimos que podemos decir “un cuadrado es un rectángulo de lados iguales”. Mencione otro
+> ejemplo de dos clases donde esté presente la relación es-un pero no se cumpla el principio de sustitución.
+> Explique por qué no se cumple en principio de substitución.
+>> Múltiples respuestas son válidas aquí.
+>> Alguien pudo decir: un punto es un círculo de radio cero.
+>> Hay relación es-un pero no se cumple el principio de substitución pues si una instancia de esta clase Punto
+>> acude por sustitución en lugar de un círculo, cuando el usuario de círculo cambie su radio, el punto no podrá
+>> hacerlo. Así se demuestra que un círculo no puede ser sustituido por una instancia de esa clase Punto.
+
+> Los teléfonos celulares pueden hacer y recibir llamadas telefónicas. Podemos decir que un teléfono celular
+> es un teléfono. Como se pueden tomar fotos, podemos también decir que un teléfono celular es una
+> cámaras fotográficas. Considerando estos comportamientos ¿Qué declaraciones pondría usted en los
+> archivos Telefono.java, Camara.java, y TelefonoCelular.java, ? Omita los métodos y atributos de cada clase.
+> Interesa la primera línea de cada clase
+>> Respuesta:
+```Java
+public class TelefonoCelular extends Telefono implements Carama { ... }
+public interface Camara {....}
+public class Telefono {…. }
+```
+
+> Considere la siguiente clase:
+> ![](/TheusZero/images/post/POO/60.png)
+> Modifíquela para que permita realizar una copia profunda de una instancia de A.
+>> Basta con implementar la interfaz Cloneable y el método clone. Al ser los atributos x e y de tipos primitivos,
+>> NO es necesario hacer copia profunda.
+```Java
+class A implements Cloneable{
+ private int x,y;
+
+ public A(int x, int y){
+ this.x = x;
+ this.y = y;
+ }
+ public Object clone(){
+ A a = (A) super.clone();
+ return a;
+ }
+}
+```
+
+> Considere el código de la siguiente interfaz
+> ![](/TheusZero/images/post/POO/61.png)
+> Indique si es posible utilizar esta interfaz en una expresión lambda. Si es posible, dé un ejemplo. En caso contrario, justifique.
+>> No es posible. Para que se pueda utilizar una expresión lambda sobre una interfaz, es necesario que esta
+>> defina un solo método. Interfaces con dos o más métodos no pueden ser utilizados a través de expresiones
+>> lambda.
+
+> Considere el siguiente bloque de código try-catch
+```Java
+try{
+ f(); // Genera Excepcion1
+ g(); // Genera Excepcion2
+} catch(Excepcion1 e1){
+ System.out.println(“Excepcion 1”);
+} catch(Excepcion2 e2){
+ System.out.println(“Excepcion 2”);
+}
+```
+> Indique y justifique las salidas por pantalla cuando:
+> • Al ejecutar el código, solo el método f() producirá una excepción.
+> • Al ejecutar el código, solo el método g() producirá una excepción.
+> • Al ejecutar el código, ambos métodos f() y g() producirán una excepción.
+>> System.out.println(“Excepcion 1”);
+> 
+>> System.out.println(“Excepcion 2”);
+> 
+>> System.out.println(“Excepcion 1”);
+> 
+>> En el último caso, cuando se produce una excepción, esta se lanza inmediatamente, por lo que el código de
+>> la función g(), a pesar de que producirá una excepción, NUNCA alcanza a ejecutarse. Por lo que solo se
+>> muestra el mensaje producido por la excepción de f().
+
+> Para el desarrollo de una aplicación Android, necesita acceder a la lista de contactos del usuario. Indique
+> qué clase provista por Android debe utilizar para esta tarea y por qué.
+>> Es necesario utilizar la clase Intent, la cual se encarga de indicarle a Android que se desea acceder a la lista
+>> de contactos. De esta manera, Android manejará internamente cuál es la aplicación que responderá a la
+>> petición.
+ 
+> [ejercicios](http://profesores.elo.utfsm.cl/~agv/elo329/1s20/grades/C1_1s20_Sol.pdf) 
