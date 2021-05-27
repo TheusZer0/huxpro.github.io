@@ -1785,8 +1785,7 @@ class Manager extends Person {
 >> aparecerá con el nombre de la clase que la contiene seguido de un punto y un número.
 
 > Desarrolle una aplicación gráfica en Java que muestre un texto indicando el estado del botón izquierdo del mouse
-> (presionado o no) y otro texto para indicar si el mouse se ha arrastrado (drag). El arrastrado concluye cuando el
-> botón izquierdo es liberado.
+> (presionado o no) y otro texto para indicar si el mouse se ha arrastrado (drag). El arrastrado concluye cuando el botón izquierdo es liberado.
 ```java
 import java.awt.event.*;
 import javax.swing.*;
