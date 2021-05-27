@@ -171,6 +171,9 @@ Estos estaran definidos desde la clase.
 >> ![](/TheusZero/images/post/POO/35.png)
 >> ![](/TheusZero/images/post/POO/36.png)
 
+
+
+
 #### herencias
 
 La idea básica es poder crear clases basadas en clases ya
@@ -244,6 +247,9 @@ sustitución.
 > Las clases hijas deeben definir el comportamiento de todo metodo abstracto
 >> ![](/TheusZero/images/post/POO/37.png)
 >> ![](/TheusZero/images/post/POO/38.png)
+
+![](/TheusZero/images/post/POO/81.png)
+![](/TheusZero/images/post/POO/82.png)
 
 
 > Clase abstracta vs Intefaz
@@ -417,6 +423,24 @@ Lo podemos preguntar con el operador instanceof.
 
 ![](/TheusZero/images/post/POO/75.png)
 ![](/TheusZero/images/post/POO/76.png)
+
+#### programacion generica
+![](/TheusZero/images/post/POO/78.png)
+
+#### array list
+
+es una clase que genera un arreglo variable, para operar sobre el tenemos que usar metodos que vienen
+definidos en esta clase ArrayList
+
+![](/TheusZero/images/post/POO/77.png)
+
+esto es programacion generica porque funciona con cualquier tipo de clase creada.
+
+![](/TheusZero/images/post/POO/79.png)
+
+#### la clase class
+
+![](/TheusZero/images/post/POO/80.png)
 
 
 ## Programacion JavaFX
