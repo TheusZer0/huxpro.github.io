@@ -1786,7 +1786,9 @@ class Manager extends Person {
 
 > Desarrolle una aplicación gráfica en Java que muestre un texto indicando el estado del botón izquierdo del mouse
 > (presionado o no) y otro texto para indicar si el mouse se ha arrastrado (drag). El arrastrado concluye cuando el botón izquierdo es liberado.
+
 ```java
+
 import java.awt.event.*;
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
@@ -1829,6 +1831,7 @@ class MouseTestGUI extends JPanel {
  addMouseListener(listener);
  }
 }
+
 ```
 
 > ¿Qué diferencia hay entre programación imperativa y declarativa? ¿A cuál de ellas corresponde la
