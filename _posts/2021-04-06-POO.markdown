@@ -250,7 +250,32 @@ sustitución.
 
 ![](/TheusZero/images/post/POO/81.png)
 ![](/TheusZero/images/post/POO/82.png)
+![](/TheusZero/images/post/POO/83.png)
+![](/TheusZero/images/post/POO/84.png)
 
+[EmployeeSortTest.java](https://gitlab.com/utfsm-elo/elo329/-/blob/master/codigos/08-JavaInterfaces/EmployeeSortTest.java)
+
+En Java cada clase puede tener solo una clase base (en Java no hay
+herencia múltiple), pero cada clase puede implementar varias interfaces.
+
+Cuando existe relación **es-un** con varias categorías del mundo real,
+usamos herencia con una de ellas e interfaces para exhibir el
+comportamiento esperado para las otras.
+
+Se **cumple también el principio de sustitución.** Instancias de la clase que
+**implementa** una Interfaz pueden ser usadas donde hay una referencia a
+una instancia de la interfaz.
+
+No se permite crear instancias (objetos) de una Interfaz. Por la misma
+razón que no se puede crear instancias de clases abstractas, dado que
+no se tienen la implementaciones.
+```new InterfazX(); // Error!```
+
+Todos los métodos de una Interfaz son públicos. No es necesario
+indicarlo
+
+Pueden incluir constantes. En este caso son siempre public static final.
+[TimeGoesByTest.java](https://gitlab.com/utfsm-elo/elo329/-/blob/master/codigos/08-JavaInterfaces/TimeGoesByTest.java)
 
 > Clase abstracta vs Intefaz
 >> la principal diferencia entre una clase abstracta y una normal, es que la clase abstracta tiene almenos (por obligacion) un metodo abstracto
