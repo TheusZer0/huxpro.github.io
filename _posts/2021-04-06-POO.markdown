@@ -467,6 +467,74 @@ esto es programacion generica porque funciona con cualquier tipo de clase creada
 
 ![](/TheusZero/images/post/POO/80.png)
 
+#### Clases Anidadas
+
+Las clases anidadas son clases definidas al interior de otra clase o
+dentro de un método.
+
+> Tres razones para ofrecer esto en Java:
+>> Aumenta la encapsulación al agrupar clases usadas solo en una clase.
+>
+>> Generan código más legible y mantenible.
+> 
+>> Permiten reducir código fuente.
+
+Cuando usamos instancias de una clase B solo al interior de una clase A, podemos definir B al interior de A.
+
+Puede haber clases anidadas estáticas y no estáticas. A estas últimas
+se les llama también clases internas.
+
+> [Ejemplo java.awt.geom.Rectabgle2D](https://docs.oracle.com/javase/9/docs/api/java/awt/geom/Rectangle2D.html)
+> la cual define dos clases anidadas: Rectangle2D.Double y Rectangle2D.float.
+
+![](/TheusZero/images/post/POO/86.png)
+
+Las clases internas están asociadas a instancias (objetos) de
+clase anfitriona.
+
+Las clases internas tienen acceso a los atributos de la anfitriona
+(incluso si son privados) no así las clases anidadas estáticas.
+
+Las clases anidadas estáticas están asociadas a la clase
+anfitriona.
+
+Como miembros de la clase anfitriona, las clases anidadas
+pueden ser declaradas private, public, protected o del paquete
+(cuando omitimos el calificador).
+
+Son útiles para reducir código fuente. Especialmente cuando la
+clase solo genera instancias locales.
+
+Son comunes en el desarrollo de interfaces gráficas.
+
+Las clases anidadas existen sólo para el compilador, ya que éste las transforma en
+clases regulares separando la clase externa y anidada con signo $
+
+La máquina virtual no distingue clases anidadas de otras no anidadas.
+
+También se pueden definir al interior de un método
+
+> Ejemplo creación de una instancia (en clases public):
+>> Clases estáticas anidadas:
+> ```OuterClass.StaticNestedClass nestedObject = new OuterClass.StaticNestedClass();```
+![](/TheusZero/images/post/POO/87.png)
+
+> ![](/TheusZero/images/post/POO/88.png)
+>> [InnerClassTest.java](http://profesores.elo.utfsm.cl/~agv/elo329/JavaProg/InnerClassTest/InnerClassTest.java)
+>  ![](/TheusZero/images/post/POO/89.png)
+>> [InnerClassMethodTest.java](http://profesores.elo.utfsm.cl/~agv/elo329/JavaProg/InnerClassTest/InnerClassInMethodTest.java)
+
+#### Clases internas anónimas
+
+Si deseáramos proveer de una implementación a los métodos de una
+interfaz para crear un único objeto ¿para qué definir una clase?
+
+Cuando necesitamos solo una instancia de una clase que implementa
+una interfaz, no necesitamos darle un nombre. Decimos que tal clase es
+interna y anónima.
+
+>  ![](/TheusZero/images/post/POO/90.png)
+>> [AnonymousInnerClassTest.java](http://profesores.elo.utfsm.cl/~agv/elo329/JavaProg/AnonymousInnerClassTest/AnonymousInnerClassTest.java)
 
 ## Programacion JavaFX
 
