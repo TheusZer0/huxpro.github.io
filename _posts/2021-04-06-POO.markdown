@@ -317,7 +317,7 @@ los objetos inmutables (que no pueden cambiar) y para aquellos objeto mutables s
 profundas de cada uno. De este modo se genera una nueva versión del objeto que no comparte objetos
 mutables con el objeto copiado.
 
-El método clone() implementa copia o profunda
+El método clone() implementa copia baja
 
 ![](/TheusZero/images/post/POO/41.png)
 
@@ -961,7 +961,7 @@ desarrollo de JavaFX.
 > 
 >> Está trabajando con terceras partes para mantener JavaFx como un módulo separado y de código abierto.
 
-### Instalación de JavaFX
+#### Instalación de JavaFX
 
 Desde la versión 11 de Java, JavaFX viene como un
 módulo separado del JDK.
@@ -1167,9 +1167,184 @@ public class ShowImage extends Application {
 JavaFX provee varias clases para representar textos, líneas, círculos,
 rectángulos, elipses, arcos, polígonos, polígonos abiertos (polylines).
 
-![](/TheusZero/images/post/POO/119.png)
+![](/TheusZero/images/post/POO/120.png)
 
-#### Propiedades y Vínculos
+## Propiedades y Vínculos (Property, Binding)
+
+En JavaFX, las propiedades y vínculos son un mecanismo para expresar relación entre
+dos variables.
+
+Podemos pensar en una Property como un atributo cuyo cambio puede ser observado
+por otros.
+
+Cuando objetos participan en “bindings” (vínculos, uniones), cambios en un objeto
+serán automáticamente reflejados en el otro.
+
+Bindings son usadas por las GUIs (interfaces gráficas) para mantener el despliegue
+sincronizado con los datos de la aplicación.
+
+Ejemplo: Si un programa cambia el texto de un “label”, la GUI debe reflejar ese cambio.
+
+Este concepto fue usado en el ejemplo [ShowCircleCentered.java](https://gitlab.com/utfsm-elo/elo329/-/blob/master/codigos/13-JavaFX/ShowCircleCentered.java)
+
+Para mantener el círculo centrado en el pane (cristal de la escena), se usó:
+
+```java
+circle.centerXProperty().bind(pane.widthProperty().divide(2));
+Así, un cambio en el ancho del pane cambia posición X del centro del círculo.
+```
+
+#### Vinculaciones en JavaFX
+
+> Un cambio hecho a una propiedad de un objeto se reflejará
+> automáticamente en otro objeto.
+> 
+>> Una interfaz gráfica mantiene su despliegue automáticamente
+>> sincronizado con los datos de los objetos gráficos
+>> 
+>> A través de vinculaciones se observa los cambios en los objetos
+>> gráficos de los cuales se depende.
+>> 
+>> Así, cuando un cambio es detectado la interfaz se actualiza
+>> automáticamente
+> 
+> Veamos un ejemplo en un contexto no gráfico.
+>
+> Ejemplo: BindingDemo
+>> ![](/TheusZero/images/post/POO/121.png)
+> Ejemplo: BindingAddDemo
+>> La clase DoubleExpresión tiene métodos para sumar, dividir, multiplicar y restar propiedades.
+>> ![](/TheusZero/images/post/POO/122.png)
+
+#### Eventos de Teclado y Mouse
+
+> Controles en JavaFX
+> 
+> La clase Control es la base para todos los nodos en la escena que
+> pueden ser manipulados por el usuario y por ello soportan
+> interacciones con el usuario.
+>
+>> ![](/TheusZero/images/post/POO/123.png)
+
+#### Programación conducida por eventos (re-visitada)
+
+Todos los controles previos pueden detectar diferentes tipos
+de eventos.
+
+Ante la interacción con el usuario, un objeto event es
+construido y enviado al objeto registrado como manipulador
+(handler) para ese evento.
+
+Los manipuladores de eventos (handlers) son definidos por
+el programador implementando métodos de interfaz
+asociada al event. Luego el programador debe registrar el
+handler con objeto gráfico correspondiente (button,
+Textfield, combo box, etc)
+
+#### Posible Clases para Eventos
+
+Cuando se invoca un método en respuesta al evento, un
+objeto evento es pasado. Las clases posibles de eventos
+son:
+
+![](/TheusZero/images/post/POO/124.png)
+
+#### Acciones de Usuario y sus Handlers
+
+![](/TheusZero/images/post/POO/125.png)
+
+#### Ejemplo 1: Eventos de Control de círculo con dos botones
+
+![](/TheusZero/images/post/POO/126.png)
+
+[ControlCircle.java](http://profesores.elo.utfsm.cl/~agv/elo329/JavaProg/JavaFX/ControlCircle.java)
+
+```java
+public class ControlCircle extends Application {
+ private CirclePane circlePane = new CirclePane();
+ @Override
+ public void start(Stage primaryStage) {
+ HBox hBox = new HBox();
+ Button btEnlarge = new Button("Enlarge");
+ Button btShrink = new Button("Shrink");
+ hBox.getChildren().add(btEnlarge);
+ hBox.getChildren().add(btShrink);
+ btEnlarge.setOnAction(new EnlargeHandler()); // using inner class
+ btShrink.setOnAction(e -> circlePane.shrink());// Lambda expression
+ BorderPane borderPane = new BorderPane();
+ borderPane.setCenter(circlePane);
+ borderPane.setBottom(hBox);
+ hBox.setAlignment(Pos.CENTER);
+ Scene scene = new Scene(borderPane, 200, 150);
+ primaryStage.setScene(scene);
+ primaryStage.show();
+ }
+ class EnlargeHandler implements EventHandler<ActionEvent> {
+ @Override
+ public void handle(ActionEvent e) {
+ circlePane.enlarge();
+ }
+ }
+}
+
+class CirclePane extends StackPane {
+ private Circle circle = new Circle(50);
+ public CirclePane() {
+ getChildren().add(circle);
+ circle.setStroke(Color.BLACK);
+ circle.setFill(Color.WHITE);
+ }
+ public void enlarge() {
+ circle.setRadius(circle.getRadius() + 2);
+ }
+ public void shrink() {
+ circle.setRadius(circle.getRadius() > 2
+ ? circle.getRadius() - 2 : circle.getRadius());
+ }
+}
+
+```
+
+#### Eventos de Mouse
+
+![](/TheusZero/images/post/POO/127.png)
+
+[MouseEventDemo.java](http://profesores.elo.utfsm.cl/~agv/elo329/JavaProg/JavaFX/MouseEventDemo.java)
+
+```java
+public class MouseEventDemo extends Application {
+ @Override
+ public void start(Stage primaryStage) {
+ Pane pane = new Pane(); /no particular layout is used.
+ Text text = new Text(20, 20, "Programming is fun");
+ pane.getChildren().add(text);
+ text.setOnMouseDragged(e -> { // e is the object fired by
+ text.setX(e.getX()); // the event.
+ text.setY(e.getY());
+ });
+ Scene scene = new Scene(pane, 300, 100);
+ primaryStage.setTitle("MouseEventDemo");
+ primaryStage.setScene(scene);
+ primaryStage.show();
+ }
+}
+```
+
+#### Eventos teclado y botones mouse
+
+[ControlCircleWithMouseAndKey.java](http://profesores.elo.utfsm.cl/~agv/elo329/JavaProg/JavaFX/ControlCircleWithMouseAndKey.java)
+
+![](/TheusZero/images/post/POO/128.png)
+
+#### Constantes KeyCode
+
+![](/TheusZero/images/post/POO/129.png)
+
+
+
+
+
+
 
 
 
@@ -1831,7 +2006,6 @@ class MouseTestGUI extends JPanel {
  addMouseListener(listener);
  }
 }
-
 ```
 
 > ¿Qué diferencia hay entre programación imperativa y declarativa? ¿A cuál de ellas corresponde la
