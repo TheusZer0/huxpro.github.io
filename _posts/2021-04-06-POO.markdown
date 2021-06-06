@@ -1340,16 +1340,6 @@ public class MouseEventDemo extends Application {
 
 ![](/TheusZero/images/post/POO/129.png)
 
-
-
-
-
-
-
-
-
-
-
 ## Preguntas Certamenes
 
 > Explique por qué se recomienda reemplazar los “tabs” por espacios para indentar código fuente.
