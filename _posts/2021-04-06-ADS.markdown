@@ -339,6 +339,77 @@ nombre.
 > Mensaje asíncrono: La entidad que envía el mensaje continua su ejecución sin esperar respuesta
 >
 > ![](/TheusZero/images/post/ads/50.png)
+>
+> Mensaje encontrado: Refiere al tipo de mensaje que no muestra quien lo envia, esto podria
+> significar que no se conoce el remitente o no es importante para el entendimiento de la interaccion que se esta describiendo.
+> ![](/TheusZero/images/post/ads/53.png)
+>> no se sabe quien lo gatillo, solo lo recibo.
+> Mensaje autoenviado (visto casi siempre en la base de datos).
+> ![](/TheusZero/images/post/ads/54.png)
+> 
+> Mensaje condicional: mensaje que se envia solo si se cumple una condicion, esta es gatillada por los corchetes, entonces, el mensaje solo se envia si se cumple la condicion generada.
+> ![](/TheusZero/images/post/ads/55.png)
+>> ![](/TheusZero/images/post/ads/56.png)
+>> ![](/TheusZero/images/post/ads/57.png)
+> Mensajes secuenciales
+>> ![](/TheusZero/images/post/ads/58.png)
+> ojo con los asteriscos
+
+![](/TheusZero/images/post/ads/59.png)
+
+![](/TheusZero/images/post/ads/60.png)
+
+**Clase7**
+
+#### diagrama de estado
+
+> transiciones y cambios de estado al momento de hacer una accion.
+>> ![](/TheusZero/images/post/ads/61.png)
+
+#### diagrama de actividad
+
+> escenario: se busca reflejar el como se desarrolla alguna actividad de interes por ejemplo:
+>> ![](/TheusZero/images/post/ads/62.png)
+
+
+#### softgoal
+
+> escenario donde toma vital  relevancia la toma de desiciones y el que camino tomaras para desarrollar software
+> identificando los pro-contra de la toma de desiciones.
+>> ![](/TheusZero/images/post/ads/63.png)
+>> ![](/TheusZero/images/post/ads/65.png)
+>> ![](/TheusZero/images/post/ads/64.png)
+>> ![](/TheusZero/images/post/ads/66.png)
+> Pero que pasa si:
+>> ![](/TheusZero/images/post/ads/67.png)
+
+![](/TheusZero/images/post/ads/68.png)
+![](/TheusZero/images/post/ads/69.png)
+![](/TheusZero/images/post/ads/70.png)
+![](/TheusZero/images/post/ads/71.png)
+
+**Clase 8**
+
+#### Frameworks
+
+![](/TheusZero/images/post/ads/73.png)
+![](/TheusZero/images/post/ads/74.png)
+![](/TheusZero/images/post/ads/75.png)
+![](/TheusZero/images/post/ads/76.png)
+![](/TheusZero/images/post/ads/77.png)
+![](/TheusZero/images/post/ads/78.png)
+![](/TheusZero/images/post/ads/79.png)
+![](/TheusZero/images/post/ads/80.png)
+![](/TheusZero/images/post/ads/81.png)
+
+
+
+
+
+
+
+
+
 
 ## Reuniones clientes
 
