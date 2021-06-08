@@ -402,14 +402,337 @@ nombre.
 ![](/TheusZero/images/post/ads/80.png)
 ![](/TheusZero/images/post/ads/81.png)
 
+## Ejercicios y Preguntas Certamenes
 
+#### Preguntas de concepto
 
+> En un modelo de dominio es importante a˜nadir toda la informacion
+> posible aunque esta pareciera no ser relevante para el dominio del
+> problema.
+>> FALSO: En un modelo de dominio se debe detallar solo la informacion
+>> mas relevante para el problema
 
+>A traves de la utilizacion de MVC se favorece la mantenibilidad del
+>codigo.
+>> VERDADERO.
 
+>Un diagrama de secuencia ilustra las respuestas del sistema para un
+>conjunto de historias de usuario.
+>> FALSO: Un diagrama de secuencia ilustra, para un escenario particular,
+>> las respuestas del sistema asociadas a una historia de usuario.
 
+> Un patron de diseno se compone generalmente de 3 elementos:
+> contexto, problema recurrente, y solucion generica.
+>> VERDADERO
 
+> Una historia de usuario se centra en describir la prespectiva del
+> usuario, lo que implica que el negocio es el dominante en las
+> conversaciones.
+>> SE REFUTA:
+> 
+>> I Si arguye en contra: 2 pts.
+> 
+>> I Si explica que las HDU se utilizan para lograr consenso: 2 pts.
+> 
+>> I Si explica que el objetivo principal de las HDU es evitar que el negocio
+>> o desarrollo sean dominantes: 3 pts.
+> 
+>> I Si explica que por m´as que las HDU se centren en las perspectiva del
+>> usuario, es trabajo del equipo de desarrollo el cuidar que ninguna de las
+> 
+>> partes involucradas sea dominante: 3 pts.
 
+> Los Frameworks y patrones se encuentran en un nivel de abstraccion distinto.
+>> SE AFIRMA:
+> 
+>> Si arguye a favor
+> 
+>> Si detecta que los Frameworks son m´as concretos que los patrones
+> 
+>> Si explica que los Frameworks son una t´ecnica que reusa tanto dise˜no
+>> como codigo, mientras que los patrones se centran solo en el dise˜no
+> 
+>> Si explicar que generalmente los Frameworks incorporan varios patrones
+>> en su implementacion
 
+> Al realizar un modelo de dominio el esfuerzo debe centrarse en
+> encontrar conceptos relevantes.
+>> SE AFIRMA:
+>> Si arguye a favor
+> 
+>> Si explica que un modelo de dominio las asociaciones y los atributos
+>> son elementos secundarios
+> 
+>> Si explica que en un modelo de dominio es esencial comprender la
+>> relacion de los conceptos que se manejan en el contexto del problema:
+> 
+>> Si explica que la frase es el pilar principal de un modelo de dominio
+
+> En una historia de usuario, una buena especificacion de conversacion
+> debe satisfacer el criterio INVEST.
+>> FALSO: El criterio INVEST se utilizar para elaborar historias de
+>> usuarios, y aplica a la historia de forma global, no a su conversacion.
+
+> El diagrama de secuencia permite analizar el sistema desde una
+> perspectiva estatica, mientras que el modelo de dominio permite
+> realizar un analisis dinamico de las entidades que describen el diseno
+> de un sistema.
+>> FALSO: El diagrama de secuencia analiza el sistema desde una
+>> perspectiva dinamica. El modelo de dominio no describe el diseno de
+>> un sistema, si no que identifica entidades que se interrelacionan para
+>> comprender el entorno de un problema especıfico. Es decir, el modelo
+>> de dominio describe el “universo” conocido en terminos del problema a
+>> resolver
+
+> User Story Mapping es una tecnica que permite organizar las historias
+> de usuario por tipo, funcionalidad y complejidad de desarrollo.
+>> FALSO: Esta tecnica permite organizar las historias de usuario por
+>> orden de realizacion y funcionalidad, no haciendo referencia alguna a la
+>> complejidad de desarrollo.
+
+> En un sistema web basado en MVC, el modelo es el componente que
+> gestiona las peticiones HTTP.
+>> FALSO: El componente MVC que gestiona las peticiones HTTP es el
+>> controlador.
+
+> Un requisito extra-funcional corresponder a un conjunto de
+> caracterısticas opcionales que debe exhibir un sistema.
+>> Se Refuta: Un requisito extra-funcional es una propiedad sistemica la
+>> cual puede ser priorizada de igual forma que un requisito funcional, sin
+>> embargo no significa que estos sean opcionales. Recordar que el no
+>> cumplimiento de un requisito extra-funcional relevante para el usuario
+>> puede dejar en desuso un sistema, debido a que su omision podrıa
+>> traducirse en problemas en la operacion del mismo. Ej: Un avion
+>> comercial debe movilizar pasajeros de un punto a otro (requisito
+>> funcional). Si no exhibe estabilidad durante el vuelo (requisito
+>> extra-funcional), el riesgo de accidente se incrementa con todas las
+>> consecuencias que esto significa, tanto para el avi´on como para los
+>> pasajeros
+
+> MVC ayuda en la separacion de responsabilidades, pero no especifica
+> como llevar a cabo esa separacion, dejando espacio para el uso de
+> patrones que aborden problemas mas especıficos.
+>> Se afirma: MVC es un patron que permite separar las responsabilidades
+>> en tres partes fundamentales: Modelo, Vista y Controlador. Sin
+>> embargo aquella separacion no especifica como abordar problemas mas
+>> especıficos, tal como persistir y consultar datos de una BD,
+>> generar vistas para los diferentes perfiles, “mapping” entre tablas y
+>> objetos, coordinacion de todos los elementos de MVC presentes en
+>> un sistema.
+>> Notar que para cada uno de estos elementos existen patrones
+>> especıficos que abordan problemas concretos, que seg´un el contexto
+>> presentan ventajas y desventajas comparativas.
+
+> En un sistema web basado en MVC pueden existir paginas que solo
+> implementan algunos de los tres elementos de dicho patron.
+>> Se Afirma: MVC es un patron que permite separar responsabilidades en
+>> tres elementos: Modelo, Vista y Controlador. Acorde al tipo de dominio
+>> y problema, algunas paginas web no necesitan implementar todos los
+>> elementos MVC. Por ejemplo, si es un dominio sencillo y el problema
+>> no es sofisticado (sistemas con paginas web estaticas), quizas se puede
+>> prescindir del modelo, considerando el hecho que las paginas contienen
+>> contenido estatico cuyos datos se insertan directamente en el HTML.
+>> Por otro lado, en componentes de back-end que solo realizan
+>> operaciones, podrıa bastar con implementar una configuracion de
+>> modelo y controlador, sin necesidad de incorporar interfaces de usuario
+>> (vistas).
+
+> El proposito de un modelo de dominio es ilustrar con precision el
+> diseno de un sistema, identificando las entidades involucradas y
+> especificando como se relacionan entre sı.
+>> Se refuta: El modelo de dominio no ilustra el diseno de un sistema, sino
+>> que se enfoca en identificar las entidades involucradas y relacionarlas
+>> entre sı, en el contexto de un problema especıfico. Un error frecuente
+>> en la elaboracion de modelos de dominio es tratarlos como modelos de
+>> datos. Un modelo de datos corresponder a un artefacto de diseno de un
+>> sistema, mientras que un modelo de dominio se centra en comprender
+>> el entorno involucrado en el problema; es decir, un modelo de dominio
+>> emerge de un ejercicio de analisis para comprender el problema.
+
+> El propósito del modelo de dominio es representar los requisitos extra-funcionales
+> de un sistema de software.
+>> R: Falso. Un modelo de dominio es una representación gráfica de los conceptos,
+>> sus atributos y relaciones en el contexto del dominio del problema.
+
+>Un stakeholder es una persona u organización que tiene interés en un proyecto y que
+>puede influir en las decisiones que se tomen.
+>>R: Verdadero.
+
+> Un buen diagrama de secuencia debe satisfacer el criterio INVEST.
+>> R: Falso. El criterio INVEST es utilizado para elaborar historias de usuario.
+
+> Una historia de usuario es una descripción concisa, por escrito, de un requisito
+> funcional del sistema de software que proporciona valor para un usuario.
+>> R: Verdadero
+
+> Data Mapper propone la utilización de una capa de software intermedia que separe
+> los objetos en memoria de la base de datos.
+>> R: Verdadero
+
+> Los patrones MVC y Data Mapper resuelven el mismo problema.
+>> R: Falso. El patrón MVC es un patrón de arquitectura de software que separa las
+>> partes constituyentes de una aplicación en 3 elementos (Modelo, Vista, Controlador)
+>> y el patrón Data Mapper es un patrón de persistencia que resuelve la complejidad de
+>> transferir datos entre dos esquemas distintos.
+
+>Toda aplicación empresarial debería utilizar el patrón MVC.
+>> R: El alumno debe considerar los siguientes puntos en su fundamento:
+>> - Las aplicaciones empresariales tienen distintos desafíos tecnológicos que
+>>   involucran manipulación de datos, interfaces gráficas de usuario, accesos
+>>   concurrentes, entre otros.
+> 
+>> - Todo lo anterior puede significar un problema si coexisten todos estos
+>>   elementos sin ningún tipo de separación a nivel de código/componentes
+>>   (código difícil de mantener, código espagueti susceptible de defectos, etc)
+> 
+>> - Una forma de solucionar este problema es utilizando MVC, que separa según
+>>   capas de acceso a datos (modelos), interfaces de usuario (vistas), y gestión de
+>>   las peticiones hacia los recursos (controladores). En MVC, los componentes
+>>   interactúan de acuerdo a la finalidad que posee cada uno; por ejemplo: un
+>>   controlador invoca a métodos de un modelo para hacer CRUD en ciertos datos,
+>>   el modelo proporciona esos datos a la vista que finalmente se despliega en el
+>>   navegador. Un usuario interactúa con un controlador (si accede al recurso
+>>   utilizando una URI de forma directa) o con una vista (que proporcionará
+>>   elementos que permitirán invocar o enviar datos a un controlador)
+> 
+>> - Toda esta lógica de interacciones es utilizada por MVC para abordar este
+>>   problema separando de forma estructural las responsabilidades de cada capa
+>>   (presentación, lógica del negocio, etc).
+> 
+>> - Si bien MVC resuelve el problema, es sólo una forma de solucionarlo; dado
+>>   que la solución consiste en organizar datos, interfaces de usuario, acceso a
+>>   recursos, sesiones, entre otros, de acuerdo a una lógica que limite
+>>   responsabilidades favoreciendo el mantenimiento y la calidad del software;
+>>   por tal razón no es contractual que todas las aplicaciones empresariales
+>>   utilicen MVC, sino que pueden utilizar patrones o propuestas alternativas que
+>>   gestionen las capas/elementos de forma apropiada, para evitar el problema
+>>   descrito anteriormente
+
+> La utilización de ORM favorece el desarrollo de software.
+>> R: El alumno debe considerar los siguientes puntos en su fundamento:
+>> La utilización de ORM tiene ventajas reconocidas para el desarrollo de software,
+>> como por ejemplo, la abstracción del acceso a los datos, incluso sin importar su
+>> origen, facilitar el mantenimiento del software (etapa crítica de un proceso de
+>> desarrollo de software) al no crear dependencias de consultas con SGBD específicos
+>> que podrían variar a través del tiempo; manipulación de los datos con orientación a
+>> objetos, lo que resulta familiar y menos susceptible de requerir entrenamiento
+>> adicional respecto a distintas formas de adquisición de datos que pudiese requerir la
+>> aplicación; y en algunas implementaciones, separación de la lógica del dominio
+>> respecto del acceso a los datos. Todo lo anterior es beneficioso para el desarrollo de
+>> software.
+
+> La elección de componentes ORM basados en Data Mapper o Active Record,
+> depende del contexto del proyecto.
+>> R: El alumno debe considerar los siguientes puntos en su fundamento:
+>> El contexto es un factor clave a la hora de elegir algún patrón de persistencia. Por
+>> ejemplo, en situaciones en las que se utilizan múltiples orígenes de datos para hacer
+>> CRUD en un sistema es recomendable la utilización de Data Mapper. En el caso de
+>> Active Record, su utilización es recomendable cuando la lógica del negocio y las
+>> consultas son relativamente sencillas, considerando además, que se debe conocer el
+>> esquema de la fuente de datos.
+>> En ocasiones, la decisión depende de la elección de la tecnología que se utilizará en
+>> el proyecto, específicamente del framework. Es decir, se elige un framework acorde
+>> al contexto del proyecto y se acepta el componente ORM que viene de facto con el
+>> framework, ya sea por la cohesión que tiene con el mismo o por la compatibilidad a
+>> futuro (muchas veces el ORM del framework evoluciona conjuntamente con el
+>> mismo).
+
+> Los diagramas de secuencia y de comunicación son equivalentes.
+>> R: El alumno debe considerar los siguientes puntos en su fundamento:
+>> Ambos ilustran la manera en que los objetos interactúan entre sí, sin embargo, el de
+>> comunicación se enfoca en la relación entre los objetos y el de secuencia en el
+>> tiempo en que ocurren los eventos. Es posible transformar un diagrama de secuencia
+>> en un diagrama de comunicación (y viceversa) traduciendo a la sintaxis respectiva
+>> según la especificación de cada uno de los diagramas.
+
+>Un buen diseño del componente ORM se basa en objetos en memoria que poseen
+>todo el conocimiento respecto a la estructura de la fuente de datos.
+>> Falso: La técnica ORM sugiere que los objetos en memoria deben tener poca o
+>> nula información respecto a la estructura de la fuente de datos.
+
+> En un modelo de dominio es importante añadir toda la información posible aunque
+> esta pareciera no ser relevante para el dominio del problema.
+>> Falso: En un modelo de dominio se debe detallar solo la información más
+>> relevante para el problema.
+
+> Un diagrama de secuencia ilustra las respuestas del sistema para un conjunto de
+> historias de usuario.
+>> Falso: Un diagrama de secuencia ilustra, para un escenario particular, las
+>> respuestas del sistema asociadas a una historia de usuario.
+
+> Un patron de diseño se compone generalmente de 3 elementos: contexto, problema
+> recurrente, y solución genérica.
+>> Verdadero
+
+> A través de la utilización de MVC se favorece la mantenibilidad del codigo.
+>> Verdadero.
+
+> Los componentes ORM son de gran utilidad al trabajar con grandes volúmenes de
+> datos.
+>> Falso: La frase hace referencia a una de las principales desventajas de ORM.
+
+#### Objetivos y criterios de exito
+
+>> ![](/TheusZero/images/post/ads/82.png)
+
+#### Modelo de contexto
+
+> diagrama de contexto podemos identificar a los agentes que participan
+>> ![](/TheusZero/images/post/ads/83.png)
+
+#### Modelo de dominio
+
+> ![](/TheusZero/images/post/ads/85.png)
+>> ![](/TheusZero/images/post/ads/84.png)
+
+#### Diagrama de secuencia
+
+Ilustra eventos de entrada y salida relacionados con el sistema en discusion. Se generan despues de analizar e inspeccionar las historias de usuario.
+
+>> ![](/TheusZero/images/post/ads/86.png)
+> Notaciones
+>> Mensaje sıncronos: esperar a respuesta.
+> 
+>> Mensaje asıncrono: no es necesario esperar respuesta.
+> ![](/TheusZero/images/post/ads/87.png)
+> 
+> ![](/TheusZero/images/post/ads/88.png)
+
+#### Historia de usuario
+
+> Titulo:
+>>  comunicación desde el profesor jefe a alumnos y apoderados
+
+> Descripción
+>> **Yo Como** Profesor Jefe **Quiero** ser capaz de comunicar información importante recibida
+>> desde la directiva del establecimiento, entregar información que sea especifica para el curso completo y mandar mensajes particulares y/o privados a un alumno o apoderado. **Para**
+>> que los alumnos sean informados sobre anuncios de carácter importante recibidos desde
+>> la directiva y para que sean instruidos sobre alguna situación en particular y privada, como
+>> lo es la entrega de notas o en caso más vital, un contacto estrecho.
+
+> Criterios de aceptación
+>> 1. **Dado** el profesor jefe del curso, **cuando** este recibe mensajes importantes de la directiva del establecimiento, como lo es el director, **entonces** debe ser capaz de informar
+>>    a los alumnos y/o apoderados.
+> 
+>> 2. Dado el profesor jefe del curso, cuando este desee informar de manera privada a un
+>>    alumno o apoderado en específico sobre alguna situación en particular, entonces el
+>>    sistema debe ser capaz de generar o mantener un canal o buzón para hacer entrega
+>>    de estos mensajes.
+> 
+>> 3. Dado el profesor jefe del curso, cuando este necesite hacer la entrega del informe
+>>    de notas a un alumno particular, debido a que las notas del alumno son privadas entonces el sistema deberá ser capaz de proporcionar esta entrega de notas de forma
+>>    privada para que el alumno y/o apoderado estén informados de la situación académica.
+> 
+>> 4. Dado el profesor jefe del curso, cuando este necesite enviar o recibir información
+>>    desde los otros docentes, es decir, desde los otros profesores entonces el sistema
+>>    deberá ser capaz de proporcionar esta comunicación entre profesores.
+   
+
+> Conversacion
+>> El Profesor jefe de un curso necesita comunicarse con los alumnos para informarles sobre avisos importantes recibidos desde la directiva y de la misma forma, poder informar
+>>sobre sus notas de manera privada, también sera capaz de enviar información a los otros
+>>profesores en caso de existir un hecho particular que lo amerite. De esta forma el sistema será capaz de realizar estos envíos y recibos de información para que cumpla con el
+>>funcionamiento de establecer una comunicación directa con los alumnos y docentes.
 
 ## Reuniones clientes
 
