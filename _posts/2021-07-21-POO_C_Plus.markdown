@@ -1,0 +1,147 @@
+---
+layout: post
+title: "POO para C++"
+subtitle: 'POO para C++'
+date: 2021-07-21 12:00:00
+author: "TheusZero"
+header-img: "images/post/PythonAutoayuda/solarized-wallpaper-python.png"
+catalog: true
+comments: true
+tags:
+    - Programacion
+    - Python
+    - USM
+    - Tareas
+    - Java
+    - C++
+---
+
+![](/TheusZero/images/post/POO/63.png)
+
+## Programacion en C++ Links
+
+[]()
+
+[]()
+
+## Introducción a C++
+
+diapositiva 1:
+
+#### C++ vs C
+
+
+> C++ es un lenguaje posterior a C
+
+> C++ mantiene todo el poder de C agregando características que
+facilitan la programación. C++ es compatible hacia atrás con C.
+
+> C++ permite la programación orientada a objetos y, como las
+últimas versiones de Java, permite programación genérica. A
+diferencia de Java, C++ permite  crear programas en el paradigma
+procedural u orientado a objetos según se necesite. ¡Incluso
+mezclas entre ellos!
+
+> C++ posee una biblioteca de funciones más amplia que C. Las
+bibliotecas ya existentes de C son en su mayoría compatibles con C++
+
+#### C++ vs Java
+
+C++ es plataforma dependiente (Bibliotecas como Qt buscan resolver este
+problema).
+
+> C++ soporta herencia múltiple.
+
+> C++ soporta sobrecarga de operadores (Ej: es posible dar nuevas funcionalidades
+> al operador “+”).
+
+> Mientras Java utiliza punteros, C++ soporta el uso de éstos y operaciones sobre los
+> mismos de forma explícita.
+
+> C++ soporta tanto llamadas (o paso de parámetros) por valor como por referencia,
+> mientras Java solo soporta llamadas por valor
+
+> No existe un equivalente nativo para documentación en C++ como lo hay en Java
+> (Javadoc). Se puede usar Doxygen.
+
+> C++ crea nuevos árboles de herencia en cada programa. Java tiene un solo árbol
+de herencia, pues todo hereda de la clase Object.
+
+
+#### Proceso de compilación en C++
+
+> Involucra tres pasos:
+>
+> Preprocesamiento: El pre-procesador toma el archivo del código fuente y procesa todas las directivas
+que comienzan con # (#include, #define, etc). La salida es un archivo C++ puro.
+> 
+> Compilación: el compilador toma la salida del pre-procesador y genera un archivo objeto (primero
+assembler y luego binario de extensión .o) por cada archivo de código fuente ejecutable.
+> 
+> Ligado (linking): toma los archivos generados por el compilador y produce un archivo ejecutable (o
+una biblioteca -no en este curso-)
+
+![](/TheusZero/images/post/POO_C++/1.png)
+
+#### Archivos de encabezado
+
+ELO329 Diseño y Programación Orientados a Objetos 5
+Archivos de encabezadoSon necesarios para declarar prototipos y definir constantes usadas en el programa.
+
+Son incluidos con la directiva del pre-procesador
+
+```#include````
+
+Ejemplo:
+
+```C
+#include <vector>
+#include <sys/socket.h>
+#include “setup.h”
+```
+
+Al usar <....> la búsqueda del archivo se hace en lugares “estándares” definidos por el
+compilador.
+
+Los directorios estándares varían en cada instalación. Para ver cuáles son en tu
+sistema, puedes usar:
+
+```C
+$ touch a.c  // o el comando para crear un archivo a.c vacío.$ gcc -v -E a.cMostrará los directorios a buscar para archivos 
+
+#include <...>    e
+#include “...”
+
+```
+
+#### Tipos de variables
+
+```C
+int
+short int ( o short)
+long int (o long)
+unsigned int (o unsigned)
+unsigned long int (o unsigned long)
+unsigned short int (unsigned short)
+char 
+float
+double
+long double
+bool
+```
+
+#### Acceso de Variable
+
+**Las variables en C++ como en C, representan a los valores en sí y no
+referencias a éstos**. En Java esto es así sólo para los tipos simples escalares
+como int, float, double, char y boolean.
+
+
+
+
+
+
+
+
+
+
