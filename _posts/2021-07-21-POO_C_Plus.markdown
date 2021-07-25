@@ -90,7 +90,7 @@ Archivos de encabezadoSon necesarios para declarar prototipos y definir const
 
 Son incluidos con la directiva del pre-procesador
 
-```#include````
+```#include```
 
 Ejemplo:
 
@@ -271,6 +271,313 @@ int n = s.length(); // asigna 12
 char ch = s[0];
 string t = s.substr(0,4); // Substring de s[0] a s[4]
 ```
+
+#### Control de Flujo
+
+Se dispone de las opciones comunes en otros lenguajes:
+
+```
+if (condición)
+    block1 // Un bloque de instrucciones se delimita con { }
+else
+    block2
+    La parte else es opcional.
+
+while (condición) block 
+do
+    block
+while (condición);
+
+for(expresión; expresión2; expresión3)
+    instrucción_a_repetir 
+
+switch : análogo a Java
+```
+
+#### Punteros (resumen)
+
+Toda variable tiene un cierto valor o estado y una dirección de
+memoria asociada.
+
+![](/TheusZero/images/post/POO_C++/3.png)
+
+Las variables punteros, tienen almacenada la dirección en memoria
+de otra variable o dato.
+
+Definición en C/C++: Para definir una variable como puntero, se
+utiliza el operador “*”
+
+```C
+ int *pVar; // pVar almacena una dirección de memoria para alojar un entero
+```
+
+A una variable de tipo puntero, almacena la dirección de memoria
+de otra variable. Para obtener la dirección de una variable en C/C++
+se utiliza el operador “&”
+
+![](/TheusZero/images/post/POO_C++/4.png)
+
+Es posible obtener el valor de la variable a la cual se apunta
+utilizando el operador “*”:
+
+> ```cout << &pVar <<endl; // Imprime la dirección de pVar (3571)```
+> 
+> ```cout << pVar << endl; // Imprime el contenido de pVar (1776)```
+> 
+> ```cout<< *pVar <<endl; // Imprime el valor del contenido apuntado (5)```
+
+
+>> Operadores:
+>
+> Operador de dereferencia (*): Permite acceder al valor de aquella variable a la
+> que se apunta
+>
+> Operador de referencia (&): Permite obtener la dirección de memoria de la
+> variable solicitada
+
+#### Paso por referencia
+
+En C++ tenemos un nuevo tipo de paso de argumentos, el paso por referencia.
+
+El efecto es equivalente al uso de punteros en C. La sintaxis cambia.
+
+En C se puede hacer:
+
+> ```C
+> void swap_en_C(int * px, int * py){
+>     int tmp = *px;
+>     *px = *py;
+>     *py=tmp;
+> }
+> ```
+> El llamado es swap_en_C(&a, &b)
+
+> Ahora en C++, tenemos la opción anterior y una más simple:
+> ```C
+> void swap_en_Cplusplus (int & x, int & y){
+>     int tmp = x;
+>     x=y;
+>     y=tmp;
+> }
+> ```
+> El llamado es swap_en_Cplusplus(a,b);
+
+> Obviamente:
+>> ```swap_enCplusplus(4,x);``` // no es legal
+>> ```swap_enCplusplus(i+2,j-1);``` // no es lega
+
+![](/TheusZero/images/post/POO_C++/5.png)
+
+
+#### Clases y objetos en C++
+
+El concepto de clase y objeto ya visto para Java no cambia en C++. Estos
+conceptos son independientes del lenguaje
+
+Lenguaje: en los textos de C++ es común referirse a los atributos como los
+**miembros dato** de la clase y a los métodos como **miembros función**
+
+Mientras en Java todos los objetos son creados y almacenados en el Heap
+(o zona de memoria dinámica), en C++ los objetos se pueden ubicar en
+stack (zona de memoria dedicada al proceso y determinada durante
+compilación) o en memoria dinámica (solicitada durante ejecución).
+
+Al definir un objeto estáticamente en C++, su creación queda determinada.
+En cambio, en java se define el nombre y el objeto se crea usando new.
+
+Para crear objetos en el heap, en C++, se usa punteros a objetos y, como
+en Java, se crean con new. En este caso cambia la notación pero na
+semántica es similar a la de Java.
+
+#### Ubicación de Objetos en C++ (para ir notando diferencia)
+
+![](/TheusZero/images/post/POO_C++/6.png)
+
+#### Estructura Básica de programas C++
+
+En C++ es recomendado separar en distintos archivos la definición de una
+clase por un lado y la implementación de ésta en otro archivo.
+
+Se crea un archivo de encabezado “clase.h”, en él podemos la **definición
+de la clase**, es decir los atributos y prototipos de métodos.
+
+En otro archivo “clase.cpp” ponemos la **implementación** de cada
+método. En este archivo debemos incluir el archivo de encabezado
+“clase.h”
+
+Podemos implementar varias clases por archivo y un .h puede tener la
+definición de varias clases, pero se recomienda hacer un .h y un .cpp por
+cada clase.
+
+#### Estructura de archivos
+
+![](/TheusZero/images/post/POO_C++/7.png)
+
+![](/TheusZero/images/post/POO_C++/8.png)
+
+#### Calificadores de Acceso Público y Privado: es similar a Java
+
+> Los miembros precedidos por el calificador public son visibles fuera de la clase
+>> por ejemplo, un miembro público es visible desde el main(), como es el caso de cin.get(), cin es el objeto, get es la función de acceso público.
+>
+>> Es el calificador por omisión en estructuras (uso de struct en lugar de class).
+
+Los miembros precedidos por el calificador **private** quedan ocultos para
+funciones o métodos fuera de la clase. **Calificador por omisión en clases**.
+
+Miembros precedidos por **protected** pueden ser accedidos por miembros de la
+misma clase y clases derivadas.
+
+Las clases y funciones amigas (más adelante) tienen acceso a todo.
+
+![](/TheusZero/images/post/POO_C++/9.png)
+
+#### Ejemplo: Clase Automóvil
+
+> Imaginemos que queremos modelar un automóvil:
+>> Atributos: marca, número de puertas, número de cilindros, tamaño del motor
+>
+>> Operaciones: fijar y obtener número de puertas, entrada y despliegue de atributos, partir, parar, revisar_gas
+
+![](/TheusZero/images/post/POO_C++/10.png)
+
+#### Clasificación de Funciones Miembros en una Clase
+
+Un **“accesor”** es un método que retorna un valor desde su objeto, pero
+no cambia el objeto (sus atributos). Permite acceder a los atributos del
+objeto.
+
+Un **mutador** es un método que modifica su objeto
+
+Un **constructor** es un método con el mismo nombre de la clase que se
+ejecuta tan pronto como una instancia de la clase es creada.
+
+Un **destructor** es un método el mismo nombre de la clase y una
+virgulilla () antepuesta. Ej.: Automobil()
+
+> ejemplo Clase automovil
+
+![](/TheusZero/images/post/POO_C++/11.png)
+
+#### Creando y accediendo un Objeto
+
+![](/TheusZero/images/post/POO_C++/12.png)
+
+#### Constructores: Similar a Java
+
+Un constructor se ejecuta cuando el objeto es creado, es decir, tan pronto
+es definido en el programa. Ej. Esto es antes de la función main() en el
+caso de objetos globales y cuando una función o método es llamado en el
+caso de datos locales.
+
+En ausencia de constructores, C++ define un construcción por omisión, el
+cual no tiene parámetros.
+
+Debemos crear nuestro constructor por defecto si tenemos otros
+constructores.
+
+Si definimos un arreglo de objetos, el constructor por defecto es llamado
+para cada objeto:
+
+```C
+Point drawing[50];  // calls default constructor 50 times
+                    // a diferencia de Java aquí ya tenemos 50 Puntos.
+```
+
+#### Implementación de Constructores
+
+Podemos implementar un método en la definición de la clase. Se conoce
+como código “inline”
+
+Un constructor por defecto para la clase Point podría inicializar X e Y:
+
+```C
+class Point {
+public:
+    Point() { // función inline , usarla solo si
+    m_X = 0; // implementación es simple.
+    m_Y = 0;
+ } // Ojo no va ; aquí, es el fin del método.
+private:
+ int m_X;
+ int m_Y;
+};
+```
+
+#### Funciones Out-of-Line
+
+Todos los métodos deben ser declarados (el prototipo) dentro de la
+definición de una clase.
+
+La implementación de funciones no triviales son usualmente definidas fuera
+de la clase y en un archivo separado, en lugar de ponerlas in-line en la
+definición de la clase.
+
+> Por ejemplo para el constructor Point, la implementación “of-line” sería:
+> ```C
+> Point::Point() {
+>  m_X = 0;
+>  m_Y = 0;
+> }
+> ```
+
+El símbolo **::** permite al compilador saber que estamos definiendo la función
+Point de la clase Point. Este también es conocido como operador de
+**resolución de alcance ::**
+
+> Clase Automobile (revisión)
+> ![](/TheusZero/images/post/POO_C++/13.png)
+
+> Implementaciones de los métodos de Automobile
+> ![](/TheusZero/images/post/POO_C++/14.png)
+
+> Implementación del método de entrada
+> ![](/TheusZero/images/post/POO_C++/15.png)
+
+#### Constructores
+
+Como en Java, múltiples constructores pueden existir con
+diferentes listas de parámetros:
+
+> 1/5: Sobrecarga
+> ![](/TheusZero/images/post/POO_C++/16.png)
+>
+> 2/5: Invocación
+> ![](/TheusZero/images/post/POO_C++/17.png)
+>
+> (3/5): Implementación
+> ![](/TheusZero/images/post/POO_C++/18.png)
+>
+> (4/5): visibilidad de Parámetros
+> ![](/TheusZero/images/post/POO_C++/19.png)
+
+> (5/5): Lista de Inicialización
+> ![](/TheusZero/images/post/POO_C++/20.png)
+
+#### Destructores
+
+Una diferencia importante con Java es la presencia de destructores. Lo
+más cercano en java es el método finalize() (hoy obsoleto) de la clase
+Object.
+
+Java tiene un proceso de “recolección de basura” por lo que hace los
+destructores no críticos.
+
+En C++ el **destructor se invoca en forma automática** justo antes que el
+objeto sea inaccesible para el programa.
+
+El método destructor no tiene parámetros, se llama igual a la clase y lleva
+un signo ~ como prefijo.
+```Ej: Automobile::~Automobile() {}``` 
+
+
+
+
+
+
+
+
+
 
 
 
