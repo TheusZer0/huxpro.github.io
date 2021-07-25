@@ -136,10 +136,141 @@ bool
 referencias a éstos**. En Java esto es así sólo para los tipos simples escalares
 como int, float, double, char y boolean.
 
+La diferencia entre C++ y Java se hace notar al manejar objetos
 
+Objetos en Java son referencias a éstos y todos se encuentran en el heap.
+Mientras que en C++ los nombres de objetos siempre se refieren al objeto mismo
+y se pueden encontrar en el heap, en stack o en segmentos de datos de la
+memoria.
 
+> ```C
+> //Ej: en C++
+> 
+> Empleado juan, pedro; // al momento de crear la variable ya se
+>  // crea el objeto invocando el constructor. Distinto de Java
+>  
+> juan=pedro; // hace que juan tome todos los atributos de pedro.
+> ```
+> 
+> Un cambio posterior a juan no afecta a pedro.
+>
+> Ésta es una gran diferencia con la semántica en Java
 
+#### Salida de Datos
 
+iostream debe ser incluido para hacer uso de las operaciones de entrada y
+salida.
+
+```C
+#include <iostream>
+using namespace std; // para usar el objeto cout
+int main (void){
+ cout << “Hello, world” << endl;
+ return 0;
+}
+```
+
+Es posible enviar datos a la salida estándar o a archivos:
+
+```C
+#include <fstream>
+ofstream os (“output.dat”);
+os << “The value of pi is approx. “ << 3.14159 << endl;
+```
+
+```C
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main() {
+int i;
+ifstream fin;
+fin.open("test"); // test contains 3 ints
+for (int j=0;j<3;j++) {
+fin >> i;
+cout << i << endl;
+}
+fin.close();
+}
+```
+
+#### Lectura desde archivo: Ejemplo
+
+```C
+#include <string>
+#include <fstream>
+#include <iostream>
+using namespace std;
+int main() {
+ string s;
+ ifstream fin;
+ fin.open("/etc/passwd");
+ while(getline(fin,s))
+ cout << s << endl;
+}
+```
+
+#### Operadores aritméticos
+
+![](/TheusZero/images/post/POO_C++/2.png)
+
+#### Asignaciones, Arreglos y Vectores
+
+Todas asignación tiene un valor, aquel asignado. Ej: a=b=c;
+
+ANSI C++ usa el mismo constructor de arreglo que C
+
+Como los arreglos de C no son particularmente poderosos,
+C++ incorpora vectores (no corresponde al concepto de vector
+geométrico). Éstos son análogos a los ArrayList de Java.
+
+Los vectores son una forma de plantilla (template). Una plantilla es una
+declaración de clase con un tipo de dato como parámetro, su uso es
+simple:
+vector <X> a(n); // Ojo aún no usamos new como en Java...
+crea un arreglo “crecedor” de elementos de tipo X con espacio para n
+elementos.
+
+El acceso es con: a[i]
+
+#### Vectores
+
+Pueden crecer según nuestra necesidad ```vector <double> a;```
+
+En este caso a está vacío. Para hacerlo crecer:
+
+```C
+a.push_back(0.3);
+a.push_back(56.2);
+```
+
+También podemos hacer que el vector crezca en varios elementos: ```a.resize(10);```
+
+Podemos preguntar por el tamaño de un vector con a.size(); como en:
+
+```C
+for (int i=0; i < a.size(); i++)
+ // ..... por más detalles ver www.cplusplus.com
+```
+
+#### Strings
+
+En ANSI C++ tenemos acceso a una clase poderosa para string.
+
+Ésta tiene definido el operador copia =, el operador concatenación +
+y operadores relacionales ==, !=, <, <=, >, >=, entre otros.
+
+El operador [ ] provee acceso a elementos individuales.
+
+Existen muchos métodos en esta clase como substr para extraer un
+substring:
+
+```C
+string s = “Hola a todos”;
+int n = s.length(); // asigna 12
+char ch = s[0];
+string t = s.substr(0,4); // Substring de s[0] a s[4]
+```
 
 
 
