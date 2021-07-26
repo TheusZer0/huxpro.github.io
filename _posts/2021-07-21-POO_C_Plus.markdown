@@ -369,7 +369,7 @@ En C se puede hacer:
 ![](/TheusZero/images/post/POO_C++/5.png)
 
 
-#### Clases y objetos en C++
+## Clases y objetos en C++
 
 El concepto de clase y objeto ya visto para Java no cambia en C++. Estos
 conceptos son independientes del lenguaje
@@ -514,7 +514,7 @@ de la clase y en un archivo separado, en lugar de ponerlas in-line en la
 definición de la clase.
 
 > Por ejemplo para el constructor Point, la implementación “of-line” sería:
-> ```C
+> ```
 > Point::Point() {
 >  m_X = 0;
 >  m_Y = 0;
@@ -570,16 +570,57 @@ El método destructor no tiene parámetros, se llama igual a la clase y lleva
 un signo ~ como prefijo.
 ```Ej: Automobile::~Automobile() {}``` 
 
+## const, referencias (&), y macro assert en C++ 
 
+modificadores que se pueden aplicar al codigo
 
+#### const
 
+es como el final de Java
 
+> Tiene varios usos:
+>> Para evitar que una atributo, variable o parámetro cambie. Es mejor que
+> #define
+>> Para indicar que un método no cambia el estado de un objeto.
+>
+>> El objeto calificado como constante debe tener un valor asignado en su definición o vía lista de inicialización.
 
+```
+const int n = 25;
+n = 36; // error
+const double z; // error
+int m = n;
+m = 36; 
+```
 
+#### Calificador const en punteros
 
+> Hay dos posiciones con distinto resultado.
+>> int * const a; // no puedo cambiar a
+> 
+>> const int *a; // no puedo cambiar el contenido apuntado
 
+```
+    void MySub( const int *a ) { // Contenido constante!
+    *a = 50; // error
+    a++; // ok
+    }
+```
 
+En este ejemplo, el puntero sí puede ser modificado, pero esto no
+tiene efecto duradero o posterior ya que el puntero es pasado por
+valor (se crea uno local y se copia el valor el parámetro actual).
 
+![](/TheusZero/images/post/POO_C++/21.png)
 
+#### Punteros Constantes
 
+La declaración de un **puntero constante** solo garantiza que el
+puntero en sí no pueda ser modificado
 
+```
+void MySub( int * const a ) { // Puntero constante
+ *a = 50; // ok
+ a++; // error
+}
+```
