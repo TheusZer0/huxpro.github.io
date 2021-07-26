@@ -1225,7 +1225,7 @@ El metodo advance, al ser llamado,
 llama a todos los metodos advance de cada uno de
 los elementos QGraphicsItem de la escena
 
-![](/TheusZero/images/post/POO_C++/54.png)
+![](/TheusZero/images/post/POO_C++/56.png)
 
 #### Interfaces QML
 
@@ -1264,10 +1264,539 @@ Existen dos tipos de licencias de desarrollo:
 
 ## Herencia en C++
 
-Motor y ElectricMotor
+#### Motor y ElectricMotor
 
+![](/TheusZero/images/post/POO_C++/57.png)
 
+![](/TheusZero/images/post/POO_C++/58.png)
 
+![](/TheusZero/images/post/POO_C++/59.png)
+
+#### Creación de Clases Derivadas
+
+![](/TheusZero/images/post/POO_C++/60.png)
+
+![](/TheusZero/images/post/POO_C++/61.png)
+
+#### Inicialización de Clase Base
+
+Para inicializar los atributos definidos en la clase base se llama al
+constructor de la clase base. En este ejemplo, el número ID del motor
+es pasado al constructor de CMotor.
+
+![](/TheusZero/images/post/POO_C++/62.png)
+
+#### Llamando a métodos de la clase base
+
+![](/TheusZero/images/post/POO_C++/63.png)
+
+#### Función o método Display
+
+La función Display funciona de la misma manera. Ésta llama a
+CMotor::Display primero.
+
+![](/TheusZero/images/post/POO_C++/64.png)
+
+#### Probando Clases
+
+Cuando el mismo nombre de método existe en ambas clases, **C++ llama
+al método implementado para la clase según la declaración del objeto.**
+Éste es el caso con los métodos Input y Display (es lo esperable):
+
+```vim
+CElectricMotor elec; // CelectricMotor
+elec.Input(); // CElectricMotor
+elec.Display(); // CElectricMotor
+```
+
+#### Asignación de Objetos
+
+Podemos asignar objetos de clases derivadas a un objeto de la clase
+base. Similar a Java aunque esto no exista en Java (porque los nombres
+son referencias).
+
+![](/TheusZero/images/post/POO_C++/65.png)
+
+Pero no podemos asignar una instancia de una clase base a una instancia
+de una clase derivada (similar restricción en Java). Algunos campos de la
+clase derivada no existen en la clase base. 
+
+![](/TheusZero/images/post/POO_C++/66.png)
+
+#### Acceso a miembros Protected (Protegidos)
+
+Miembros de una clase designados como protected son visibles a ambas:
+la clase actual y las clases derivadas (y a clases amigas -friend- pero a
+nadie más). **Es análogo a Java.**
+
+```vim
+class CMotor {
+public:
+ CMotor() { }
+ CMotor( const string & id );
+protected:
+ string get_ID() const;
+ void set_ID(const string & s);
+//...
+}
+```
+
+#### Herencia Protegida
+
+Supongamos por un momento que CMotor usa miembros públicos
+para todos sus métodos:
+
+```vim
+class CMotor {
+public:
+ CMotor() { }
+ CMotor( const string & id );
+ string get_ID() const;
+ void set_ID(const string & s);
+//...
+}
+```
+
+#### Herencia Protegida
+
+Podemos usar el calificador **protected** cuando creamos una clase
+derivada
+
+Con herencia protegida, todos los **métodos
+públicos** en la clase
+base **pasan a** ser **protegidos**
+en la clase derivada. Los restantes
+mantienen su nivel de acceso.
+
+```
+class CElectricMotor : protected CMotor {
+ //...
+};
+```
+
+#### Herencia Protegida
+
+Por ejemplo, el programa principal no puede llamar set_ID y get_ID
+en un motor eléctrico porque ahora esos métodos son protegidos para
+instancias de motor eléctrico.
+
+![](/TheusZero/images/post/POO_C++/67.png)
+
+#### Herencia Privada
+
+La herencia privada causa que todos los métodos declarados en la clase
+base tienen acceso privado en la clase derivada.
+
+Pareciera que no hay diferencia con herencia protegida: En ambos casos,
+métodos de CElectricMotor pueden acceder a métodos de CMotor
+
+```vim
+class CElectricMotor : private CMotor {
+ //...
+ };
+```
+
+#### Herencia Privada
+
+Pero cuando derivamos una nueva clase (CPumpMotor) de
+CElectricMotor, la diferencia se hace notar: con herencia privada,
+métodos en CPumpMotor no pueden acceder a miembros públicos de
+CMotor.
+
+```vim
+class CPumpMotor : public CElectricMotor {
+public:
+ void Display() {
+     CMotor::Display(); // not accessible!
+     CElectricMotor::Display(); // this is OK
+ }
+};
+```
+
+#### Miembros que no son heredados
+
+El constructor y destructor de la clase base no son heredados, deben ser
+definidos en la clase heredada.
+
+El constructor por omisión y el destructor sí son llamados cuando se crea
+o destruye una instancia de la clase derivada.
+
+Si la clase base tiene sobrecargado el operador =, éste no se hereda en la
+clase derivada.
+
+La relación de “amistad” no se hereda. Las clases y funciones friend no
+son friend en la clase hija.
+
+Si se omite el nivel de acceso en clases, equivale a poner private
+
+struct es una palabra reservada que puede ser usada en lugar de la
+palabra reservada class. La principal diferencia es que al omitir el
+nivel de acceso, se entiende público y no privado como con class.
+
+## Polimorfismo en C++, ligado dinámico y Métodos Virtuales, Casting, Declaración incompleta de clases
+
+#### Jerarquía de clases Motor
+
+Recordemos la jerarquía de clases establecida para el estudio
+sobre Herencia:
+
+![](/TheusZero/images/post/POO_C++/68.png)
+
+#### Clase CMotor
+
+La definición de la clase CMotor:
+```vim
+class CMotor {
+public:
+   CMotor() { }
+   CMotor( const string & id );
+   string get_ID() const;
+   void set_ID(const string & s);
+   void Display() const;
+   void Input();
+private:
+   string m_sID;
+}; 
+```
+
+#### Clase CElectricMotor
+
+![](/TheusZero/images/post/POO_C++/69.png)
+
+#### Clase CGasMotor
+
+![](/TheusZero/images/post/POO_C++/70.png)
+
+#### Punteros a objetos de clases derivadas y referencias a objetos derivados
+
+Es fácil definir objetos dinámicos de una clase derivada usando
+un puntero de tipo específico:
+
+![](/TheusZero/images/post/POO_C++/71.png)
+
+#### Polimorfismo
+
+Análogo a Java, en C++ podemos declarar punteros a una clase base, y
+luego asignarle la dirección de una instancia de una clase derivada. **Este
+caso es normal en Java.** Es el principio de sustitución en C++. Esta
+técnica es un tipo de polimorfismo.
+
+*Recordar: Polimorfismo es un concepto donde, en una de sus
+formas, un mismo nombre puede referirse a objetos de clases
+diferentes que están relacionadas por una clase base común.*
+
+```vim
+CMotor * pM;
+ pM = new CElectricMotor; // puntero a motor eléctrico
+ // semántica similar a Java
+ CElectricMotor em;
+ CMotor & motor = em; // referencia a motor eléctrico
+ // esta opción no existe en Java
+```
+
+![](/TheusZero/images/post/POO_C++/72.png)
+
+#### Ligado dinámico
+
+En C++ la opción por **omisión
+es llamar el método definido por el tipo del
+puntero o referencia**,
+no el tipo del objeto apuntado. Esto es **Distinto a
+Java!**
+
+![](/TheusZero/images/post/POO_C++/73.png)
+
+#### Métodos Virtuales (Virtual)
+
+**Si deseamos tener un comportamiento como Java, debemos declarar
+los métodos Input y Display como virtuales en la clase base.**
+
+El calificador virtual le dice al compilador que genere código que mire al
+tipo del objeto apuntado (no del puntero) en tiempo de ejecución y use
+esta información para seleccionar la versión apropiada del método.
+
+El ligado dinámico **aplica cuando usamos punteros o referencias** a
+objetos.
+
+```vim
+class CMotor {
+
+ virtual void Display() const; // el calificador virtual cambia
+ virtual void Input(); // la forma de definir el código
+ // a ser finalmente invocado.
+
+};
+```
+
+#### Métodos Virtuales
+
+Es recomendable definir también como virtuales los métodos en la
+clase derivada, en este caso en las clases CGasMotor y
+CElectricMotor.
+
+```vim
+class CGasMotor :public CMotor {
+public:
+ ...
+ virtual void Display() const;
+ virtual void Input();
+ ...
+};
+```
+
+De esta forma la semántica del método se mantiene entre clases
+heredadas.
+
+Ahora los métodos Display e Input son llamados usando ligado
+**dinámico** desde la clase CElectricMotor:
+
+```vim
+CMotor * pM;
+pM = new CElectricMotor;
+
+pM->Input(); // CElectricMotor::Input()
+pM->Display(); // CElectricMotor::Display()
+```
+
+#### Métodos Virtuales
+
+A menudo, un puntero será pasado como argumento a una función
+que espera un puntero a objeto de la clase base.
+
+Cuando el método es llamado, podemos pasar cualquier puntero como
+parámetro actual, siempre y cuando éste apunte a una instancia
+derivada de la clase base (“subtipo”).
+
+![](/TheusZero/images/post/POO_C++/74.png)
+
+Ejemplo de llamados a GetAndShowMotor con diferentes tipos de
+punteros.
+
+![](/TheusZero/images/post/POO_C++/75.png)
+
+#### (Salida de la lámina previa)
+
+![](/TheusZero/images/post/POO_C++/76.png)
+
+#### Creación de un vector de Motores
+
+![](/TheusZero/images/post/POO_C++/77.png)
+
+#### Acceso a Vector de punteros
+
+La función que despliega tales vectores no necesita saber
+exactamente qué tipo de puntero están en el vector mientras se
+llame a métodos virtuales.
+
+![](/TheusZero/images/post/POO_C++/78.png)
+
+#### Salida de la función ShowVector
+
+La función ShowVector llama a la versión apropiada del método
+virtual Display() para cada puntero en el vector.
+
+```vim
+------- Vector of Motor Pointers -------
+1: [ElectricMotor] ID=10000, Voltage=110
+2: [GasMotor] ID=20000, Cylinders=4
+3: [ElectricMotor] ID=30000, Voltage=220
+4: [GasMotor] ID=40000, Cylinders=2
+```
+
+#### Liberación de almacenamiento
+
+Debemos liberar el almacenamiento usado por cada objeto motor.
+Este bucle remueve los punteros uno por uno.
+
+```vim
+for(int i=0; i < vMotors.size(); i++) {
+    delete vMotors[i]; // delete each motor
+}
+```
+
+El operador delete accede a información que le permite saber
+exactamente cuánto almacenamiento liberar por cada puntero (aún
+cuando los motores ocupan distintos tamaños).
+
+> Saber distinguir lo previo de:
+> ```vim
+> CMotor * motor = new CMotor [40];
+> delete [] motor; // aquí el arreglo está en el heap.
+> ```
+
+#### Métodos Virtuales Puros
+
+Un método virtual puro no tiene implementación. Esto es identificado en
+C++ con un "= 0" al final de la declaración
+
+Un método virtual puro **requiere** que la función sea implementada en la
+clase derivada.
+
+> Es **equivalente a los métodos abstractos en Java**
+> 
+> ```vim
+> class CMotor {
+> public:
+> //...
+>   virtual void Display() const = 0; // => no está implementado
+>   virtual void Input() = 0; // => no está implementado
+> //...
+> }
+> ```
+
+#### Clases Abstractas (Abstract Classes)
+
+Una clase que contiene uno o más métodos **virtuales** puros pasa a
+ser una clase **abstracta**.
+
+Por igual razón que en Java, NO es posible crear instancias de una
+clase abstracta, pero en **C++ no requiere calificador “abstract”.**
+
+```vim
+Con la declaración previa para CMotor:
+CMotor M; // error
+CMotor * pM = new CMotor; // error
+```
+
+#### Conversiones Implícitas datos
+
+C++ maneja conversiones automáticamente en el caso de tipos
+numéricos intrínsecos (int, double, float)
+
+> Mensajes de advertencia (warning) pueden aparecer cuando hay
+> riesgo de pérdida de información (precisión).
+>
+> Hay variaciones de un compilador a otro
+
+**Ejemplos**
+
+![](/TheusZero/images/post/POO_C++/79.png)
+
+#### Operación cast
+
+Una operación de “casteo” cast convierte explícitamente datos de un
+tipo a otro.
+
+Es usado en conversiones “seguras” que podrían ser hechas por el
+compilador. 
+
+Son usadas para abolir mensajes de advertencia (warning
+messages).
+
+El operador tradicional de C pone el nuevo tipo de dato entre
+paréntesis. C++ mejora esto con una operador cast tipo función.
+
+**Ejemplos de cast**
+
+![](/TheusZero/images/post/POO_C++/80.png)
+
+#### Nueva forma de hacer “casteo” en C++: **static_cast<> y dynamic_cast<>**
+
+El operador static_cast<> es la forma preferida para hacer
+conversiones “seguras” en C++
+
+Éste reemplaza el operador tradicional de C y el estilo función de
+C++.
+
+Existe también el dynamic_cast<>, éste asegura que el resultado
+de la conversión es un dato compatible. Sólo se aplica a punteros
+a objetos.
+
+dynamic_cast<> lanza error cuando el resultado de la conversión
+no es un objeto completo de la clase requerida.
+
+#### Ejemplos de static_ y dynamic_cast
+
+> static_cast
+> ![](/TheusZero/images/post/POO_C++/81.png)
+
+> dynamic_cast
+> ![](/TheusZero/images/post/POO_C++/82.png)
+
+#### Declaración incompleta de clases
+
+En ocasiones podemos tener este tipo de dependencias:
+
+![](/TheusZero/images/post/POO_C++/83.png)
+
+![](/TheusZero/images/post/POO_C++/84.png)
+
+![](/TheusZero/images/post/POO_C++/85.png)
+
+## Licencias de Software
+
+#### ¿Que es una licencia de software?
+
+Es un acuerdo legal entre el creador de un software y su usuario
+que limita las cosas permitidas hacer
+
+> Una licencia de software responde preguntas como:
+> 
+> ¿Donde, como y que tan frecuentemente puedo instalar el
+> programa?
+> 
+> ¿Puedo copiarlo, modificarlo o redistribuirlo?
+> 
+> ¿Puedo mirar su codigo fuente?
+
+No cumplir con este acuerdo legal corresponde a una infraccion
+a la ley de derechos de autor
+
+#### ¿Que son los derechos de autor?
+
+Protege los derechos que un autor adquiere sobre la creaci´on de
+una obra.
+
+> Existen tres tipos de derechos de autor:
+> 
+> ![](/TheusZero/images/post/POO_C++/86.png)
+
+#### Tipos de licencias
+
+Algunas de las licencias m´as populares en la actualidad son:
+
+> Sin licencia: Codigos sin licencia tienen copyright por omision.
+> Usuarios no tienen derecho a usar el codigo sin permiso explıcito
+> de su autor.
+
+> Propietaria: Licencias mas restrictivas, las cuales solo permiten
+> el uso de un programa, pero no su modificacion o redistribucion.
+> Ej. MS Reference.
+
+> GNU GPLv3: Permisos de utilizacion o modificacion del codigo,
+> deben venir acompanadas con la liberacion del nuevo codigo
+> fuente generado. Posee copyleft
+
+> GNU LGPLv3: Licencia utilizada por Qt. Identica a la GNU
+> 
+> GPLv3. Proyectos que utilicen un codigo bajo esta licencia solo
+> como biblioteca dinamica, pueden saltarse el copyleft y licenciar
+> bajo licencias mas restrictivas.
+
+> MIT License: Licencia permisiva. Utilizar codigo bajo esta
+> licencia en un proyecto, solo requiere que se incluya una
+> notificacion de la licencia utilizada dentro del software.
+> 
+> WTFPL: Licencia mas permisiva. “Haz lo que te de la gana”.
+
+#### Uso de licencias
+
+Determinar inicialmente bajo que modalidad quieres licenciar tu
+software. Esto determinara que herramientas puedes utilizar y
+cuales no.
+
+Tanto para el lenguaje utilizado como para las bibliotecas
+incluidas en tu desarrollo, verificar las licencias de cada una y la
+compatibilidad con tu modalidad de licencia.
+
+Verificar la compatibilidad de licencias entre los distintos
+elementos de tu software. Pueden haber bibliotecas con licencias
+incompatibles entre si.
+
+Que algo sea codigo abierto ¡NO quiere decir que sea gratuito!
+Ej: Red Hat Linux
+
+Ante cualquier duda, siempre consultar con un abogado.
 
 
 
