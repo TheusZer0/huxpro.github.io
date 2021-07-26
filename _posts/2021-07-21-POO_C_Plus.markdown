@@ -94,7 +94,7 @@ Son incluidos con la directiva del pre-procesador
 
 Ejemplo:
 
-```C
+```vim
 #include <vector>
 #include <sys/socket.h>
 #include “setup.h”
@@ -106,7 +106,7 @@ compilador.
 Los directorios estándares varían en cada instalación. Para ver cuáles son en tu
 sistema, puedes usar:
 
-```C
+```vim
 $ touch a.c  // o el comando para crear un archivo a.c vacío.$ gcc -v -E a.cMostrará los directorios a buscar para archivos 
 
 #include <...>    e
@@ -116,7 +116,7 @@ $ touch a.c  // o el comando para crear un archivo a.c vacío.$ gcc -v -E a.c
 
 #### Tipos de variables
 
-```C
+```vim
 int
 short int ( o short)
 long int (o long)
@@ -143,7 +143,7 @@ Mientras que en C++ los nombres de objetos siempre se refieren al objeto mismo
 y se pueden encontrar en el heap, en stack o en segmentos de datos de la
 memoria.
 
-> ```C
+> ```vim
 > //Ej: en C++
 > 
 > Empleado juan, pedro; // al momento de crear la variable ya se
@@ -161,7 +161,7 @@ memoria.
 iostream debe ser incluido para hacer uso de las operaciones de entrada y
 salida.
 
-```C
+```vim
 #include <iostream>
 using namespace std; // para usar el objeto cout
 int main (void){
@@ -172,13 +172,13 @@ int main (void){
 
 Es posible enviar datos a la salida estándar o a archivos:
 
-```C
+```vim
 #include <fstream>
 ofstream os (“output.dat”);
 os << “The value of pi is approx. “ << 3.14159 << endl;
 ```
 
-```C
+```vim
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -196,7 +196,7 @@ fin.close();
 
 #### Lectura desde archivo: Ejemplo
 
-```C
+```vim
 #include <string>
 #include <fstream>
 #include <iostream>
@@ -239,7 +239,7 @@ Pueden crecer según nuestra necesidad ```vector <double> a;```
 
 En este caso a está vacío. Para hacerlo crecer:
 
-```C
+```vim
 a.push_back(0.3);
 a.push_back(56.2);
 ```
@@ -248,7 +248,7 @@ También podemos hacer que el vector crezca en varios elementos: ```a.resize(10)
 
 Podemos preguntar por el tamaño de un vector con a.size(); como en:
 
-```C
+```vim
 for (int i=0; i < a.size(); i++)
  // ..... por más detalles ver www.cplusplus.com
 ```
@@ -265,7 +265,7 @@ El operador [ ] provee acceso a elementos individuales.
 Existen muchos métodos en esta clase como substr para extraer un
 substring:
 
-```C
+```vim
 string s = “Hola a todos”;
 int n = s.length(); // asigna 12
 char ch = s[0];
@@ -276,7 +276,7 @@ string t = s.substr(0,4); // Substring de s[0] a s[4]
 
 Se dispone de las opciones comunes en otros lenguajes:
 
-```
+```vim
 if (condición)
     block1 // Un bloque de instrucciones se delimita con { }
 else
@@ -307,7 +307,7 @@ de otra variable o dato.
 Definición en C/C++: Para definir una variable como puntero, se
 utiliza el operador “*”
 
-```C
+```vim
  int *pVar; // pVar almacena una dirección de memoria para alojar un entero
 ```
 
@@ -343,7 +343,7 @@ El efecto es equivalente al uso de punteros en C. La sintaxis cambia.
 
 En C se puede hacer:
 
-> ```C
+> ```vim
 > void swap_en_C(int * px, int * py){
 >     int tmp = *px;
 >     *px = *py;
@@ -353,7 +353,7 @@ En C se puede hacer:
 > El llamado es swap_en_C(&a, &b)
 
 > Ahora en C++, tenemos la opción anterior y una más simple:
-> ```C
+> ```vim
 > void swap_en_Cplusplus (int & x, int & y){
 >     int tmp = x;
 >     x=y;
@@ -479,7 +479,7 @@ constructores.
 Si definimos un arreglo de objetos, el constructor por defecto es llamado
 para cada objeto:
 
-```C
+```vim
 Point drawing[50];  // calls default constructor 50 times
                     // a diferencia de Java aquí ya tenemos 50 Puntos.
 ```
@@ -491,7 +491,7 @@ como código “inline”
 
 Un constructor por defecto para la clase Point podría inicializar X e Y:
 
-```C
+```vim
 class Point {
 public:
     Point() { // función inline , usarla solo si
@@ -514,7 +514,7 @@ de la clase y en un archivo separado, en lugar de ponerlas in-line en la
 definición de la clase.
 
 > Por ejemplo para el constructor Point, la implementación “of-line” sería:
-> ```
+> ```vim
 > Point::Point() {
 >  m_X = 0;
 >  m_Y = 0;
@@ -585,7 +585,7 @@ es como el final de Java
 >
 >> El objeto calificado como constante debe tener un valor asignado en su definición o vía lista de inicialización.
 
-```
+```vim
 const int n = 25;
 n = 36; // error
 const double z; // error
@@ -600,7 +600,7 @@ m = 36;
 > 
 >> const int *a; // no puedo cambiar el contenido apuntado
 
-```
+```vim
     void MySub( const int *a ) { // Contenido constante!
     *a = 50; // error
     a++; // ok
@@ -618,9 +618,656 @@ valor (se crea uno local y se copia el valor el parámetro actual).
 La declaración de un **puntero constante** solo garantiza que el
 puntero en sí no pueda ser modificado
 
-```
+```vim
 void MySub( int * const a ) { // Puntero constante
  *a = 50; // ok
  a++; // error
 }
 ```
+
+Los datos referenciados por el puntero si pueden ser modificados.
+
+#### Uso de const en métodos
+
+Se usa para atributos o parámetros que no deben cambiar.
+
+Siempre usamos el modificador const cuando declaramos miembros
+funciones si la función no modifica los datos del objeto:
+
+```vim
+void Display() const;
+```
+
+Puede generarse un efecto en cadena cuando invocamos métodos
+dentro de un método const, todos ellos también deben ser const.
+
+![](/TheusZero/images/post/POO_C++/22.png)
+
+#### Alcance de Variables
+
+Es posible definir variables con visibilidad solo dentro de un bloque.
+Un bloque queda descrito por los símbolos { ... }
+
+```vim
+{ int i =20;
+ a+=i;
+}
+```
+
+Variables locales existen solo dentro del bloque de código.
+
+#### Referencias
+
+Una referencia es un **alias** para algún objeto existente.
+
+Físicamente, la referencia almacena la dirección del objeto que
+referencia
+
+En el ejemplo, cuando asignamos un valor a rN, también estamos
+modificando N:
+
+![](/TheusZero/images/post/POO_C++/23.png)
+
+> cualquier cambio en el contenido de Rn sera reflejado en N y viceversa, ya que Rn es una referencia de N.
+
+#### Verificación de pre-condiciones con assert (afirmar)
+
+La macro assert() puede ser llamada cuando se desee garantizar
+absolutamente que se satisface alguna condición. Chequeo de rango
+es común:
+
+```vim
+double future_value(double initial_balance, double p, int nyear) {
+   assert( nyear >= 0 ); // es útil para depuración de programas
+   assert( p >= 0 );
+   double b = initial_balance
+   * pow(1 + p / (12 * 100), 12 * nyear);
+   return b;
+}
+```
+
+#### assert
+
+Si la expresión pasada a la macro assert() es falsa, el programa se
+detiene inmediatamente con un mensaje de diagnóstico del tipo:
+
+```vim
+Assertion failure in file mysub.cpp,
+ line 201: nyear >= 0
+```
+
+Con assert el programa no tiene la posibilidad de recuperarse del
+error. 
+
+Para eliminar el efecto de assert se debe compilar el programa con la
+definición de NDEBUG para el procesador.
+
+```#define NDEBUG``` // esto omite generar código asociado a assert.
+
+## Funciones y Clases Amigas (Friend) Miembros Estáticos (Static)
+
+#### Funciones y Clases Friend
+
+El calificador **friend** se puede aplicar a **funciones globales** y **clases** para otorgar
+acceso a miembros privados y protegidos de una clase.
+
+La función función global “friend” tendrá acceso a los miembros como si fuera un
+método de la clase.
+
+Una clase B es friend de otra A cuando sus métodos tiene acceso a los miembros
+privados y protegidos de la clase A que la ha declarado friend.
+
+![](/TheusZero/images/post/POO_C++/24.png)
+
+#### Implementación de ValidateCourseData()
+
+El calificador friend no aparece en la implementación de la función
+global
+
+Notar el acceso a miembros privados (nCredits) de la clase. Esto
+es posible por ser función amiga.
+
+```vim
+bool ValidateCourseData(const Course & C) {
+     if( C.nCredits < 1 || C.nCredits > 5 )
+         return false;
+     }
+  return true;
+}
+```
+
+![](/TheusZero/images/post/POO_C++/25.png)
+
+#### Clases Friend: clases amigas
+
+![](/TheusZero/images/post/POO_C++/26.png)
+
+La “Amistad” no es mutua. En el ejemplo previo, los métodos de
+YourClass no pueden acceder a miembros privados de
+YourOtherClass
+
+La “Amistad” no se hereda; esto es, clases derivadas de
+YourOtherClass no pueden acceder a miembros privados de
+YourClass. Tampoco es transitiva; esto es clases que son “friends”
+de YourOtherClass no pueden acceder a miembros privados de
+YourClass.
+
+La “amistad” es importante en sobrecarga de operador <<, para
+escritura a pantalla pues en este caso no podemos agregar
+sobrecargas a clases estándares. Ver ejemplo [CVectorFriend](http://profesores.elo.utfsm.cl/~agv/elo329/C++Prog/CVectorFriend/)
+
+#### Static: Miembros Estáticos
+
+**No hay gran diferencia con Java**
+
+Estas variables tienen existencia desde que el programa se inicia
+hasta que termina.
+
+> Atributos estáticos
+>> El atributo es compartido por todas las instancias de la clase. Todas las instancias de la clase comparten el mismo valor del atributo estático. Igual que en Java
+
+> Métodos Estáticos
+>> Estos métodos pueden ser invocados sobre la clase, no solo sobre una instancia en particular. Igual que en Java.
+>
+>> El método sólo puede acceder miembros estáticos de la clase
+
+Es posible pensar en miembros estáticos como atributos de la clase
+y no de objetos. Hasta aquí igual a Java.
+
+#### Declaración de Datos Estáticos
+
+La palabra clave **static** debe ser usada
+
+```vim
+class Student {
+    //...
+private:
+     static int m_snCount; //instance m_snCount
+};
+```
+
+#### Creación de un contador de instancias
+
+La inicialización de un dato estático no se efectúa en el
+constructor pues existe previo a la creación de cualquier objeto
+
+En Java lo hacíamos en bloque de iniciación static
+static { ….. }
+
+La iniciación de atributos estáticos es una diferencia entre C++ y
+Java.
+
+![](/TheusZero/images/post/POO_C++/27.png)
+
+Usamos el constructor y destructor para incrementar y
+decrementar el contador:
+
+![](/TheusZero/images/post/POO_C++/28.png)
+
+#### Métodos Estáticos
+
+Usamos métodos estáticos para permitir el acceso público a
+miembros de datos estáticos sin necesidad de instanciar la clase.
+
+![](/TheusZero/images/post/POO_C++/29.png)
+
+#### Llamando a Métodos Estáticos
+
+Como en java, usamos ya sea el nombre de la case o una
+instancia de la clase para acceder al método:
+
+![](/TheusZero/images/post/POO_C++/30.png)
+
+## Manejo de Punteros y objetos en memoria dinámica en C++
+
+#### Asignación Dinámica de Memoria
+
+Asignación Dinámica de memoria es la creación de un objeto mientras el
+programa está en ejecución. Para ello se usa el operador **new**.
+
+Esta es la única forma usada en Java para crear objetos.
+
+Los objetos creados con new son almacenados en el heap, una gran
+espacio de memoria libre gestionado por el sistema operativo.
+
+Cuando objetos son creados de esta manera, éstos permanecen en el heap
+hasta que son removidos de él con el operador **delete**
+
+A diferencia de Java, **debemos remover explícitamente los objetos ubicados
+en el heap**. Recordar que Java usa el recolector de basura activado por la
+máquina virtual.
+
+#### Creando un Objeto en el heap
+
+Usando el operador new, aquí creamos un entero en el heap y asignamos
+su dirección a p.
+
+```vim
+int * p = new int; 
+```
+
+![](/TheusZero/images/post/POO_C++/31.png)
+
+#### Operadores new y delete
+
+```vim
+Student * ps = new Student; <--- Llama al constructor Student()
+```
+
+El operador new retorna la dirección al objeto recién creado. El operador
+delete invoca al destructor y retorna la memoria al heap y deja al objeto no
+disponible. 
+
+![](/TheusZero/images/post/POO_C++/32.png)
+
+#### Usando new en Funciones
+
+Si se crea un objeto dentro de una función, lo más probable es que haya
+que eliminar el objeto al interior de la misma función. En el ejemplo, la
+variable ps se sale del alcance una vez terminado el bloque de la función.
+
+```vim
+void MyFunction() {
+ Student * ps = new Student; // al término ps desaparece
+ // automáticamente, pero el objeto creado no.
+
+ // usamos Student por un rato… luego debemos hacer
+
+ delete ps; // borra el estudiante apuntado por ps
+} // antes de borrarlo, se invoca al destructor de Student.
+```
+
+![](/TheusZero/images/post/POO_C++/33.png)
+
+#### Memory Leaks (fuga de memoria)
+
+Un **memory leak (o fuga de memoria)** es una condición indeseable creada
+cuando un objeto es dejado en el heap y ningún puntero contiene su
+dirección. Esto puede pasar si el puntero al objeto queda fuera de alcance:
+
+> ```vim
+> void MyFunction() {
+>  Student * ps = new Student;
+>  // usamos el estudiante ps por un rato
+> 
+> } // ps sale del alcance
+> ```
+> 
+> (el objeto Student permanecerá en el heap !!! hasta el final del programa, puede
+> generar falla por uso total de la memoria si la función es invocada muchas
+> veces.)
+
+#### Direcciones retornada por Funciones
+
+Una función puede retornar la dirección de un objeto que fue creado en el
+heap.
+
+```vim
+Student * MakeStudent()
+{
+ Student * ps = new Student;
+
+return ps;
+} 
+```
+
+#### Recibiendo un puntero
+
+El que llama la función puede recibir una dirección y almacenarla en una
+variable puntero. El puntero permanece activo mientras el objeto Student
+es accesible.
+
+```vim
+Student * ps;
+ps = MakeStudent();
+// Ahora ps apunta a Student
+// esto es OK, pero en algún momento hay que
+// retornar la memoria.
+```
+
+#### Invalidación de Punteros
+
+Un puntero se invalida cuando el objeto referenciado es borrado. Si
+tratamos de usar el puntero genera un error de ejecución irrecuperable.
+
+```vim
+double * pd = new double;
+*pd = 3.523;
+delete pd; // luego de esto pd es inválido...
+*pd = 4.2; // error! De ejecución.
+```
+
+#### Arreglos y Punteros
+
+El nombre de un arreglo es compatible en asignaciones con un puntero al
+primer elemento de un arreglo .
+
+![](/TheusZero/images/post/POO_C++/34.png)
+
+#### Arreglos de Punteros
+
+Un arreglo de punteros usualmente contiene la dirección de objetos en
+memoria dinámica. Esto ocupa poco almacenamiento para el arreglo y
+mantiene la mayor parte de los datos en el heap.
+
+![](/TheusZero/images/post/POO_C++/35.png)
+
+![](/TheusZero/images/post/POO_C++/36.png)
+
+#### Creación de un Arreglo en el heap
+
+Podemos crear arreglos completos en el heap usando el operador
+**new**. Hay que recordar eliminarlo cuando corresponda. Para ello
+basta incluir **"[ ]"** antes del nombre del arreglo en la **sentencia
+delete.**
+
+![](/TheusZero/images/post/POO_C++/37.png)
+
+#### Punteros y Clases
+
+Los punteros son efectivos cuando los encapsulamos en clases porque
+podemos controlar su tiempo de vida.
+
+Debemos poner cuidado con la 
+**copia baja o copia en profundidad** ya vista
+en Java.
+
+![](/TheusZero/images/post/POO_C++/38.png)
+
+#### Punteros en Clases
+
+El constructor crea el arreglo, y el destructor lo borra. 
+**De esta forma
+pocas cosas pueden salir mal** excepto cuando hacemos una copia de un objeto Student. El
+constructor de copia de C++ conduce a problemas.
+
+![](/TheusZero/images/post/POO_C++/39.png)
+
+Por ejemplo, aquí un curso asignado al estudiante X termina en la
+lista de cursos del estudiante Y:
+
+![](/TheusZero/images/post/POO_C++/40.png)
+
+#### Paso de parámetros por valor
+
+Cuando usamos paso por valor, la variable local es creada usando el
+constructor copia de la clase.
+
+```vim
+void foo (Student s) { ….}
+// luego usamos
+Student Jose;
+foo(Jose); // s es inicializado usando Student s(Jose)
+```
+
+Esto es importante, **NO creer** que se invoca algo del tipo
+```vim
+Student s;
+s=Jose; 
+```
+
+Lo anterior sugiere implementar el constructor copia.
+
+La **acción por omisión del constructor copia y la asignación es copia baja.**
+
+#### Copia en profundidad
+
+Para prevenir este tipo de problemas, creamos un constructor copia que
+efectúa una copia en profundidad.
+
+![](/TheusZero/images/post/POO_C++/41.png)
+
+#### Punteros en Clases
+
+Por la misma razón, tenemos que sobrecargar (overload) el operador de
+asignación.
+
+
+>Regla de ORO:
+>> Si una clase requiere un
+>> constructor copia, también
+>> requerirá la sobrecarga del
+>> operador asignación e
+>> implementación del
+>> destructor.
+
+![](/TheusZero/images/post/POO_C++/42.png)
+
+#### Contenedores C++ en Clases
+
+**Cuando usamos contenedores estándares de C++** como listas
+y vectores
+en una clase, **no hay problema 
+con el constructor de copia** porque todos
+ellos implementan adecuadamente el 
+constructor copia, la asignación y el
+destructor.
+
+```vim
+class Student {
+public:
+ Student();
+private:
+ vector<string> courses;
+};
+```
+
+## Desarrollo en Qt
+
+Qt (pronunciado como ¸cute”) es un framework de desarrollo de aplicaciones con
+multiples bibliotecas
+
+Creado por Haavard Nord y Erick Chambe-Eng en 1995 (primer release)
+Desarrollado sobre C++ inicialmente, pero en la actualidad es posible utilizarlo en
+otros lenguajes (Ej: PyQt para Python).
+
+Provee mejoras a las bibliotecas nativas de C++ y permite que c´odigos desarrollados
+sobre estas bibliotecas sean compatibles con m´ultiples plataformas (mismo concepto
+que se aplicaba en Java).
+
+![](/TheusZero/images/post/POO_C++/43.png)
+
+El codigo se construye sobre bibliotecas Qt y sus distintas herramientas de desarrollo
+
+Estas a su vez generan una abstraccion para ejecucion multiplataforma
+
+![](/TheusZero/images/post/POO_C++/44.png)
+
+> Existen dos tipos de modulos en Qt:
+> 
+> Modulos Core-Essential: Son los que dan forma a Qt. Son parte del desarrollo de estas
+> bibliotecas.
+>> Ejemplos de modulos core-essential: QtCore, QtGui, QtWidgets, etc.
+>
+> Modulos add-ons (agregados): Son c´odigos externos al desarrollo de Qt. Depende de
+> las contribuciones de usuarios externos activos en el proyecto.
+>> Ejemplo de m´odulos add-ons: Qt3D, QtBluetooth, QtSensors, etc
+
+Qt al ser un conjunto de bibliotecas, pueden ser integradas en cualquier IDE que lo
+permita. Incluso, es posible compilar programas Qt sin IDE
+
+Qt Creator es un IDE multiplataforma para desarrollo de programas en C++ creado
+por el equipo de desarrollo de Qt. Esta orientado principalmente a crear aplicaciones
+graficas facilmente utilizando las bibliotecas de desarrollo que provee Qt
+
+> Qt Creator esta compuesto por:
+> 
+> Editor de texto: Este posee varias funcionalidades, como autocompletado, revision de
+> sintaxis, identacion automatica, etc.
+> 
+> Qt Designer: Para creacion de interfaces graficas de forma sencilla.
+>
+> Otras funcionalidades (Ej: Debug, conexi´on con sistemas de versionamiento (GIT,
+> SVN, otros), etc.)
+
+#### Elementos de Qt en un proyecto
+
+Headers|Sources|Forms|Archivo.pro
+
+![](/TheusZero/images/post/POO_C++/45.png)
+
+![](/TheusZero/images/post/POO_C++/46.png)
+
+![](/TheusZero/images/post/POO_C++/47.png)
+
+![](/TheusZero/images/post/POO_C++/48.png)
+
+![](/TheusZero/images/post/POO_C++/49.png)
+
+![](/TheusZero/images/post/POO_C++/50.png)
+
+#### Signal y Slots
+
+Permiten la comunicaci´on entre objetos de tipo QObject
+
+Una senal (signal) es emitida por un objeto para senalar un evento o cambio de
+interes particular ocurre
+
+Una ranura (slot) es un m´etodo que es llamado en respuesta a una se˜nal particular.
+
+Una clase puede tener tanto signals como slots.
+
+![](/TheusZero/images/post/POO_C++/51.png)
+
+> Signal
+> 
+> Son funciones/metodos de acceso publico que no deben ser implementadas y no
+> retornan valores
+> 
+> Senales son emitidas por un objeto para senalar algun evento de interes (definido por
+> el programador).
+
+> Slot
+> 
+> Son funciones/metodos que pueden ser llamados normalmente. Su unica diferencia es
+> que se pueden conectar con signals.
+> 
+> Un slot es llamado cuando la senal o las senales a las que esta conectado son emitidas
+
+![](/TheusZero/images/post/POO_C++/52.png)
+
+#### Creando GUI
+
+> Qt Widgets
+> 
+> Equivalente a Node de JavaFX
+> 
+>>  Permite acceder a los elementos graficos incluidos en las bibliotecas Qt, tanto layouts
+>>  como definicion de ventanas, etc.
+> 
+>  Algunos elementos graficos que heredan de QWidget:
+> 
+>>  QLabel
+> 
+>>  QPushButton
+> 
+>>  QGraphicsLayout
+> 
+>>  etc
+
+> Clase QPainter
+> 
+> Permite realizar pintados de bajo nivel de elementos graficos, generalmente sobre
+> widgets.
+> 
+> Su uso comun es dentro del metodo paintEvent de un widget. paintEvent le dice a la
+> clase que debe hacer cuando se pinta el widget.
+
+![](/TheusZero/images/post/POO_C++/53.png)
+
+![](/TheusZero/images/post/POO_C++/54.png)
+
+#### QGraphicsView y QGraphicsScene
+
+QPainter es una clase que permite dibujar a muy bajo nivel,
+por lo que no permite
+crear elementos graficos con muchas propiedades
+
+Podemos crear elementos graficos con mayor autonomia
+al crearlos sobre una vista.
+
+QGraphicsView es donde se muestran los elementos graficos.
+
+QGraphicsScene es la clase que controla como se desplegaran.
+
+Una QGraphicsView tiene asociada una 
+QGraphicsScene que la controla.
+
+A la vista se le pueden agregar distintos 
+elementos graficos (QGraphicsItem) a traves
+de la QGraphicsScene.
+
+Los QGraphicsItem agregados pueden 
+ser los que provee Qt o personalizados
+heredando de QGraphicsItem.
+
+> Ejemplo QGraphicsScene: Pintar un elemento personalizado
+> ![](/TheusZero/images/post/POO_C++/55.png)
+
+#### Animaciones
+
+Metodo advance
+
+El metodo “advance” es un metodo slot
+de la clase QGraphicsScene y esta asociado
+con la actualizacion de items en la escena.
+
+La actualizacion se hace en dos etapas:
+En la primera etapa se notifica a 
+todos los elementos de la escena que esta va a cambiar
+(phase=0)
+
+En la segunda etapa, se notifica a los items
+de la escena que se pueden mover
+(phase=1).
+
+El metodo advance, al ser llamado,
+llama a todos los metodos advance de cada uno de
+los elementos QGraphicsItem de la escena
+
+![](/TheusZero/images/post/POO_C++/54.png)
+
+#### Interfaces QML
+
+Qt Quick o QtQuick es el termino
+utilizado para una tecnologia de creacion de interfaces de
+usuario utilizada en Qt
+
+Es alternativo a QWidget
+
+Se utiliza principalmente en el desarrollo de aplicaciones moviles
+
+> Esta compuesto principalmente por
+> 
+>> Archivos QML: Archivos de etiquetado tipo JSON para definicion de la interfaz
+>
+>> JavaScript: Para acciones producidas por la interfaz
+>
+>> Qt C++: Codigo detras de la logica del programa
+
+#### Licencias de desarrollo Qt
+
+Dependiendo del tipo de producto que se desee desarrollar, Qt se puede usar bajo
+diferentes licencias de desarrollo.
+
+Existen dos tipos de licencias de desarrollo:
+
+>> Licencia comercial: Utilizada para desarrollo de aplicaciones de codigo cerrado
+> 
+>> Licencia GNU Lesser General Public License (LGPL) v3: Licencia utilizada para
+> desarrollo de aplicaciones de codigo abierto.
+> Ojo ¡Que sean de codigo abierto no quiere decir que no se puedan comercializar!
+>
+> Qt ademas contiene codigos con licencias especificas asociadas al autor del mismo.
+> Cuando se desarrollan aplicaciones con fines comerciales, es critico revisar las licencias
+> de las bibliotecas utilizadas (esto bajo cualquier contexto de desarrollo)
+
+## Herencia en C++
+
+Motor y ElectricMotor
+
+
+
+
+
+
