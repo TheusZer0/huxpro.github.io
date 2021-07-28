@@ -1852,12 +1852,24 @@ Ante cualquier duda, siempre consultar con un abogado.
 > 
 >> A a(mi_a);
 
+> ![](/TheusZero/images/post/POO_C++/110.png)
+
 > ¿En qué caso usted debe considerar implementar el constructor copia, el destructor y el operador
 > asignación? Explique su respuesta.
 >> Se debe hacer cada vez que una clase contenga atributos punteros. En este caso es necesario pues el
 >> compilador implementa “copia baja” en la asignación y constructor copia por omisión. Además si la clase
 >> posee atributos punteros, se debe considerar la devolución de la zona de memoria apuntada por ese puntero
 >> y evitar así una fuga de memoria.
+
+> Explique qué son los signals y slots y la relación entre ellos en el contexto de programación con
+> bibliotecas Qt.
+>> Signal: Son funciones de acceso público que no deben ser implementadas (solo se definen) y no deben
+>> retornar valores. Las señales son emitidas cuando hay un cambio de estado.
+> 
+>> Slot: Son funciones definidas normalmente y que pueden ser llamadas como cualquier otra cuya única
+>> diferencia es que se pueden conectar con una función signal.
+>> Un slot es llamado cuando la señal o señales (signals) a la que se encuentra conectado son emitidas.
+
 
 **importante**
 > Muestre una implementación jerárquica de clases en C++, use una clase Animales como base y
@@ -1944,6 +1956,13 @@ Ante cualquier duda, siempre consultar con un abogado.
 >> return peso < a.peso;
 >> }
 
+> En la clase Miclase escrita en Java, se encuentra un método con el siguiente prototipo:
+> ```public double foo (Student s) { /* …. aquí va la implementación del método */ }```
+> La invocación del método es a.foo(s); con a instancia de Miclase y s instancia de Student.
+> Al portar la clase Miclase a C++ ¿Cómo debería ser el prototipo del método foo en C++ para que su
+> invocación se mantenga como a.foo(s)?
+>> public: double foo(Student & s);
+
 > En la clase adjunta, ¿Cómo se asigna un valor inicial al atributo a_name?
 > class A { public: static string a_name; …..};
 >>En la implementación de la clase, archivo .cpp, incluir: string A::a_name= “Asignatura ELO329”
@@ -1982,12 +2001,33 @@ Ante cualquier duda, siempre consultar con un abogado.
 >> manera que una vez incluido un archivo esa definición bloquee repeticiones de ésta. Así el compilador no
 >> reportará errores de doble definiciones.
 
+> Considere las clase cuadrado y rectangulo. En cuadrado se incluye rectangulo como clase amiga
+> (friend). Indique si las secciones de código de los 2 cuadros de la derecha son correctos, e indicar motivo
+> del error en caso contrario.
+>> ![](/TheusZero/images/post/POO_C++/104.png)
+
+> herencia, friend y clases
+>
+> Considerando las definiciones de clases de la izquierda, indique qué se imprime al correr el cada segmento de código código central
+>> ![](/TheusZero/images/post/POO_C++/105.png)
+
+> ![](/TheusZero/images/post/POO_C++/111.png)
+>> Sí, genera error (2 puntos). Esto pues, debido a la herencia múltiple, el compilador de C++ no sabe a
+>> qué método f() se refiere cuando se llama desde cualquier instancia de la clase C. (2 puntos)
+
 **importante**
 > ¿Bajo qué condiciones usted está obligado a implementar el destructor? ¿Qué otros métodos deben
 > ser implementados adicionalmente?
 >> Cuando la clase posee atributos alojados en espacios de memoria asignados dinámicamente que
 >> deben ser retornados al sistema.
 >> Otros métodos a implementar en estos casos son: operador de asignación y constructor copia
+
+> Para cada una de las siguientes clases en C++, escriba SOLO la implementación del DESTRUCTOR
+> de cada una de ellas. En caso de no necesitar implementación, justifique el por qué.
+>> ![](/TheusZero/images/post/POO_C++/97.png)
+
+> Implemente el constructor para la clase Chileno.
+>> ![](/TheusZero/images/post/POO_C++/98.png)
 
 > ¿Qué diferencia hace el definir un método como virtual?
 >> Un método virtual permite que su redefinición en clases derivadas sean ligadas dinámicamente. Su
@@ -2031,6 +2071,52 @@ Ante cualquier duda, siempre consultar con un abogado.
 > 
 >> No se puso usar super porque en C++ una clase puede heredar de más de una clase base. Por esto en C++
 >> debemos invocar el constructor de la clase base usando el nombre de ésta.
+
+> ![](/TheusZero/images/post/POO_C++/96.png)
+
+> Determine si el siguiente código arroja errores de re-defnición de variables. Si es así, corrija la
+> implementación
+>> ![](/TheusZero/images/post/POO_C++/99.png)
+
+> Para la clase CVector, presentada a continuación, complete la implementación de la sobrecarga del operador -:
+>> ![](/TheusZero/images/post/POO_C++/100.png)
+
+> Se tiene la clase vector de la izquierda. Complete lo necesario para permitir los usos como el código de la derecha.
+>> ![](/TheusZero/images/post/POO_C++/107.png)
+
+> Entregue la declaración completa de la clase A y su implementación para lograr copia profunda y no generar fugas de memoria.
+>> ![](/TheusZero/images/post/POO_C++/108.png)
+
+> Implemente el método destructor de la clase robot, asegurándose de eliminar toda la memoria en el
+> heap que pueda conducir a fugas de memoria.
+>> ![](/TheusZero/images/post/POO_C++/101.png)
+
+> Considerando las siguiente defniciones de clases (F, T, C), mencione en qué casos de la derecha se
+> produce un error por intentar violar el nivel de acceso entre las clases. Explique el motivo.
+> ![](/TheusZero/images/post/POO_C++/102.png)
+>> Debido a que T hereda con private los métodos de F, sólo tiene acceso a getId desde operaciones internas.
+>> En el caso de C, esta clase no tiene acceso a ese método, ya que getId ya era private para T. Por lo tanto, las
+>> dos últimas implementaciones producen error de acceso.
+
+> Introduzca en el recuadro de la derecha el código necesario para que cuando se presione el botón start
+> comience a correr el timer t1. Además, cuando termine el timer o se presione el botón reset, se debe detener
+> el timer y ejecutar el slot doReset(). Los botones start y reset son parte de la interfaz de la ventana principal
+> (MainWindow)
+>> ![](/TheusZero/images/post/POO_C++/106.png)
+
+> Explique cuándo es necesario utilizar declaraciones incompletas de clases y dé un ejemplo
+>> ![](/TheusZero/images/post/POO_C++/109.png)
+
+> Para el desarrollo de un proyecto, ud. y un compañero encuentran un código por internet que resuelve
+> todos los problemas de su proyecto. Su compañero argumenta que el código encontrado, al no estar
+> bajo ningún tipo de licencia, puede ser usado libremente.
+> Indique si lo dicho por su compañero es verdadero o falso. Justifique.
+>> Falso (2 puntos), pues cualquier código sin licencia, se supone con copyright, por lo que
+>> nadie puede hacer uso de él sin permiso explícito del creador. (2 puntos)
+
+
+
+
 
 
 #### preguntas extras
@@ -2104,6 +2190,21 @@ Ante cualquier duda, siempre consultar con un abogado.
 
 > ![](/TheusZero/images/post/POO_C++/90.png)
 
+> En un programa se tiene: a(2) = 33;
+> ¿Es posible que esta instrucción sea correcta? Indique por qué no sería correcta; en otro caso, indique qué
+> declaración(es) haría posible de esta instrucción.
+>> ```vim
+>> Sí es posible. Se debe tener algo del tipo:
+>> A a; // con A declarado como:
+>> class A {
+>> public:
+>> //..
+>> int & operator ()(int i) { return atributo[i]; }
+>> private:
+>> int atributo[10];
+>> }
+>> ```
+
 > ¿Cuál es la diferencia entre funciones out of line e in line? ¿Por qué la diferencia?
 >> La diferencia sintáctica está en su implementación. Si se hace directamente en la declaración de la
 >> clase se dice in-line. Si se hace en un fuera de la declaración de la clase se dice out-of-line.
@@ -2176,6 +2277,31 @@ Ante cualquier duda, siempre consultar con un abogado.
 >> Si usamos todo junto, cada vez que compilemos un código se estará compilando la implementación de las
 >> clases usadas. Si una clase es usada en más de un archivo, además no podremos generar el ejecutable por
 >> presencia de implementaciones repetidas.
+
+> ¿Qué diferencia hay entre declarar #include <algo.h> o declarar #include “algo.h”?
+>> Al incluir un encabezado con <..> estamos indicando que ese archivo se encuentra en uno de los directorios
+>> estándares de encabezados definidos por el compilador.
+> 
+>> Al indicar “...” el compilar entiende que se trata de un encabezado creado por el programador.
+
+> En los niveles de certifcación CMM (Capability Maturity Model), mencione una diferencia importante
+> entre el nivel 1 y el nivel 2.
+>> Mientras en nivel 2 se repiten éxitos de proyectos previos, en nivel 1 cada proyecto se desarrolla según el
+>> mejor esfuerzo de las personas.
+
+> ¿Qué es un caso de uso en el contexto del desarrollo de software?
+>> Es una descripción paso a paso de las interacciones de un actor con el sistema bajo desarrollo orientadas a
+>> obtener una funcionalidad del sistema
+
+> Inserte en las secciones solicitadas (notar en ambos lados) el código necesario para liberar la memoria
+> utilizada en el heap, evitando fugas por dejar memoria fuera de alcance.
+>> ![](/TheusZero/images/post/POO_C++/103.png)
+
+> En los niveles de certificación CMM (Capability Maturity Model), mencione característica importante
+> presente en el nivel 4 y no en el nivel 3.
+>> En nivel 4 se espera que la organización efectúe mediciones del proceso para así lograr un proceso
+>> controlado.
+
 
 
 
