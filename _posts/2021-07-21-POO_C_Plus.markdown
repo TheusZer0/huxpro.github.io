@@ -820,6 +820,14 @@ instancia de la clase para acceder al método:
 
 ## Manejo de Punteros y objetos en memoria dinámica en C++
 
+#### apuntes
+
+> en C solo era
+> ![](/TheusZero/images/post/POO_C++/87.png)
+>
+> En C++ es
+> ![](/TheusZero/images/post/POO_C++/88.png)
+
 #### Asignación Dinámica de Memoria
 
 Asignación Dinámica de memoria es la creación de un objeto mientras el
@@ -1797,6 +1805,377 @@ Que algo sea codigo abierto ¡NO quiere decir que sea gratuito!
 Ej: Red Hat Linux
 
 Ante cualquier duda, siempre consultar con un abogado.
+
+
+## Preguntas Certamenes
+
+#### preguntas importantes
+
+**importante**
+> ¿Muestre la parte de la implementación de Persona que permite asignar el valor del atributo RUT a un objeto
+> instancia de Persona?
+>> ![](/TheusZero/images/post/POO_C++/94.png)
+
+**importante**
+> Mencione y explique una diferencia de las siguientes dos declaraciones:
+> ![](/TheusZero/images/post/POO_C++/89.png)
+
+**importante**
+>En java usamos super(...) para invocar un constructor de la clase base. ¿Cómo se hace esto en C++?
+>> En la lista de inicialización se debe pone el nombre de la clase con los parámetros del constructor que
+>> se desea invocar.
+
+**importante**
+> En java usamos super.metodo(..) para invocar un método de la clase base que hemos redefinido en la clase
+> derivada. ¿Cómo se hace esta invocación en C++? Dé un ejemplo.
+>> Se usa el nombre de la clase base seguida del método como en:
+>> ClaseBase::metodo(...)
+
+**importante**
+> ¿Cuál es el propósito del calificador “friend”?
+>> El calificador friend permite otorgar visibilidad a otras clases o funciones globales de todos los atributos
+>> privados o protegidos de una clase.
+
+**importante**
+> ¿Cuál es la relación entre clases protegidas, privadas y el calificador Friend? Dé un ejemplo simple.
+>> La relación es que una clase o función global pueden acceder a atributos o métodos privados o
+>> protegidos de una clase cuando ésta ha declarado como friend a esa clase o función.
+>> ![](/TheusZero/images/post/POO_C++/91.png)
+
+**importante**
+> Se tiene la función: void foo( A a);
+> Cuando ésta es invocada como en foo(mi_a), con mi_a instancia de la clase A, ¿Cómo a toma el valor de
+> mi_a? Muestre un código equivalente para ese paso de valor si usted tuviera que crear la variable a y asignarle
+> el valor.
+>> Corresponde a la creación de la variable local a a partir del constructor copia. El código puesto por el
+>> compilador equivale a:
+> 
+>> A a(mi_a);
+
+> ¿En qué caso usted debe considerar implementar el constructor copia, el destructor y el operador
+> asignación? Explique su respuesta.
+>> Se debe hacer cada vez que una clase contenga atributos punteros. En este caso es necesario pues el
+>> compilador implementa “copia baja” en la asignación y constructor copia por omisión. Además si la clase
+>> posee atributos punteros, se debe considerar la devolución de la zona de memoria apuntada por ese puntero
+>> y evitar así una fuga de memoria.
+
+**importante**
+> Muestre una implementación jerárquica de clases en C++, use una clase Animales como base y
+> genere clases derivadas a partir de Animales.
+>> Hay múltiples soluciones, no se especifica un mínimo. La correcta creación de la clase Animales y
+>> dos derivadas de ella basta. Una solución posible (más completa) es la siguiente.
+>> ```vim
+>> class Animales {
+>> private:
+>>  double peso;
+>> public:
+>>  Animales (double pesoNacer);
+>>  virtual void Display() const;
+>> };
+>> Animales::Animales(double pn) {
+>>  peso = pn;
+>> }
+>> Animales::Display() const {
+>>  cout << “Peso:” << peso << endl;
+>> }
+>> class Gato:public Animales {
+>> private:
+>>  string nombre;
+>> public:
+>>  Gato(double p, string n);
+>>  virtual void Display() const;
+>> };
+>> Gato::Gato(double p, string n):Animales(p){
+>>  nombre=n;
+>> }
+>> void Gato::Display() const {
+>>  cout << nombre << “es un Gato”<< endl;
+>>  Animales::Display();
+>> }
+>> class Perro:public Animales {
+>> private:
+>>  string: raza;
+>> public:
+>>  Perro(double p, string r);
+>>  virtual void Display() const;
+>> };
+>> Perro::Perro(double p, string r):Animales(p) {
+>>  raza = r;
+>> }
+>> Perro::Display() const {
+>>  cout << “Perro de raza:”<<raza<<endl;
+>>  Animales::Display();
+>> }
+>> ```
+>
+> Describa los calificadores de acceso usados en las clases derivadas. Justifique por qué se usaron en
+> su ejemplo de la pregunta anterior.
+>> Si entendemos esta pregunta como los calificadores de acceso usados en los métodos y atributos de
+>> las clase derivadas, éstos son los mismos que pueden usarse en clases bases.
+>> En las clases previas he usado los calificadores public y private. Miembros públicos de una clase
+>> pueden ser accedidos desde cualquier parte del código. Miembros privados sólo son accesibles
+>> desde implementaciones de la misma clase.
+>
+>> Si entendemos la pregunta como los calificadores de acceso usados al crear una clase derivada, éste
+>> es sólo public en este caso. Esto significa que la visibilidad de los métodos de la clase Animales se
+>> mantiene para instancias de Gato o Perro.
+>> Nota: una de las dos interpretaciones es suficiente para acreditar puntaje completo.
+>
+> Muestre el uso de un constructor con parámetros y explique la diferencia con un constructor por
+> omisión. Haga que su constructor inicialice algún atributo en la clase base Animales.
+>> ![](/TheusZero/images/post/POO_C++/93.png)
+>
+> Utilice y describa el uso de mutadores y accesores al hacer una instanciación de jerarquía de animales.
+>> Un mutador es un método que modifica el estado de un objeto (cambia alguno de sus atributos). Un
+>> accesor es un método que sólo accede a valores sin modificar el estado del objeto.
+>> En el ejemplo de Animales Displaye es un método accesor.
+> 
+>¿Qué es sobre carga de operadores? Dé un ejemplo de uso en su jerarquía de Animales.
+>> La sobrecarga de operadores es la definición que hacemos en una clase para usar instancias de la
+>> clase como operandos de algunos operadores.
+>> Ejemplo: Si deseamos comparar Animales según su peso, podemos dar sentido al operador <
+>> agregando como método de la clase:
+> 
+>> bool operator<(const Animales&a) const;
+> 
+>> Y podemos implementarlo comparando su peso:
+> 
+>> bool Animales::operator<(const Animales &a ) const {
+>> return peso < a.peso;
+>> }
+
+> En la clase adjunta, ¿Cómo se asigna un valor inicial al atributo a_name?
+> class A { public: static string a_name; …..};
+>>En la implementación de la clase, archivo .cpp, incluir: string A::a_name= “Asignatura ELO329”
+
+
+> Explique y dé ejemplos simples del uso de Static en Datos y Funciones.
+>> Un atributo estático es aquel compartido por todos los miembros de la clase. Puede ser entendido
+>> como un atributo de la clase (o categoría de objetos) y no de un objeto o instancia particular.
+>> Una función o método estático son aquellas comunes a todos las instancias de una clase y no
+>> dependen de atributos específicos de una instancia. Pueden manipular sólo atributos estáticos.
+>> Tanto los datos (atributos) como las funciones (métodos) estáticas pueden ser accedidas con el
+>> nombre de la clase o un el de un objeto.
+>> Nota: Para obtener máximo puntaje basta con mencionar algunos de los elementos previos.
+>> Ejemplo: caso de atributo estático y función estática.
+>
+>> ![](/TheusZero/images/post/POO_C++/92.png)
+
+> Explique por qué al sobrecargar el operador << , para permitir salida de objetos hacia cout, estamos
+> obligados a hacerlo como función global.
+>> Pues sólo así podemos usar la sintaxis habitual para salida de datos, como en:
+>> cout << objeto;
+>> Si la sobrecarga la hiciéramos como método dentro de la clase del objeto, la sintaxis sería:
+>> objeto << cout; // no respeta interpretación habitual de operador.
+>> La opción de incluir el método dentro de la clase ostream se descarta por tratarse de una clase
+>> estándar del lenguaje
+
+> ¿Qué diferencias existen entre ocupar una estructura (struct Student) o una clase (class Student) en un
+> programa C++?
+>> Sólo una, con clases por omisión los atributos y métodos son privados, con estructuras por omisión
+>> éstos son públicos.
+
+> Por qué se recomienda partir los archivos de encabezados con algo del tipo:
+> "#ifndef MI_ENCABEZADO"
+> "#define MI_ENCEBEZADO"
+>> La idea es evitar incluir más de una vez cada archivo. La definición debe ser única dentro del proyecto de
+>> manera que una vez incluido un archivo esa definición bloquee repeticiones de ésta. Así el compilador no
+>> reportará errores de doble definiciones.
+
+**importante**
+> ¿Bajo qué condiciones usted está obligado a implementar el destructor? ¿Qué otros métodos deben
+> ser implementados adicionalmente?
+>> Cuando la clase posee atributos alojados en espacios de memoria asignados dinámicamente que
+>> deben ser retornados al sistema.
+>> Otros métodos a implementar en estos casos son: operador de asignación y constructor copia
+
+> ¿Qué diferencia hace el definir un método como virtual?
+>> Un método virtual permite que su redefinición en clases derivadas sean ligadas dinámicamente. Su
+>> ausencia evita el ligado dinámico, con lo cual en tiempo de ejecución se ejecuta el método según la
+>> declaración de la referencia y no según el objeto referenciado.
+
+> Mencione dos ventajas de la metodología de desarrollo iterativa e incremental.
+>> Es posible mostrar al cliente versiones parciales del sistema y así validar el desarrollo.
+>> Cada etapa permite entender mejor la naturaleza del problema y hacer las mejoras o correcciones
+>> necesarias a tiempo
+
+> Se tiene una clase con prototipo foo(ClaseA a); Señale qué método(s) se invoca(n) para que el argumento a
+> tome el valor del parámetro “objeto” usado en la invocación foo(objeto).
+>> Para inicializar a, se usa el constructor como en: ClaseA a(objeto);
+
+> ¿Cuál es la razón de existencia o propósito de las certificaciones de software?
+>> El propósito de las certificaciones de software es dar información a los clientes sobre cuán riguroso es el
+>> proceso seguido por una empresa para generar software de calidad
+
+> ¿Qué es un caso de uso? ¿Para qué sirve?
+>> Un caso de uso es una secuencia de acciones donde interactúa un usuario con el sistema a desarrollar
+>> para mostrar una funcionalidad específica del sistema.
+>> Los casos de uso sirven para definir requerimientos del sistema y luego son usados en las etapas de
+>> análisis y al final para hacer las pruebas unitarias
+
+> En C++ se tiene la función foo con el siguiente prototipo:
+> int foo(Student s);
+>> Al invocar la función con int i=foo(juan); Indique el constructor invocado para crear el objeto s y cómo éste
+>> adopta el valor del parámetro actual.
+>> Se invoca el constructor copia Student(const Student & s). Al invocar foo(juan), el objeto s se inicializa
+>> con s(juan);
+
+> fuga de memoria:
+> 
+> ![](/TheusZero/images/post/POO_C++/95.png)
+
+> Mencione dos usos para la palabra reservada const y por qué en C++ no fue posible invocar al
+> constructor de clase base usando palabra reservada super de Java.
+>> Usos de const: Para declarar una variable como constante y para declarar que un método no modifica el
+>> estado de un objeto.
+> 
+>> No se puso usar super porque en C++ una clase puede heredar de más de una clase base. Por esto en C++
+>> debemos invocar el constructor de la clase base usando el nombre de ésta.
+
+
+#### preguntas extras
+
+> Alguien dice que los actores de un caso de uso siempre son personas. Diga si es verdadero o falso y
+> justifique.
+>> Falso, actores de un sistema también pueden ser sensores o módulos de software externos al sistema
+>> bajo desarrollo.
+
+> ¿Qué es un método virtual puro? ¿Para qué se sirven?
+> Es un método virtual sin implementación en la clase base, lo cual se indica con =0 al final del prototipo del
+> método.
+>> Sirven para listar métodos en la clase base que sólo tiene sentido implementar en las clases derivadas.
+>> Es necesario listarlos en la clase base para crear código donde usamos punteros o referencias de la
+>> clase base para invocar esos métodos y así crear código reusable
+
+> ¿Qué problema de los lenguajes no orientados a objetos explica la incorporación del manejo de excepciones
+> de los lenguajes orientados a objetos?
+>> En los lenguajes no orientados a objetos las situaciones de error de ejecución deben ser tratadas en cada
+>> parte donde éstas puedan ocurrir. Esto extiende el código que cumple la funcionalidades deseadas en
+>> muchas líneas preocupadas de las condiciones de error. Como consecuencia, aumenta la dificultad para
+>> depurar y mantener el código. Las excepciones permiten separar el código fundamental del tratamiento
+>> de todas las condiciones de error.
+
+> ¿Cuáles con son los requerimientos funcionales? Dé un ejemplo de requerimiento no funcional.
+> Los requerimientos funcionales describen el comportamiento de un sistema ante determinadas
+> entradas.
+>> Un ejemplo de comportamiento no funcional es el lenguaje a usar (también el desempeño del
+>> sistema, -tiempo de ejecución, tamaño de código)
+
+>¿Quiénes nos son los actores en un caso de uso?
+>> Los actores son los entes externos que interactúan con el sistema
+
+> Mencione 3 ventajas de las metodologías de desarrollo de software iterativas e incrementales.
+>> Permite generar versiones ejecutables parciales para evaluación del cliente.
+> 
+>> Permite identificar prontamente condiciones no especificadas en los requerimientos.
+> 
+>> Permite una mejor gestión de proyecto identificando la proporción de casos de uso cubiertos en el tiempo
+
+> En orden mencione las actividades desarrolladas en cada iteración de la metodología iterativa e
+> incremental.
+>> Definición de requerimientos, análisis, diseño, implementación, pruebas y distribución.
+
+> ¿Cuál es el propósito de los diagramas de secuencia definidos en UML?
+>> Su propósito es mostrar las relaciones dinámicas entre objetos que interactúan
+
+> Presente alguna situación donde la sobrecarga de operadores debe hacerse o conviene hacerla vía funciones
+> globales y no vía métodos de una clase.
+>> Cuando no podemos modificar la clase donde se debe implementar la sobrecarga; por ejemplo, cuando
+>> deseamos enviar a hacia una salida serial del tipo cout una objeto instancia de una de nuestras clases
+
+> Mencione una operación válida en una aplicación Java pero no en un applet (a menos que sea firmada).
+>> Las aplicaciones Java pueden escribir en disco local, un applet no.
+
+> Mencione desventajas de la metodología de desarrollo de software en “cascada” frente al “iterativo e incremental”.
+>>  “Cascada” no contempla obtener avances parciales ejecutables del sistema para ser validados por el
+>>  cliente.
+> 
+>>  “Cascada” dificulta la identificación oportuna de problemas, por ejemplo derivados de una errada
+>>  definición de requerimiento.
+> 
+>>  “Cascada” no facilita como “iterativo e incremental” el entendimiento del problema en la medida que el
+>>  sistema se desarrolla
+
+> Mencione dos objetivos buscados por las metodologías de desarrollo de software.
+> Ayuda: ¿Da lo mismo usar o no una metodología de desarrollo de software? Como no da lo mismo, ¿qué se
+> busca con el uso de una metodología de desarrollo de software?
+>> Se busca mantener los desarrollos de software dentro de los tiempo y costos acordados con el cliente y
+>> además cumplir adecuadamente con los requerimientos.
+
+> ![](/TheusZero/images/post/POO_C++/90.png)
+
+> ¿Cuál es la diferencia entre funciones out of line e in line? ¿Por qué la diferencia?
+>> La diferencia sintáctica está en su implementación. Si se hace directamente en la declaración de la
+>> clase se dice in-line. Si se hace en un fuera de la declaración de la clase se dice out-of-line.
+>> Las funciones in-line permiten optimizar el código generado cuando las implementaciones son de
+>> pocas líneas.
+>> Nota: en caso de código in-line, el compilador no genera salto a la implementación de la función,
+>> sino inserta su implementación en el lugar donde el método es llamado. 
+
+> Si en una entrevista de trabajo a usted le preguntan qué es la Ingeniería de Software ¿qué diría?
+>> La ingeniería de software es una disciplina dedicada al diseño, construcción y mantención de programas
+>> computacionales eficientes, económicos que logran cumplir sus objetivos en tiempos definidos.
+
+> Además de “identificar una oportunidad de negocio” y “levantamiento inicial de requerimientos”, mencione 4
+> otras etapas de un proyecto de software.
+>> Confección de propuesta, Análisis del problema, Definición de la arquitectura, Diseño de la solución,
+>> Codificación de la solución, Pruebas Unitarias, Pruebas de Integración, Capacitación de los usuarios, Marcha
+>> blanca, Puesta en producción.
+
+> Mencione un tipo de diagrama UML de estructura y un tipo de diagrama UML de comportamiento.
+>> Diagrama de estructura: Diagrama de clases.
+>> Diagrama de comportamiento: Diagrama de secuencia, diagrama de estados.
+
+> Indique qué elemento diferenciador agrega cada uno de los 3 niveles superiores de certificación CMM
+> (Modelo de Madurez de la Capacidad) respecto del previo. Ej. Nivel 2 es capaz de repetir éxitos previos (esto
+> no lo hace el nivel 1).
+>> Nivel 3 tiene un proceso definido que no tiene el Nivel 2.
+>> Nivel 4 incorpora mediciones a la ejecución del proceso y así puede verificar su correcta ejecución.
+>> Nivel 5 es capaz de identificar mejoras del proceso permitiendo así la mejora continua.
+
+> Mencione dos ventajas de crear archivos .h y .cpp independientes para cada clase de un proyecto respecto de
+> usar un único archivo que incluya los encabezados y las implementaciones.
+>>Facilita la reutilización de código pues así puedo reutilizar clases específicas en otros proyectos.
+>
+>> Permite una compilación más eficiente pues ante un cambio es preciso recompilar sólo la parte que fue modificada
+
+> ¿Bajo qué condición y con qué fin se recomienda implementar un método dentro de la declaración de su clase
+> (conocido como función miembro o método in-line)?
+>> Se recomienda hacer esto cuando el código del método es pequeño. Esto se hace con el propósito de obtener
+>> un código más rápido debido a que en cada llamado a ese método el compilador pondrá el código del mismo
+>> en lugar de un llamado a éste. Con esto se logra mantener el pipeline de ejecución de los procesadores
+>> modernos
+
+> Explique qué caracteriza una organización con certificación CMM nivel 1 y otra de nivel 4.
+>> CMM nivel 1: la organización no tiene definido procesos ni utiliza al experiencia previa, el resultado obtenido
+>> depende de la calidad de cada individuo.
+> 
+>> CMM nivel 4: La empresa tiene procesos bien definidos y efectúa mediciones que le permiten controlar la
+>> calidad de sus resultados los cuales son predecibles
+
+> ¿Qué es un patrón de diseño?
+>> Un patrón de diseño es una solución general reusable a un problema común recurrente
+
+> ¿Qué situación hace necesario el uso de declaraciones incompletas de clases (también conocidas como
+> forward declarations)? Dé un ejemplo.
+>> Las declaraciones incompletas de una clase son necesarias cuando hay referencias circulares entre clases.
+>> Esto ocurre cuando una clase A usa objetos de la clase B, la clase B usa objetos de la clase C y la clase C
+>> usa objetos de la clase A. A → B → C → A.
+>> En esta situación los archivos de encabezados generan una dependencia circular que el preprocesador no
+>> puede resolver.
+>> La solución es usar una referencia incompleta, por ejemplo, de la clase C (class C;) y no ocupar su archivo
+>> de encabezado.
+>> Un ejemplo se presentó en tarea 3. En etapa 1, Ball ocupa un puntero a MyWorld y MyWorld ocupa un
+>> puntero a Ball. 
+
+> ¿Qué ventaja tiene la separación de una clase C++ en un archivo de encabezado y otro de
+> implementación en lugar de hacer todo junto?
+>> Se gana velocidad de compilación evitar error por doble implementación de clase.
+>> Para que un código compile sólo se requiere tener declarada todas las clases que en él se ocupan. Sus
+>> implementaciones sólo son necesarias a la hora de ligar todos los módulos para generar el ejecutable.
+>> Si usamos todo junto, cada vez que compilemos un código se estará compilando la implementación de las
+>> clases usadas. Si una clase es usada en más de un archivo, además no podremos generar el ejecutable por
+>> presencia de implementaciones repetidas.
 
 
 
