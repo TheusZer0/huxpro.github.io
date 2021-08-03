@@ -402,6 +402,485 @@ nombre.
 ![](/TheusZero/images/post/ads/80.png)
 ![](/TheusZero/images/post/ads/81.png)
 
+#### MODELO VISTA CONTROLADOR
+
+Un patrón describe un problema recurrente y entrega una propuesta
+de solución genérica aplicable a este problema recurrente.
+
+![](/TheusZero/images/post/ads/89.png)
+
+
+> Modelo
+>> Contiene métodos para hacer CRUD2
+>> a una fuente de datos
+>
+>> Típicamente se encarga también de gestionar la lógica del dominio de la
+>> aplicación web
+
+> Vista
+>> Representa la interfaz gráfica de usuario de la aplicación web
+> 
+>> Utiliza datos proporcionados por el modelo para representarlos a través de la
+>> interfaz de usuario
+>
+>> Típicamente, para web, se implementa a través de HTML y CSS
+
+> Controlador
+>> Procesa peticiones HTTP
+>>
+>> Define el comportamiento de una aplicación web
+>> 
+>> Es intermediario entre vista y modelo, recuperando datos desde el modelo y se
+>> los entrega a la vista
+>> 
+>> Puede utilizar e invocar métodos de múltiples modelos
+
+![](/TheusZero/images/post/ads/90.png)
+
+> HMVC
+>> Se le conoce como Hierarchical Model-View-Controller (HMVC)
+> ![](/TheusZero/images/post/ads/91.png)
+
+> MVP
+>> El concepto de controlador se identifica como presentador
+>
+>> El controlador (presentador) es el encargado de la comunicación.
+>
+>> En esta variante el controlador (presentador) no tiene lógica de negocio: solo
+>> invoca las funcionalidades requeridas al modelo.
+>
+>> Se le conoce como Model-View-Presenter (MVP)
+> ![](/TheusZero/images/post/ads/92.png)
+
+
+> Cumple con la definición que hemos dado de un patrón
+>> Describe un problema recurrente
+> 
+>> Entrega una propuesta de solución genérica aplicable a este problema recurrente
+
+> Cada uno de los componentes de MVC puede ser apoyado con otros patrones
+
+> La esencia en MVC es la separación de componentes de un sistema según su
+> propósito
+
+> MVC no especifica cómo se debe implementar dicha separación
+
+> MVC favorece la mantenibilidad del código y permite delegar responsabilidades
+> en el desarrollo
+
+> Evita introducir defectos en el software producidos por la poca legibilidad de un
+> código que consolida todos los aspectos del sitio en una misma clase
+
+#### Object-relational mapping (ORM)
+
+Técnica usada para interpretar datos desde un sistema de base de datos
+relacional a objetos de una aplicación
+
+Típicamente, se le llama ORM al componente de software que usa esta técnica
+
+Utilizando un ORM, se puede consultar la base de datos sin la necesidad de
+escribir las consultas de forma directa
+
+![](/TheusZero/images/post/ads/93.png)
+
+Considera un conjunto de funcionalidades que traducen los requerimientos a
+consultas de base de datos
+
+Vincula los atributos de los objetos con las entradas de una base de datos
+relacional
+
+Se debe considerar que las bases de datos relacionales tiene diseño tabular,
+mientras que los objetos tienden a tener estructuras jerárquicas, por ende, para
+aplicar ORM se deben considerar las transformaciones necesarias para la
+representación de los datos
+
+> Ventajas
+> 
+> Facilidad de uso
+> 
+> Abstracción de la base de datos usada
+>
+> Facilita el mantenimiento del código al separar la capa de datos
+> 
+> Las implementaciones pueden proporcionan mecanismos de seguridad para
+> prevenir accesos malintencionados a las bases de datos
+> 
+> Desventajas
+> 
+> Impacto de rendimiento al trabajar con grandes volúmenes de datos
+> 
+> Requiere aprender a escribir operaciones usando algún componente de ORM
+
+#### Active Record
+
+Active Record es una forma de implementar ORM
+
+Gestiona la persistencia de datos y los métodos asociados para la utilización y
+recuperación de los mismos
+
+> Utilidad
+>> Proporciona una representación de un modelos y sus datos asociados
+>> 
+>> Proporciona una representación de las asociaciones entre modelos
+>> 
+>> Proporciona una representación de las jerarquías de herencia entre esos modelos
+>> 
+>> Permite la validación de los modelos antes de que se hagan persistentes en la
+>> base de datos
+>> 
+>> Permite operaciones de bases de datos a través de métodos específicos que
+>> manipulan objetos
+
+![](/TheusZero/images/post/ads/94.png)
+
+Si bien los datos se mapean con bases de datos relacionales, nada impide que
+los datos sean almacenados en otro tipo de bases de datos
+
+Active Record funciona bien cuando las operaciones son de tipo CRUD y otras
+similares
+
+Cuando la complejidad de las operaciones aumenta, Active Record puede
+volverse difícil de usar
+
+Active Record se acopla fuertemente al diseño de la base de datos
+
+#### Data Mapper
+
+Los objetos y las bases de datos relacionales tienen diferentes mecanismos para
+estructurar los datos
+
+Muchas partes de un objeto, como las colecciones y la herencia, no son
+directamente modelables en las bases de datos relacionales
+
+Cuando se construye un sistema con mucha lógica de negocio, es valioso
+mantener estas reglas ordenadas para organizar mejor los datos y el
+comportamiento que conllevan
+
+Si un componente ORM basa su diseño en objetos en memoria que se
+relacionan demasiado con la estructura de la base de datos, los cambios en uno
+tienden a complicarse en el otro
+
+El patrón Data Mapper propone la utilización de una capa de software
+intermedia que separa los objetos en memoria de la base de datos
+
+Su responsabilidad es transferir datos entre las dos capas y también aislarlas
+
+> Con el patrón Data Mapper los objetos
+>> No necesitan saber que hay una base de datos presente
+> 
+>> No necesitan manejar consultas a la base de datos
+> 
+>> No necesitan conocimiento del esquema de la base de datos
+> ![](/TheusZero/images/post/ads/95.png)
+> ![](/TheusZero/images/post/ads/96.png)
+> ![](/TheusZero/images/post/ads/97.png)
+
+La separación entre el dominio y el origen de datos es la función principal de un
+Data Mapper
+
+Existen muchas formas de construir las capas que realizan el mapping
+
+Al momento de requerir actualización de datos, se solicita al mapper que
+extraiga dichos datos desde un objeto y los almacene en la fuente de datos
+
+Los mappers necesitan una variedad de estrategias para manejar clases que se
+convierten en múltiples campos, clases que tienen múltiples tablas, clases con
+herencia y clases que gestionan la conexión de objetos
+
+Las estrategias varían de acuerdo el conocimiento que se tenga del origen de
+datos
+
+Un sistema puede tener uno o más Data Mapper implementados
+
+En un sistema de gran escala puede ser excesivo tener solamente un mapper
+que tenga mucho métodos de hacia la base de datos, por lo que tiene sentido
+dividir estos métodos bajo algún criterio de agrupación en múltiples mappers
+
+La principal oportunidad para utilizar el patrón Data Mapper es cuando se desea
+que el esquema de base de datos y las clases/objetos evolucionen de forma
+independiente
+
+Facilitar el diseño de un sistema que debe implementar estrictas reglas de
+negocio
+
+Si se desea minimizar el impacto de la base de datos en los objetos (y
+viceversa). De hecho, al usar Data Mapper, los objetos ni siquiera necesitan
+saber que hay una base de datos presente
+
+>> Uso De acuerdo al tipo de sistema
+> Un sistema en desarrollo cuyo
+> propósito es principalmente realizar
+> CRUD de datos, Active Record es la
+> solución preferida ya que permite de
+> forma rápida y sencilla realizar estas
+> tareas
+> 
+> Para satisfacer estrictas reglas y
+> procedimientos de una empresa, en
+> un sistema en desarrollo, el patrón
+> Data Mapper podría ser una mejor
+> opción. El patrón impondrá ciertas
+> restricciones al tratar con datos y
+> persistencia, y permitirá encapsular
+> esas reglas de negocio dentro de sus
+> entidades sin involucrar la base de
+> datos
+
+>> Uso De acuerdo al ecosistema tecnológico
+> Si se está construyendo un sistema en
+> un dominio nuevo Active Record es lo
+> recomendable ya que en un principio
+> no se conocen en detalle las reglas de
+> negocio que van a ser más relevantes
+> para el sistema
+> 
+> Si se requiere integrar una aplicación
+> en una organización madura y con
+> sistemas ya establecidos, Data
+> Mapper es lo aconsejable
+> considerando que la organización ya
+> dispone de reglas y procesos bien
+> definidos
+
+#### Repository
+
+En muchas aplicaciones la lógica del negocio accede a los datos de diversas
+fuentes como bases de datos, servicios web, etc
+
+> Acceder a los datos directamente puede causar (entre otros):
+>> Introducir defectos en los datos con mayor frecuencia
+> 
+>> Incapacidad para probar fácilmente la lógica del negocio de forma aislada de las
+>> dependencias externas
+
+Un sistema con un modelo de dominio complejo se beneficia de una capa que
+aísla los objetos del dominio de los detalles del código de acceso de la base de
+datos (como la proporcionada por el patrón Data Mapper)
+
+La aislación se vuelve más necesaria cuando hay una gran cantidad de clases de
+dominio, consultas complejas o que buscan acceder a una gran cantidad de
+datos
+
+Un Repositorio es un objeto que imita una colección
+
+Un Repositorio es un medio entre el dominio y las capas de acceso a datos,
+actuando como una colección de objetos de dominio
+
+Los objetos construyen las especificaciones de consulta de forma declarativa y
+las envían al repositorio
+
+De manera conceptual, un Repositorio encapsula el conjunto de objetos y las
+respectivas operaciones sobre los datos realizadas sobre estos, proporcionando
+una vista orientada a objetos de la capa de persistencia.
+
+Agregar esta capa ayuda a minimizar la lógica duplicada de consultas
+
+El patrón Repository separa la lógica que recupera datos y la asigna a una
+entidad del modelo de la lógica del negocio
+
+Nos ayuda a mejorar la mantenibilidad y la capacidad de prueba, la lógica de
+negocio se preocupa del negocio en sí, y no de operaciones de bajo nivel
+
+![](/TheusZero/images/post/ads/98.png)
+
+![](/TheusZero/images/post/ads/99.png)
+
+![](/TheusZero/images/post/ads/100.png)
+
+Comparaciones, ¿Active Record o Repository?
+
+![](/TheusZero/images/post/ads/101.png)
+
+> Comparaciones, ¿Data Mapper o Repository?
+> 
+> En términos de aislamiento y capacidad de hacer pruebas, el patrón Data
+> Mapper es similar al patrón Repository
+> 
+> El repositorio se basa en los fundamentos del patrón Data Mapper, pero agrega
+> una capa adicional de abstracción sobre la capa de mapping donde se concentra
+> el código de las consultas a la base de datos
+
+> Comparaciones ¿Cuando usar el patrón Repository?
+> 
+> Cuando se desea acceder a la fuente de datos desde muchas ubicaciones y se
+> desea aplicar lógica y reglas de acceso consistentes y administradas
+> centralmente
+> 
+> Cuando se debe mejorar la capacidad de mantenimiento y compresión del
+> código al separar la lógica de negocio de la lógica de acceso a datos o servicios
+
+#### Foreign Key Mapping
+
+En un sistema, muchos objetos se relacionan entre sí
+
+Para almacenar estos objetos en la base de datos, es vital conservar las
+referencias
+
+Haciendo las cosas más complicadas: un objeto puede almacenar una colección
+de objetos que se referencian entre sí
+
+![](/TheusZero/images/post/ads/102.png)
+
+#### Association Table Mapping
+
+Los objetos pueden utilizar campos con múltiples valores de manera sencilla.
+Por ejemplo, utilizando colecciones
+
+Las bases de datos relacionales por lo general no disponen de estas
+características y están restringidas a utilizar campos que permiten sólo un valor
+(existen excepciones como campos tipo JSON en MySQL y JSONB en
+PostgreSQL, entre otros, que permiten representar una estructura completa a
+modo de objeto JSON como campo de una tabla)
+
+Si se desea mapear una asociación de objetos 1:M se puede utilizar Foreign Key
+Mapping, pero en una relación M:N no se puede representar de esta forma,
+porque existiría un problema en la utilización de la clave foránea para
+representar múltiples valores
+
+![](/TheusZero/images/post/ads/103.png)
+
+#### Single Table Inheritance
+
+Las bases de datos relacionales no tienen soporte para herencia, por lo que
+cuando se mapea de objetos a bases de datos se debe considerar cómo
+representar estructuras de herencia en la base de datos relacional
+
+Cuando se mapea a una base de datos relacional, se debe evitar un diseño que
+implique múltiples tablas para representar la herencia, ya que en la práctica, al
+hacer múltiples consultas tipo JOIN se verá afectado el rendimiento del sistema
+
+![](/TheusZero/images/post/ads/104.png)
+
+#### Class Table Inheritance
+
+Las bases de datos relacionales no tienen soporte para herencia, pero usar un
+enfoque basado en representaciones de herencia en una única tabla puede ser
+confuso
+
+Se requieren estructuras de bases de datos que mapeen claramente los objetos y
+permitan vincular cualquier elemento de la estructura de herencia
+
+![](/TheusZero/images/post/ads/105.png)
+
+#### Page Controller
+
+El patrón MVC a menudo se enfoca principalmente en la separación entre el
+modelo y la vista, mientras presta menos atención al controlador
+
+En algunos escenarios, la separación entre el controlador y la vista es menos
+crítica y a menudo se omite
+
+En algunas aplicaciones la vista y el controlador están separados inherentemente
+porque la presentación ocurre en el navegador del cliente, mientras que el
+controlador es parte de la aplicación del lado del servidor
+
+Considerando el uso de MVC para separar los componentes de la interfaz de
+usuario de la lógica del negocio
+
+La aplicación que se está construyendo no es compleja, las páginas son
+dinámicas y la lógica de navegación entre ellas es sencilla
+
+¿Qué alternativas existen para estructurar un controlador destinado a
+aplicaciones web medianamente complejas, que permitan reutilización y
+flexibilidad mientras evitan la duplicación de código?
+
+![](/TheusZero/images/post/ads/106.png)
+
+El controlador recibe una solicitud de la página, extrae cualquier dato relevante,
+invoca cualquier actualización al modelo y reenvía la solicitud a la vista
+
+La vista, a su vez, depende del modelo para la recuperación de datos
+
+Se crea un controlador para cada página de la aplicación web
+
+> Beneficios
+>> Simplicidad
+> 
+>> Debido a que cada página web dinámica es manejada por un controlador
+>> específico, los controladores tienen que tratar sólo con un alcance limitado y
+>> pueden ser simples
+>
+>> Desempeño
+> 
+>> No existen cuellos de botella al utilizar distintos controladores a través del
+>> sistema web ya que se disminuyen los recursos compartidos
+>
+>> Reutilización
+> 
+>> La creación de una clase controlador reduce la duplicación de código y permite
+>> reutilizar código entre los controladores de página. Se debe tener presente que
+>> en este tipo de controladores la incorporación de funcionalidades globales en un
+>> sitio web, podría significar un incremento en la duplicación de código en cada
+>> Page Controller, lo cual dista de ser un beneficio
+
+#### Front Controller
+
+En un sitio web complejo hay muchos elementos similares que se debe atender
+cuando se gestiona una petición (seguridad, vistas específicas para usuarios
+específicos, etc.)
+
+Si se gestiona esto en un controlador por página, mucho comportamiento debe
+duplicarse a nivel de código. Además, es difícil cambiar este comportamiento en
+tiempo de ejecución
+
+¿Que alternativas existen para estructurar un controlador para aplicaciones web
+complejas, donde se pueda tener reutilización y flexibilidad mientras se evita la
+duplicación de código?
+
+![](/TheusZero/images/post/ads/107.png)
+
+Front Controller consolida todas las peticiones en un único objeto
+
+Front Controller usualmente delega peticiones a Page Controllers de cada
+página. Muchas implementaciones usan ambos tipos de controladores
+
+>> Beneficios
+> Simplificación
+>> Un Front Controler simplifica el desarrollo cuando la lógica de las peticiones es
+>> complicada y no parece apropiado gestionarla con un Page Controller
+> 
+> Eficiencia
+>> La centralización minimiza la duplicación de código, como sería de implementar
+>> funcionalidades globales utilizando Page Controllers. Por otra parte la
+>> centralización facilita el refactoring
+> 
+> Optimización
+>> Se facilita la optimización del comportamiento y la extensión de funcionalidades
+>> en runtime (e.g. internacionalización, autenticación, etc.)
+
+#### Transform View
+
+![](/TheusZero/images/post/ads/108.png)
+
+Transform View recupera datos y genera código HTML según plantillas
+predefinidas que se aplican a los datos procesados
+
+Al realizar peticiones a las capas de persistencia se obtienen todos los datos
+necesarios para desplegar en una página, pero sin formatearlos apropiadamente
+para la capa de presentación de la página. El rol de la vista en MVC es
+desplegar esos datos en una página
+
+En MVC, Transform View se encarga de realizar las transformaciones necesarias
+recibiendo como input los datos provenientes del modelo, y como output, el
+código HTML que compone la vista
+
+Template View se orienta solamente al código de presentación final mientras
+que Transform View realiza transformaciones para cada dato recibido. Por
+ejemplo: Se puede implementar como un loop que recorre cada elemento de
+entrada y lo transforma de acuerdo a un esquema predefinido
+
+
+Transform View mitiga las desventajas de Template View y es fácil preocuparse
+solamente de las transformaciones necesarias para generar HTML, evitando
+lógica del dominio externa en la vista
+
+![](/TheusZero/images/post/ads/109.png)
+
+![](/TheusZero/images/post/ads/110.png)
+
+
+
+
 ## Ejercicios y Preguntas Certamenes
 
 #### Preguntas de concepto
