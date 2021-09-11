@@ -24,7 +24,7 @@ tags:
 
 > [Guia de escritura de exploits](https://fundacion-sadosky.github.io/guia-escritura-exploits/buffer-overflow/1-introduccion.html)
 
-## Guia de Autoestudio
+## Guia de Autoestudio - Parte de BufferOverflow
 
 > un programa en assembler es una serie de instrucciones de máquina que al ejecutarse se almacenan en la memoria del proceso
 
@@ -141,6 +141,139 @@ Al no usar corchetes, el segundo operando consiste en el contenido de ebx (no en
 > ==========================
 > ```
 
+#### La pila
+
+> PUSH & POP
+>> Las operaciones push/pop manipulan un área de la memoria de un proceso denominada pila o stack, que responde a una estructura de datos LIFO (last in, first out: último en entrar, primero en salir) donde los elementos se almacenan con push y se desapilan con pop.
+
+La pila se utiliza para almacenar: valores de registros de manera temporaria, variables locales, parámetros de funciones y direcciones de retorno.
+
+Uno de los registros especiales vinculados a la pila es el puntero de pila.
+
+#### Puntero de pila (registro esp).
+
+El **stack pointer register (o extended stack pointer)** apunta al tope de la pila, es decir al último elemento almacenado en ella.
+Cuando se almacena un nuevo valor en la pila con push, el valor del puntero se actualiza para siempre apuntar al tope de la pila.
+
+![](/TheusZero/images/post/pwn/2.png)
+
+
+> ```Python
+> ==========================
+> registro esp = 0xbffff590
+> ==========================
+> 
+> dir. mem. | contenido en mem. | instrucción | ¿qué hace?
+> 08048334:   68 00 01 00 00      push 0x100  ; actualiza esp = esp - 4
+> ...                                         ; y apila el valor 0x100
+> ...                                                     |
+> bffff58c:   00 00 00 00                                 |
+> bffff590:   00 03 00 00         <= ESP                  |
+>                                                         |
+>                                                         |
+>                                                         |
+> ==========================                              |
+> registro esp = 0xbffff58c                               |
+> ==========================                              |
+> ...                                                     |
+> ...                                                     |
+> bffff58c:   00 01 00 00         <= ESP            <-----+
+> bffff590:   00 03 00 00
+> ```
+
+Cuando se desapila un dato con pop lo apuntado por esp se almacena en el registro indicado en la instrucción. Y el valor de esp se actualiza con el nuevo tope de pila.
+
+> ```Python
+> registro esp = 0xbffff58c
+> ==========================
+> 
+> dir. mem. | contenido en mem. | instrucción | ¿qué hace?
+> 08048339:   5b                  pop ebx     ; desapila 0x100, lo guarda en ebx
+> ...                                         ; y actualiza esp = esp + 4
+> bffff58c:   00 01 00 00         <= ESP
+> bffff590:   00 03 00 00
+> 
+> 
+> 
+> ==========================
+> registro esp = 0xbffff590
+> registro ebx = 0x00000100
+> ==========================
+> ...
+> bffff58c:   00 01 00 00      
+> bffff590:   00 03 00 00         <= ESP
+> ```
+
+Es interesante notar que con pop ebx el valor 0x100 se almacena en ebx quedando la dirección 0xbffff58c disponible para su uso. Es posible ver cómo aún permanece 0x100 en 0xbffff58c porque todavía no lo ha sobreescrito otra instrucción que utilice la pila.
+
+#### Crecimiento de la pila
+
+**En el ejemplo anterior, contraintuitivamente, al almacenar un nuevo valor en la pila con push, el tope de la pila que estaba en 0xbffff590 pasa a estar en 0xbffff58c. Es decir que, al agregar un elemento, la pila creció hacia las direcciones numéricas menores.**
+
+**Al desapilar un elemento el proceso fue inverso, la pila decreció desde 0xbffff58c hasta 0xbffff590, es decir decreció hacia direcciones mayores.**
+
+Esto se debe a que la pila crece desde direcciones numéricas mayores (que son usadas primero) hacia las direcciones de memoria menores.
+Es decir, crece desde ```0xf...fff hacia 0x0...000```.
+
+Como la pila crece desde su base -desde la dirección más alta- hacia direcciones menores de memoria,
+**al apilar un nuevo elemento se debe decrementar el puntero de la pila y al desapilar un elemento se debe incrementar el puntero de la pila.**
+
+> ***Por eso con push se resta esp = esp - 4 y con pop se suma esp = esp + 4.**
+
+![](/TheusZero/images/post/pwn/3.png)
+
+> Consideraciones: Es posible pensar a las instrucciones push y pop como dos instrucciones concatenadas.
+
+> ```Python
+> ; push eax puede pensarse como:
+> sub esp, 4               ; actualizo tope de la pila (o registro esp)
+> mov [esp], eax           ; almaceno contenido de eax allí
+> 
+> 
+> ; pop eax puede pensarse como:
+> mov eax, [esp]           ; almaceno valor de esp en eax
+> add esp, 4               ; actualizo tope de la pila
+> ```
+
+#### Instrucciones de salto
+
+En assembler instrucciones del tipo **jump**, **branch** o **call** modifican el valor del contador del programa. De esta manera instrucciones como **jmp, je, jne, call** provocan que el **programa deje de ejecutarse de manera lineal modificando el flujo de ejecución**.
+
+La instrucción **jmp** es un **ejemplo de un salto incondicional**, es decir, siempre va a ejecutarse.
+En cambio **jne** (jump if not equal o **saltar si los operandos son distintos**) es un **salto condicional** que depende del valor del flag zero.
+Existe un registro especial llamado registro de estado o registro eflags (rflags en 64 bits) donde cada bit almacena información de control que se modifica con las operaciones aritmético lógicas.
+Se compone de flags (o banderas en español) de 1 bit, como el Z o zero flag que se setea en 1 si la operación anterior resultó en 0, por ejemplo si el resultado de una resta como sub ebx, eax dió 0. Otros flags son S o sign flag si el resultado de la operación anterior da negativo y O u overflow flag si se produce un overflow.
+
+**Si el resultado de una resta es 0, eso implica que ambos operandos son iguales y que la condición de jump if equal debe considerarse como verdadera y por lo tanto el salto debe producirse.**
+
+
+> ```Python
+> ==========================
+> registro eax = 0x100
+> registro ebx = 0x100
+> registro de estado => Z=0
+> ==========================
+> 
+> 08048332: sub ebx, eax       ; el resultado es 0. ebx = 0. Z = 1
+> 08048334: je  8048340        ; ¿Z==1? true. eip = 0x08048340
+> 
+> ==========================
+> registro eax = 0x100
+> registro ebx = 0x0
+> registro de estado => Z=1
+> ==========================
+> ```
+>
+> **Una instrucción de salto condicional como je 8048340 (jump equal) evalúa que los operandos de la última instrucción aritmético lógica sean iguales, si lo son el salto debe producirse.**
+
+Es posible conocer si son iguales a partir de una resta con sub: si se antecede esa instrucción al jump if equal y si el resultado de esa resta da 0, es que ambos operandos son iguales (tal como indica el ejemplo); si el resultado no da 0 es que no lo son.
+
+En el ejemplo la operación sub ebx, eax tiene como efecto setear Z=1, porque el resultado de la resta fue 0. La instrucción jump if equal evalúa el valor de Z, si es 1 significa que los operandos eran iguales, por ende eip se modifica por el nuevo valor y el salto se produce.
+
+> ```Python
+> 
+> ```
+
 > ```Python
 > 
 > ```
@@ -152,6 +285,39 @@ Al no usar corchetes, el segundo operando consiste en el contenido de ebx (no en
 > ```Python
 > 
 > ```
+
+> ```Python
+> 
+> ```
+
+> ```Python
+> 
+> ```
+
+> ```Python
+> 
+> ```
+
+> ```Python
+> 
+> ```
+
+> ```Python
+> 
+> ```
+
+> ```Python
+> 
+> ```
+
+> ```Python
+> 
+> ```
+
+> ```Python
+> 
+> ```
+
 
 
 ## BufferOverflow
