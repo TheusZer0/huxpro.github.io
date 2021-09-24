@@ -26,6 +26,10 @@ tags:
 
 ![](/TheusZero/images/post/Proba/17.JPG)
 
+Una poblacion es un conjunto que contiene la totalidad de individuos a ser estudiados por sus caracteristicas.
+
+Una muestra es un subconjunto de una poblacion seleccionada de acuerdo a algun metodo de muestreo
+
 ## Metodos de Muestreo
 
 ![](/TheusZero/images/post/Proba/2.JPG)
@@ -36,13 +40,30 @@ tags:
 
 ![](/TheusZero/images/post/Proba/3.JPG)
 
+> **Escala Nominal**: Las realizaciones de la variable X son categorias en las cuales no existe orden. Estas categorias se usan solo para distinguir las realizaciones de X.
+>> Sea X: color de los ojos. Claramente las realizaciones de X son categorias. En particular los valores de la variable son colores (verde, azul, cafe, negro).
+
 #### Escala ordinal
 
 ![](/TheusZero/images/post/Proba/4.JPG)
 
+> **Escala Ordinal** En este caso las realizaciones de X se pueden ordenar aunque no sean necesariamente numeros.
+>> Sea X : calificaciones de un examen (A, B, C, D y F). Claramente existe un orden entre las calificaciones ya que por ejemplo es mejor obtener una A que una B.
+
 #### Escala Intervalar
 
 ![](/TheusZero/images/post/Proba/5.JPG)
+
+> **Escala Intervalar** En este caso el recorrido de la variable X es algun subconjunto de R .
+>> Sea X : Tiempo de funcionamiento correcto de un componente electronico. Claramente Rec(X) = R+. Luego la variable X puede ser medida en una escala intervalar
+
+#### Variables discretas y continuas
+
+las variables discretas y continuas. Una variable estadistica
+es discreta si su reccorido es un subconjunto de N. En caso contrario diremos que una variable es
+continua si el recorrido de la misma es algun subintervalo de R
+
+![](/TheusZero/images/post/Proba/17-1.png)
 
 ## Caracterizar una muestra - Tipos de Medidas
 
@@ -53,6 +74,28 @@ tags:
 ![](/TheusZero/images/post/Proba/7.JPG)
 
 ![](/TheusZero/images/post/Proba/8.JPG)
+
+> Promedio (Media Aritmetica)
+>![](/TheusZero/images/post/Proba/17-2.png)
+>
+> Promedio Ponderado
+>![](/TheusZero/images/post/Proba/17-3.png)
+> 
+>> Observacion: Note que el promedio y el promedio ponderado no son necesariamente
+>> un valor de la muestra. Es decir, la medida de tendencia central puede no ser un valor de la
+>> muestra, pero esto no significa que no es un buen representante. En este contexto existe un
+>> ejemplo popularmente conocido: dos personas van a un restaurante a comer pollo. La primer
+>> persona se come dos pollos y la segunda no come pollo. Entonces usando la notacion 
+>> introducida anteriormente tenemos que X1 = 2 y X2 = 0 y el promedio de estas dos observaciones
+>> es X = 1. Es decir, en promedio estas personas comieron un pollo, aunque en realidad la
+>> segunda persona no comio pollo. Esto ilustra que el promedio no es una medida que es capaz
+>> de representar las tendencias individuales de las observaciones, sino que es una medida global
+>> asociada a la muestra completa.
+
+> La Moda La moda (M0) es quel valor que mas se repite en la muestra. Es posible que existan dos o tres modas, en tal caso se habla de medidas bimodales o trimodales respectivamente.
+
+> La Mediana
+>> ![](/TheusZero/images/post/Proba/17-4.png)
 
 ## Medidas de dispersion
 
