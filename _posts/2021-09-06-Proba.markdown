@@ -79,6 +79,14 @@ tags:
 ![](/TheusZero/images/post/Proba/14.JPG)
 
 
-## Resumen
+
 
 ## Ejercicios
+
+#### Demostracion Varianza Muestral
+
+![](/TheusZero/images/post/Proba/13.JPG)
+
+#### Ejercicio Promedio Verdadero
+
+![](/TheusZero/images/post/Proba/14.JPG)
