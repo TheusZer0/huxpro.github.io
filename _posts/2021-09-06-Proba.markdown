@@ -18,39 +18,66 @@ tags:
 
 > [Modulos sobre Probabilidad y Estadística-Introducción Prof. Ronny Vallejos](https://www.youtube.com/watch?v=myifYUxj9W0&list=PLRdsr8w_wLNzYYSYP6bvf1p30mo27X9q-)
 
-## 
-
-![](/TheusZero/images/post/Proba/2.JPG)
-
-![](/TheusZero/images/post/Proba/3.JPG)
-
-![](/TheusZero/images/post/Proba/4.JPG)
-
-![](/TheusZero/images/post/Proba/5.JPG)
-
-![](/TheusZero/images/post/Proba/6.JPG)
-
-![](/TheusZero/images/post/Proba/7.JPG)
-
-![](/TheusZero/images/post/Proba/8.JPG)
-
-![](/TheusZero/images/post/Proba/9.JPG)
-
-![](/TheusZero/images/post/Proba/10.JPG)
-
-![](/TheusZero/images/post/Proba/11.JPG)
-
-![](/TheusZero/images/post/Proba/12.JPG)
-
-![](/TheusZero/images/post/Proba/13.JPG)
-
-![](/TheusZero/images/post/Proba/14.JPG)
+## Contenidos o Bloques
 
 ![](/TheusZero/images/post/Proba/15.JPG)
 
 ![](/TheusZero/images/post/Proba/16.JPG)
 
 ![](/TheusZero/images/post/Proba/17.JPG)
+
+## Metodos de Muestreo
+
+![](/TheusZero/images/post/Proba/2.JPG)
+
+## Escalas de Medidas
+
+#### Escala nominal
+
+![](/TheusZero/images/post/Proba/3.JPG)
+
+#### Escala ordinal
+
+![](/TheusZero/images/post/Proba/4.JPG)
+
+#### Escala Intervalar
+
+![](/TheusZero/images/post/Proba/5.JPG)
+
+## Caracterizar una muestra - Tipos de Medidas
+
+![](/TheusZero/images/post/Proba/6.JPG)
+
+#### Medidas de tendencia central 
+
+![](/TheusZero/images/post/Proba/7.JPG)
+
+![](/TheusZero/images/post/Proba/8.JPG)
+
+## Medidas de dispersion
+
+#### La varianza
+
+![](/TheusZero/images/post/Proba/9.JPG)
+
+![](/TheusZero/images/post/Proba/10.JPG)
+
+#### Rango Cuartilico
+
+![](/TheusZero/images/post/Proba/11.JPG)
+
+#### Coeficiente de variacion
+
+![](/TheusZero/images/post/Proba/12.JPG)
+
+#### Demostracion Varianza Muestral
+
+![](/TheusZero/images/post/Proba/13.JPG)
+
+#### Ejercicio Promedio Verdadero
+
+![](/TheusZero/images/post/Proba/14.JPG)
+
 
 ## Resumen
 
