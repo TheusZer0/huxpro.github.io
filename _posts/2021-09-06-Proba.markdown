@@ -101,6 +101,8 @@ continua si el recorrido de la misma es algun subintervalo de R
 
 #### La varianza
 
+![](/TheusZero/images/post/Proba/17-5.png)
+
 ![](/TheusZero/images/post/Proba/9.JPG)
 
 ![](/TheusZero/images/post/Proba/10.JPG)
@@ -122,6 +124,33 @@ continua si el recorrido de la misma es algun subintervalo de R
 ![](/TheusZero/images/post/Proba/14.JPG)
 
 
+![](/TheusZero/images/post/Proba/17-6.png)
+
+## Histograma
+
+![](/TheusZero/images/post/Proba/17-8.png)
+
+![](/TheusZero/images/post/Proba/17-9.png)
+
+![](/TheusZero/images/post/Proba/17-10.png)
+
+![](/TheusZero/images/post/Proba/17-7.png)
+
+## Medidas de formas
+
+![](/TheusZero/images/post/Proba/17-12.png)
+
+#### Simetria de fisher
+
+![](/TheusZero/images/post/Proba/17-13.png)
+
+![](/TheusZero/images/post/Proba/17-14.png)
+
+#### Curtosis
+
+![](/TheusZero/images/post/Proba/17-15.png)
+
+![](/TheusZero/images/post/Proba/17-16.png)
 
 
 ## Ejercicios
