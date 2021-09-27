@@ -156,7 +156,7 @@ continua si el recorrido de la misma es algun subintervalo de R
 
 #### Boxplot
 
-![](/TheusZero/images/post/Proba/19.png)
+![](/TheusZero/images/post/Proba/19.jpg)
 
 ![](/TheusZero/images/post/Proba/17-18.png)
 
@@ -165,7 +165,7 @@ continua si el recorrido de la misma es algun subintervalo de R
 
 ![](/TheusZero/images/post/Proba/17-17.png)
 
-![](/TheusZero/images/post/Proba/20.png)
+![](/TheusZero/images/post/Proba/20.jpg)
 
 #### Aclaraciones
 
@@ -175,14 +175,14 @@ continua si el recorrido de la misma es algun subintervalo de R
 > 
 > Precision y Exactitud
 >
-> ![](/TheusZero/images/post/Proba/23.png)
+> ![](/TheusZero/images/post/Proba/23.jpg)
 
 ## Intro a la probabilidad
 
-![](/TheusZero/images/post/Proba/18.png)
+![](/TheusZero/images/post/Proba/18.jpg)
 
 
-![](/TheusZero/images/post/Proba/21.png)
+![](/TheusZero/images/post/Proba/21.jpg)
 
 ![](/TheusZero/images/post/Proba/17-19.png)
 
@@ -190,7 +190,7 @@ continua si el recorrido de la misma es algun subintervalo de R
 
 #### interpretaciones de las probabilidades
 
-![](/TheusZero/images/post/Proba/22.png)
+![](/TheusZero/images/post/Proba/22.jpg)
 
 ![](/TheusZero/images/post/Proba/17-21.png)
 
