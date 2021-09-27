@@ -18,6 +18,8 @@ tags:
 
 > [Modulos sobre Probabilidad y Estadística-Introducción Prof. Ronny Vallejos](https://www.youtube.com/watch?v=myifYUxj9W0&list=PLRdsr8w_wLNzYYSYP6bvf1p30mo27X9q-)
 
+> [resumen cuatico en mega](https://mega.nz/folder/GYJkUDwA#uPGkSC7O4-klWe03-c99uQ)
+
 ## Contenidos o Bloques
 
 ![](/TheusZero/images/post/Proba/15.JPG)
@@ -152,6 +154,58 @@ continua si el recorrido de la misma es algun subintervalo de R
 
 ![](/TheusZero/images/post/Proba/17-16.png)
 
+#### Boxplot
+
+![](/TheusZero/images/post/Proba/19.png)
+
+![](/TheusZero/images/post/Proba/17-18.png)
+
+
+#### ejercicio
+
+![](/TheusZero/images/post/Proba/17-17.png)
+
+![](/TheusZero/images/post/Proba/20.png)
+
+#### Aclaraciones
+
+> Criterios Para Detectar Outliers
+> 
+> Relacion Entre varianza y varianza elevado a 2
+> 
+> Precision y Exactitud
+>
+> ![](/TheusZero/images/post/Proba/23.png)
+
+## Intro a la probabilidad
+
+![](/TheusZero/images/post/Proba/18.png)
+
+
+![](/TheusZero/images/post/Proba/21.png)
+
+![](/TheusZero/images/post/Proba/17-19.png)
+
+![](/TheusZero/images/post/Proba/17-20.png)
+
+#### interpretaciones de las probabilidades
+
+![](/TheusZero/images/post/Proba/22.png)
+
+![](/TheusZero/images/post/Proba/17-21.png)
+
+#### Propiedades de las Medidas de Probabilidad
+
+![](/TheusZero/images/post/Proba/17-23.png)
+
+#### ejercicio demostrativo
+
+![](/TheusZero/images/post/Proba/17-24.png)
+
+![](/TheusZero/images/post/Proba/17-25.png)
+
+![](/TheusZero/images/post/Proba/17-26.png)
+
 
 ## Ejercicios
 
@@ -162,3 +216,19 @@ continua si el recorrido de la misma es algun subintervalo de R
 #### Ejercicio Promedio Verdadero
 
 ![](/TheusZero/images/post/Proba/14.JPG)
+
+#### Ejercicio con dado
+
+Un dado equilibrado se lanza dos veces. Determine la
+probabilidad de que la suma sea igual a 6
+
+![](/TheusZero/images/post/Proba/17-22.png)
+
+#### ejercicio con Conjuntos
+
+![](/TheusZero/images/post/Proba/17-24.png)
+![](/TheusZero/images/post/Proba/17-25.png)
+
+#### ejercicio sacar bolas
+
+![](/TheusZero/images/post/Proba/17-26.png)
