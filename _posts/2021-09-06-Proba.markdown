@@ -210,7 +210,9 @@ continua si el recorrido de la misma es algun subintervalo de R
 
 ![](/TheusZero/images/post/Proba/17-27.png)
 
+![](/TheusZero/images/post/Proba/17-28.png)
 
+![](/TheusZero/images/post/Proba/17-29.png)
 
 ## Ejercicios
 
