@@ -206,6 +206,11 @@ continua si el recorrido de la misma es algun subintervalo de R
 
 ![](/TheusZero/images/post/Proba/17-26.png)
 
+## Reglas de conteo
+
+![](/TheusZero/images/post/Proba/17-27.png)
+
+
 
 ## Ejercicios
 
@@ -232,3 +237,7 @@ probabilidad de que la suma sea igual a 6
 #### ejercicio sacar bolas
 
 ![](/TheusZero/images/post/Proba/17-26.png)
+
+
+
+
