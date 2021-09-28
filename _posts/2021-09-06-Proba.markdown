@@ -212,7 +212,36 @@ continua si el recorrido de la misma es algun subintervalo de R
 
 ![](/TheusZero/images/post/Proba/17-28.png)
 
+#### ejemplos
+
 ![](/TheusZero/images/post/Proba/17-29.png)
+
+![](/TheusZero/images/post/Proba/17-30.png)
+
+## Independencia entre eventos
+
+![](/TheusZero/images/post/Proba/17-31.png)
+
+![](/TheusZero/images/post/Proba/17-33.png)
+
+![](/TheusZero/images/post/Proba/17-34.png)
+
+## Probabilidad condicional
+
+![](/TheusZero/images/post/Proba/17-35.png)
+
+#### ejercicios 
+
+![](/TheusZero/images/post/Proba/17-36.png)
+
+
+![](/TheusZero/images/post/Proba/17-37.png)
+
+> ![](/TheusZero/images/post/Proba/17-38.png)
+> ![](/TheusZero/images/post/Proba/17-39.png)
+
+![](/TheusZero/images/post/Proba/17-40.png)
+
 
 ## Ejercicios
 
