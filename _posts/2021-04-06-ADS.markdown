@@ -38,7 +38,7 @@ Funcionalidad: entrada de los datos / comportamiento de los mismos, con la funci
 >> Pueden existir limitaciones puestas por el usuario (reestricciones)
 >
 > ![](/TheusZero/images/post/ads/1.png)
- 
+
 Los requisitos extra-funcionales son importantes, son un gran impacto a nivel de la arquitectura y puede que haga la diferencia a la hora de que el usuario elija tu software
 
 #### Requerimientos
