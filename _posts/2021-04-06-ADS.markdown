@@ -759,9 +759,6 @@ permitan vincular cualquier elemento de la estructura de herencia
 
 ![](/TheusZero/images/post/ads/105.png)
 
-![](/TheusZero/images/post/Proba/17-28.png)
-
-
 #### Page Controller
 
 El patrón MVC a menudo se enfoca principalmente en la separación entre el
