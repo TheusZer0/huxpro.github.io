@@ -1,19 +1,16 @@
 ---
 layout: post
-title: "ADS"
-subtitle: 'ADS'
-date: 2021-04-02 12:00:00
+title: "Informacion para AYDS"
+subtitle: 'Mis apuntes de Analisis y Diseno De Software del semestre 2021-1, Espero les sirva'
+date: 2021-04-06 12:00:00
 author: "TheusZero"
 header-img: "images/post/PythonAutoayuda/solarized-wallpaper-python.png"
 catalog: true
 comments: true
 tags:
     - Programacion
-    - Python
     - USM
     - Tareas
-    - Java
-    - C++
 ---
 
 ## Clases
@@ -761,6 +758,9 @@ Se requieren estructuras de bases de datos que mapeen claramente los objetos y
 permitan vincular cualquier elemento de la estructura de herencia
 
 ![](/TheusZero/images/post/ads/105.png)
+
+![](/TheusZero/images/post/Proba/17-28.png)
+
 
 #### Page Controller
 
