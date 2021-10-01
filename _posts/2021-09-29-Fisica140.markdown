@@ -1,0 +1,88 @@
+---
+layout: post
+title: "Fisica 140"
+subtitle: 'Apuntes para Fisica 140'
+date: 2021-09-29 12:00:00
+author: "TheusZero"
+header-img: "images/post/fis120/1.png"
+catalog: true
+comments: true
+tags:
+    - USM
+    - Tareas
+    - Fisica
+---
+
+## Ley De Gaus
+
+#### Flujo del campo electrico
+
+![](/TheusZero/images/post/fis140/1.png)
+
+#### Fuentes del campo Magnetico
+
+![](/TheusZero/images/post/fis140/2.png)
+
+#### forma diferencial de la ley de Gauss
+
+![](/TheusZero/images/post/fis140/3.png)
+
+![](/TheusZero/images/post/fis140/4.png)
+
+## Ley de Ampere
+
+![](/TheusZero/images/post/fis140/5.png)
+
+#### Forma diferencial de la Ley de Ampere
+
+![](/TheusZero/images/post/fis140/6.png)
+
+![](/TheusZero/images/post/fis140/7.png)
+
+## Experimentos de Faraday
+
+![](/TheusZero/images/post/fis140/8.png)
+
+#### Ley de Faraday
+
+![](/TheusZero/images/post/fis140/9.png)
+
+#### Forma diferencial de la ley de faraday
+
+![](/TheusZero/images/post/fis140/10.png)
+![](/TheusZero/images/post/fis140/11.png)
+
+## Formas diferenciales de las leyes (Pre-Ecuaciones de Maxwell)
+
+![](/TheusZero/images/post/fis140/12.png)
+
+## Ecuaciones de Maxwell
+
+#### Conservacion de la carga
+
+![](/TheusZero/images/post/fis140/13.png)
+
+![](/TheusZero/images/post/fis140/14.png)
+
+#### fallos de la ley de ampere
+
+![](/TheusZero/images/post/fis140/15.png)
+
+![](/TheusZero/images/post/fis140/16.png)
+
+![](/TheusZero/images/post/fis140/17.png)
+
+![](/TheusZero/images/post/fis140/18.png)
+
+#### maxwell arregla la ley de ampere
+
+![](/TheusZero/images/post/fis140/19.png)
+
+#### ley de maxwell
+
+![](/TheusZero/images/post/fis140/20.png)
+
+#### Las ecuaciones de maxwell
+
+![](/TheusZero/images/post/fis140/21.png)
+
