@@ -1,0 +1,173 @@
+---
+layout: post
+title: "Ingenieria de Software"
+subtitle: 'Apuntes para Ingenieria de Software'
+date: 2021-09-29 12:00:00
+author: "TheusZero"
+header-img: "images/post/fis120/1.png"
+catalog: true
+comments: true
+tags:
+    - USM
+    - Tareas
+    - Programacion
+---
+
+## Materia **Certamen 1**
+
+## Materia **Certamen 2**
+
+#### Mejoramiento de Procesos (SPI: Software Process Improvement)
+
+>> Factores críticos de ISW:
+> 
+> Personas
+> 
+> Tecnologías
+> 
+> Procesos de Desarrollo SW [!= Procesos S.O. & Procesos de Negocio]
+
+>> Supuesto clave
+> 
+> Mejorar la calidad del proceso de desarrollo de software mejora la calidad del producto
+>> con esto se refiere a que, el producto al momento de ser desarrollado y entregado debe seguir una serie de pasos
+>> ejemplo seria una metdologia de trabajo y luego de publicacion. Es por esto que estos procesos se deben sistematizar y mejorar la forma en como se hace el producto
+>
+> El mejoramiento del proceso software tiene un ROI medible, a esto se refiere a que 
+> podemos medir los procesos que seguimos, como puede ser documentando mediante versiones, 
+> comentando secciones del software o bien, realizando informes para medir la calidad con la que se complento un proceso
+
+#### ¿Cómo usar info de capacidades y madurez?
+
+> Determinar “readiness”
+> (qué tan lista está una organización para adoptar/usar algo)
+> P.ej. Medir readiness de una PyME TIC para hacer DevOps
+
+> Determinar brechas
+> Identificar “dónde aprieta el zapato”
+> (para priorizar mejoras en prácticas específicas)
+> P.ej. Típicamente documentación es débil
+
+#### Mejora medible en la organización
+
+Correlación (medible) de nivel de madurez con eficacia/eficiencia en el desarrollo de software, la madurez refiere a la inversion de tiempo en generar una produccion de software ordenado y completo
+
+#### La mejora de procesos es un proceso
+
+> ¿Qué se quiere mejorar?
+>> Un proceso DSW
+
+> ¿Cómo mejorarlo?
+>> Midiendo
+>> Previniendo
+>> Documentando
+>> Resolviendo problemas
+>> Automatizando
+
+> La mejora de procesos es mejorable segun
+> Mejora continua de procesos
+
+> SPI en SEMAT
+> ![](/TheusZero/images/post/ISO/img.png)
+
+#### Medir redliness
+
+> Capacidad v/s madurez
+>
+> ![](/TheusZero/images/post/ISO/img_7.png)
+> 
+>> Organizaciones tienen madurez
+>> Prácticas tienen capacidad
+>> Ejemplo: niveles en CMMI
+> ![](/TheusZero/images/post/ISO/img_1.png)
+
+#### Modelos de SEI-Clásico
+
+> ![](/TheusZero/images/post/ISO/img_2.png)
+
+#### Modelos de Madurez CMM
+
+> ![](/TheusZero/images/post/ISO/img_3.png)
+
+#### CMM/CMMI
+
+Marco evolutivo organizado en cinco niveles de madurez
+para mejora continua de procesos.
+
+> Ventajas
+>> Específico al desarrollo y mantenimiento de software
+> 
+>> Definido como un conjunto de áreas clave de procesos
+> 
+>> Tiene un modelo de evaluación
+> 
+>> Desde 1998 popular en la industria
+> 
+>> Existen empresas evaluadoras
+> 
+>> Muchas organizaciones han sido evaluadas [incluso en Chile]
+
+> CMM
+> ![](/TheusZero/images/post/ISO/img_4.png)
+> ![](/TheusZero/images/post/ISO/img_5.png)
+
+
+>> KPAs del CMMI
+> ![](/TheusZero/images/post/ISO/img_6.png)
+
+> CMMI v1.1 – vista continua
+> ![](/TheusZero/images/post/ISO/img_8.png)
+
+> CMMI v1.1 – vista escalonada
+> ![](/TheusZero/images/post/ISO/img_9.png)
+
+> CMMI v1.2 - constelaciones
+> ![](/TheusZero/images/post/ISO/img_10.png)
+
+#### MoProSoft – Modelo mexicano de SPI
+
+> Estructura de Procesos
+> ![](/TheusZero/images/post/ISO/img_11.png)
+
+> Proceso Gestión de Negocio
+> ![](/TheusZero/images/post/ISO/img_12.png)
+
+> Procesos de Gestión
+> ![](/TheusZero/images/post/ISO/img_13.png)
+
+> Proceso Gestión de Recursos
+> ![](/TheusZero/images/post/ISO/img_14.png)
+
+> Procesos de Operación
+> ![](/TheusZero/images/post/ISO/img_15.png)
+
+> Administración de Proyectos Específicos
+> ![](/TheusZero/images/post/ISO/img_16.png)
+
+> Ciclos de Desarrollo
+> ![](/TheusZero/images/post/ISO/img_17.png)
+
+> Fases de un Ciclo
+> ![](/TheusZero/images/post/ISO/img_18.png)
+
+> Actividades de una Fase
+> ![](/TheusZero/images/post/ISO/img_19.png)
+
+#### Patrón de procesos
+
+> Definición general de proceso
+> ![](/TheusZero/images/post/ISO/img_20.png)
+
+> Practicas 
+> ![](/TheusZero/images/post/ISO/img_21.png)
+
+> Guías de ajuste
+>> Modificaciones al proceso sin invalidar el cumplimiento de sus objetivos
+
+
+## Proyecto
+
+## Certamen 1 - Ejercicios
+
+## Certamen 2 - Ejercicios
+
