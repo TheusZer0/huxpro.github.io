@@ -17,6 +17,54 @@ tags:
 
 ## Materia **Certamen 2**
 
+#### Estimaciones
+
+> ![](/TheusZero/images/post/ISO/img_39.png)
+
+#### Productividad de Software
+
+> ![](/TheusZero/images/post/ISO/img_40.png)
+
+> ![](/TheusZero/images/post/ISO/img_41.png)
+
+> ![](/TheusZero/images/post/ISO/img_42.png)
+
+> ![](/TheusZero/images/post/ISO/img_43.png)
+
+#### Estimación de esfuerzo
+
+> ![](/TheusZero/images/post/ISO/img_44.png)
+
+#### Enfoques de estimación
+
+> ![](/TheusZero/images/post/ISO/img_45.png)
+
+> ![](/TheusZero/images/post/ISO/img_46.png)
+
+#### Los modelos son evaluables
+
+> ![](/TheusZero/images/post/ISO/img_47.png)
+
+#### Modelos históricos
+
+> ![](/TheusZero/images/post/ISO/img_48.png)
+
+#### Modelos compuestos
+
+> ![](/TheusZero/images/post/ISO/img_49.png)
+
+#### Modelos estadísticos
+
+> ![](/TheusZero/images/post/ISO/img_50.png)
+
+#### Modelos teóricos
+
+> ![](/TheusZero/images/post/ISO/img_51.png)
+
+####
+
+> 
+
 #### Mejoramiento de Procesos (SPI: Software Process Improvement)
 
 >> Factores críticos de ISW:
@@ -153,6 +201,44 @@ para mejora continua de procesos.
 > Actividades de una Fase
 > ![](/TheusZero/images/post/ISO/img_19.png)
 
+> Ejemplo MoProSoft
+> 
+> Proceso
+> 
+> Desarrollo y Mantenimiento de Software
+> 
+> Propósito
+> 
+> El propósito de Desarrollo y Mantenimiento de Software es la
+> realización sistemática de las actividades de análisis, diseño,
+> construcción, integración y pruebas de productos de software
+> nuevos o modificados cumpliendo con los requisitos especificados
+
+> Objetivo + Indicador
+> 
+> Objetivo
+>> O1: Lograr que los productos de salida sean consistentes con los
+>> productos de entrada en cada fase de un ciclo de desarrollo
+>> mediante las actividades de verificación, validación o prueba.
+> Indicador
+>> I1: (O1) En cada fase de un ciclo se efectúan todas las actividades
+>> de verificación, validación o prueba, así como las correcciones correspondientes.
+
+> Entrada + Salida
+>> ![](/TheusZero/images/post/ISO/img_22.png)
+
+> Rol + Actividades
+>> ![](/TheusZero/images/post/ISO/img_23.png)
+
+> Guías
+>> ![](/TheusZero/images/post/ISO/img_24.png)
+
+> Guías de Ajuste
+>> ![](/TheusZero/images/post/ISO/img_25.png)
+
+> Comparación: MoProSoft y otros
+>> ![](/TheusZero/images/post/ISO/img_26.png)
+
 #### Patrón de procesos
 
 > Definición general de proceso
@@ -164,10 +250,89 @@ para mejora continua de procesos.
 > Guías de ajuste
 >> Modificaciones al proceso sin invalidar el cumplimiento de sus objetivos
 
+#### Competisoft
+
+> Objetivo general
+>> Incrementar el nivel de competitividad de las PyMEs
+>> iberoamericanas productoras de software mediante la
+>> creación y difusión de un marco metodológico común
+>>>  …ajustable a las necesidades específicas de cada empresa
+>>>  …que sea base para un mecanismo de evaluación y certificación de la industria de software reconocido en toda Iberoamérica.
+
+> Objetivos específicos
+>> ![](/TheusZero/images/post/ISO/img_27.png)
+
+> Estructura del modelo de procesos
+>> ![](/TheusZero/images/post/ISO/img_28.png)
+
+> Modelo de evaluación sugerido por Competisoft
+>> ![](/TheusZero/images/post/ISO/img_29.png)
+
+#### Proyecto Tutelkan
+
+>  Propósito del proyecto
+>>  Lograr que las PyMEs se interesen en SPI
+>  Objetivo general
+>>  Crear un mecanismo sustentable…
+>>>  un proceso público de referencia
+> 
+>>>  y una comunidad activa de apoyo
+>>  …que permita a PyMEs de TIC…
+>>>  definir y documentar sus procesos de desarrollo de software y sistemas
+> 
+>>> con vistas a certificación ISO 9001 y evaluación CMMI.
+
+> Objetivos Específicos
+>> ![](/TheusZero/images/post/ISO/img_30.png)
+
+> Drivers
+> 
+>> Reducir costo y esfuerzo de describir procesos de PyMEs
+> 
+>> Permitir que profesionales individuales se tornen agentes de cambio
+
+> Ideas fertilizantes
+>> ![](/TheusZero/images/post/ISO/img_31.png)
+
+> Filosofía de Tutelkan
+>> ![](/TheusZero/images/post/ISO/img_32.png)
+
+> Productos del proyecto
+>> ![](/TheusZero/images/post/ISO/img_33.png)
+
+> Transferencia Metodológica
+>> ![](/TheusZero/images/post/ISO/img_34.png)
+
+> Flujos de Transferencia
+>> ![](/TheusZero/images/post/ISO/img_37.png)
+
+> Flujo de Transferencia Inicial
+>> ![](/TheusZero/images/post/ISO/img_38.png)
+
+
+> Flujos de Transferencia (v.1)
+>> ![](/TheusZero/images/post/ISO/img_35.png)
+> Flujos de Transferencia (v.2)
+>> ![](/TheusZero/images/post/ISO/img_36.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Proyecto
-
-## Certamen 1 - Ejercicios
-
-## Certamen 2 - Ejercicios
 
