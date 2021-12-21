@@ -2,7 +2,7 @@
 layout: post
 title: "Ingenieria de Software"
 subtitle: 'Apuntes para Ingenieria de Software'
-date: 2021-09-29 12:00:00
+date: 2021-12-20 12:00:00
 author: "TheusZero"
 header-img: "images/post/fis120/1.png"
 catalog: true
