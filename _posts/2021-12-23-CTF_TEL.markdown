@@ -148,3 +148,31 @@ Utiliza fotoforensic, usa una de las herramientas, esta tiene lo que buscas
 TEL{EXCELENTE_OSINT!!}
 
 ```
+
+## page index
+
+```
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <img class="w-100 mx-auto d-block" style="max-width: 500px;padding: 50px;padding-top: 14vh;" src="https://telematica.usm.cl/wp-content/themes/telematica-web/assets/img/mobile-header-usm.png" />
+        <h3 class="text-center">
+            <p>Bienvenido al CTF de Telematica, hecho con cariño para que puedan disfrutarlo
+            <p>Siguenos en nuestras redes sociales:</p>
+            <a href="https://www.instagram.com/telematicausm/"><i class="fab fa-instagram fa-2x" aria-hidden="true"></i> Telematica</a>&nbsp;
+            <a href="https://www.instagram.com/ceetel/"><i class="fab fa-instagram fa-2x" aria-hidden="true"></i> Ceetel</a>&nbsp;
+        </h3>
+        <br>
+        <h4 class="text-center">
+          Aqui les dejamos algunas herramientas para resolver los retos:
+        </h4>
+        <h4 class="text-center">
+          <a href= "https://fotoforensics.com">Herramienta para ESTEGANOGRAFÍA - Fotoforensic</a>
+      </h4>
+              <h4 class="text-center">
+          <a href= "https://www.dcode.fr">Herramienta para CRIPTOGRAFIA - Decode.fr</a>
+      </h4>
+    </div>
+</div>
+
+```
