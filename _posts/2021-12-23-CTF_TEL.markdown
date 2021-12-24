@@ -1,0 +1,150 @@
+---
+layout: post
+title: "CTF TELEMATICA"
+subtitle: 'CTF de telematica'
+date: 2021-09-06 12:00:00
+author: "TheusZero"
+header-img: "images/post/Proba/1.png"
+catalog: true
+comments: true
+tags:
+
+    - USM
+
+---
+
+## Maldito Rompecabezas
+#### Esteganografía - Steganography
+```
+
+## Bienvenido a la Esteganografía
+*  la Esteganografía trata el estudio y aplicación de técnicas que permiten ocultar mensajes u objetos, dentro de otros, llamados portadores, de modo que no se perciba su existencia. Es decir, procura ocultar mensajes dentro de otros objetos y de esta forma establecer un canal encubierto de comunicación, de modo que el propio acto de la comunicación pase inadvertido para observadores que tienen acceso a ese canal. 
+
+* Para el primer reto, les presentamos un problema ocasionado por uno de nuestros companeros, nuestro amigo **Danex** que dividio una imagen y guardo una FLAG (referente a un mensaje oculto como frase). Esta imagen la ibamos a utilizar para presentar un banner a los invitados, por lo que es importate que logres ordenar la imagen, casi como si esta misma fuera un rompecabeza. **Mucha Suerte!**
+
+![test4_icono.png](/files/2bb1ca155ec8625a065a41316d09504c/test4_icono.png)
+
+#### [HAZ CLICK AQUI PARA DESCARGAR LA IMAGEN!](/files/5d3ca2e4246461e5abb62a604040ff9a/test4.png)
+
+TEL{ENTRA_A_TELEMATICA_EN_LA_UNIVERSIDAD_SANTA_MARIA_Y_VIVE_LA_INNOVACION_JUNTO_CON_NOSOTROS_INSCRIBETE_C:}
+
+```
+
+## Me gusta Pokemon!
+#### Criptografia - Cryptographic
+
+```
+
+## Te gusta Pokemon?
+
+Solia jugarlo mucho en el emulador GBA, a uno de nuestros companeros le gustaba mucho pikachu y quiso dejarnos un mensaje oculto para que aquellos elegidos puedan resolverlo.
+
+**Seras capaz de encontrar la FLAG?**
+
+**pi pi pi pi pi pi pi pi pi pi pika pipi pi pipi pi pi pi pipi pi pi pi pi pi pi pi pipi pi pi pi pi pi pi pi pi pi pi pichu pichu pichu pichu ka chu pipi pipi pipi pi pi pi pi pi pi pi pi pi pi pi pi pi pi pikachu ka ka ka ka ka ka ka ka ka ka ka ka ka ka ka pikachu pi pi pi pi pi pi pi pikachu pipi pi pi pi pi pi pi pi pi pi pi pi pi pi pi pi pi pi pi pi pi pi pi pi pikachu pichu pi pi pi pi pikachu ka ka ka ka ka ka ka pikachu pi pi pikachu ka ka ka ka ka ka ka ka ka ka pikachu pi pi pikachu pi pi pi pi pi pikachu pi pi pi pi pi pi pi pi pi pi pi pi pi pikachu pi pi pi pi pi pi pi pi pi pi pikachu ka ka ka ka ka ka ka ka ka ka ka ka ka pikachu pi pi pi pikachu ka ka ka ka ka ka ka ka ka pikachu ka ka ka ka ka ka ka pikachu pi pi pi pi pi pi pi pi pi pi pi pi pi pi pikachu pichu pi pi pi pikachu pikachu pipi pipi pi pi pikachu**
+
+> *El valor de la FLAG es todo mayuscula ejemplo TEL{JUGUEMOSCTF!!}*
+
+![pikachu](https://pbs.twimg.com/profile_images/1182732135423270912/Z1PE8lLY_400x400.jpg)
+
+TEL{PIKACHU_RULES!!}
+
+```
+
+
+## Nazi Zombies - Ronda Final
+#### Criptografia - Cryptographic
+
+```
+## Ayudanos, nos invadieron Zombies!
+
+![nazi_zombies](https://i.blogs.es/69ae48/zombisnazis-f1/450_1000.jpg)
+
+* Nos encontramos en la segunda guerra mundial, los nazis invadieron nuestro territorio pero... Son Zombies!,
+Lograron llegar a la central y tomaron el territorio, estamos perdidos!
+
+* **Abre una Caja Misteriosa, Toma la Ray Gun, Compra el Juggernaut, Mejora tus armas y Enfrentate a los zombies!**
+
+* **Nuestra base de inteligencia fue destruida, un gran hombre logro crear junto a su equipo una maquina capaz de decifrar los mensajes ocultos de los nazis para esta segunda guerra mundial.**
+
+* **De esta forma, su equipo logro encontrar un mensaje secretro el cual lograra hacer que GANES todas las rondas, este mensaje debe ser decifrado, nuestros companeros dejaron algunas imagenes como pistas, tu puedes encontrarlas!, sobrevive a las rondas!**
+
+> ZNJGYQCNKMDUOGSFWEQTJNSZOVRXCSSHPRJJKUWYSEFDOGIWAKCD
+> QRXOOCARYJIQUHLJIWECWDRLPNMGYWQBLJKLTVMGDAXCUUNMQC
+> XPXBYBXEFEJHLFMLTFJOTUZLETNCOZGDIANNQAFRTP
+
+![maquina_enigma](https://lh3.googleusercontent.com/proxy/nULFsP62wfoL5BebwEFGTQTcD9RuQvCSYNSRGSDicif2JECa3CDMylEP2ZoxqdT0LKk0yKX-9Y4fn-fI7cP7CXG7Cj5uZmfn_g)
+
+![imagen_2021-12-23_182119.png](/files/5229a974e8b8ca055405ad91ad45f848/imagen_2021-12-23_182119.png)
+
+> El valor de la FLAG es todo MNAYUSCULA y cada palabra se SEPARA POR UN **_** TEL{JUGUEMOS_AL_CTF!!}
+
+hint: El nombre del hombre que logro crear la maquina es **Alan Turing**, la imagen donde se ve a el corresponde a la maquina que creo y debajo de esta se encuentra el modelo al que corresponde para decifrar el mensaje
+
+TEL{ESTOY_AQUI_RONDA_ENIGMA}
+
+```
+
+## mucho HEX-ito
+#### Esteganografía - Steganography
+
+```
+![elliot](https://m.media-amazon.com/images/I/511-DNZiXcL._AC_.jpg)
+
+El famoso hacker Elliot Alderson de la serie **MrRobot** *(la cual recomendamos bastante)*, escondio un mensaje secreto dentro del **codigo** de una imagen para poder derrocar la tirania de **evil corp** sobre el consumismo y la sociedad misma. 
+Este codigo es importante para nuestros companeros Telematicos, ya que debemos decifrarlo y obtener el resultado para ayudar a elliot, o bien, hacer que lo arresten. **De ti depende**, obvio, solo si logras decifrar el mensaje
+
+> Como pista, nos dijo que tuvieramos mucho **HEX**-ito, destacando la palabra **HEX**, sera esto el **CODIGO** ? ... Que habra querido decir?
+
+Mucha Suerte!
+
+#### [HAZ CLICK AQUI PARA DESCARGAR LA IMAGEN!](/files/52759702754915cc96102b2c5a858b09/test1.png)
+
+![test1.png](/files/52759702754915cc96102b2c5a858b09/test1.png)
+
+> **El formato de la flag debe ser ingresada tal cual es encontrada, ejemplo: TEL{Hola_a_todos!} (fijarse que puede tener mayusculas, minusculas y simbolos, estos deben ser ingresados tal cual)**
+
+TEL{Hex_para_Tematica}
+
+```
+
+## La comunidad TEL <3
+#### Esteganografía - Steganography
+```
+La comunidad de Telematica es muy bacan, en Difusion Telematica pretendemos dar a conocer nuestra carrera, para que puedan formarse no solo como profesionales ingenierios, si no tambien, para que puedan aprender sobre las tecnologias y puedan disfrutar en conjunto todo lo que conlleva ser un alumno de la carrera.
+
+Este reto puede ser un poco mas complejo, consta de un imagen que tiene una forma especial de esconder la flag. Como pista, podemos decir que esta resolucion hace que se vea bastante pixeleada la foto.
+
+Mucha suerte!
+
+![ICTel.jpg](/files/39167c9d10b3bbd1098d9d474dfb5e56/ICTel.jpg)
+
+#### [HAZ CLICK AQUI PARA DESCARGAR LA IMAGEN](/files/f6e4408009131f2b3eee5152b95c98c8/test2.png)
+
+hint: 	
+La imagen pareciera estar corrupta, al parecer alguien cambio el codigo de tal manera que no se ve todo lo que tiene la misma foto.
+Pareciera ser que se trata de la tecnica de Hidden Pixels
+
+hint:
+Utiliza fotoforensic, usa una de las herramientas, esta tiene lo que buscas
+
+
+```
+
+## Excelente Lugar!
+#### OSINT
+
+```
+## Bienvenido a OSINT
+
+* El OSINT (Open Source INTelligence), traducido como Inteligencia de Fuentes Abiertas, hace referencia al conjunto de técnicas y herramientas para recopilar información pública, analizar los datos y correlacionarlos convirtiéndolos en conocimiento útil.
+
+* En otras palabras, podríamos decir que aplicamos OSINT para conseguir toda la información disponible en cualquier fuente pública sobre una empresa, persona física o cualquier otra cosa sobre la que queremos hacer una investigación, y haciendo que todo el cúmulo de datos se convierta en inteligencia que nos sirva para ser más eficaces a la hora de obtener un resultado.
+
+* Nuestro contacto nos dijo que dejo un mensaje escondido en cierto lugar, parece ser un lugar bonito, algun dia me gustaria ir... Tu crees que es bonito?, lo has visitado?,  si es asi debes hacerselo saber al mundo.
+
+![20736307.png](/files/a385fde0cbe9cd99b97f86ac724372d4/20736307.png)
+
+TEL{EXCELENTE_OSINT!!}
+
+```
